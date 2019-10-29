@@ -1,0 +1,14 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    RewriteCond $1 !^(index\.php|resources|robots\.txt)
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php?/$1 [L,QSA]
+</IfModule>
+
+<IfModule !mod_rewrite.c>
+    #Directly give the path of page
+    #ErrorDocument 500 http://localhost/myproject/errors/500_admin.php
+    #Also try with create controller and call method
+    ErrorDocument 500 http://test.code-apex.com/simplrPost/index.php/my500 
+</IfModule>

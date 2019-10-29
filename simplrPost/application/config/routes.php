@@ -1,0 +1,36 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+$route['default_controller'] = 'Login';
+$route['forgot-password'] = 'Login/forgotPasswordView';
+$route['otp-validation'] = 'Login/otpView';
+$route['reset-password'] = 'Login/resetPasswordView';
+$route['admin-dashboard'] = 'Admin/Admin/index';
+$route['users-list'] = 'Admin/Admin/userListingView';
+$route['user-detail/(:any)'] = 'admin/admin/userDetailView/$1';
+$route['businesses-list'] = 'Admin/Admin/businessListingView';
+$route['business-detail/(:any)'] = 'admin/admin/businessDetailView/$1';
+$route['manage-categories'] = 'Admin/Admin/manageCategoryView';
+$route['manage-primary-categories'] = 'Admin/Admin/managePrimaryCategoryView';
+$route['notifications-list'] = 'Admin/Admin/notificationListView';
+$route['send-notification'] = 'Admin/Admin/sendNotificationView';
+$route['manage-FAQ'] = 'Admin/Admin/manageFAQView';
+$route['FAQ-detail/(:any)'] = 'admin/admin/faqDetailView/$1';
+$route['manage-issues'] = 'Admin/Admin/manageIssues';
+$route['feedbacks-list'] = 'Admin/Admin/feedbackView';
+$route['reports-list'] = 'Admin/Admin/reportListingView';
+$route['report-detail/(:any)'] = 'admin/admin/reportDetailView/$1';
+$route['reported-businesses-list'] = 'Admin/Admin/reportedBusinessesListingView';
+$route['reported-business-detail/(:any)'] = 'Admin/Admin/reportedBusinessDetailView/$1';
+$route['business-reports/(:any)'] = 'admin/admin/businessReportsView/$1';
+$route['manage-pages'] = 'Admin/Admin/managePages';
+$route['admin-profile'] = 'Admin/Admin/profileView';
+$route['change-password'] = 'login/changePasswordView';
+$route['logout'] = 'login/logOut';
+$route['login'] = 'Login/index';
+$route['confirm-email/(:any)'] = 'Api/User/verifyEmail/$1';
+$route['verification-error'] = 'Email_verify/verificationError';
+$route['already-verified'] = 'Email_verify/alreadyVerified';
+$route['verification-successfull'] = 'Email_verify/index';
+$route['404_override'] = 'my404';
+$route['translate_uri_dashes'] = FALSE;
