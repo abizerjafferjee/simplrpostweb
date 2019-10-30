@@ -167,10 +167,10 @@
                                                       </div>
                                                     </div>
                                                   </td> -->
-                                                  <td valign="top" class="specbundle">
+                                                  <td valign="top" class="specbundle" align="center">
                                                     <div class="contentEditableContainer contentTextEditable">
                                                       <div class="contentEditable">
-                                                        <img src="<?php echo BASE_URL ?>uploads/logo.png">
+                                                        <center><img src="<?php echo BASE_URL ?>uploads/logo.png"></center>
                                                       </div>
                                                     </div>
                                                   </td>
@@ -199,37 +199,48 @@
                                         <td height='15'></td>
                                       </tr>
                                       <tr>
-                                        <td align='left'>
+                                        <td align='center'>
                                           <div class="contentEditableContainer contentTextEditable">
                                             <div class="contentEditable">
-                                              <h3>Welcome to Simplr Post <?php echo ucfirst($name); ?>,</h3>
+                                              <p style="text-align: center;">Welcome to Simplr Post <?php echo ucfirst($name); ?>,</p>
                                             </div>
                                           </div>
                                         </td>
                                       </tr>
+                                     <tr>
+                                     	<td style="text-align: center;">
+											<div><p style="text-align: center;">Let's get your home or business on the map and set up with an address that you can easily share with others.</p></div>
+											<br>
+	                                        <div><p style="text-align: center;">Here are a few pointers to help you get settled in.</p></div>
+                                     	</td>
+                                     </tr>
                                       <tr>
-                                        <td height='55' style="font-size: 14px;line-height:1.55;text-align:center">
-                                        <div style="padding:10px 30px"><p>Let's get your home or business on the map and set up with an address that you can easily share with others.</p>
-                                        <p>Here are a few pointers to help you get settled in.</p>
-                                        <div>
-                                          <div>
-                                            <div style="width:40%;float:left"><img src="<?= BASE_URL ?>assets/emailPrivateImage.png" alt="private address image" width="100%">
-                                            </div>
-                                            <div style="width:60%;float:right">
-                                              <p>A private address is perfect for your home and only visible to those that you directly share with through the app.</p>
-                                            </div>
-                                            <div style="float:clear"></div>
+                                        <td height='55' style="font-size: 14px;line-height:1.55;text-align:center;padding: 0px 10px">
+	                                          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+	                                            <tr>
+	                                              <td style="padding-top: 10px">
+		                                        	<div>
+		                                                <img src="<?= BASE_URL ?>assets/emailPrivateImage.png" alt="private address image" width="100%">
+		                                            </div>
+	                                              </td>
+	                                              <td style="padding-top: 10px;">
+	                                              	<div>
+		                                                A private address is perfect for your home. It's secure and only visible to those that you directly share with through the app.
+                                                	</div>
+	                                              </td>
+	                                            </tr>
+	                                            <tr>
+	                                              <td style="padding-top: 10px">
+	                                                <div>Businesses use public addresses so that anyone can find them through the app. They're also a great way to people what your business does.</div>
+	                                              </td>
+	                                              <td style="padding-top: 10px">
+	                                              	<div>
+		                                                <img src="<?= BASE_URL ?>assets/emailPublicImage.png" alt="public address image" width="100%">
+	                                                </div>
+	                                              </td>
+	                                            </tr>
+	                                          </table>
                                           </div>
-                                          <div>
-                                            <div style="width:60%;float:left">
-                                            <p>Businesses use public addresses so that anyone can find them through the app. They're also a great way to people what your business does.</p>
-                                            </div>
-                                            <div style="width:40%;float:right"><img src="<?= BASE_URL ?>assets/emailPublicImage.png" alt="public address image" width="100%">
-                                            </div>
-                                            <div style="float:clear"></div>
-                                          </div>
-                                        </div>
-                                        </div>
                                         </td>
                                       </tr>
                                       <tr>

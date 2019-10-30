@@ -95,9 +95,8 @@ class Login extends CI_Controller
 		$email_data['email_title'] = 'Reset Password';
 		$email_data['email_id'] = $email;
 		$email_data['heading'] = "Hey, ". ucfirst($arrResult['name']);
-		$email_data['message'] = "<p>Seems like you forgot your password for Simplr Post. If this is true, your OTP is - $intRandom</p><p>If you didn't forget your password safely ignore this</p><br>";
-		// $email_data['view_url'] = 'email/emailTemplate';
-		$email_data['footer'] = '<p>If you have any questions or concerns please direct them to <a href="mailto:abizerjafferjee@simplrpost.com?Subject=Privacy%20Policy" target="_blank">abizerjafferjee@simplrpost.com</a></p>';
+		$email_data['message'] = "<div style='padding:10px 30px;'><p style='text-align: center;'>Seems like you forgot your password for Simplr Post. If this is true, your OTP is - $intRandom</p><p style='padding:10px 30px;>If you didn't forget your password safely ignore this</p></div>";
+		$email_data['footer'] = '<p style="text-align: center;">If you have any questions or concerns please direct them to <a href="mailto:abizerjafferjee@simplrpost.com?Subject=Forgot%20Password" target="_blank" style="text-decoration:none;color:#1bac71">abizerjafferjee@simplrpost.com</a></p>';
 		$this->sendEmail($email_data);
 
 		$save = $this->Login_model->saveOtp($arrOtpData);
@@ -128,8 +127,8 @@ class Login extends CI_Controller
 		$email_data['email_id'] = $arrUserDetail['emailId'];
 		$email_data['view_url'] = 'email/emailTemplate';
 		$email_data['heading'] = "Hey, ". ucfirst($arrUserDetail['name']);
-		$email_data['message'] = "<p>Seems like you forgot your password for Simplr Post. If this is true, your OTP is - $intRandom</p><p>If you didn't forget your password safely ignore this</p><br>";
-		$email_data['footer'] = '<p>If you have any questions or concerns please direct them to <a href="mailto:abizerjafferjee@simplrpost.com?Subject=Privacy%20Policy" target="_blank">abizerjafferjee@simplrpost.com</a></p>';
+		$email_data['message'] = "<div style='padding:10px 30px;'><p style='text-align: center;'>Seems like you forgot your password for Simplr Post. If this is true, your OTP is - $intRandom</p><p style='padding:10px 30px;>If you didn't forget your password safely ignore this</p></div>";
+		$email_data['footer'] = '<p style="text-align: center;">If you have any questions or concerns please direct them to <a href="mailto:abizerjafferjee@simplrpost.com?Subject=Forgot%20Password" target="_blank" style="text-decoration:none;color:#1bac71">abizerjafferjee@simplrpost.com</a></p>';
 		$this->sendEmail($email_data);
 
 		$this->Login_model->updateOtp($otpId, $arrOtpData);
@@ -204,23 +203,43 @@ class Login extends CI_Controller
 	}
 	public function sendEmail($email_data)
 	{
-		ob_start();
-		$mail = new PHPMailer;
+		// ob_start();
+		// $mail = new PHPMailer;
+
+		// $mail->SMTPDebug = '';
+		// $mail->IsSMTP();
+
+		// $mail->Host = HOST_NAME;
+		// $mail->Port = PORT_NAME;
+		// $mail->SMTPAuth = false;
+
+		// $mail->From = FROM_EMAIL;
+		// $mail->FromName = FROM_NAME;
+		// $mail->AddAddress($email_data['email_id'], $email_data['name']);
+
+		// $mail->Subject = $email_data['email_title'];
+		// $mail->Body = $this->load->view('email/otpEmailTemplate', $email_data, TRUE);
+		// $mail->AltBody = BODY_TITLE;
+		// $mail->Send();
+		ob_start(); 
+		$mail = new PHPMailer();
 
 		$mail->SMTPDebug = '';
-		$mail->IsSMTP();
-
-		$mail->Host = HOST_NAME;
-		$mail->Port = PORT_NAME;
-		$mail->SMTPAuth = false;
-
-		$mail->From = FROM_EMAIL;
-		$mail->FromName = FROM_NAME;
+        $mail->IsSMTP();
+        
+		// $mail->isSMTP();
+        $mail->setFrom(FROM_EMAIL, FROM_NAME);
+        $mail->Username   = USERNAME_SMTP;
+        $mail->Password   = PASSWORD_SMTP;
+        $mail->Host       = HOST_NAME;
+        $mail->Port       = PORT_NAME;
+        $mail->SMTPAuth   = true;
+		$mail->SMTPSecure = 'ssl';
 		$mail->AddAddress($email_data['email_id'], $email_data['name']);
 
 		$mail->Subject = $email_data['email_title'];
-		$mail->Body = $this->load->view('email/otpEmailTemplate', $email_data, TRUE);
-		$mail->AltBody = BODY_TITLE;
-		$mail->Send();
+		$mail->Body = $this->load->view('email/otpEmailTemplate',$email_data,TRUE);
+    	$mail->AltBody = BODY_TITLE;
+        $mail->Send();
 	}
 }

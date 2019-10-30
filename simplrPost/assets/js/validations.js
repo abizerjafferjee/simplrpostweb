@@ -74,6 +74,7 @@ $(document).ready(function() {
                     'emailId': $userEmail
                 },
                 success: function(data) {
+                    console.log(data);
                     var obj = JSON.parse(data);
                     if (obj.result == 1) {
                         localStorage.setItem('otpId', obj.otpId);

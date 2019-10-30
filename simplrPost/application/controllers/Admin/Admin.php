@@ -1438,16 +1438,16 @@ class Admin extends CI_Controller
         $arrData = $this->Admin_model->getUserMailDetail($addressId);
         if($messageType == 'address'){
             if($data['isUnblockable'] == 1){
-                $message = '<p>The following public address registered by your user account has been deactivated by Simplr Post</p>';
-                $message .= '<h4>'.$arrData['shortName'].', '.$arrData['address'].'</h4>';
-                $message .= "<p>If you have not requested this and a warning of this action was not previously communicated to you<br> then please contact <a href='mailto:abizerjafferjee@simplrpost.com?Subject=Business%Deactivated' target='_blank'><b>abizerjafferjee@simplrpost.com</b></a> with your concern.</p>";
+                $message = "<div style='padding:10px 30px;'><p style='text-align: center;'>The following public address registered by your user account has been deactivated by Simplr Post</p>";
+                $message .= '<h4 style="text-align: center;">'.$arrData['shortName'].', '.$arrData['address'].'</h4>';
+                $message .= "<p style='text-align: center;'>If you have not requested this and a warning of this action was not previously communicated to you<br> then please contact <a href='mailto:abizerjafferjee@simplrpost.com?Subject=Account%20Deactivated' target='_blank' style='text-decoration:none;color:#1bac71'>abizerjafferjee@simplrpost.com</a> with your concern.</p></div>";
             } else {
-                $message = '<p>The following public address registered by your user account has been deleted by Simplr Post</p>';
-                $message .= '<h4>'.$arrData['shortName'].', '.$arrData['address'].'</h4>';
-                $message .= "<p>If you have not requested this and a warning of this action was not previously communicated to you<br> then please contact <a href='mailto:abizerjafferjee@simplrpost.com?Subject=Business%20Deleted' target='_blank'><b>abizerjafferjee@simplrpost.com</b></a> with your concern.</p>";
+                $message = "<div style='padding:10px 30px;'><p style='text-align: center;'>The following public address registered by your user account has been deleted by Simplr Post</p>";
+                $message .= '<h4 style="text-align: center;">'.$arrData['shortName'].', '.$arrData['address'].'</h4>';
+                $message .= "<p style='text-align: center;'>If you have not requested this and a warning of this action was not previously communicated to you<br> then please contact <a href='mailto:abizerjafferjee@simplrpost.com?Subject=Account%20Deleted' target='_blank' style='text-decoration:none;color:#1bac71'>abizerjafferjee@simplrpost.com</a> with your concern.</p></div>";
             }
         } else {
-            $message = "<p>Your account has been deleted by Simplr Post. If you have not requested this and a warning of this action was not previously communicated to you then please contact <a href='mailto:abizerjafferjee@simplrpost.com?Subject=User%20Account%20Deleted' target='_blank'><b>abizerjafferjee@simplrpost.com</b></a> with your concern.</p>";
+            $message = "<div style='padding:10px 30px;'><p style='text-align: center;'>Your account has been deleted by Simplr Post. If you have not requested this and a warning of this action was not previously communicated to you then please contact <a href='mailto:abizerjafferjee@simplrpost.com?Subject=Account%20Deleted' target='_blank' style='text-decoration:none;color:#1bac71'>abizerjafferjee@simplrpost.com</a> with your concern.</p></div>";
         }
         $email_data['email_title'] = 'Simplr Post';
         $email_data['heading'] = "Hey,".ucfirst($arrData['name']);
@@ -1456,18 +1456,39 @@ class Admin extends CI_Controller
         $email_data['footer'] = "";
         $email_data['view_url'] = 'email/otpEmailTemplate';
         
+        // ob_start(); 
+		// $mail = new PHPMailer;
+
+		// $mail->SMTPDebug = '';
+		// $mail->IsSMTP();
+		
+		// $mail->Host = HOST_NAME;
+		// $mail->Port = PORT_NAME;
+		// $mail->SMTPAuth = false;
+
+		// $mail->From = FROM_EMAIL;
+        // $mail->FromName = FROM_NAME;
+		// $mail->AddAddress($email_data['email_id'], $email_data['name']);
+
+		// $mail->Subject = $email_data['email_title'];
+		// $mail->Body = $this->load->view('email/otpEmailTemplate',$email_data,TRUE);
+    	// $mail->AltBody = BODY_TITLE;
+        // $mail->Send();
         ob_start(); 
-		$mail = new PHPMailer;
+		$mail = new PHPMailer();
+		$mail->SetLanguage( 'en', 'phpmailer/language/');
 
 		$mail->SMTPDebug = '';
-		$mail->IsSMTP();
-		
-		$mail->Host = HOST_NAME;
-		$mail->Port = PORT_NAME;
-		$mail->SMTPAuth = false;
-
-		$mail->From = FROM_EMAIL;
-        $mail->FromName = FROM_NAME;
+        $mail->IsSMTP();
+        
+		// $mail->isSMTP();
+        $mail->setFrom(FROM_EMAIL, FROM_NAME);
+        $mail->Username   = USERNAME_SMTP;
+        $mail->Password   = PASSWORD_SMTP;
+        $mail->Host       = HOST_NAME;
+        $mail->Port       = PORT_NAME;
+        $mail->SMTPAuth   = true;
+		$mail->SMTPSecure = 'ssl';
 		$mail->AddAddress($email_data['email_id'], $email_data['name']);
 
 		$mail->Subject = $email_data['email_title'];
@@ -1482,21 +1503,42 @@ class Admin extends CI_Controller
         $email_data['email_title'] = 'Registration';
         $email_data['email_id'] = $arrData['emailId'];
         $email_data['heading'] = "Hey, ". ucfirst($arrData['name']);
-        $email_data['message'] = "Your account has been deleted by Simplr Post. If you have not requested this and a warning of this action was not previously communicated to you then please contact <a href='mailto:abizerjafferjee@simplrpost.com?Subject=User%20Account%20Deleted' target='_blank'><b>abizerjafferjee@simplrpost.com</b></a>";
+        $email_data['message'] = "<div style='padding:10px 30px;'><p style='text-align: center;'>Your account has been deleted by Simplr Post. If you have not requested this and a warning of this action was not previously communicated to you then please contact <a href='mailto:abizerjafferjee@simplrpost.com?Subject=Account%20Deleted' target='_blank' style='text-decoration:none;color:#1bac71'>abizerjafferjee@simplrpost.com</a></p></div>";
+        $email_data['footer'] = '';
         $email_data['view_url'] = 'email/emailTemplate';
         
+        // ob_start(); 
+		// $mail = new PHPMailer;
+
+		// $mail->SMTPDebug = '';
+		// $mail->IsSMTP();
+		
+		// $mail->Host = HOST_NAME;
+		// $mail->Port = PORT_NAME;
+		// $mail->SMTPAuth = false;
+
+		// $mail->From = FROM_EMAIL;
+        // $mail->FromName = FROM_NAME;
+		// $mail->AddAddress($email_data['email_id'], $email_data['name']);
+
+		// $mail->Subject = $email_data['email_title'];
+		// $mail->Body = $this->load->view('email/otpEmailTemplate',$email_data,TRUE);
+    	// $mail->AltBody = BODY_TITLE;
+        // $mail->Send();
         ob_start(); 
-		$mail = new PHPMailer;
+		$mail = new PHPMailer();
 
 		$mail->SMTPDebug = '';
-		$mail->IsSMTP();
-		
-		$mail->Host = HOST_NAME;
-		$mail->Port = PORT_NAME;
-		$mail->SMTPAuth = false;
-
-		$mail->From = FROM_EMAIL;
-        $mail->FromName = FROM_NAME;
+        $mail->IsSMTP();
+        
+		// $mail->isSMTP();
+        $mail->setFrom(FROM_EMAIL, FROM_NAME);
+        $mail->Username   = USERNAME_SMTP;
+        $mail->Password   = PASSWORD_SMTP;
+        $mail->Host       = HOST_NAME;
+        $mail->Port       = PORT_NAME;
+        $mail->SMTPAuth   = true;
+		$mail->SMTPSecure = 'ssl';
 		$mail->AddAddress($email_data['email_id'], $email_data['name']);
 
 		$mail->Subject = $email_data['email_title'];

@@ -212,16 +212,17 @@
                                       <tr>
                                         <td align='left'>
                                           <div class="contentEditableContainer contentTextEditable">
-                                            <div class="contentEditable">
-                                              <h3 style="text-align:center;padding-top:0;margin-top:0;"><?php echo $heading; ?></h3>
+                                            <div class="contentEditable" style="padding-top:0;margin-top:0">
+                                              <p style="text-align:center;padding-top:0;margin-top:0;"><?php echo $heading; ?></p>
                                             </div>
                                           </div>
                                         </td>
                                       </tr>
                                       <tr>
                                         <td height='55' style="font-size: 14px;line-height:1.55;" align="center">
-                                          <div style="padding:10px 30px;">
-                                          <?php echo $message; ?></div>
+                                          <div style="margin-top:5px;">
+                                            <?php echo $message; ?>
+                                          </div>
                                         </td>
                                       </td>
                                       </tr>
@@ -269,7 +270,7 @@
                                                   <td valign="top" class="specbundle">
                                                     <div class="contentEditableContainer contentTextEditable">
                                                       <div class="contentEditable" align='center'>
-                                                        <p style="text-align: center; padding:10px 30px;">Copyright © <?php echo date('Y'); ?>, Simplr Post, Inc. All Rights Reserved. </p>
+                                                        <p style="text-align: center; padding:10px 30px;">Copyright © 2019, Simplr Post, Inc. All Rights Reserved. </p>
                                                       </div>
                                                     </div>
                                                   </td>

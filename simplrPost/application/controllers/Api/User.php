@@ -159,9 +159,9 @@ class User extends CI_Controller
                         $email_data1['email_title'] = 'Confirmation';
                         $email_data1['email_id'] = $arrRequestData['emailId'];
                         $email_data1['heading'] = "Hey, ". ucfirst($arrRequestData['name']);
-                        $email_data1['message'] = "<p>You're almost ready to start enjoying all the capabilities of Simplr Post. Simply click the button below to verify your email address</p><a href='".SITE_URL."confirm-email/".$arrRequestData['emailVerificationToken']."' style='margin-top:10px;background-color:#1bac71;color:white,padding:2px 5px;'>Confirm</a>";
-                        $email_data1['footer'] = '<p>If you have any questions or concerns please direct them to <a href="mailto:abizerjafferjee@simplrpost.com?Subject=Privacy%20Policy" target="_blank">abizerjafferjee@simplrpost.com</a></p>';
-                        $this->sendOTPEmail($email_data);
+                        $email_data1['message'] = "<div style='padding:10px 30px;'><p style='text-align: center;'>You're almost ready to start enjoying all the capabilities of Simplr Post. Simply click the button below to verify your email address</p></div><div><a href='".SITE_URL."confirm-email/".$arrRequestData['emailVerificationToken']."' style='background-color:#1bac71;color:white;padding:7px 20px;text-decoration:none;border-radius:5px'>Confirm</a></div>";
+                        $email_data1['footer'] = '<p style="text-align: center;">If you have any questions or concerns please direct them to <a href="mailto:abizerjafferjee@simplrpost.com?Subject=Email%20Confirmation" target="_blank" style="text-decoration:none;color:#1bac71">abizerjafferjee@simplrpost.com</a></p>';
+                        $this->sendOTPEmail($email_data1);
                         /**********************************************/
 
                         $intRandom = mt_rand(100000, 999999);
@@ -234,9 +234,9 @@ class User extends CI_Controller
                             $email_data['email_title'] = 'Confirm Email';
                             // $email_data['name'] = ucfirst($arrResult['name']);
                             $email_data['email_id'] = $arrRequestData['emailId'];
-                            $email_data['heading'] = "Hey, ". ucfirst($arrResult['name']);
-                            $email_data['message'] = "<p>You're almost ready to start enjoying all the capabilities of Simplr Post. Simply click the button below to verify your email address</p><a href='".SITE_URL."confirm-email/".$emailVerificationToken."' style='margin-top:10px;background-color:#1bac71;color:white,padding:2px 5px;'>Confirm</a>";
-                            $email_data['footer'] = '<p>If you have any questions or concerns please direct them to <a href="mailto:abizerjafferjee@simplrpost.com?Subject=Privacy%20Policy" target="_blank">abizerjafferjee@simplrpost.com</a></p>';
+                            $email_data['heading'] = "Hey, ". ucfirst($arrRequestData['name']);
+                            $email_data['message'] = "<div style='padding:10px 30px;'><p style='text-align: center;'>You're almost ready to start enjoying all the capabilities of Simplr Post. Simply click the button below to verify your email address</p></div><div><a href='".SITE_URL."confirm-email/".$arrRequestData['emailVerificationToken']."' style='background-color:#1bac71;color:white;padding:7px 20px;text-decoration:none;border-radius:5px'>Confirm</a></div>";
+                            $email_data['footer'] = '<p style="text-align: center;">If you have any questions or concerns please direct them to <a href="mailto:abizerjafferjee@simplrpost.com?Subject=Email%20Confirmation" target="_blank" style="text-decoration:none;color:#1bac71">abizerjafferjee@simplrpost.com</a></p>';
                             $email_data['view_url'] = 'email/emailTemplate';
                             $this->sendOTPemail($email_data);
                             $arrReturn = array(
@@ -551,8 +551,8 @@ class User extends CI_Controller
 
                     // Sending email
                     $emailData['heading'] = "Hey, ". ucfirst($arrResult['name']);
-                    $emailData['message'] = "<p>Seems like you forgot your password for Simplr Post. If this is true, your OTP is - $intRandom</p><p>If you didn't forget your password safely ignore this</p>";
-                    $emailData['footer'] = '<p>If you have any questions or concerns please direct them to <a href="mailto:abizerjafferjee@simplrpost.com?Subject=Privacy%20Policy" target="_blank">abizerjafferjee@simplrpost.com</a></p>';
+                    $emailData['message'] = "<div style='padding:10px 30px;'><p style='text-align: center;'>Seems like you forgot your password for Simplr Post. If this is true, your OTP is - $intRandom</p><p>If you didn't forget your password safely ignore this</p></div>";
+                    $emailData['footer'] = '<p style="text-align: center;">If you have any questions or concerns please direct them to <a href="mailto:abizerjafferjee@simplrpost.com?Subject=Forgot%20Password" target="_blank" style="text-decoration:none;color:#1bac71">abizerjafferjee@simplrpost.com</a></p>';
                     ob_start();
                     $mail = new PHPMailer;
                     $mail->SMTPDebug = '';
@@ -1345,39 +1345,79 @@ class User extends CI_Controller
     public function sendEmail($email_data)
     {
         //print_r($email_data); exit;
-        ob_start();
-        $mail = new PHPMailer;
+        // ob_start();
+        // $mail = new PHPMailer;
 
-        $mail->SMTPDebug = '';
+        // $mail->SMTPDebug = '';
+        // $mail->IsSMTP();
+
+        // $mail->Host = HOST_NAME;
+        // $mail->Port = PORT_NAME;
+        // $mail->SMTPAuth = false;
+
+        // $mail->From = FROM_EMAIL;
+        // $mail->FromName = FROM_NAME;
+        // $mail->AddAddress($email_data['email_id'], $email_data['name']);
+
+        // $mail->Subject = $email_data['email_title'];
+        // $mail->Body = $this->load->view('email/emailTemplate', $email_data, true);
+        // $mail->AltBody = BODY_TITLE;
+        // $mail->Send();
+        ob_start(); 
+		$mail = new PHPMailer();
+
+		$mail->SMTPDebug = '';
         $mail->IsSMTP();
+        
+		// $mail->isSMTP();
+        $mail->setFrom(FROM_EMAIL, FROM_NAME);
+        $mail->Username   = USERNAME_SMTP;
+        $mail->Password   = PASSWORD_SMTP;
+        $mail->Host       = HOST_NAME;
+        $mail->Port       = PORT_NAME;
+        $mail->SMTPAuth   = true;
+		$mail->SMTPSecure = 'ssl';
+		$mail->AddAddress($email_data['email_id'], $email_data['name']);
 
-        $mail->Host = HOST_NAME;
-        $mail->Port = PORT_NAME;
-        $mail->SMTPAuth = false;
-
-        $mail->From = FROM_EMAIL;
-        $mail->FromName = FROM_NAME;
-        $mail->AddAddress($email_data['email_id'], $email_data['name']);
-
-        $mail->Subject = $email_data['email_title'];
-        $mail->Body = $this->load->view('email/emailTemplate', $email_data, true);
-        $mail->AltBody = BODY_TITLE;
+		$mail->Subject = $email_data['email_title'];
+		$mail->Body = $this->load->view('email/emailTemplate',$email_data,TRUE);
+    	$mail->AltBody = BODY_TITLE;
         $mail->Send();
     }
     public function sendOTPemail($email_data)
     {
+        // ob_start(); 
+		// $mail = new PHPMailer;
+
+		// $mail->SMTPDebug = '';
+		// $mail->IsSMTP();
+		
+		// $mail->Host = HOST_NAME;
+		// $mail->Port = PORT_NAME;
+		// $mail->SMTPAuth = false;
+
+		// $mail->From = FROM_EMAIL;
+        // $mail->FromName = FROM_NAME;
+		// $mail->AddAddress($email_data['email_id'], $email_data['name']);
+
+		// $mail->Subject = $email_data['email_title'];
+		// $mail->Body = $this->load->view('email/otpEmailTemplate',$email_data,TRUE);
+    	// $mail->AltBody = BODY_TITLE;
+        // $mail->Send();
         ob_start(); 
-		$mail = new PHPMailer;
+		$mail = new PHPMailer();
 
 		$mail->SMTPDebug = '';
-		$mail->IsSMTP();
-		
-		$mail->Host = HOST_NAME;
-		$mail->Port = PORT_NAME;
-		$mail->SMTPAuth = false;
-
-		$mail->From = FROM_EMAIL;
-        $mail->FromName = FROM_NAME;
+        $mail->IsSMTP();
+        
+		// $mail->isSMTP();
+        $mail->setFrom(FROM_EMAIL, FROM_NAME);
+        $mail->Username   = USERNAME_SMTP;
+        $mail->Password   = PASSWORD_SMTP;
+        $mail->Host       = HOST_NAME;
+        $mail->Port       = PORT_NAME;
+        $mail->SMTPAuth   = true;
+		$mail->SMTPSecure = 'ssl';
 		$mail->AddAddress($email_data['email_id'], $email_data['name']);
 
 		$mail->Subject = $email_data['email_title'];
