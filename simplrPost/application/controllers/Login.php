@@ -11,8 +11,6 @@ class Login extends CI_Controller
 		$this->load->library('session');
 		$this->load->library('PHPMailer');
 	}
-
-
 	public function sessionSet($data)
 	{
 		$this->session->set_userdata('adminId', $data['adminId']);
@@ -40,13 +38,13 @@ class Login extends CI_Controller
 
 	public function dashboardView()
 	{
-		redirect('index.php/admin-dashboard');
+		redirect('admin-dashboard');
 	}
 
 	public function verifyUser()
 	{
 		$email = $_POST['emailId'];
-		$password = $_POST['password'];
+		$password = md5($_POST['password']);
 		$arrResult = $this->Login_model->signInWithEmail($email, $password);
 		if ($arrResult > 0) {
 			if ($this->sessionSet($arrResult)) {
@@ -160,7 +158,7 @@ class Login extends CI_Controller
 	public function resetPasswordLogic()
 	{
 		$adminId = $_POST['userId'];
-		$password = $_POST['password'];
+		$password = md5($_POST['password']);
 
 		$result = $this->Login_model->resetPassword($adminId, $password);
 		if ($result > 0) {
@@ -183,8 +181,8 @@ class Login extends CI_Controller
 	{
 		// echo "password change";
 		$data['adminId'] = $this->session->userdata('adminId');
-		$data['currentPassword'] = $_POST['currentPassword'];
-		$data['newPassword'] = $_POST['newPassword'];
+		$data['currentPassword'] = md5($_POST['currentPassword']);
+		$data['newPassword'] = md5($_POST['newPassword']);
 		$result = $this->Login_model->changePassword($data);
 
 		// print_r($result);exit;

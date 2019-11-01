@@ -228,7 +228,7 @@
                 success: function(data) {
                     if(data.result == ''){
                         $('#notificationList tbody').empty();
-                        $('#notificationList tbody').append("<tr><td colspan=6 class='text-center text-danger h2'>No data Found</td></tr>");
+                        $('#notificationList tbody').append("<tr><td colspan=6 class='text-center text-danger h2'><img src='<?= BASE_URL?>assets/img/no_data.png'></td></tr>");
                     } else {
                         if(pagno != 0){
                             $('html, body').animate(

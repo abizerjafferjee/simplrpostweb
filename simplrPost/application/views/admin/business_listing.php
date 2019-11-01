@@ -245,7 +245,7 @@
             success: function(data) {
               if(data.result == ''){
                 $('#businessList tbody').empty();
-                $('#businessList tbody').append("<tr><td colspan=6 class='text-center text-danger h2'>No data Found</td></tr>");
+                $('#businessList tbody').append("<tr><td colspan=6 class='text-center text-danger h2'><img src='<?= BASE_URL?>assets/img/no_data.png'></td></tr>");
               } else {
                 if(pagno != 0){
                   $('html, body').animate(
@@ -264,7 +264,6 @@
         }
         function createCurrentPageLink() {
           $activePage = $('#activePage').text();
-          // console.log($activePage);
           $('#currentPageLink').attr('href', '<?=SITE_URL?>Admin/Admin/loadUserListing/' + $activePage);
           $('#currentPageLink').attr('data-ci-pagination-page', $activePage);
         }
@@ -284,7 +283,7 @@
             tr += "<td scope='row'><div class='media align-items-center'><a class='avatar rounded-circle mr-3'><img style='object-fit:cover' alt='Image placeholder' src='<?=BASE_URL?>uploads/"+ $logoURL + "' onerror='this.onerror=null;this.src=\"<?=BASE_URL?>assets/img/building_placeholder.png\"' height='100%' width='100'></a></div></td>";
             tr += "<td>" + $shortName + "</td>";
             tr += "<td>" + $categoryName + "</td>";
-            tr += "<td><a href='<?=SITE_URL?>business-detail/" + encodeURIComponent(window.btoa($addressId)) + "' class='btn btn-icon btn-2 btn-primary' title='Detail'><span><i class='fas fa-eye'></i></span></a></td>";
+            tr += "<td><a href='<?=BASE_URL?>business-detail/" + encodeURIComponent(window.btoa($addressId)) + "' class='btn btn-icon btn-2 btn-primary' title='Detail'><span><i class='fas fa-eye'></i></span></a></td>";
             tr += "<td><button class='btn btn-icon btn-2 btn-danger' type='button' id='" + $addressId + "' onclick='setDeleteModalBusinessId(this.id)'><span><i class='fas fa-trash'></i></span></button></td>";
             tr += "</tr>";
             $('#businessList tbody').append(tr);

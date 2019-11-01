@@ -46,7 +46,7 @@
                   <span class="validate_error"></span>
                 </div>
                 <div class="custom-control text-right">
-                  <a href="<?= base_url() ?>" class="h3 text-green"><small>Sign in?</small></a>
+                  <a href="<?= BASE_URL ?>" class="h3 text-green"><small>Sign in?</small></a>
                 </div>
 
                 <div class="text-center">

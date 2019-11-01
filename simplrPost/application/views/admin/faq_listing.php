@@ -272,7 +272,7 @@
                     success: function(data) {
                         if(data.result == ''){
                             $('#categoriesList tbody').empty();
-                            $('#categoriesList tbody').append("<tr><td colspan=6 class='text-center text-danger h2'>No data Found</td></tr>");
+                            $('#categoriesList tbody').append("<tr><td colspan=6 class='text-center text-danger h2'><img src='<?= BASE_URL?>assets/img/no_data.png'></td></tr>");
                         } else {
                             if(pagno != 0){
                                 $('html, body').animate(
@@ -303,7 +303,7 @@
                     var tr = "<tr>";
                     tr += "<td>" + serialNumber + "</td>";
                     tr += "<td class='white-space-unset'><span style='max-width:100%'>" + $question + "</span></td>";
-                    tr += "<td><a href='<?= SITE_URL ?>FAQ-detail/"+ encodeURIComponent(window.btoa($questionId)) +"' class='btn btn-icon btn-2 btn-primary' title='Detail'><span><i class='fas fa-eye'></i></span></a>";
+                    tr += "<td><a href='<?= BASE_URL ?>FAQ-detail/"+ encodeURIComponent(window.btoa($questionId)) +"' class='btn btn-icon btn-2 btn-primary' title='Detail'><span><i class='fas fa-eye'></i></span></a>";
                     tr += "<td><button class='btn btn-icon btn-2 btn-primary' type='button' id='"+ $questionId +"' onclick='setEditModalValues(this.id)'><span><i class='fas fa-edit'></i></span></button></td>";
                     tr += "<td><button class='btn btn-icon btn-2 btn-danger' type='button' id='"+ $questionId +"' onclick='setDeleteModalQuestionId(this.id)'><span><i class='fas fa-trash'></i></span></button></td>";
                     tr += "</tr>";
@@ -353,7 +353,6 @@
                         'answer': $answer
                     },
                     success: function(data) {
-                        console.log(data);
                         $('#currentPageLink').trigger('click');
                         $('.modalCloseButton').trigger('click');
                         $('#exampleModalLabel').html('FAQ updated successfully');

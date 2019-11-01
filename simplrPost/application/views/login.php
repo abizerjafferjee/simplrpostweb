@@ -60,7 +60,7 @@
                 </div>
 
                 <div class="custom-control">
-                  <a href="<?= SITE_URL ?>forgot-password" id='forgotPasswordLink'><small>Forgot password?</small></a>
+                  <a href="<?= BASE_URL ?>forgot-password" id='forgotPasswordLink'><small>Forgot password?</small></a>
                 </div>
 
                 <div class="text-center">

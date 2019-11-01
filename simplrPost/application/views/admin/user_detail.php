@@ -150,13 +150,13 @@
                             <div class="col-lg-12">
                                 <div class="form-group text-center">
                                     <img data-enlargable style='cursor: zoom-in; border-radius:50%;' class="address-img" src="<?= BASE_URL . 'uploads/' . $privateAddressDetails[$i]->imageURL ?>" onerror="this.onerror=null;this.src='<?= BASE_URL ?>assets/img/building_placeholder.png'">
-                                    <label class="h3 green  mb-0 mt-2"><?if(!empty($privateAddressDetails[$i]->shortName)){echo $privateAddressDetails[$i]->shortName; } else {echo 'Not Available';} ?></label>
+                                    <label class="h3 green  mb-0 mt-2"><?php if(!empty($privateAddressDetails[$i]->shortName)){echo $privateAddressDetails[$i]->shortName; } else {echo 'Not Available';} ?></label>
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <label class="form-control-label" for="input-email">Address</label>
-                                    <p class="text-muted h4 font-weight-300"><?if(!empty($privateAddressDetails[$i]->address)){echo $privateAddressDetails[$i]->address; }else {echo 'Not Available';} ?></p>
+                                    <p class="text-muted h4 font-weight-300"><?php if(!empty($privateAddressDetails[$i]->address)){echo $privateAddressDetails[$i]->address; }else {echo 'Not Available';} ?></p>
                                 </div>
                             </div>
                             <div class="col-lg-12">
@@ -195,7 +195,7 @@
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label class="form-control-label" for="input-last-name">Email</label>
-                                    <p class="text-muted h4 font-weight-300"><?if(!empty($privateAddressDetails[$i]->emailId)){echo $privateAddressDetails[$i]->emailId; }else {echo 'Not Available';} ?></p>
+                                    <p class="text-muted h4 font-weight-300"><?php if(!empty($privateAddressDetails[$i]->emailId)){echo $privateAddressDetails[$i]->emailId; }else {echo 'Not Available';} ?></p>
                                 </div>
                             </div>
                         </div>
@@ -232,14 +232,14 @@
                             <div class="col-lg-12">
                                 <div class="form-group text-center">
                                     <img data-enlargable style='cursor: zoom-in; border-radius:50%;' class="address-img" src="<?= BASE_URL . 'uploads/' .$publicAddressDetails[$i]->logoURL ?>" onerror="this.onerror=null;this.src='<?= BASE_URL ?>assets/img/building_placeholder.png'" style="border-radius:50%">
-                                    <label class="h3 green  mb-0 mt-2"><?if(!empty($publicAddressDetails[$i]->shortName)){echo $publicAddressDetails[$i]->shortName; }else {echo 'Not Available';} ?></label>
+                                    <label class="h3 green  mb-0 mt-2"><?php if(!empty($publicAddressDetails[$i]->shortName)){echo $publicAddressDetails[$i]->shortName; }else {echo 'Not Available';} ?></label>
                                     <p class="text-muted h4 small"><?= $publicAddressDetails[$i]->categoryName ?></p>
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <label class="form-control-label" for="input-email">Address</label>
-                                    <p class="text-muted h4 font-weight-300"><?if(!empty($publicAddressDetails[$i]->address)){echo $publicAddressDetails[$i]->address; }else {echo 'Not Available';} ?></p>
+                                    <p class="text-muted h4 font-weight-300"><?php if(!empty($publicAddressDetails[$i]->address)){echo $publicAddressDetails[$i]->address; }else {echo 'Not Available';} ?></p>
                                 </div>
                             </div>
                             <hr class="my-4" />

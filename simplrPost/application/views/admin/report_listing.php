@@ -138,7 +138,7 @@
                     success: function(data) {
                         if(data.result == ''){
                             $('#reportList tbody').empty();
-                            $('#reportList tbody').append("<tr><td colspan=8 class='text-center text-danger h2'>No data Found</td></tr>");
+                            $('#reportList tbody').append("<tr><td colspan=8 class='text-center text-danger h2'><img src='<?= BASE_URL?>assets/img/no_data.png'></td></tr>");
                         } else {
                             if(pagno != 0){
                                 $('html, body').animate(
@@ -164,7 +164,6 @@
                 for (index in result) {
                     $reportId = result[index].reportId;
                     $reporterName = result[index].reporterName;
-                    console.log($reporterName);
                     $reporterEmailId = result[index].reporterEmailId;
                     $businessId = result[index].businessId;
                     $businessName = result[index].businessName;
@@ -198,7 +197,7 @@
                     tr += "<td>" + $businessName + "</td>";
                     tr += "<td>" + $businessAddress + "</td>";
                     tr += "<td class='white-space-unset'>" + $issue + "</td>";
-                    tr += "<td><a href='" + "<?=SITE_URL?>report-detail/"+ encodeURIComponent(window.btoa($reportId)) +"' class='btn btn-icon btn-2 btn-primary' title='Detail'><span><i class='fas fa-eye'></i></span></a></td>";
+                    tr += "<td><a href='" + "<?=BASE_URL?>report-detail/"+ encodeURIComponent(window.btoa($reportId)) +"' class='btn btn-icon btn-2 btn-primary' title='Detail'><span><i class='fas fa-eye'></i></span></a></td>";
                     tr += "</tr>";
                     $('#reportList tbody').append(tr);
 

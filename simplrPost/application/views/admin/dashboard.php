@@ -231,51 +231,56 @@
       $.ajax({
         url: '<?=SITE_URL?>Admin/Admin/getChartDataFromUser',
         success: function(data) {
-          data = JSON.parse(data);
-          am4core.useTheme(am4themes_animated);
+          // if(JSON.parse(data) == ''){
+          //   $('#usersBarChart').html('<img src="<?= BASE_URL ?>assets/img/no_data.png" width="80%" style="margin-left="10%">')
+          // }
+          // else {
+            data = JSON.parse(data);
+            am4core.useTheme(am4themes_animated);
 
-          var chart = am4core.create("usersBarChart", am4charts.XYChart);
-          chart.scrollbarX = new am4core.Scrollbar();
+            var chart = am4core.create("usersBarChart", am4charts.XYChart);
+            chart.scrollbarX = new am4core.Scrollbar();
 
-          chart.data = data;
+            chart.data = data;
 
-          var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
-          categoryAxis.dataFields.category = "monthName";
-          categoryAxis.renderer.grid.template.location = 0;
-          categoryAxis.renderer.minGridDistance = 30;
-          categoryAxis.renderer.labels.template.horizontalCenter = "right";
-          categoryAxis.renderer.labels.template.verticalCenter = "middle";
-          categoryAxis.renderer.labels.template.rotation = 270;
-          categoryAxis.tooltip.disabled = true;
-          categoryAxis.renderer.minHeight = 110;
+            var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+            categoryAxis.dataFields.category = "monthName";
+            categoryAxis.renderer.grid.template.location = 0;
+            categoryAxis.renderer.minGridDistance = 30;
+            categoryAxis.renderer.labels.template.horizontalCenter = "right";
+            categoryAxis.renderer.labels.template.verticalCenter = "middle";
+            categoryAxis.renderer.labels.template.rotation = 270;
+            categoryAxis.tooltip.disabled = true;
+            categoryAxis.renderer.minHeight = 110;
 
 
-          var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-          valueAxis.renderer.minWidth = 10;
+            var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+            valueAxis.renderer.minWidth = 10;
 
-          var series = chart.series.push(new am4charts.ColumnSeries());
-          series.sequencedInterpolation = true;
-          series.dataFields.valueY = "registeredUser";
-          series.dataFields.categoryX = "monthName";
-          series.tooltipText = "[{categoryX}: bold]{valueY}[/]";
-          series.columns.template.strokeWidth = 0;
+            var series = chart.series.push(new am4charts.ColumnSeries());
+            series.sequencedInterpolation = true;
+            series.dataFields.valueY = "registeredUser";
+            series.dataFields.categoryX = "monthName";
+            series.tooltipText = "[{categoryX}: bold]{valueY}[/]";
+            series.columns.template.strokeWidth = 0;
 
-          series.tooltip.pointerOrientation = "vertical";
+            series.tooltip.pointerOrientation = "vertical";
 
-          series.columns.template.column.cornerRadiusTopLeft = 10;
-          series.columns.template.column.cornerRadiusTopRight = 10;
-          series.columns.template.column.fillOpacity = 0.8;
+            series.columns.template.column.cornerRadiusTopLeft = 10;
+            series.columns.template.column.cornerRadiusTopRight = 10;
+            series.columns.template.column.fillOpacity = 0.8;
 
-          var hoverState = series.columns.template.column.states.create("hover");
-          hoverState.properties.cornerRadiusTopLeft = 0;
-          hoverState.properties.cornerRadiusTopRight = 0;
-          hoverState.properties.fillOpacity = 1;
+            var hoverState = series.columns.template.column.states.create("hover");
+            hoverState.properties.cornerRadiusTopLeft = 0;
+            hoverState.properties.cornerRadiusTopRight = 0;
+            hoverState.properties.fillOpacity = 1;
 
-          series.columns.template.adapter.add("fill", function(fill, target) {
-            return chart.colors.getIndex(target.dataItem.index);
-          });
+            series.columns.template.adapter.add("fill", function(fill, target) {
+              return chart.colors.getIndex(target.dataItem.index);
+            });
 
-          chart.cursor = new am4charts.XYCursor();
+            chart.cursor = new am4charts.XYCursor();
+          // }
         }
       })
 
@@ -283,51 +288,56 @@
       $.ajax({
         url: '<?=SITE_URL?>Admin/Admin/getChartDataFromPublicAddresses',
         success: function(data) {
-          data = JSON.parse(data);
-          am4core.useTheme(am4themes_animated);
+          // if(JSON.parse(data) == ''){
+          //   $('#businessesBarChart').html('<span class="text-danger">No Data Found</span>')
+          // }
+          // else {
+            data = JSON.parse(data);
+            am4core.useTheme(am4themes_animated);
 
-          var chart = am4core.create("businessesBarChart", am4charts.XYChart);
-          chart.scrollbarX = new am4core.Scrollbar();
+            var chart = am4core.create("businessesBarChart", am4charts.XYChart);
+            chart.scrollbarX = new am4core.Scrollbar();
 
-          chart.data = data;
+            chart.data = data;
 
-          var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
-          categoryAxis.dataFields.category = "monthName";
-          categoryAxis.renderer.grid.template.location = 0;
-          categoryAxis.renderer.minGridDistance = 30;
-          categoryAxis.renderer.labels.template.horizontalCenter = "right";
-          categoryAxis.renderer.labels.template.verticalCenter = "middle";
-          categoryAxis.renderer.labels.template.rotation = 270;
-          categoryAxis.tooltip.disabled = true;
-          categoryAxis.renderer.minHeight = 110;
+            var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+            categoryAxis.dataFields.category = "monthName";
+            categoryAxis.renderer.grid.template.location = 0;
+            categoryAxis.renderer.minGridDistance = 30;
+            categoryAxis.renderer.labels.template.horizontalCenter = "right";
+            categoryAxis.renderer.labels.template.verticalCenter = "middle";
+            categoryAxis.renderer.labels.template.rotation = 270;
+            categoryAxis.tooltip.disabled = true;
+            categoryAxis.renderer.minHeight = 110;
 
 
-          var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-          valueAxis.renderer.minWidth = 10;
+            var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+            valueAxis.renderer.minWidth = 10;
 
-          var series = chart.series.push(new am4charts.ColumnSeries());
-          series.sequencedInterpolation = true;
-          series.dataFields.valueY = "registeredBusinesses";
-          series.dataFields.categoryX = "monthName";
-          series.tooltipText = "[{categoryX}: bold]{valueY}[/]";
-          series.columns.template.strokeWidth = 0;
+            var series = chart.series.push(new am4charts.ColumnSeries());
+            series.sequencedInterpolation = true;
+            series.dataFields.valueY = "registeredBusinesses";
+            series.dataFields.categoryX = "monthName";
+            series.tooltipText = "[{categoryX}: bold]{valueY}[/]";
+            series.columns.template.strokeWidth = 0;
 
-          series.tooltip.pointerOrientation = "vertical";
+            series.tooltip.pointerOrientation = "vertical";
 
-          series.columns.template.column.cornerRadiusTopLeft = 10;
-          series.columns.template.column.cornerRadiusTopRight = 10;
-          series.columns.template.column.fillOpacity = 0.8;
+            series.columns.template.column.cornerRadiusTopLeft = 10;
+            series.columns.template.column.cornerRadiusTopRight = 10;
+            series.columns.template.column.fillOpacity = 0.8;
 
-          var hoverState = series.columns.template.column.states.create("hover");
-          hoverState.properties.cornerRadiusTopLeft = 0;
-          hoverState.properties.cornerRadiusTopRight = 0;
-          hoverState.properties.fillOpacity = 1;
+            var hoverState = series.columns.template.column.states.create("hover");
+            hoverState.properties.cornerRadiusTopLeft = 0;
+            hoverState.properties.cornerRadiusTopRight = 0;
+            hoverState.properties.fillOpacity = 1;
 
-          series.columns.template.adapter.add("fill", function(fill, target) {
-            return chart.colors.getIndex(target.dataItem.index);
-          });
+            series.columns.template.adapter.add("fill", function(fill, target) {
+              return chart.colors.getIndex(target.dataItem.index);
+            });
 
-          chart.cursor = new am4charts.XYCursor();
+            chart.cursor = new am4charts.XYCursor();
+          // }
         }
       })
 
@@ -335,25 +345,30 @@
       $.ajax({
         url: '<?=SITE_URL?>Admin/Admin/getStatusDataFromUser',
         success: function(data) {
-          data = JSON.parse(data);
+          // if(JSON.parse(data) == ''){
+          //   $('#usersStatusPieChart').html('<span class="text-danger">No Data Found</span>')
+          // }
+          // else {
+            data = JSON.parse(data);
 
-          var chart = am4core.create("usersStatusPieChart", am4charts.PieChart);
-          chart.hiddenState.properties.opacity = 0;
+            var chart = am4core.create("usersStatusPieChart", am4charts.PieChart);
+            chart.hiddenState.properties.opacity = 0;
 
-          // Add data
-          chart.data = data;
+            // Add data
+            chart.data = data;
 
-          // Add and configure Series
-          var series = chart.series.push(new am4charts.PieSeries());
-          series.dataFields.value = "userCount";
-          series.dataFields.radiusValue = "userCount";
-          series.dataFields.category = "statusName";
-          series.slices.template.cornerRadius = 6;
-          series.colors.step = 3;
+            // Add and configure Series
+            var series = chart.series.push(new am4charts.PieSeries());
+            series.dataFields.value = "userCount";
+            series.dataFields.radiusValue = "userCount";
+            series.dataFields.category = "statusName";
+            series.slices.template.cornerRadius = 6;
+            series.colors.step = 3;
 
-          series.hiddenState.properties.endAngle = -60;
+            series.hiddenState.properties.endAngle = -60;
 
-          chart.legend = new am4charts.Legend();
+            chart.legend = new am4charts.Legend();
+          // }
         }
       })
 
@@ -363,77 +378,81 @@
         $.ajax({
           url: '<?=SITE_URL?>Admin/Admin/' + $method,
           success: function(data) {
-            data = JSON.parse(data);
+            // if(JSON.parse(data) == ''){
+            //   $('#usersLineChart').html('<span class="text-danger">No Data Found</span>')
+            // }
+            // else {
+              data = JSON.parse(data);
 
-            am4core.useTheme(am4themes_animated);
-            // Themes end
+              am4core.useTheme(am4themes_animated);
+              // Themes end
 
-            // Create chart instance
-            var chart = am4core.create("usersLineChart", am4charts.XYChart);
+              // Create chart instance
+              var chart = am4core.create("usersLineChart", am4charts.XYChart);
 
-            // Add data
-            chart.data = data;
+              // Add data
+              chart.data = data;
 
-            // Set input format for the dates
-            chart.dateFormatter.inputDateFormat = "yyyy-MM-dd";
+              // Set input format for the dates
+              chart.dateFormatter.inputDateFormat = "yyyy-MM-dd";
 
-            // Create axes
-            var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
-            var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+              // Create axes
+              var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
+              var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
 
-            // Create series
-            var series = chart.series.push(new am4charts.LineSeries());
-            series.dataFields.valueY = "registeredUsers";
-            series.dataFields.dateX = "date";
-            series.tooltipText = "{value}"
-            series.strokeWidth = 2;
-            series.minBulletDistance = 15;
+              // Create series
+              var series = chart.series.push(new am4charts.LineSeries());
+              series.dataFields.valueY = "registeredUsers";
+              series.dataFields.dateX = "date";
+              series.tooltipText = "{value}"
+              series.strokeWidth = 2;
+              series.minBulletDistance = 15;
 
-            // Drop-shaped tooltips
-            series.tooltip.background.cornerRadius = 20;
-            series.tooltip.background.strokeOpacity = 0;
-            series.tooltip.pointerOrientation = "vertical";
-            series.tooltip.label.minWidth = 40;
-            series.tooltip.label.minHeight = 40;
-            series.tooltip.label.textAlign = "middle";
-            series.tooltip.label.textValign = "middle";
+              // Drop-shaped tooltips
+              series.tooltip.background.cornerRadius = 20;
+              series.tooltip.background.strokeOpacity = 0;
+              series.tooltip.pointerOrientation = "vertical";
+              series.tooltip.label.minWidth = 40;
+              series.tooltip.label.minHeight = 40;
+              series.tooltip.label.textAlign = "middle";
+              series.tooltip.label.textValign = "middle";
 
-            // Make bullets grow on hover
-            var bullet = series.bullets.push(new am4charts.CircleBullet());
-            bullet.circle.strokeWidth = 2;
-            bullet.circle.radius = 4;
-            bullet.circle.fill = am4core.color("#fff");
+              // Make bullets grow on hover
+              var bullet = series.bullets.push(new am4charts.CircleBullet());
+              bullet.circle.strokeWidth = 2;
+              bullet.circle.radius = 4;
+              bullet.circle.fill = am4core.color("#fff");
 
-            var bullethover = bullet.states.create("hover");
-            bullethover.properties.scale = 1.3;
+              var bullethover = bullet.states.create("hover");
+              bullethover.properties.scale = 1.3;
 
-            // Make a panning cursor
-            chart.cursor = new am4charts.XYCursor();
-            chart.cursor.behavior = "panXY";
-            chart.cursor.xAxis = dateAxis;
-            chart.cursor.snapToSeries = series;
+              // Make a panning cursor
+              chart.cursor = new am4charts.XYCursor();
+              chart.cursor.behavior = "panXY";
+              chart.cursor.xAxis = dateAxis;
+              chart.cursor.snapToSeries = series;
 
-            // Create vertical scrollbar and place it before the value axis
-            chart.scrollbarY = new am4core.Scrollbar();
-            chart.scrollbarY.parent = chart.leftAxesContainer;
-            chart.scrollbarY.toBack();
+              // Create vertical scrollbar and place it before the value axis
+              chart.scrollbarY = new am4core.Scrollbar();
+              chart.scrollbarY.parent = chart.leftAxesContainer;
+              chart.scrollbarY.toBack();
 
-            // Create a horizontal scrollbar with previe and place it underneath the date axis
-            chart.scrollbarX = new am4charts.XYChartScrollbar();
-            chart.scrollbarX.series.push(series);
-            chart.scrollbarX.parent = chart.bottomAxesContainer;
+              // Create a horizontal scrollbar with previe and place it underneath the date axis
+              chart.scrollbarX = new am4charts.XYChartScrollbar();
+              chart.scrollbarX.series.push(series);
+              chart.scrollbarX.parent = chart.bottomAxesContainer;
 
-            chart.events.on("ready", function() {
-              dateAxis.zoom({
-                start: 0,
-                end: 1
+              chart.events.on("ready", function() {
+                dateAxis.zoom({
+                  start: 0,
+                  end: 1
+                });
               });
-            });
+            // }
           }
         })
       }
       $('#usersLineChartFilter').on('change', function() {
-        console.log($(this).val());
         if ($(this).val() == 'showThisWeekUsers') {
           getLineChartDataFromUser('getDataFromUserForThisWeek');
         } else if ($(this).val() == 'showThisMonthUsers') {
@@ -450,77 +469,81 @@
         $.ajax({
           url: '<?=SITE_URL?>Admin/Admin/' + $method,
           success: function(data) {
-            data = JSON.parse(data);
+            // if(JSON.parse(data) == ''){
+            //   $('#businessLineChart').html('<span class="text-danger">No Data Found</span>')
+            // }
+            // else {
+              data = JSON.parse(data);
 
-            am4core.useTheme(am4themes_animated);
-            // Themes end
+              am4core.useTheme(am4themes_animated);
+              // Themes end
 
-            // Create chart instance
-            var chart = am4core.create("businessLineChart", am4charts.XYChart);
+              // Create chart instance
+              var chart = am4core.create("businessLineChart", am4charts.XYChart);
 
-            // Add data
-            chart.data = data;
+              // Add data
+              chart.data = data;
 
-            // Set input format for the dates
-            chart.dateFormatter.inputDateFormat = "yyyy-MM-dd";
+              // Set input format for the dates
+              chart.dateFormatter.inputDateFormat = "yyyy-MM-dd";
 
-            // Create axes
-            var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
-            var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+              // Create axes
+              var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
+              var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
 
-            // Create series
-            var series = chart.series.push(new am4charts.LineSeries());
-            series.dataFields.valueY = "registeredBusinesses";
-            series.dataFields.dateX = "date";
-            series.tooltipText = "{value}"
-            series.strokeWidth = 2;
-            series.minBulletDistance = 15;
+              // Create series
+              var series = chart.series.push(new am4charts.LineSeries());
+              series.dataFields.valueY = "registeredBusinesses";
+              series.dataFields.dateX = "date";
+              series.tooltipText = "{value}"
+              series.strokeWidth = 2;
+              series.minBulletDistance = 15;
 
-            // Drop-shaped tooltips
-            series.tooltip.background.cornerRadius = 20;
-            series.tooltip.background.strokeOpacity = 0;
-            series.tooltip.pointerOrientation = "vertical";
-            series.tooltip.label.minWidth = 40;
-            series.tooltip.label.minHeight = 40;
-            series.tooltip.label.textAlign = "middle";
-            series.tooltip.label.textValign = "middle";
+              // Drop-shaped tooltips
+              series.tooltip.background.cornerRadius = 20;
+              series.tooltip.background.strokeOpacity = 0;
+              series.tooltip.pointerOrientation = "vertical";
+              series.tooltip.label.minWidth = 40;
+              series.tooltip.label.minHeight = 40;
+              series.tooltip.label.textAlign = "middle";
+              series.tooltip.label.textValign = "middle";
 
-            // Make bullets grow on hover
-            var bullet = series.bullets.push(new am4charts.CircleBullet());
-            bullet.circle.strokeWidth = 2;
-            bullet.circle.radius = 4;
-            bullet.circle.fill = am4core.color("#fff");
+              // Make bullets grow on hover
+              var bullet = series.bullets.push(new am4charts.CircleBullet());
+              bullet.circle.strokeWidth = 2;
+              bullet.circle.radius = 4;
+              bullet.circle.fill = am4core.color("#fff");
 
-            var bullethover = bullet.states.create("hover");
-            bullethover.properties.scale = 1.3;
+              var bullethover = bullet.states.create("hover");
+              bullethover.properties.scale = 1.3;
 
-            // Make a panning cursor
-            chart.cursor = new am4charts.XYCursor();
-            chart.cursor.behavior = "panXY";
-            chart.cursor.xAxis = dateAxis;
-            chart.cursor.snapToSeries = series;
+              // Make a panning cursor
+              chart.cursor = new am4charts.XYCursor();
+              chart.cursor.behavior = "panXY";
+              chart.cursor.xAxis = dateAxis;
+              chart.cursor.snapToSeries = series;
 
-            // Create vertical scrollbar and place it before the value axis
-            chart.scrollbarY = new am4core.Scrollbar();
-            chart.scrollbarY.parent = chart.leftAxesContainer;
-            chart.scrollbarY.toBack();
+              // Create vertical scrollbar and place it before the value axis
+              chart.scrollbarY = new am4core.Scrollbar();
+              chart.scrollbarY.parent = chart.leftAxesContainer;
+              chart.scrollbarY.toBack();
 
-            // Create a horizontal scrollbar with previe and place it underneath the date axis
-            chart.scrollbarX = new am4charts.XYChartScrollbar();
-            chart.scrollbarX.series.push(series);
-            chart.scrollbarX.parent = chart.bottomAxesContainer;
+              // Create a horizontal scrollbar with previe and place it underneath the date axis
+              chart.scrollbarX = new am4charts.XYChartScrollbar();
+              chart.scrollbarX.series.push(series);
+              chart.scrollbarX.parent = chart.bottomAxesContainer;
 
-            chart.events.on("ready", function() {
-              dateAxis.zoom({
-                start: 0,
-                end: 1
+              chart.events.on("ready", function() {
+                dateAxis.zoom({
+                  start: 0,
+                  end: 1
+                });
               });
-            });
-          }
+            }
+          // }
         })
       }
       $('#businessLineChartFilter').on('change', function() {
-        console.log($(this).val());
         if ($(this).val() == 'showThisWeekData') {
           getLineChartDataFromBusiness('getDataFromBusinessForThisWeek');
         } else if ($(this).val() == 'showThisMonthData') {

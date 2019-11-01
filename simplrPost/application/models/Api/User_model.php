@@ -156,7 +156,7 @@ class User_model extends CI_Model{
     }
 
 	/****************to get the user Id after signUp**************/
-    public function getUserMaxId($emailId)
+    public function getUserMaxId()
     {
         $this->db->select_max('userId');
 		$query = $this->db->get('user');

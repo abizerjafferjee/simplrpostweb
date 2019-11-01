@@ -1,6 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+// $route['default_controller'] = 'View_pages';
+// $route['about-us'] = 'View_pages/aboutUs';
+// $route['contact-us'] = 'View_pages/contactUs';
+// $route['download'] = 'View_pages/download';
 $route['default_controller'] = 'Login';
 $route['forgot-password'] = 'Login/forgotPasswordView';
 $route['otp-validation'] = 'Login/otpView';

@@ -1,6 +1,6 @@
+$url = 'http://'+window.location.hostname+'/';
 $(document).ready(function() {
     $('.validate_error').css('display', 'none');
-    $url = 'http://test.code-apex.com/simplrPost/index.php/';
 
     $('input').focus(function() {
         $('.validate_error').css({ 'display': 'none' });
@@ -74,7 +74,6 @@ $(document).ready(function() {
                     'emailId': $userEmail
                 },
                 success: function(data) {
-                    console.log(data);
                     var obj = JSON.parse(data);
                     if (obj.result == 1) {
                         localStorage.setItem('otpId', obj.otpId);
@@ -141,7 +140,6 @@ $(document).ready(function() {
         $resetPassword = $('#resetPassword').val();
         $confirmResetPassword = $('#confirmResetPassword').val();
 
-        // console.log('clicked');
         if (!validateValue($resetPassword)) {
             $('#resetPassword').val('');
             $('#validateErrorResetPassword').css({ 'display': 'block', 'z-index': '10' }).html('Please fill this field');
@@ -212,7 +210,6 @@ $(document).ready(function() {
                     newPassword: $changePassword
                 },
                 success: function(data) {
-                    // console.log(data);
                     if (data == 0) {
                         $('#validateErrorCurrentPassword').css({ 'display': 'block', 'z-index': '10' }).html('current password didn\'t matched');
                     } else {

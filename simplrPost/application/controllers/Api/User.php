@@ -235,7 +235,7 @@ class User extends CI_Controller
                             // $email_data['name'] = ucfirst($arrResult['name']);
                             $email_data['email_id'] = $arrRequestData['emailId'];
                             $email_data['heading'] = "Hey, ". ucfirst($arrRequestData['name']);
-                            $email_data['message'] = "<div style='padding:10px 30px;'><p style='text-align: center;'>You're almost ready to start enjoying all the capabilities of Simplr Post. Simply click the button below to verify your email address</p></div><div><a href='".SITE_URL."confirm-email/".$arrRequestData['emailVerificationToken']."' style='background-color:#1bac71;color:white;padding:7px 20px;text-decoration:none;border-radius:5px'>Confirm</a></div>";
+                            $email_data['message'] = "<div style='padding:10px 30px;'><p style='text-align: center;'>You're almost ready to start enjoying all the capabilities of Simplr Post. Simply click the button below to verify your email address</p></div><div><a href='".SITE_URL."confirm-email/".$emailVerificationToken."' style='background-color:#1bac71;color:white;padding:7px 20px;text-decoration:none;border-radius:5px'>Confirm</a></div>";
                             $email_data['footer'] = '<p style="text-align: center;">If you have any questions or concerns please direct them to <a href="mailto:abizerjafferjee@simplrpost.com?Subject=Email%20Confirmation" target="_blank" style="text-decoration:none;color:#1bac71">abizerjafferjee@simplrpost.com</a></p>';
                             $email_data['view_url'] = 'email/emailTemplate';
                             $this->sendOTPemail($email_data);

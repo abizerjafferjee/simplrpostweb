@@ -85,8 +85,8 @@ defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automat
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
 
 ///////////////////
-define('BASE_URL','http://test.code-apex.com/simplrPost/');
-define('SITE_URL','http://test.code-apex.com/simplrPost/index.php/');
+define('BASE_URL','http://'.$_SERVER['HTTP_HOST'].'/');
+define('SITE_URL','http://'.$_SERVER['HTTP_HOST'].'\/index.php/');
 define('USER_UPLOAD_DIR','./uploads/user/');
 define('ADDRESS_UPLOAD_DIR','./uploads/address/');
 
@@ -113,6 +113,6 @@ define('API_ACCESS_KEY','AAAA3TX5KE8:APA91bF-KLsGiVhRL4eqfu__-10LsH4Sye2QmjyrZ_5
 define('FCM_URL','https://fcm.googleapis.com/fcm/send');
 
 /*********** SMS GATEWAY CONSTANTS******************/
-define('SMS_USERNAME', 'codeApex');
-define('SMS_USERID', '18219');
-define('SMS_HANDLE', 'c4873358adb06fc3bbed83e5e2c32ac4');
+// define('SMS_USERNAME', 'codeApex');
+// define('SMS_USERID', '18219');
+// define('SMS_HANDLE', 'c4873358adb06fc3bbed83e5e2c32ac4');

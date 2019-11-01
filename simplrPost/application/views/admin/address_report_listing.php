@@ -177,6 +177,12 @@
 </head>
 
 <body class="">
+
+<div id="loader-div">
+    <div id="loader">
+
+    </div>
+</div>
   <div class="main-content">
     <!-- Navbar -->
     <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
@@ -218,17 +224,17 @@
               <div class=" dropdown-header noti-title">
                 <h6 class="text-overflow m-0">Welcome!</h6>
               </div>
-              <a href="<?= SITE_URL ?>admin-profile" class="dropdown-item">
+              <a href="<?= BASE_URL ?>admin-profile" class="dropdown-item">
                 <i class="ni ni-single-02"></i>
                 <span>My profile</span>
               </a>
-              <a href="<?= SITE_URL ?>change-password" class="dropdown-item">
+              <a href="<?= BASE_URL ?>change-password" class="dropdown-item">
                 <i class="ni ni-lock-circle-open"></i>
                 <span>Change Password</span>
               </a>
 
               <div class="dropdown-divider"></div>
-              <a href="<?= SITE_URL ?>logout" class="dropdown-item">
+              <a href="<?= BASE_URL ?>logout" class="dropdown-item">
                 <i class="ni ni-user-run"></i>
                 <span>Logout</span>
               </a>
@@ -239,11 +245,6 @@
     </nav>
     <!-- End Navbar -->
     <link href="https://urcommunitycares.com/assets/web_files/vendor/plugin_css/datepicker.css" rel="stylesheet">
-    <div id="loader-div">
-    <div id="loader">
-
-    </div>
-</div>
 <input type="hidden" id="addressId" value="<?=$addressId?>">
     <!-- Header -->
     <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
@@ -321,7 +322,6 @@
             loadPagination(0);
             // Load pagination
             function loadPagination(pagno) {
-                // console.log($addressId);
                 $.ajax({
                     url: '<?= SITE_URL?>Admin/Admin/loadAddressReports/' + pagno,
                     type: 'post',
@@ -332,7 +332,7 @@
                       data = JSON.parse(data);
                       if(data.result == ''){
                         $('#reportList tbody').empty();
-                        $('#reportList tbody').append("<tr><td colspan=8 class='text-center text-danger h2'>No data Found</td></tr>");
+                        $('#reportList tbody').append("<tr><td colspan=8 class='text-center text-danger h2'><img src='<?= BASE_URL?>assets/img/no_data.png'></td></tr>");
                       } else {
                         if(pagno != 0){
                           $('html, body').animate(
@@ -391,7 +391,7 @@
                     tr += "<td>" + $businessName + "</td>";
                     tr += "<td>" + $businessAddress + "</td>";
                     tr += "<td class='white-space-unset'>" + $issue + "</td>";
-                    tr += "<td><a href='<?= SITE_URL?>Admin/Admin/reportDetailView/" + $reportId + "' class='btn btn-icon btn-2 btn-primary' title='Detail'><span><i class='fas fa-eye'></i></span></a></td>";
+                    tr += "<td><a href='<?= BASE_URL?>report-detail/" + encodeURIComponent(window.btoa($reportId)) + "' class='btn btn-icon btn-2 btn-primary' title='Detail'><span><i class='fas fa-eye'></i></span></a></td>";
                     tr += "</tr>";
                     $('#reportList tbody').append(tr);
 

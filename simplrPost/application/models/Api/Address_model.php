@@ -250,7 +250,7 @@ class Address_model extends CI_Model
 
 
         /************************************************* */
-        $allData = '';
+        $allData = [];
         /************************************************* */
 
 
@@ -299,10 +299,12 @@ class Address_model extends CI_Model
                 'linkedin' => $addressDetail['linkedInURL'],
                 'instagram' => $addressDetail['instagramURL'],
             );
+
             $allData['contactNumber'] = $contactNumber;
             $allData['services'] = $services;
             $allData['images'] = $images;
             $allData['workingHours'] = $workingHours;
+
         }
         return $allData;
     }
@@ -659,7 +661,7 @@ class Address_model extends CI_Model
             $addressDetail['isSaved'] = $query->row()->count;
         }
         /************************************************* */
-        $allData = '';
+        $allData = [];
         /************************************************* */
 
 

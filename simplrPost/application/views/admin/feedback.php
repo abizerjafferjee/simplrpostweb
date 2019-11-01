@@ -162,7 +162,7 @@
                     success: function(data) {
                         if(data.result == ''){
                             $('#feedbackList tbody').empty();
-                            $('#feedbackList tbody').append("<tr><td colspan=6 class='text-center text-danger h2'>No data Found</td></tr>");
+                            $('#feedbackList tbody').append("<tr><td colspan=7 class='text-center text-danger h2'><img src='<?= BASE_URL?>assets/img/no_data.png'></td></tr>");
                         } else {
                             if(pagno != 0){
                                 $('html, body').animate(
@@ -222,7 +222,7 @@
                     }
                     tr += "</td>";
                     tr += "<td class='white-space-unset'><span style='max-width:100%'>" + $description + "</span></td>";
-                    tr += "<td><a href='<?= SITE_URL ?>user-detail/"+ encodeURIComponent(window.btoa($userId)) +"' class='btn btn-icon btn-2 btn-primary' title='Detail'><span><i class='fas fa-eye'></i></span></a>";
+                    tr += "<td><a href='<?= BASE_URL ?>user-detail/"+ encodeURIComponent(window.btoa($userId)) +"' class='btn btn-icon btn-2 btn-primary' title='Detail'><span><i class='fas fa-eye'></i></span></a>";
                     tr += "</tr>";
                     $('#feedbackList tbody').append(tr);
 

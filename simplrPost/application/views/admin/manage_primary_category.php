@@ -273,7 +273,7 @@
                     success: function(data) {
                         if(data.result == ''){
                             $('#notificationList tbody').empty();
-                            $('#notificationList tbody').append("<tr><td colspan=6 class='text-center text-danger h2'>No data Found</td></tr>");
+                            $('#notificationList tbody').append("<tr><td colspan=6 class='text-center text-danger h2'><img src='<?= BASE_URL?>assets/img/no_data.png'></td></tr>");
                         } else {
                             if(pagno != 0){
                                 $('html, body').animate(
@@ -313,7 +313,6 @@
 
         function createCurrentPageLink() {
             $activePage = $('#activePage').text();
-            // console.log($activePage);
             $('#currentPageLink').attr('href', '<?=SITE_URL?>Admin/Admin/loadCategories/' + $activePage);
             $('#currentPageLink').attr('data-ci-pagination-page', $activePage);
         }
@@ -344,7 +343,6 @@
         function editPrimaryCategory(id) {
             createCurrentPageLink();
             $primaryCategoryId = $('#'+id).attr('data-id');
-            console.log($primaryCategoryId);
             var formData = new FormData();
             var files = $('#editFile')[0].files[0];
             formData.append('primaryCategoryId', $primaryCategoryId);
@@ -412,7 +410,6 @@
         }
 
         function deletePrimaryCategory(id) {
-            // console.log(id);
             $.ajax({
                 type: "post",
                 url: '<?=SITE_URL?>Admin/Admin/deletePrimaryCategory',

@@ -1,4 +1,4 @@
-$baseUrl = 'http://test.code-apex.com/simplrPost/';
+$baseUrl = 'http://'+window.location.hostname+'/';
 $siteUrl = $baseUrl + 'index.php/';
 $url = $siteUrl + 'Admin/Admin/';
 $uploads = $baseUrl + 'uploads/';
@@ -26,7 +26,7 @@ $qrImage = "this.onerror=null;this.src='http://www.v3b.com/wp-content/uploads/20
                 $weekDays = data.weekDays;
 
                 $('#logoImage').append("<img data-enlargable style='cursor:zoom-in;border-radius:50%;' class='address-img dynamicImages' src='"+$uploads + $address.logoURL+"' onerror='this.onerror=null;this.src=\""+$baseUrl+"assets/img/building_placeholder.png\"'>");
-                $('#viewAddressReports').attr('href', $siteUrl + 'business-reports/' + encodeURIComponent(window.btoa($address.addressId)));
+                $('#viewAddressReports').attr('href', $baseUrl + 'business-reports/' + encodeURIComponent(window.btoa($address.addressId)));
                 if($address.shortName == ''){
                     $('#publicAddressName').html('Not available');
                 } else {

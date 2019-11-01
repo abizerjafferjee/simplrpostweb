@@ -176,16 +176,16 @@
             <div class=" dropdown-header noti-title">
               <h6 class="text-overflow m-0">Welcome!</h6>
             </div>
-            <a href="<?= SITE_URL ?>admin-profile" class="dropdown-item">
+            <a href="<?= BASE_URL ?>admin-profile" class="dropdown-item">
               <i class="ni ni-single-02"></i>
               <span>My profile</span>
             </a>
-            <a href="<?= SITE_URL ?>change-password" class="dropdown-item">
+            <a href="<?= BASE_URL ?>change-password" class="dropdown-item">
               <i class="ni ni-lock-circle-open"></i>
               <span>Change Password</span>
             </a>
             <div class="dropdown-divider"></div>
-            <a href="<?= SITE_URL ?>logout" class="dropdown-item">
+            <a href="<?= BASE_URL ?>logout" class="dropdown-item">
               <i class="ni ni-user-run"></i>
               <span>Logout</span>
             </a>
@@ -198,7 +198,7 @@
         <div class="navbar-collapse-header d-md-none">
           <div class="row">
             <div class="col-6 collapse-brand">
-              <a href="<?=SITE_URL?>admin-dashboard">
+              <a href="<?=BASE_URL?>admin-dashboard">
                 <img src="<?= base_url('assets/img/brand/logo.png" class="navbar-brand-img') ?>">
               </a>
             </div>
@@ -224,17 +224,17 @@
         <!-- Navigation -->
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="<?= SITE_URL ?>admin-dashboard">
+            <a class="nav-link" href="<?= BASE_URL ?>admin-dashboard">
               <img class="sidebar-icon" src="<?= base_url('assets/img/icons/sidebar/Dashboard.png') ?>"> Dashboard
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="<?= SITE_URL ?>users-list">
+            <a class="nav-link " href="<?= BASE_URL ?>users-list">
               <img class="sidebar-icon" src="<?= base_url('assets/img/icons/sidebar/userList.png') ?>"> User Listing
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="<?= SITE_URL ?>businesses-list">
+            <a class="nav-link " href="<?= BASE_URL ?>businesses-list">
               <img class="sidebar-icon" src="<?= base_url('assets/img/icons/sidebar/Business-List.png') ?>"> Business Listing
             </a>
           </li>
@@ -245,10 +245,10 @@
             <div class="collapse" id="categories">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item">
-                  <a class="nav-link" href="<?= SITE_URL ?>manage-categories">Manage Categories</a>
+                  <a class="nav-link" href="<?= BASE_URL ?>manage-categories">Manage Categories</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="<?= SITE_URL ?>manage-primary-categories">Manage Primary Categories</a>
+                  <a class="nav-link" href="<?= BASE_URL ?>manage-primary-categories">Manage Primary Categories</a>
                 </li>
               </ul>
             </div>
@@ -260,12 +260,12 @@
             <div class="collapse" id="ui-advanced">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item">
-                  <a class="nav-link" href="<?= SITE_URL ?>notifications-list">
+                  <a class="nav-link" href="<?= BASE_URL ?>notifications-list">
                     Notifications
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="<?= SITE_URL ?>send-notification">
+                  <a class="nav-link" href="<?= BASE_URL ?>send-notification">
                     Send Notification
                   </a>
                 </li>
@@ -279,12 +279,12 @@
             <div class="collapse" id="ui-faq">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item">
-                <a class="nav-link" href="<?= SITE_URL ?>manage-FAQ">
+                <a class="nav-link" href="<?= BASE_URL ?>manage-FAQ">
                     Manage FAQ
                   </a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="<?= SITE_URL ?>manage-issues">
+                <a class="nav-link" href="<?= BASE_URL ?>manage-issues">
                     Manage Issues
                   </a>
                 </li>
@@ -292,7 +292,7 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?= SITE_URL ?>feedbacks-list">
+            <a class="nav-link" href="<?= BASE_URL ?>feedbacks-list">
               <img class="sidebar-icon" src="<?= base_url('assets/img/icons/sidebar/Feedback.png') ?>"> Feedback
             </a>
           </li>
@@ -303,16 +303,16 @@
             <div class="collapse" id="reports">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item">
-                  <a class="nav-link" href="<?= SITE_URL ?>reports-list"> Reports </a>
+                  <a class="nav-link" href="<?= BASE_URL ?>reports-list"> Reports </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="<?= SITE_URL ?>reported-businesses-list">Reported Businesses</a>
+                  <a class="nav-link" href="<?= BASE_URL ?>reported-businesses-list">Reported Businesses</a>
                 </li>
               </ul>
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?= SITE_URL ?>manage-pages">
+            <a class="nav-link" href="<?= BASE_URL ?>manage-pages">
               <img class="sidebar-icon" src="<?= base_url('assets/img/icons/sidebar/managePages.png') ?>"> Manage Pages
             </a>
           </li>
@@ -357,17 +357,17 @@
               <div class=" dropdown-header noti-title">
                 <h6 class="text-overflow m-0">Welcome!</h6>
               </div>
-              <a href="<?= SITE_URL ?>admin-profile" class="dropdown-item">
+              <a href="<?= BASE_URL ?>admin-profile" class="dropdown-item">
                 <i class="ni ni-single-02"></i>
                 <span>My profile</span>
               </a>
-              <a href="<?= SITE_URL ?>change-password" class="dropdown-item">
+              <a href="<?= BASE_URL ?>change-password" class="dropdown-item">
                 <i class="ni ni-lock-circle-open"></i>
                 <span>Change Password</span>
               </a>
 
               <div class="dropdown-divider"></div>
-              <a href="<?= SITE_URL ?>logout" class="dropdown-item">
+              <a href="<?= BASE_URL ?>logout" class="dropdown-item">
                 <i class="ni ni-user-run"></i>
                 <span>Logout</span>
               </a>

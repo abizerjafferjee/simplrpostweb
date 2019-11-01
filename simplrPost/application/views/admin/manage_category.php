@@ -238,7 +238,7 @@
                     success: function(data) {
                         if(data.result == ''){
                             $('#categoriesList tbody').empty();
-                            $('#categoriesList tbody').append("<tr><td colspan=6 class='text-center text-danger h2'>No data Found</td></tr>");
+                            $('#categoriesList tbody').append("<tr><td colspan=6 class='text-center text-danger h2'><img src='<?= BASE_URL?>assets/img/no_data.png'></td></tr>");
                         } else {
                             if(pagno != 0){
                                 $('html, body').animate(
@@ -279,7 +279,6 @@
 
         function createCurrentPageLink() {
             $activePage = $('#activePage').text();
-            // console.log($activePage);
             $('#currentPageLink').attr('href', '<?=SITE_URL?>Admin/Admin/loadCategories/' + $activePage);
             $('#currentPageLink').attr('data-ci-pagination-page', $activePage);
         }
@@ -318,7 +317,6 @@
                     success: function(data) {
                         $result = JSON.parse(data);
                         $page = Math.ceil($result.position / 50);
-                        // console.log($page)
                         $('#currentPageLink').attr('href', '<?=SITE_URL?>Admin/Admin/loadCategories/' + $page);
                         $('#currentPageLink').attr('data-ci-pagination-page', $page);
                         $('#currentPageLink').trigger('click');

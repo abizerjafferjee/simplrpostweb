@@ -235,7 +235,7 @@
                     success: function(data) {
                         if(data.result == ''){
                             $('#issuesList tbody').empty();
-                            $('#issuesList tbody').append("<tr><td colspan=6 class='text-center text-danger h2'>No data Found</td></tr>");
+                            $('#issuesList tbody').append("<tr><td colspan=6 class='text-center text-danger h2'><img src='<?= BASE_URL?>assets/img/no_data.png'></td></tr>");
                         } else {
                             if(pagno != 0){
                                 $('html, body').animate(
@@ -276,7 +276,6 @@
 
         function createCurrentPageLink() {
             $activePage = $('#activePage').text();
-            // console.log($activePage);
             $('#currentPageLink').attr('href', '<?=SITE_URL?>Admin/Admin/loadIssues/' + $activePage);
             $('#currentPageLink').attr('data-ci-pagination-page', $activePage);
         }

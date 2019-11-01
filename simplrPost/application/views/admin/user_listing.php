@@ -200,11 +200,13 @@
 
     $(document).ajaxStart(function() {
       $('#loader').addClass('loader');
+      $('#mainBody').css('z-index', '-1');
       $('#loader-div').css('z-index', '10');
     });
 
     $(document).ajaxComplete(function() {
       $('#loader').removeClass('loader');
+      $('#mainBody').css('z-index', '1');
       $('#loader-div').css('z-index', '-1');
     });
 
@@ -230,7 +232,7 @@
         success: function(data) {
           if(data.result == ''){
             $('#usersList tbody').empty();
-            $('#usersList tbody').append("<tr><td colspan=6 class='text-center text-danger h2'>No data Found</td></tr>");
+            $('#usersList tbody').append("<tr><td colspan=6 class='text-center text-danger h2'><img src='<?= BASE_URL?>assets/img/no_data.png'></td></tr>");
           } else {
             if(pagno != 0){
               $('html, body').animate(
@@ -249,7 +251,6 @@
     }
     function createCurrentPageLink() {
       $activePage = $('#activePage').text();
-      // console.log($activePage);
       $('#currentPageLink').attr('href', '<?=SITE_URL?>Admin/Admin/loadUserListing/' + $activePage);
       $('#currentPageLink').attr('data-ci-pagination-page', $activePage);
     }
@@ -258,7 +259,6 @@
       serialNumber = Number(sno);
       $('#usersList tbody').empty();
       for (index in result) {
-        // console.log(result[index]);
         $userId = result[index].userId;
         $profilePicURL = result[index].profilePicURL;
         $name = result[index].name;
@@ -271,7 +271,7 @@
 
         tr += "<td>" + $name + "</td>";
         tr += "<td>" + $emailId + "</td>";
-        tr += "<td><a href='<?=SITE_URL?>user-detail/" + encodeURIComponent(window.btoa($userId)) + "'class='btn btn-icon btn-2 btn-primary' title='Detail'><span><i class='fas fa-eye'></i></span></a></td>";
+        tr += "<td><a href='<?=BASE_URL?>user-detail/" + encodeURIComponent(window.btoa($userId)) + "'class='btn btn-icon btn-2 btn-primary' title='Detail'><span><i class='fas fa-eye'></i></span></a></td>";
         tr += "<td><button class='btn btn-icon btn-2 btn-danger' type='button' id='" + $userId + "' onclick='setDeleteModalUserId(this.id)'><span><i class='fas fa-trash'></i></span></button></td>";
         tr += "</tr>";
         $('#usersList tbody').append(tr);
@@ -292,7 +292,6 @@
           'userId': id
         },
         success: function(data) {
-          console.log(data);
           $('#currentPageLink').trigger('click');
           $('.modalCloseButton').trigger('click');
         }

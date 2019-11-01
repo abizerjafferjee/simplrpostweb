@@ -6,10 +6,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => '182.50.133.90:3306',
-	'username' => 'Simplr_Post',
-	'password' => '9hwo6Z1~',
-	'database' => 'Simplr_Post',
+	'hostname' => 'localhost',
+	'username' => 'root',
+	'password' => 'oUPmQawnYUY6',
+	'database' => 'simplr_post',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

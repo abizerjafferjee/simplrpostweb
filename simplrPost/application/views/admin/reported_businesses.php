@@ -143,7 +143,7 @@
             success: function(data) {
               if(data.result == ''){
                 $('#reportedBusinessesList tbody').empty();
-                $('#reportedBusinessesList tbody').append("<tr><td colspan=7 class='text-center text-danger h2'>No data Found</td></tr>");
+                $('#reportedBusinessesList tbody').append("<tr><td colspan=7 class='text-center text-danger h2'><img src='<?= BASE_URL?>assets/img/no_data.png'></td></tr>");
               } else {
                 if(pagno != 0){
                   $('html, body').animate(
@@ -185,7 +185,7 @@
             tr += "<td>" + $categoryName + "</td>";
             tr += "<td>" + $blockDate + "</td>";
             tr += "<td>" + $status + "</td>";
-            tr += "<td><a href='<?=SITE_URL?>reported-business-detail/" + encodeURIComponent(window.btoa($addressId)) + "' class='btn btn-icon btn-2 btn-primary' title='Detail'><span><i class='fas fa-eye'></i></span></a></td>";
+            tr += "<td><a href='<?=BASE_URL?>reported-business-detail/" + encodeURIComponent(window.btoa($addressId)) + "' class='btn btn-icon btn-2 btn-primary' title='Detail'><span><i class='fas fa-eye'></i></span></a></td>";
             tr += "</tr>";
             $('#reportedBusinessesList tbody').append(tr);
 

@@ -263,6 +263,7 @@ class Admin_model extends CI_Model
 
         $this->db->select('count(categoryId) as allcount');
         $this->db->from('categories');
+        $this->db->where('status !=', -1);
         $query = $this->db->get();
         $result = $query->result_array();
 
@@ -433,10 +434,9 @@ class Admin_model extends CI_Model
         return $query->result_array();
     }
 
-    public function getReportRecordCount($addressId)
+    public function getReportRecordCount()
     {
         $this->db->select('count(reportId) as allcount');
-        $this->db->where('businessId', $addressId);
         $this->db->where('status', 1);
         $this->db->from('addressReports');
         $query = $this->db->get();
@@ -669,7 +669,7 @@ class Admin_model extends CI_Model
 
     public function getAllUsersStatusData()
     {
-        $sql = 'select status, count(userId) as userCount from user group by status desc';
+        $sql = 'select status, count(userId) as userCount from user group by status order by status desc';
         $query = $this->db->query($sql);
         return $query->result_array();
     }

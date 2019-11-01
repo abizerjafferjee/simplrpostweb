@@ -417,7 +417,7 @@
                         <hr class="my-4" />
                         <div class="col-lg-12 text-center">
                             <div class="form-group">
-                                <a href="<?=SITE_URL .'business-reports/'.urlencode(base64_encode($address[0]->addressId)) ?>">View All Reports</a>
+                                <a href="<?= BASE_URL .'business-reports/'.urlencode(base64_encode($address[0]->addressId)) ?>">View All Reports</a>
                             </div>
                         </div>
                     <?php }?>
@@ -503,7 +503,6 @@
                     'businessId': id
                 },
                 success: function(data) {
-                    console.log(data);
                     window.location.replace('<?=SITE_URL?>Admin/Admin/businessListingView');
                 }
             });

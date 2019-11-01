@@ -195,7 +195,6 @@
                         $('#state').empty();
                         $option = "<option value='0'>All</option>";
                         for($i = 0; $i < data.length; $i++){
-                            // console.log(data[$i].stateId + ' ' + data[$i].stateName);
                             $option += "<option value='"+ data[$i].stateId +"'>"+ data[$i].stateName +"</option>"
                         }
                         $('#state').html($option);
@@ -219,7 +218,6 @@
                         'information': $('#exampleFormControlTextarea1').val()
                     },
                     success : function(data){
-                        console.log(data);
                         $('#modalCenter').modal({backdrop: 'static', keyboard: false})
                         $('#exampleFormControlTextarea1').val('');
                     } 
