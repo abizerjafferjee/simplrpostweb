@@ -158,8 +158,8 @@ class User extends CI_Controller
 
                         $email_data1['email_title'] = 'Confirmation';
                         $email_data1['email_id'] = $arrRequestData['emailId'];
-                        $email_data1['heading'] = "Hey, ". ucfirst($arrRequestData['name']);
-                        $email_data1['message'] = "<div style='padding:10px 30px;'><p style='text-align: center;'>You're almost ready to start enjoying all the capabilities of Simplr Post. Simply click the button below to verify your email address</p></div><div><a href='".SITE_URL."confirm-email/".$arrRequestData['emailVerificationToken']."' style='background-color:#1bac71;color:white;padding:7px 20px;text-decoration:none;border-radius:5px'>Confirm</a></div>";
+                        $email_data1['heading'] = "Hey ". ucfirst($arrRequestData['name']).',';
+                        $email_data1['message'] = "<div style='padding:10px 30px;'><p style='text-align: center;'>You're almost ready to start enjoying all the capabilities of Simplr Post. Simply click the button below to verify your email address</p></div><div><a href='".BASE_URL."confirm-email/".$arrRequestData['emailVerificationToken']."' style='background-color:#1bac71;color:white;padding:7px 20px;text-decoration:none;border-radius:5px'>Confirm</a></div>";
                         $email_data1['footer'] = '<p style="text-align: center;">If you have any questions or concerns please direct them to <a href="mailto:abizerjafferjee@simplrpost.com?Subject=Email%20Confirmation" target="_blank" style="text-decoration:none;color:#1bac71">abizerjafferjee@simplrpost.com</a></p>';
                         $this->sendOTPEmail($email_data1);
                         /**********************************************/
@@ -179,23 +179,28 @@ class User extends CI_Controller
                         // $msg = str_replace(' ', '%20', $msg);
                         // $baseURL = "https://api.budgetsms.net/sendsms/?username=" . SMS_USERNAME . "&handle=" . SMS_HANDLE . "&userid=" . SMS_USERID . "&%20msg=" . $msg . "&from=simplrPost&to=" . str_replace('+', '', $arrRequestData['contactNumber']);
                         // file_get_contents($baseURL);
-                        $this->africastalking->sendMessage($arrRequestData['contactNumber'], $welcomeMessage);
-                        $this->africastalking->sendMessage($arrRequestData['contactNumber'], $message);
                         $result['otpId'] = $otpId['otpId'];
-                        if ($result) {
-                            $arrReturn = array(
-                                code => 1,
-                                data => $result,
-                            );
-                            echo json_encode($arrReturn);
-                            die;
-                        } else {
-                            $arrReturn = array(
-                                code => -2,
-                                data => 'something went wrong',
-                            );
-                            echo json_encode($arrReturn);
-                            die;
+                        try{
+                            $this->africastalking->sendMessage($arrRequestData['contactNumber'], $welcomeMessage);
+                            $this->africastalking->sendMessage($arrRequestData['contactNumber'], $message);
+                        } catch(Exception $e){
+                            print("Africas talking Error ");
+                        } finally{
+                            if ($result) {
+                                $arrReturn = array(
+                                    code => 1,
+                                    data => $result,
+                                );
+                                echo json_encode($arrReturn);
+                                die;
+                            } else {
+                                $arrReturn = array(
+                                    code => -2,
+                                    data => 'something went wrong',
+                                );
+                                echo json_encode($arrReturn);
+                                die;
+                            }
                         }
                     }
                 } else {
@@ -232,10 +237,10 @@ class User extends CI_Controller
                         $result = $this->User_model->updateVerifictionToken($arrResult['userId'], $emailVerificationToken);
                         if($result > 0){
                             $email_data['email_title'] = 'Confirm Email';
-                            // $email_data['name'] = ucfirst($arrResult['name']);
+                            $email_data['name'] = ucfirst($arrResult['name']);
                             $email_data['email_id'] = $arrRequestData['emailId'];
-                            $email_data['heading'] = "Hey, ". ucfirst($arrRequestData['name']);
-                            $email_data['message'] = "<div style='padding:10px 30px;'><p style='text-align: center;'>You're almost ready to start enjoying all the capabilities of Simplr Post. Simply click the button below to verify your email address</p></div><div><a href='".SITE_URL."confirm-email/".$emailVerificationToken."' style='background-color:#1bac71;color:white;padding:7px 20px;text-decoration:none;border-radius:5px'>Confirm</a></div>";
+                            $email_data['heading'] = "Hey ". ucfirst($arrRequestData['name']).',';
+                            $email_data['message'] = "<div style='padding:10px 30px;'><p style='text-align: center;'>You're almost ready to start enjoying all the capabilities of Simplr Post. Simply click the button below to verify your email address</p></div><div><a href='".BASE_URL."confirm-email/".$emailVerificationToken."' style='background-color:#1bac71;color:white;padding:7px 20px;text-decoration:none;border-radius:5px'>Confirm</a></div>";
                             $email_data['footer'] = '<p style="text-align: center;">If you have any questions or concerns please direct them to <a href="mailto:abizerjafferjee@simplrpost.com?Subject=Email%20Confirmation" target="_blank" style="text-decoration:none;color:#1bac71">abizerjafferjee@simplrpost.com</a></p>';
                             $email_data['view_url'] = 'email/emailTemplate';
                             $this->sendOTPemail($email_data);
@@ -296,14 +301,18 @@ class User extends CI_Controller
                             // $msg = str_replace(' ', '%20', $msg);
                             // $baseURL = "https://api.budgetsms.net/sendsms/?username=" . SMS_USERNAME . "&handle=" . SMS_HANDLE . "&userid=" . SMS_USERID . "&%20msg=" . $msg . "&from=simplrPost&to=" . str_replace('+', '', $arrRequestData['contactNumber']);
                             // file_get_contents($baseURL);
-                            $this->africastalking->sendMessage($arrRequestData['contactNumber'], $message);
-
-                            $arrReturn = array(
-                                code => 1,
-                                data => $otpId,
-                            );
-                            echo json_encode($arrReturn);
-                            die;
+                            try{
+                                $this->africastalking->sendMessage($arrRequestData['contactNumber'], $message);
+                            } catch(Exception $e){
+                                print("Africas talking Error ");
+                            } finally{
+                                $arrReturn = array(
+                                    code => 1,
+                                    data => $otpId,
+                                );
+                                echo json_encode($arrReturn);
+                                die;
+                            }
                         }
                     } else {
                         $arrReturn = array(
@@ -470,7 +479,6 @@ class User extends CI_Controller
                 $arrRequestData['function'] = 'insert';
 
                 $intRandom = mt_rand(100000, 999999);
-                // $intRandom = 111111;
 
                 if (($arrRequestData['isEmailUsed'] == 1)) {
                     $arrResult = $this->User_model->getValuesWithEmailId($arrRequestData['emailId']);
@@ -506,21 +514,26 @@ class User extends CI_Controller
                 // $msg = str_replace(' ', '%20', $msg);
                 // $baseURL = "https://api.budgetsms.net/sendsms/?username=".SMS_USERNAME."&handle=".SMS_HANDLE."&userid=".SMS_USERID."&%20msg=".$msg."&from=simplrPost&to=".str_replace('+', '',$arrRequestData['contactNumber']);
                 // file_get_contents($baseURL);
-                $this->africastalking->sendMessage($arrRequestData['contactNumber'], $message);
-                if ($arrRequestData['function'] == 'insert') {
-                    $save = $this->User_model->saveOtp($arrOtpData);
-                } else if ($arrRequestData['function'] == 'update') {
-                    $arrOtpData['otpId'] = $arrRequestData['otpId'];
-                    $save = $this->User_model->updateOtp($arrOtpData);
-                }
-                if ($save) {
-
-                    $arrReturn = array(
-                        code => 1,
-                        data => $save,
-                    );
-                    echo json_encode($arrReturn);
-                    die;
+                try{
+                    $this->africastalking->sendMessage($arrRequestData['contactNumber'], $message);
+                } catch(Exception $e){
+                    print("Africas talking Error ");
+                } finally{
+                    if ($arrRequestData['function'] == 'insert') {
+                        $save = $this->User_model->saveOtp($arrOtpData);
+                    } else if ($arrRequestData['function'] == 'update') {
+                        $arrOtpData['otpId'] = $arrRequestData['otpId'];
+                        $save = $this->User_model->updateOtp($arrOtpData);
+                    }
+                    if ($save) {
+    
+                        $arrReturn = array(
+                            code => 1,
+                            data => $save,
+                        );
+                        echo json_encode($arrReturn);
+                        die;
+                    }
                 }
             } else {
                 echo json_encode($userStatus);
@@ -542,7 +555,6 @@ class User extends CI_Controller
             if ($arrResult) {
                 $userStatus = $this->checkUserStatus($arrResult['userId']);
                 if ($userStatus['resultCode'] == 1 || $userStatus['resultCode'] == 0) {
-                    $intRandom = 111111;
                     $to = $arrRequestData['emailId'];
 
                     $arrOtpData['otp'] = $intRandom;
@@ -550,24 +562,44 @@ class User extends CI_Controller
                     $arrOtpData['createDate'] = date("Y-m-d H:i:s");
 
                     // Sending email
-                    $emailData['heading'] = "Hey, ". ucfirst($arrResult['name']);
+                    $emailData['heading'] = "Hey ". ucfirst($arrResult['name']).',';
                     $emailData['message'] = "<div style='padding:10px 30px;'><p style='text-align: center;'>Seems like you forgot your password for Simplr Post. If this is true, your OTP is - $intRandom</p><p>If you didn't forget your password safely ignore this</p></div>";
                     $emailData['footer'] = '<p style="text-align: center;">If you have any questions or concerns please direct them to <a href="mailto:abizerjafferjee@simplrpost.com?Subject=Forgot%20Password" target="_blank" style="text-decoration:none;color:#1bac71">abizerjafferjee@simplrpost.com</a></p>';
-                    ob_start();
-                    $mail = new PHPMailer;
+                    // ob_start();
+                    // $mail = new PHPMailer;
+                    // $mail->SMTPDebug = '';
+                    // $mail->IsSMTP();
+
+                    // $mail->Host = 'relay-hosting.secureserver.net';
+                    // $mail->Port = 25;
+                    // $mail->SMTPAuth = false;
+                    // $mail->From = 'davinder.codeapex@gmail.com';
+                    // $mail->FromName = 'Simplr Post';
+                    // $mail->AddAddress($arrRequestData['emailId'], $arrResult['name']);
+
+                    // $mail->Subject = 'One Time Password(OTP) for account verification, Simplr Post ';
+                    // $mail->Body = $this->load->view('email/otpEmailTemplate', $emailData, true);
+                    // $mail->AltBody = 'Simplr Post';
+                    // $mail->Send();
+                    ob_start(); 
+                    $mail = new PHPMailer();
+
                     $mail->SMTPDebug = '';
                     $mail->IsSMTP();
-
-                    $mail->Host = 'relay-hosting.secureserver.net';
-                    $mail->Port = 25;
-                    $mail->SMTPAuth = false;
-                    $mail->From = 'davinder.codeapex@gmail.com';
-                    $mail->FromName = 'Simplr Post';
-                    $mail->AddAddress($arrRequestData['emailId'], $arrResult['name']);
+                    
+                    // $mail->isSMTP();
+                    $mail->setFrom(FROM_EMAIL, FROM_NAME);
+                    $mail->Username   = USERNAME_SMTP;
+                    $mail->Password   = PASSWORD_SMTP;
+                    $mail->Host       = HOST_NAME;
+                    $mail->Port       = PORT_NAME;
+                    $mail->SMTPAuth   = true;
+                    $mail->SMTPSecure = 'ssl';
+                    $mail->AddAddress($to, $arrResult['name']);
 
                     $mail->Subject = 'One Time Password(OTP) for account verification, Simplr Post ';
-                    $mail->Body = $this->load->view('email/otpEmailTemplate', $emailData, true);
-                    $mail->AltBody = 'Simplr Post';
+                    $mail->Body = $this->load->view('email/otpEmailTemplate',$emailData,TRUE);
+                    $mail->AltBody = BODY_TITLE;
                     $mail->Send();
                     /***************************************/
 
@@ -623,7 +655,7 @@ class User extends CI_Controller
                     if ($arrResult) {
                         if ($arrResult['isUsed'] == 0) {
                             $this->User_model->expireOtp($arrRequestData['otpId']);
-                            if ($arrResult['otpType'] == 1) {
+                            if ($arrResult['otpType'] == 0) {
                                 $arrReturn = array(
                                     code => 1,
                                     data => $arrResult,
@@ -725,8 +757,7 @@ class User extends CI_Controller
                 $arrRequestData = json_decode($arrEntityBody, true);
                 $arrRequestData['function'] = 'update';
 
-                // $intRandom = mt_rand(100000, 999999);
-                $intRandom = 111111;
+                $intRandom = mt_rand(100000, 999999);
                 if (($arrRequestData['isEmailUsed'] == 1)) {
                     $arrResult = $this->User_model->getValuesWithEmailId($arrRequestData['emailId']);
                     $this->processAfterCheckIsUsedEmailUsed($arrResult, $arrRequestData, $intRandom);
@@ -966,7 +997,7 @@ class User extends CI_Controller
                     $email_data['email_id'] = $arrRequestData['emailId'];
                     $email_data['message'] = "You have to confirm your email id for better user experience.<br>";
                     $email_data['message'] .= "Click on the link below to confirm your email id.<br>";
-                    $email_data['message'] .= SITE_URL . "confirm-email/" . $data['emailVerificationToken'];
+                    $email_data['message'] .= BASE_URL . "confirm-email/" . $data['emailVerificationToken'];
                     $email_data['view_url'] = 'email/emailTemplate';
                     $this->sendOTPemail($email_data);
                     /**********************************************/
@@ -982,8 +1013,7 @@ class User extends CI_Controller
                 } else {
                     $arrReturn['isContactNumberVerified'] = 0;
                     /************* Contact OTP data *************/
-                    // $intRandom = mt_rand(100000, 999999);
-                    $intRandom = 111111;
+                    $intRandom = mt_rand(100000, 999999);
                     $arrOtpData['otp'] = $intRandom;
                     $arrOtpData['userId'] = $arrResult['userId'];
                     $arrOtpData['createDate'] = date("Y-m-d H:i:s");

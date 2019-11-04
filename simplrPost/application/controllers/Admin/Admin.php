@@ -1450,7 +1450,7 @@ class Admin extends CI_Controller
             $message = "<div style='padding:10px 30px;'><p style='text-align: center;'>Your account has been deleted by Simplr Post. If you have not requested this and a warning of this action was not previously communicated to you then please contact <a href='mailto:abizerjafferjee@simplrpost.com?Subject=Account%20Deleted' target='_blank' style='text-decoration:none;color:#1bac71'>abizerjafferjee@simplrpost.com</a> with your concern.</p></div>";
         }
         $email_data['email_title'] = 'Simplr Post';
-        $email_data['heading'] = "Hey,".ucfirst($arrData['name']);
+        $email_data['heading'] = "Hey ".ucfirst($arrData['name']).',';
         $email_data['email_id'] = $arrData['emailId'];
         $email_data['message'] = $message;
         $email_data['footer'] = "";
@@ -1502,7 +1502,7 @@ class Admin extends CI_Controller
 
         $email_data['email_title'] = 'Simplr Post';
         $email_data['email_id'] = $arrData['emailId'];
-        $email_data['heading'] = "Hey, ". ucfirst($arrData['name']);
+        $email_data['heading'] = "Hey ". ucfirst($arrData['name']).',';
         $email_data['message'] = "<div style='padding:10px 30px;'><p style='text-align: center;'>Your account has been deleted by Simplr Post. If you have not requested this and a warning of this action was not previously communicated to you then please contact <a href='mailto:abizerjafferjee@simplrpost.com?Subject=Account%20Deleted' target='_blank' style='text-decoration:none;color:#1bac71'>abizerjafferjee@simplrpost.com</a></p></div>";
         $email_data['footer'] = '';
         $email_data['view_url'] = 'email/emailTemplate';

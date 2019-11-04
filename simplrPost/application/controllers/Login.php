@@ -92,7 +92,7 @@ class Login extends CI_Controller
 
 		$email_data['email_title'] = 'Reset Password';
 		$email_data['email_id'] = $email;
-		$email_data['heading'] = "Hey, ". ucfirst($arrResult['name']);
+		$email_data['heading'] = "Hey ". ucfirst($arrResult['name']).',';
 		$email_data['message'] = "<div style='padding:10px 30px;'><p style='text-align: center;'>Seems like you forgot your password for Simplr Post. If this is true, your OTP is - $intRandom</p><p style='padding:10px 30px;>If you didn't forget your password safely ignore this</p></div>";
 		$email_data['footer'] = '<p style="text-align: center;">If you have any questions or concerns please direct them to <a href="mailto:abizerjafferjee@simplrpost.com?Subject=Forgot%20Password" target="_blank" style="text-decoration:none;color:#1bac71">abizerjafferjee@simplrpost.com</a></p>';
 		$this->sendEmail($email_data);
@@ -124,7 +124,7 @@ class Login extends CI_Controller
 		$email_data['email_title'] = 'Reset Password OTP resent';
 		$email_data['email_id'] = $arrUserDetail['emailId'];
 		$email_data['view_url'] = 'email/emailTemplate';
-		$email_data['heading'] = "Hey, ". ucfirst($arrUserDetail['name']);
+		$email_data['heading'] = "Hey ". ucfirst($arrUserDetail['name']).',';
 		$email_data['message'] = "<div style='padding:10px 30px;'><p style='text-align: center;'>Seems like you forgot your password for Simplr Post. If this is true, your OTP is - $intRandom</p><p style='padding:10px 30px;>If you didn't forget your password safely ignore this</p></div>";
 		$email_data['footer'] = '<p style="text-align: center;">If you have any questions or concerns please direct them to <a href="mailto:abizerjafferjee@simplrpost.com?Subject=Forgot%20Password" target="_blank" style="text-decoration:none;color:#1bac71">abizerjafferjee@simplrpost.com</a></p>';
 		$this->sendEmail($email_data);
