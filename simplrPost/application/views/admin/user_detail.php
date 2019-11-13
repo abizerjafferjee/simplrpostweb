@@ -88,6 +88,46 @@
     </div>
     </div>
 </div>
+<!--block Modal -->
+<div class="modal fade" id="blockModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+        <h3 class="modal-title pb-4 text-center" id="exampleModalLabel">Are you sure you want to block this user?</h3>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary modalCloseButton" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-primary deleteModalButton" id="<?=$userData[0]->userId ?>" onclick="blockUserFromUserDetail(this.id)">Block</button>
+        </div>
+    </div>
+    </div>
+</div>
+<!--unblock Modal -->
+<div class="modal fade" id="unblockModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+        <h3 class="modal-title pb-4 text-center" id="exampleModalLabel">Are you sure you want to unblock this user?</h3>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary modalCloseButton" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-primary deleteModalButton" id="<?=$userData[0]->userId ?>" onclick="unblockUser(this.id)">Unblock</button>
+        </div>
+    </div>
+    </div>
+</div>
 <!-- Page content -->
 <div class="container-fluid mt--7 wrap" id="mainBody">
     <div class="row">
@@ -107,7 +147,6 @@
                     <div class="col-lg-8">
                         <div class="card-body pt-0 pt-md-4">
                             <div class="text-center">
-
                                 <!-- <div class="h5 font-weight-300">
                                     <i class="ni ni-pin-3 mr-2"></i>Bucharest, Romania
                                 </div> -->
@@ -120,7 +159,22 @@
                                 <div class="h5 mt-1">
                                     <i class="ni ni-mobile-button mr-2"></i> <?= $userData[0]->contactNumber ?>
                                 </div>
-
+                            </div>
+                            <div class="row justify-content-center pt-5">
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deleteModal">
+                                    Delete This User
+                                </button>
+                                <?php
+                                if($userData[0]->status == 1){
+                                    echo '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#blockModal">
+                                        Block This User
+                                    </button>';
+                                } else{
+                                    echo '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#unblockModal">
+                                        Unblock This User
+                                    </button>';
+                                }
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -255,11 +309,6 @@
 
             </div>
         </div>
-    </div>
-    <div class="row justify-content-center pt-5">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deleteModal">
-            Delete This User
-        </button>
     </div>
 
     <!-- Full Height Modal Right -->
@@ -512,7 +561,31 @@
                     'userId': id
                 },
                 success: function(data) {
-                    window.location.replace('<?=SITE_URL?>Admin/Admin/userListingView');
+                    window.location.href = "<?=SITE_URL?>Admin/Admin/userListingView";
+                }
+            });
+        }
+        function blockUserFromUserDetail(id){
+            $.ajax({
+                type: "post",
+                url: '<?=SITE_URL?>Admin/Admin/blockUserFromUserDetail',
+                data: {
+                    'userId': id
+                },
+                success: function(data) {
+                    window.location.reload();
+                }
+            });
+        }
+        function unblockUser(id){
+            $.ajax({
+                type: "post",
+                url: '<?=SITE_URL?>Admin/Admin/unblockUser',
+                data: {
+                    'userId': id
+                },
+                success: function(data) {
+                    window.location.reload();
                 }
             });
         }
