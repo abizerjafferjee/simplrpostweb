@@ -184,7 +184,7 @@ class User extends CI_Controller
                             $this->africastalking->sendMessage($arrRequestData['contactNumber'], $welcomeMessage);
                             $this->africastalking->sendMessage($arrRequestData['contactNumber'], $message);
                         } catch(Exception $e){
-                            print("Africas talking Error ");
+                            // print("Africas talking Error ");
                         } finally{
                             if ($result) {
                                 $arrReturn = array(
@@ -304,7 +304,7 @@ class User extends CI_Controller
                             try{
                                 $this->africastalking->sendMessage($arrRequestData['contactNumber'], $message);
                             } catch(Exception $e){
-                                print("Africas talking Error ");
+                                // print("Africas talking Error ");
                             } finally{
                                 $arrReturn = array(
                                     code => 1,
@@ -517,7 +517,7 @@ class User extends CI_Controller
                 try{
                     $this->africastalking->sendMessage($arrRequestData['contactNumber'], $message);
                 } catch(Exception $e){
-                    print("Africas talking Error ");
+                    // print("Africas talking Error ");
                 } finally{
                     if ($arrRequestData['function'] == 'insert') {
                         $save = $this->User_model->saveOtp($arrOtpData);
