@@ -170,10 +170,12 @@ class Admin_model extends CI_Model
         $this->db->where('publicAddresses.addressId', $addressId);
         $query['address'] = $this->db->get()->result();
 
+        $sql = "select weekDays.dayId,weekDays.dayName,coalesce(workingDays.isOpen, 0) as isOpen,workingDays.openTime,workingDays.closeTime from weekDays left join workingDays on weekDays.dayId = workingDays.dayId and businessId = $addressId order by weekDays.dayId";
+        $query['weekDays'] = $this->db->query($sql)->result();
 
-        $this->db->select("dayId, isOpen, openTime, closeTime,(SELECT dayName FROM weekDays WHERE dayId = workingDays.dayId) AS dayName FROM workingDays");
-        $this->db->where('businessId', $addressId);
-        $query['weekDays'] = $this->db->get()->result();
+        // $this->db->select("dayId, isOpen, openTime, closeTime,(SELECT dayName FROM weekDays WHERE dayId = workingDays.dayId) AS dayName FROM workingDays");
+        // $this->db->where('businessId', $addressId);
+        // $query['weekDays'] = $this->db->get()->result();
 
         return $query;
     }
