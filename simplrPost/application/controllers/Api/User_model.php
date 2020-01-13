@@ -24,11 +24,45 @@ class User_model extends CI_Model{
     function signUp($arrDatas){
 		$query = $this->db->insert('user', $arrDatas);
 		$this->db->select(array('userId'));
-		$this->db->where('emailId',$arrDatas['emailId']);
+		$this->db->where('contactNumber',$arrDatas['contactNumber']);
 		$this->db->where('password',$arrDatas['password']);
 		$query = $this->db->get('user')->row()->userId;
 		return $query;
 	}
+	public function getNumRows($table, $where=array())
+	{
+
+      if(count($where) > 0)
+      {
+          $query = $this->db->select('userId')->where($where)->get($table);
+          echo ">0"
+          echo $this->db->last_query();die();
+          $numRows = $query->num_rows();
+      }
+      else
+      {
+          $query = $this->db->select('userId')->get($table);
+          echo ">0"
+          echo $this->db->last_query();die();
+          $numRows = $query->num_rows();   
+      }
+      return $numRows;
+	}
+
+	public function getSingleRow($table, $where)
+	{
+		$this->db->from($table);
+		$this->db->where($where);
+		return $this->db->get()->row();
+	}
+
+	function signUp($arrDatas)
+	{
+		$this->db->insert('user', $arrDatas);
+		$insert_id = $this->db->insert_id();
+		return $insert_id;
+	}
+
 	public function checkVerificationStatus($token)
 	{
 		$this->db->select('isEmailIdVerified');
@@ -95,9 +129,11 @@ class User_model extends CI_Model{
 	/**************get user data with the userId*************/
 	public function getUserDetailWIthUserId($userId)
     {
+    	// echo "string"; die();
         $this->db->select('userId, name, userName, emailId, contactNumber, profilePicURL, isEmailIdVerified, isContactNumberVerified');
         $this->db->where('userId', $userId);
         $query = $this->db->get('user');
+
         return $query->row_array();
 	}
 

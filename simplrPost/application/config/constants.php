@@ -108,6 +108,7 @@ define('PASSWORD_SMTP','Rtfvvx12vii$');
 define('FROM_EMAIL','abizerjafferjee@simplrpost.com');
 define('FROM_NAME','Simplr Post');
 define('BODY_TITLE','Simplr Post');
+
 /*********** FIREBASE CLOUD MESSAGING CONSTANTS ******************/
 define('API_ACCESS_KEY','AAAA3TX5KE8:APA91bF-KLsGiVhRL4eqfu__-10LsH4Sye2QmjyrZ_5L89POuUpGKIOHkqNwLohTcWcGb9btTpdhE6l3SosOX8jOFUser1sT6paG_9SJ8cW268o_4lGbQNbTE0LtariN33TgzvsFatOz');
 define('FCM_URL','https://fcm.googleapis.com/fcm/send');

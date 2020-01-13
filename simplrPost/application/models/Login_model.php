@@ -12,6 +12,7 @@ class Login_model extends CI_Model{
         $this->db->select(array('adminId'));
 		$this->db->where('emailId',$email);
 		$this->db->where('password',$password);
+		// echo $this->db->last_query();die();
 		$query = $this->db->get('admin')->row_array();
 		return $query;
 	}

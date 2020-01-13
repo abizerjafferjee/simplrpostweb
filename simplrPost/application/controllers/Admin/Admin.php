@@ -14,6 +14,7 @@ class Admin extends CI_Controller
 
     public function index()
     {
+        // echo "string";die();
         if ($this->session->userdata('adminId') != null) {
             $adminId = $this->session->userdata('adminId');
             $arrAdminData['data'] = $this->Admin_model->getAdminData($adminId);

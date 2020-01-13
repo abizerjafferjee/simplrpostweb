@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-
+  ini_set('display_errors', 1);
+        ini_set('display_startup_errors', 1);
+        error_reporting(E_ALL);
 class User extends CI_Controller
 {
     public function __construct()
@@ -69,153 +71,500 @@ class User extends CI_Controller
     }
 
     /*******API #2******* Function for signUp *************/
+    
+    // public function signUp()
+    // {
+    //     try {
+    //         if ($this->getRequestMethod() != "POST") {
+    //             $arrReturn = array(
+    //                 code => -7,
+    //                 data => 'Please check the request method',
+    //             );
+    //             echo json_encode($arrReturn);
+    //             die;
+    //         } else {
+    //             $arrEntityBody = file_get_contents('php://input');
+    //             $arrRequestData = json_decode($arrEntityBody, true);
+
+    //             if (isset($arrRequestData['profilePicURL']) && isset($arrRequestData['name']) && isset($arrRequestData['userName']) && isset($arrRequestData['emailId']) && isset($arrRequestData['password']) && isset($arrRequestData['contactNumber'])) {
+    //                 if ($this->User_model->validateIfEmailExisted($arrRequestData['emailId'])) {
+    //                     $arrReturn = array(
+    //                         code => -3,
+    //                         data => 'Email Id already registered',
+    //                     );
+    //                     echo json_encode($arrReturn);
+    //                     die;
+    //                 } else if ($this->User_model->validateIfUserNameExisted(strtolower($arrRequestData['userName']))) {
+    //                     $arrReturn = array(
+    //                         code => -4,
+    //                         data => 'Username already registered',
+    //                     );
+    //                     echo json_encode($arrReturn);
+    //                     die;
+    //                 } else if ($this->User_model->validateIfContactNumberExisted($arrRequestData['contactNumber'])) {
+    //                     $arrReturn = array(
+    //                         code => -6,
+    //                         data => 'Contact Number already registered',
+    //                     );
+    //                     echo json_encode($arrReturn);
+    //                     die;
+    //                 } else {
+    //                     /**********************************************/
+    //                     // $temp_file_path = tempnam(sys_get_temp_dir(), 'androidtempimage');
+    //                     // file_put_contents($temp_file_path, base64_decode($arrRequestData['profilePicURL']));
+    //                     // $image_info = getimagesize($temp_file_path);
+    //                     // $_FILES['img'] = array(
+    //                     //     'name' => uniqid() . '.' . preg_replace('!\w+/!', '', $image_info['mime']),
+    //                     //     'tmp_name' => $temp_file_path,
+    //                     //     'size'  => filesize($temp_file_path),
+    //                     //     'error' => UPLOAD_ERR_OK,
+    //                     //     'type'  => $image_info['mime'],
+    //                     // );
+    //                     USER_UPLOAD_DIR;
+    //                     $img = $arrRequestData['profilePicURL'];
+    //                     $img = str_replace('data:image/png;base64,', '', $img);
+    //                     $img = str_replace(' ', '+', $img);
+    //                     $img = str_replace('data:image/jpg;base64,', '', $img);
+    //                     $img = str_replace(' ', '+', $img);
+    //                     $img = str_replace('data:image/jpeg;base64,', '', $img);
+    //                     $img = str_replace(' ', '+', $img);
+    //                     $imgdata = base64_decode($img);
+
+    //                     $getMaxId = $this->User_model->getUserMaxId();
+    //                     // print_r($getMaxId);exit;
+    //                     $maxId = $getMaxId + 1;
+    //                     $image = $maxId . '.png';
+    //                     $imgUrl = USER_UPLOAD_DIR . $image;
+    //                     $success = file_put_contents($imgUrl, $imgdata);
+    //                     //print_r($files); exit;
+    //                     $arrRequestData['profilePicURL'] = 'user/' . $image;
+    //                     $arrRequestData['password'] = md5($arrRequestData['password']);
+    //                     // $arrRequestData['referenceCode'] = 'ref code';
+    //                     $arrRequestData['referenceCode'] = substr(str_shuffle(str_repeat($x = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil(10 / strlen($x)))), 1, 10);
+    //                     $arrRequestData['emailVerificationToken'] = substr(str_shuffle(str_repeat($x = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil(10 / strlen($x)))), 1, 20);
+    //                     $arrRequestData['createDate'] = date("Y-m-d H:i:s");
+    //                     $arrRequestData['status'] = 1;
+
+    //                     $result['userId'] = $this->User_model->signUp($arrRequestData);
+    //                     /********** Save address ***********/
+    //                     $savedAddress['listName'] = 'Default List';
+    //                     $savedAddress['userId'] = $result['userId'];
+    //                     $savedAddress['createDate'] = date('Y-m-d H:i:s a');
+    //                     $savedAddress['isDefault'] = 1;
+    //                     $savedAddress['status'] = 1;
+
+    //                     $insertAddressData = $this->User_model->saveUserAddress($savedAddress);
+    //                     /*************** Email Data *******************/
+    //                     $email_data['email_title'] = 'Registration';
+    //                     $email_data['name'] = ucfirst($arrRequestData['name']);
+    //                     $email_data['email_id'] = $arrRequestData['emailId'];
+    //                     $this->sendEmail($email_data);
+
+    //                     $email_data1['email_title'] = 'Confirmation';
+    //                     $email_data1['email_id'] = $arrRequestData['emailId'];
+    //                     $email_data1['heading'] = "Hey ". ucfirst($arrRequestData['name']).',';
+    //                     $email_data1['message'] = "<div style='padding:10px 30px;'><p style='text-align: center;'>You're almost ready to start enjoying all the capabilities of Simplr Post. Simply click the button below to verify your email address</p></div><div><a href='".BASE_URL."confirm-email/".$arrRequestData['emailVerificationToken']."' style='background-color:#1bac71;color:white;padding:7px 20px;text-decoration:none;border-radius:5px'>Confirm</a></div>";
+    //                     $email_data1['footer'] = '<p style="text-align: center;">If you have any questions or concerns please direct them to <a href="mailto:abizerjafferjee@simplrpost.com?Subject=Email%20Confirmation" target="_blank" style="text-decoration:none;color:#1bac71">abizerjafferjee@simplrpost.com</a></p>';
+    //                     $this->sendOTPEmail($email_data1);
+    //                     /**********************************************/
+
+    //                     $intRandom = mt_rand(100000, 999999);
+    //                     $arrOtpData['otp'] = $intRandom;
+    //                     $arrOtpData['userId'] = $result['userId'];
+    //                     $arrOtpData['createDate'] = date("Y-m-d H:i:s");
+    //                     $arrOtpData['otpType'] = 2;
+    //                     $otpId = $this->User_model->saveOtp($arrOtpData);
+
+    //                     // $message = $arrRequestData['name'] . " your OTP is $intRandom";
+    //                     $welcomeMessage = "Hey,";
+    //                     $welcomeMessage .= "Thank you for signing up with Simplr Post. Let’s get your home or business and set up with an address that you can easily share with others.";
+    //                     $message = "Hi, you recently sent a request for a one time verification code for Simplr Post. Here it is: $intRandom";
+
+    //                     // $msg = str_replace(' ', '%20', $msg);
+    //                     // $baseURL = "https://api.budgetsms.net/sendsms/?username=" . SMS_USERNAME . "&handle=" . SMS_HANDLE . "&userid=" . SMS_USERID . "&%20msg=" . $msg . "&from=simplrPost&to=" . str_replace('+', '', $arrRequestData['contactNumber']);
+    //                     // file_get_contents($baseURL);
+    //                     $result['otpId'] = $otpId['otpId'];
+    //                     try{
+    //                         $this->africastalking->sendMessage($arrRequestData['contactNumber'], $welcomeMessage);
+    //                         $this->africastalking->sendMessage($arrRequestData['contactNumber'], $message);
+    //                     } catch(Exception $e){
+    //                         // print("Africas talking Error ");
+    //                     } finally{
+    //                         if ($result) {
+    //                             $arrReturn = array(
+    //                                 code => 1,
+    //                                 data => $result,
+    //                             );
+    //                             echo json_encode($arrReturn);
+    //                             die;
+    //                         } else {
+    //                             $arrReturn = array(
+    //                                 code => -2,
+    //                                 data => 'something went wrong',
+    //                             );
+    //                             echo json_encode($arrReturn);
+    //                             die;
+    //                         }
+    //                     }
+    //                 }
+    //             } else {
+    //                 $arrReturn = array(
+    //                     code => -6,
+    //                     data => 'All fields not send',
+    //                 );
+    //                 echo json_encode($arrReturn);
+    //                 die;
+    //             }
+    //         }
+    //     } catch (Exception $e) {
+    //         echo 'Received exception : ', $e->getMessage(), "\n";
+    //     }
+    // }
+   
+/* http://103.15.67.74/pro1/simplrpost/Api/User/signUp */
+    
     public function signUp()
     {
-        try {
-            if ($this->getRequestMethod() != "POST") {
+
+        try { 
+            if ($this->getRequestMethod() != "POST") { 
                 $arrReturn = array(
                     code => -7,
                     data => 'Please check the request method',
                 );
                 echo json_encode($arrReturn);
                 die;
-            } else {
-                $arrEntityBody = file_get_contents('php://input');
-                $arrRequestData = json_decode($arrEntityBody, true);
-
-                if (isset($arrRequestData['profilePicURL']) && isset($arrRequestData['name']) && isset($arrRequestData['userName']) && isset($arrRequestData['emailId']) && isset($arrRequestData['password']) && isset($arrRequestData['contactNumber'])) {
-                    if ($this->User_model->validateIfEmailExisted($arrRequestData['emailId'])) {
+            } else {  
+                $arrRequestData['contactNumber'] = $this->input->post('contactNumber');
+               if ($this->User_model->validateIfContactNumberExisted($arrRequestData['contactNumber'])) {
                         $arrReturn = array(
-                            code => -3,
-                            data => 'Email Id already registered',
-                        );
-                        echo json_encode($arrReturn);
-                        die;
-                    } else if ($this->User_model->validateIfUserNameExisted(strtolower($arrRequestData['userName']))) {
-                        $arrReturn = array(
-                            code => -4,
-                            data => 'Username already registered',
-                        );
-                        echo json_encode($arrReturn);
-                        die;
-                    } else if ($this->User_model->validateIfContactNumberExisted($arrRequestData['contactNumber'])) {
-                        $arrReturn = array(
-                            code => -6,
+                            code => '-6.0',
                             data => 'Contact Number already registered',
                         );
                         echo json_encode($arrReturn);
                         die;
-                    } else {
-                        /**********************************************/
-                        // $temp_file_path = tempnam(sys_get_temp_dir(), 'androidtempimage');
-                        // file_put_contents($temp_file_path, base64_decode($arrRequestData['profilePicURL']));
-                        // $image_info = getimagesize($temp_file_path);
-                        // $_FILES['img'] = array(
-                        //     'name' => uniqid() . '.' . preg_replace('!\w+/!', '', $image_info['mime']),
-                        //     'tmp_name' => $temp_file_path,
-                        //     'size'  => filesize($temp_file_path),
-                        //     'error' => UPLOAD_ERR_OK,
-                        //     'type'  => $image_info['mime'],
-                        // );
-                        USER_UPLOAD_DIR;
-                        $img = $arrRequestData['profilePicURL'];
-                        $img = str_replace('data:image/png;base64,', '', $img);
-                        $img = str_replace(' ', '+', $img);
-                        $img = str_replace('data:image/jpg;base64,', '', $img);
-                        $img = str_replace(' ', '+', $img);
-                        $img = str_replace('data:image/jpeg;base64,', '', $img);
-                        $img = str_replace(' ', '+', $img);
-                        $imgdata = base64_decode($img);
+                    } else { 
 
-                        $getMaxId = $this->User_model->getUserMaxId();
-                        // print_r($getMaxId);exit;
-                        $maxId = $getMaxId + 1;
-                        $image = $maxId . '.png';
-                        $imgUrl = USER_UPLOAD_DIR . $image;
-                        $success = file_put_contents($imgUrl, $imgdata);
-                        //print_r($files); exit;
-                        $arrRequestData['profilePicURL'] = 'user/' . $image;
-                        $arrRequestData['password'] = md5($arrRequestData['password']);
-                        // $arrRequestData['referenceCode'] = 'ref code';
-                        $arrRequestData['referenceCode'] = substr(str_shuffle(str_repeat($x = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil(10 / strlen($x)))), 1, 10);
-                        $arrRequestData['emailVerificationToken'] = substr(str_shuffle(str_repeat($x = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil(10 / strlen($x)))), 1, 20);
+                        $arrRequestData['password'] = md5($this->input->post('password'));
                         $arrRequestData['createDate'] = date("Y-m-d H:i:s");
-                        $arrRequestData['status'] = 1;
+                        $arrRequestData['status'] = 0;
+
+
                         $result['userId'] = $this->User_model->signUp($arrRequestData);
-                        /********** Save address ***********/
-                        $savedAddress['listName'] = 'Default List';
-                        $savedAddress['userId'] = $result['userId'];
-                        $savedAddress['createDate'] = date('Y-m-d H:i:s a');
-                        $savedAddress['isDefault'] = 1;
-                        $savedAddress['status'] = 1;
+                        $result['contactNumber'] = $arrRequestData['contactNumber'];
+                        $contactNumber = $result['contactNumber'];
+                        // print_r($result);die();
+                        $sendOtpResponse = $this->send_otp($contactNumber,2);
+                        if($sendOtpResponse){
+                             $result['otpData'] = $sendOtpResponse;
+                         }else{
+                            $result['otpData']=[];
+                         }
+                       
 
-                        $insertAddressData = $this->User_model->saveUserAddress($savedAddress);
-                        /*************** Email Data *******************/
-                        $email_data['email_title'] = 'Registration';
-                        $email_data['name'] = ucfirst($arrRequestData['name']);
-                        $email_data['email_id'] = $arrRequestData['emailId'];
-                        $this->sendEmail($email_data);
+                        if($sendOtpResponse['status'] == 0 && $sendOtpResponse['message'] == 'Invalid Mobile Number')
+                        {
+                            $this->User_model->update_data('user', array('status'=>'-1'), array('userId'=>$result['userId']));
+                            $arrReturn = array(
+                                code => '0',
+                                data => 'Invalid Mobile Number',
+                            );
+                        }else{
+                            $arrReturn = array(
+                                code => '1.0',
+                                data => 'Data saved ',
+                                'response' => $result
+                            );
 
-                        $email_data1['email_title'] = 'Confirmation';
-                        $email_data1['email_id'] = $arrRequestData['emailId'];
-                        $email_data1['heading'] = "Hey ". ucfirst($arrRequestData['name']).',';
-                        $email_data1['message'] = "<div style='padding:10px 30px;'><p style='text-align: center;'>You're almost ready to start enjoying all the capabilities of Simplr Post. Simply click the button below to verify your email address</p></div><div><a href='".BASE_URL."confirm-email/".$arrRequestData['emailVerificationToken']."' style='background-color:#1bac71;color:white;padding:7px 20px;text-decoration:none;border-radius:5px'>Confirm</a></div>";
-                        $email_data1['footer'] = '<p style="text-align: center;">If you have any questions or concerns please direct them to <a href="mailto:abizerjafferjee@simplrpost.com?Subject=Email%20Confirmation" target="_blank" style="text-decoration:none;color:#1bac71">abizerjafferjee@simplrpost.com</a></p>';
-                        $this->sendOTPEmail($email_data1);
-                        /**********************************************/
-
-                        $intRandom = mt_rand(100000, 999999);
-                        $arrOtpData['otp'] = $intRandom;
-                        $arrOtpData['userId'] = $result['userId'];
-                        $arrOtpData['createDate'] = date("Y-m-d H:i:s");
-                        $arrOtpData['otpType'] = 2;
-                        $otpId = $this->User_model->saveOtp($arrOtpData);
-
-                        // $message = $arrRequestData['name'] . " your OTP is $intRandom";
-                        $welcomeMessage = "Hey,";
-                        $welcomeMessage .= "Thank you for signing up with Simplr Post. Let’s get your home or business and set up with an address that you can easily share with others.";
-                        $message = "Hi, you recently sent a request for a one time verification code for Simplr Post. Here it is: $intRandom";
-
-                        // $msg = str_replace(' ', '%20', $msg);
-                        // $baseURL = "https://api.budgetsms.net/sendsms/?username=" . SMS_USERNAME . "&handle=" . SMS_HANDLE . "&userid=" . SMS_USERID . "&%20msg=" . $msg . "&from=simplrPost&to=" . str_replace('+', '', $arrRequestData['contactNumber']);
-                        // file_get_contents($baseURL);
-                        $result['otpId'] = $otpId['otpId'];
-                        try{
-                            $this->africastalking->sendMessage($arrRequestData['contactNumber'], $welcomeMessage);
-                            $this->africastalking->sendMessage($arrRequestData['contactNumber'], $message);
-                        } catch(Exception $e){
-                            // print("Africas talking Error ");
-                        } finally{
-                            if ($result) {
-                                $arrReturn = array(
-                                    code => 1,
-                                    data => $result,
-                                );
-                                echo json_encode($arrReturn);
-                                die;
-                            } else {
-                                $arrReturn = array(
-                                    code => -2,
-                                    data => 'something went wrong',
-                                );
-                                echo json_encode($arrReturn);
-                                die;
-                            }
                         }
+
+                        echo json_encode($arrReturn);
+                        die;
                     }
-                } else {
-                    $arrReturn = array(
-                        code => -6,
-                        data => 'All fields not send',
-                    );
-                    echo json_encode($arrReturn);
-                    die;
                 }
-            }
         } catch (Exception $e) {
             echo 'Received exception : ', $e->getMessage(), "\n";
         }
     }
+
+    public function resend_otp()
+    {
+        $contactNumber = $this->input->post('contactNumber');
+        $type = $this->input->post('type');
+        $where = array('contactNumber'=>$contactNumber);
+        $a = $this->User_model->getNumRows('user',$where);
+        if($a>0){
+            $result['otpData'] = $this->send_otp($contactNumber,$type);
+
+            $arrReturn = array(
+                code => 1,
+                data => 'Data saved ',
+                'response' => $result,
+            );
+            echo json_encode($arrReturn);
+            die;
+        }else{
+            $arrReturn = array(
+                code => 0,
+                data => 'Contact number not registerd ',
+            );
+            echo json_encode($arrReturn);
+            die;
+        }
+        
+    }
+
+
+
+    public function send_otp($contactNumber = '',$type)
+    {
+        // ini_set('display_errors', 1);
+        // ini_set('display_startup_errors', 1);
+        // error_reporting(E_ALL);
+
+        $contactNumber = $this->input->post('contactNumber');
+        if (!empty($contactNumber)){
+            $result = $this->User_model->getSingleRow('user',['contactNumber'=>$contactNumber]);
+            $otp = mt_rand(1000,9999);
+
+            require './vendor/autoload.php';
+
+
+            // Live
+            $sid = "AC6dfbf0d522d18c2120b0eb388b6b9de8"; // Your Account SID from www.twilio.com/console
+            $token = "175aa4fdb459677ffa1008c36999cd02"; // Your Auth Token from www.twilio.com/console
+
+            // Test
+
+            // $sid = "AC6965e622db78f6db653d5a430f5c018c"; // Your Account SID from www.twilio.com/console
+            // $token = "af9ac7f41d67fa2db57bd064abf48995"; // Your Auth Token from www.twilio.com/console
+
+            $client = new Twilio\Rest\Client($sid, $token);
+
+            try {
+                //check for "example" in mail address
+               $message = $client->messages->create(
+                  $contactNumber, // Text this number
+                  array(
+                    'from' => '+13239401533', // From a valid Twilio number
+                    'body' => $otp
+                  )
+                );
+
+                $arrOtpData['userId'] = $result->userId;
+                $arrOtpData['otp'] = $otp;
+                $arrOtpData['createDate'] = date("Y-m-d H:i:s");
+                $arrOtpData['otpType'] = $type;
+
+                  $where =  array('userId'=>$result->userId,'otpType'=>$type);
+                  $existOtp = $this->db->where($where)->get('otp')->row_array();
+                if ($existOtp) {
+                    $arrOtpData['isUsed'] =0;
+                    $this->User_model->update_data('otp', $arrOtpData, array('userId'=>$result->userId,'otpType'=>$type));
+                    $otpId =  $this->db->where(array('userId'=>$result->userId,'otpType'=>$type))->get('otp')->row_array();;
+                }else{
+                    $otpId = $this->User_model->saveOtp($arrOtpData);
+                }
+
+                // $arrOtpData['userId'] = $result->userId;
+                // $arrOtpData['otp'] = $otp;
+                // $arrOtpData['createDate'] = date("Y-m-d H:i:s");
+                // $arrOtpData['otpType'] = $type;
+                // $otpId = $this->User_model->saveOtp($arrOtpData);
+                
+                if ($otpId){
+                    $otpId['type'] = $arrOtpData['otpType'];
+                    // echo "working";
+                    $res['status'] = 1;
+                    $res['message'] = 'OTP send successfully';
+                    $res['data'] = $otpId;
+                    // return $res;
+                }else{
+                    // echo "not working";
+                   $res['status'] = 0;
+                    $res['message'] = 'OTP sending failed !'; 
+                    // return $res;
+                }
+                // if(!is_array($message) && !is_object($message))
+                // {
+                //     $res['status'] = 0;
+                //     $res['message'] = 'Invalid Mobile Number';
+                // }
+              }
+              catch(Exception $e) {
+               // print_r($e);
+                 $res['status'] = 0;
+                 $res['message'] = 'Invalid Mobile Number';
+                //re-throw exception
+                // throw new customException($email);
+              }
+
+            
+
+          
+       }else{
+        // echo "contact no. empty";
+        $res['status'] = 0;
+        $res['message'] = 'Contact number can not be empty';
+        // return $res;
+       }
+       // exit(json_encode($res));
+       return $res;
+
+    }
+
+
+    // public function send_otp($contactNumber)
+    // {
+    //  $contactNumber = $this->input->post('contactNumber');   
+    //     if (!empty($contactNumber)) {
+    //           echo "working";
+    //       }  else{
+    //         echo "string";die();
+    //       }
+    // }
+
+
+    //copy of Login->otpValidation
+    public function verify_otp()
+    {
+        $arrRequestData['otpId'] = $this->input->post('otpId');
+        $arrRequestData['otp'] = $this->input->post('otp');
+        $arrRequestData['type'] = $this->input->post('type');
+        if (isset($arrRequestData['otpId']) && isset($arrRequestData['otp'])) {
+            $arrResult = $this->User_model->validateOtp($arrRequestData);
+      
+            $user = $this->db->where('otpId',$arrRequestData['otpId'])->get('otp')->row_array();
+            $userId = $user['userId'];
+            if ($arrResult) {
+                $this->User_model->update_data('user', array('status'=>'1'), array('userId'=>$userId));
+                if ($arrResult['isUsed'] == 0) {
+                    $this->User_model->expireOtp($arrRequestData['otpId']);
+                    if ($arrResult['otpType'] == 0) { 
+                        $arrReturn = array(
+                            code => 1,
+                            data => $arrResult,
+                        );
+                        echo json_encode($arrReturn);
+                        die;
+                    } else {
+                        // $this->verifyContactNumber($arrRequestData['otpId']);
+                        $arrReturn = array(
+                            code => 1,
+                            data => 'Success',
+                            'response' =>$arrResult,
+                        );
+                        echo json_encode($arrReturn);
+                        die;
+                    }
+                } else {
+                    $arrReturn = array(
+                        code => '-4.0',
+                        data => 'This otp has expired',
+                    );
+                    echo json_encode($arrReturn);
+                    die;
+                }
+            } else {
+                $arrReturn = array(
+                    code => '-3.0',
+                    data => 'OTP did not matched',
+                );
+                echo json_encode($arrReturn);
+                die;
+            }
+        }else {
+            $arrReturn = array(
+                code => '-6.0',
+                data => 'All fields not send',
+            );
+            echo json_encode($arrReturn);
+            die;
+        }
+
+    }
+
+
+    public function verify_email_otp()
+    {
+        $arrRequestData['otpId'] = $this->input->post('otpId');
+        $arrRequestData['otp'] = $this->input->post('otp');
+        $arrRequestData['type'] = $this->input->post('type');
+        if (isset($arrRequestData['otpId']) && isset($arrRequestData['otp'])) {
+            $arrResult = $this->User_model->validateOtp($arrRequestData);
+            
+            $userId = $arrResult['userId'];
+
+            if ($arrResult) {
+                if ($arrResult['isUsed'] == 0) {
+                    $this->User_model->expireOtp($arrRequestData['otpId']);
+                    if ($arrResult['otpType'] == 0) { 
+                        $arrReturn = array(
+                            code => 1,
+                            data => $arrResult,
+                        );
+                        echo json_encode($arrReturn);
+                        die;
+                    } else {
+                        $data = array('isEmailIdVerified' => 1);
+                        $where = array('userId' => $userId);
+                        $this->User_model->update_data('user', $data, $where);
+
+                        $whereIs = array('userId'=>$userId);
+                        $userData = $this->User_model->getSingleRow('user',$whereIs);
+                        $name = $userData->name;
+                        $emailId = $userData->emailId;
+
+                        $html = "<p style='font-size: 18px;color:#000;margin-bottom:10px;'>Hello ".$name.",</p>
+                        <p style='color : #000;font-size: 14px;'>Thankyou, Your email is verified.</p> <br>";
+
+                        $email_data['message'] = $html;
+                        $email_data['heading'] = '';
+                        $email_data['footer'] = '';
+
+                        $html = $this->load->view('email/otpEmailTemplate',$email_data,TRUE);
+
+                        sendEmailTemplate($emailId, 'Email confirmed', $html);
+
+
+                        $arrReturn = array(
+                            code => 1,
+                            data => 'Success',
+                            'response' =>$arrResult,
+                        );
+                        echo json_encode($arrReturn);
+                        die;
+                    }
+                } else {
+                    $arrReturn = array(
+                        code => '-4.0',
+                        data => 'This session has expired',
+                    );
+                    echo json_encode($arrReturn);
+                    die;
+                }
+            } else {
+                $arrReturn = array(
+                    code => '-3.0',
+                    data => 'OTP did not matched',
+                );
+                echo json_encode($arrReturn);
+                die;
+            }
+        }else {
+            $arrReturn = array(
+                code => '-6.0',
+                data => 'All fields not send',
+            );
+            echo json_encode($arrReturn);
+            die;
+        }
+
+    }
+
+
+
+
     public function resendVerificationEmail()
     {
         try {
@@ -351,12 +700,16 @@ class User extends CI_Controller
     public function verifyContactNumber($otpId)
     {
         $userId = $this->User_model->getUserIdWithOtpId($otpId);
+
         $contactNumberVerified = $this->User_model->verifyContactNumber($userId['userId']);
+        // print_r($contactNumberVerified);
+
         if ($contactNumberVerified > 0) {
             $arrReturn = array(
                 code => 1,
                 data => 'Success',
             );
+        // print_r($arrReturn);
             echo json_encode($arrReturn);
             die;
         }
@@ -366,62 +719,114 @@ class User extends CI_Controller
     {
         return (preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $email));
     }
+    // public function signIn()
+    // {
+    //     try {
+    //         if ($this->getRequestMethod() != "POST") {
+    //             $arrReturn = array(
+    //                 code => -7,
+    //                 data => 'Please check the request method',
+    //             );
+    //             echo json_encode($arrReturn);
+    //             die;
+    //         } else {
+    //             $arrEntityBody = file_get_contents('php://input');
+    //             $arrRequestData = json_decode($arrEntityBody, true);
+    //             $email = $arrRequestData['emailUserName'];
+
+    //             if (isset($arrRequestData['emailUserName']) && isset($arrRequestData['password'])) {
+    //                 if ($this->validateEmailUserName($arrRequestData['emailUserName'])) {
+    //                     if ($this->User_model->validateIfEmailExisted($arrRequestData['emailUserName'])) {
+    //                         // print_r(md5($arrRequestData['password']));exit;
+    //                         $arrResult = $this->User_model->signInWithEmail($arrRequestData['emailUserName'], md5($arrRequestData['password']));
+    //                         $this->logInAfterValidateEmailUserName($arrResult);
+    //                     } else {
+    //                         $arrReturn = array(
+    //                             code => -4,
+    //                             data => 'This account does not exist',
+    //                         );
+    //                         echo json_encode($arrReturn);
+    //                         die;
+    //                     }
+    //                 } else {
+    //                     if ($this->User_model->validateIfUserNameExisted($arrRequestData['emailUserName'])) {
+    //                         // print_r(md5($arrRequestData['password']));exit;
+    //                         $arrResult = $this->User_model->signInWithUserName($arrRequestData['emailUserName'], md5($arrRequestData['password']));
+    //                         $this->logInAfterValidateEmailUserName($arrResult);
+    //                     } else {
+    //                         $arrReturn = array(
+    //                             code => -4,
+    //                             data => 'This account does not exist',
+    //                         );
+    //                         echo json_encode($arrReturn);
+    //                         die;
+    //                     }
+    //                 }
+    //             } else {
+    //                 $arrReturn = array(
+    //                     code => -6,
+    //                     data => 'All fields not send',
+    //                 );
+    //                 echo json_encode($arrReturn);
+    //                 die;
+    //             }
+    //         }
+    //     } catch (Exception $e) {
+    //         echo 'Received exception : ', $e->getMessage(), "\n";
+    //     }
+    // }
+
+/* http://103.15.67.74/pro1/simplrpost/Api/User/signIn */
+
     public function signIn()
     {
-        try {
-            if ($this->getRequestMethod() != "POST") {
-                $arrReturn = array(
-                    code => -7,
-                    data => 'Please check the request method',
-                );
-                echo json_encode($arrReturn);
-                die;
-            } else {
-                $arrEntityBody = file_get_contents('php://input');
-                $arrRequestData = json_decode($arrEntityBody, true);
-                $email = $arrRequestData['emailUserName'];
+       $contactNumber = $this->input->post('contactNumber');
+       $password = md5($this->input->post('password'));
+       
+       $whereIs = array('contactNumber'=>$contactNumber);
+       $checkVerifyStatus = $user = $this->db->where('contactNumber',$contactNumber)->get('user')->row_array();
 
-                if (isset($arrRequestData['emailUserName']) && isset($arrRequestData['password'])) {
-                    if ($this->validateEmailUserName($arrRequestData['emailUserName'])) {
-                        if ($this->User_model->validateIfEmailExisted($arrRequestData['emailUserName'])) {
-                            // print_r(md5($arrRequestData['password']));exit;
-                            $arrResult = $this->User_model->signInWithEmail($arrRequestData['emailUserName'], md5($arrRequestData['password']));
-                            $this->logInAfterValidateEmailUserName($arrResult);
-                        } else {
-                            $arrReturn = array(
-                                code => -4,
-                                data => 'This account does not exist',
-                            );
-                            echo json_encode($arrReturn);
-                            die;
-                        }
-                    } else {
-                        if ($this->User_model->validateIfUserNameExisted($arrRequestData['emailUserName'])) {
-                            // print_r(md5($arrRequestData['password']));exit;
-                            $arrResult = $this->User_model->signInWithUserName($arrRequestData['emailUserName'], md5($arrRequestData['password']));
-                            $this->logInAfterValidateEmailUserName($arrResult);
-                        } else {
-                            $arrReturn = array(
-                                code => -4,
-                                data => 'This account does not exist',
-                            );
-                            echo json_encode($arrReturn);
-                            die;
-                        }
-                    }
-                } else {
-                    $arrReturn = array(
-                        code => -6,
-                        data => 'All fields not send',
-                    );
-                    echo json_encode($arrReturn);
-                    die;
-                }
-            }
-        } catch (Exception $e) {
-            echo 'Received exception : ', $e->getMessage(), "\n";
+        if($checkVerifyStatus && $checkVerifyStatus['status']==0){
+            $res['status'] = 0;
+            $res['message'] = 'Please verify account first.';
+             exit(json_encode($res));
         }
-    }
+        
+       $validateUser = $this->User_model->getNumRows('user',$whereIs);
+       if ($validateUser > 0) {
+          if($this->input->post('login_type')=='otp'){
+          $otpResponse = $this->send_otp($contactNumber,4);
+             exit(json_encode($otpResponse));
+             die;
+        }else{
+        $where = array('contactNumber'=>$contactNumber,'password'=>$password);
+        $resp = $this->User_model->getNumRows('user',$where);
+       
+           if($resp > 0){
+                $userData = $this->User_model->getSingleRow('user',['contactNumber'=>$contactNumber]);
+                $res['status'] = 1;
+                $res['message'] = 'Result found succesfully ';
+                $res['data'] = $userData; 
+           }else{
+                $res['status'] = 0;
+                $res['message'] = 'Invalid credentials !';
+           }
+       }
+        }else
+        {
+            $res['status'] = 0;
+            $res['message'] = 'Mobile number is not registered !';
+        }
+           exit(json_encode($res));
+        }
+
+
+    // public function signInWithOtp()
+    // {
+    //     $contactNumber = $this->input->post('contactNumber');
+    //     $result['otpData'] = $this->send_otp($contactNumber);
+    // }
+
 
     public function logInAfterValidateEmailUserName($arrUserDeatil)
     {
@@ -463,43 +868,198 @@ class User extends CI_Controller
     }
 
     /******API #4********* function for forgot password ***************/
-    public function forgotPassword()
+    public function forgot_password_email()
     {
-        try {
-            if ($this->getRequestMethod() != "POST") {
-                $arrReturn = array(
-                    code => -7,
-                    data => 'Please check the request method',
-                );
-                echo json_encode($arrReturn);
-                die;
-            } else {
-                $arrEntityBody = file_get_contents('php://input');
-                $arrRequestData = json_decode($arrEntityBody, true);
-                $arrRequestData['function'] = 'insert';
 
-                $intRandom = mt_rand(100000, 999999);
 
-                if (($arrRequestData['isEmailUsed'] == 1)) {
-                    $arrResult = $this->User_model->getValuesWithEmailId($arrRequestData['emailId']);
-                    $this->processAfterCheckIsUsedEmailUsed($arrResult, $arrRequestData, $intRandom);
-                } else if (($arrRequestData['isEmailUsed'] == 0)) {
-                    $arrResult = $this->User_model->getValuesWithContactNumber($arrRequestData['contactNumber']);
-                    $this->sendOTPToNumber($arrResult, $arrRequestData, $intRandom);
 
-                } else {
-                    $arrReturn = array(
-                        code => -6,
-                        data => 'All fields not send',
-                    );
-                    echo json_encode($arrReturn);
-                    die;
-                }
-            }
-        } catch (Exception $e) {
-            echo 'Received exception : ', $e->getMessage(), "\n";
+      
+
+        $emailId  = $this->input->post('emailId');
+        $where = array('emailId' => $emailId);
+
+        $isEmailNum = $this->User_model->getSingleRow('user',$where);
+        // print_r($isEmailNum->$isEmailNum);die();
+        if (!empty($isEmailNum)) {
+
+            $otp = mt_rand(1000,9999);
+            $html = "<p style='font-size: 18px;color:#000;margin-bottom:10px;'>Hello ".$isEmailNum->name.",</p>
+            <p style='color : #000;font-size: 14px;'>We have received request for reset password, Use this OTP to reset your password.</p> <br>
+
+            <center style='color : #2dce89;font-size: 24px;'><h3><b>OTP</b> : ".$otp."</h3> </center>";
+
+            $email_data['message'] = $html;
+            $email_data['heading'] = '';
+            $email_data['footer'] = '';
+
+            $html = $this->load->view('email/otpEmailTemplate',$email_data,TRUE);
+
+            sendEmailTemplate($emailId, 'Forget Password', $html);
+
+            $insertData['otp'] = $otp;
+            $insertData['otpType'] = 1;
+            $insertData['userId'] = $isEmailNum->userId;
+            $insertData['createDate'] = date('Y-m-d h:i:s');
+            $insertData['isUsed'] = 0;
+            
+            $insert_id = $this->User_model->saveOtp($insertData);
+
+
+
+            $arrReturn = array(
+                code => 1,
+                data => 'Success',
+                'response' => ['mobile'=>$isEmailNum->contactNumber, 'userid'=>$isEmailNum->userId, 'email'=>$emailId, 'otpid'=>$insert_id['otpId'],'type'=>1]
+            );
+            echo json_encode($arrReturn);
+            die;
+        }else{
+            // echo "email not found !";
+            $arrReturn = array(
+                code => 0,
+                data => 'Failed',
+            );
+            echo json_encode($arrReturn);
+            die;
         }
+
     }
+
+
+
+    public function forgot_password_phone()
+    {
+
+        $contactNumber  = $this->input->post('contactNumber');
+        $where = array('contactNumber' => $contactNumber);
+        $isPhoneNum = $this->User_model->getNumRows('user',$where);
+        if ($isPhoneNum > 0) {
+
+            $result['data'] = $this->send_otp($contactNumber,1);
+            $whereIs = array('contactNumber' => $contactNumber);
+            $userData= $this->User_model->getSingleRow('user',$whereIs);
+            $result['userId'] = $userData->userId; 
+            
+            $res['status'] = 1;
+            $res['message'] = 'Result found succesfully ';
+            $res['data'] = $result; 
+        }else{
+            // echo "email not found !";
+           $res['status'] = 0;
+           $res['message'] = 'Mobile number Not registered, please register first!';
+        }
+        exit(json_encode($res));
+
+    }
+
+
+    public function get_security_question()
+    {
+        $userId  = $this->input->post('userId');
+        $where = array('userId' => $userId);
+        $userData= $this->User_model->getSingleRow('user',$where);
+        $result['security_question'] =  $userData->security_question;
+        if ($userData) {
+            $res['status'] = 1;
+            $res['message'] = 'Result found succesfully ';
+            $res['data'] = $result; 
+        }else{
+           $res['status'] = 0;
+           $res['message'] = 'Failed !';
+        }
+        exit(json_encode($res));
+
+    }
+
+
+    public function verify_security_answer()
+    {
+        $userId  = $this->input->post('userId');
+        $security_answer  = $this->input->post('security_answer');
+
+        $where = array('userId' => $userId, 'security_answer'=>$security_answer);
+        $isAnsNum = $this->User_model->getNumRows('user',$where);
+        
+        $whereIs = array('userId' => $userId);
+        $userData= $this->User_model->getSingleRow('user',$whereIs);
+        $ans = $userData->security_answer;
+
+        if ($isAnsNum) {
+                $res['status'] = 1;
+                $res['message'] = 'Matched';        
+        }elseif (empty($ans)) {
+           $res['status'] = 0;
+           $res['message'] = 'Unavailable!';
+        }
+        else{
+           $res['status'] = 2;
+           $res['message'] = 'Not matched !';
+        }
+       
+        
+        exit(json_encode($res));
+    }
+
+    public function change_password()
+    {
+        $userId = $this->input->post('userId');
+        $password = md5($this->input->post('password'));
+
+        $data['password'] = $password;
+        $whereIs = array('userId'=>$userId);
+        $resp = $this->User_model->update_data('user',$data, $whereIs);
+        if ($resp) {
+            $res['status'] = 1;
+            $res['message'] = 'Password changed succesfully';
+        }else{
+            $res['status'] = 0;
+            $res['message'] = 'Failed !';
+        }
+        
+        exit(json_encode($res));
+    }
+
+
+
+
+
+    // public function forgotPassword()
+    // {
+    //     try {
+    //         if ($this->getRequestMethod() != "POST") {
+    //             $arrReturn = array(
+    //                 code => -7,
+    //                 data => 'Please check the request method',
+    //             );
+    //             echo json_encode($arrReturn);
+    //             die;
+    //         } else {
+    //             $arrEntityBody = file_get_contents('php://input');
+    //             $arrRequestData = json_decode($arrEntityBody, true);
+    //             $arrRequestData['function'] = 'insert';
+
+    //             $intRandom = mt_rand(100000, 999999);
+
+    //             if (($arrRequestData['isEmailUsed'] == 1)) {
+    //                 $arrResult = $this->User_model->getValuesWithEmailId($arrRequestData['emailId']);
+    //                 $this->processAfterCheckIsUsedEmailUsed($arrResult, $arrRequestData, $intRandom);
+    //             } else if (($arrRequestData['isEmailUsed'] == 0)) {
+    //                 $arrResult = $this->User_model->getValuesWithContactNumber($arrRequestData['contactNumber']);
+    //                 $this->sendOTPToNumber($arrResult, $arrRequestData, $intRandom);
+
+    //             } else {
+    //                 $arrReturn = array(
+    //                     code => -6,
+    //                     data => 'All fields not send',
+    //                 );
+    //                 echo json_encode($arrReturn);
+    //                 die;
+    //             }
+    //         }
+    //     } catch (Exception $e) {
+    //         echo 'Received exception : ', $e->getMessage(), "\n";
+    //     }
+    // }
 
     public function sendOTPToNumber($arrResult, $arrRequestData, $intRandom)
     {
@@ -844,12 +1404,19 @@ class User extends CI_Controller
             } else {
                 $arrEntityBody = file_get_contents('php://input');
                 $arrRequestData = json_decode($arrEntityBody, true);
+                // $arrRequestData = $_POST;
 
                 if (isset($arrRequestData['userId'])) {
                     $arrResult = $this->checkUserStatus($arrRequestData['userId']);
                     if ($arrResult[code] == 1) {
                         $arrResult = $this->User_model->getUserDetailWIthUserId($arrRequestData['userId']);
+                       
                         if ($arrResult) {
+
+                            $query = $this->db->from('user');
+                            $query->where(['userId'=>$arrResult['userId']]);
+                            $user = $query->get()->result_array();
+                            $arrResult['profilePicURL'] = (!empty($arrResult['profilePicURL']))?$arrResult['profilePicURL']:'user/user_default_image.jpeg';
                             $arrReturn = array(
                                 code => 1,
                                 data => $arrResult,
@@ -876,8 +1443,57 @@ class User extends CI_Controller
     }
 
     /********API #10********* this functon is for editProfile *********************/
+    public function resend_email_otp()
+    {
+        $userId = $this->input->post('userId');
+        $where = array('userId' => $userId);
+        $userInfo = $this->User_model->getSingleRow('user',$where);
+
+        // print_r($userInfo->emailId);die();
+        $otp = mt_rand(1000,9999);
+        $html = "<p style='font-size: 18px;color:#000;margin-bottom:10px;'>Hello ".$userInfo->name.",</p>
+        <p style='color : #000;font-size: 14px;'>We have received request for email verification, Use this OTP to verify your account.</p> <br>
+        <center style='color : #2dce89;font-size: 24px;'><h3><b>OTP</b> : ".$otp."</h3> </center>";
+
+        $email_data['message'] = $html;
+        $email_data['heading'] = '';
+        $email_data['footer'] = '';
+
+        $html = $this->load->view('email/otpEmailTemplate',$email_data,TRUE);
+        sendEmailTemplate($userInfo->emailId, 'Email Verification', $html);
+
+        $arrOtpData['userId'] = $userId;
+        $arrOtpData['otp'] = $otp;
+        $arrOtpData['createDate'] = date("Y-m-d H:i:s");
+        $arrOtpData['otpType'] = 3;
+        $otpIdInfo = $this->User_model->saveOtp($arrOtpData);
+
+        if ($otpIdInfo) {
+            $arrReturn = array(
+                code => 1,
+                data => 'Success',
+                'response' =>$otpIdInfo,
+            );
+            echo json_encode($arrReturn);
+            die;
+        }else{
+            $arrReturn = array(
+                code => 1,
+                data => 'Failed !',
+            );
+            echo json_encode($arrReturn);
+            die;
+        }
+
+
+    }
+
+
+
+
     public function editProfile()
     {
+        
         try {
             if ($this->getRequestMethod() != "POST") {
                 $arrReturn = array(
@@ -887,15 +1503,72 @@ class User extends CI_Controller
                 echo json_encode($arrReturn);
                 die;
             } else {
-                $arrEntityBody = file_get_contents('php://input');
-                $arrRequestData = json_decode($arrEntityBody, true);
-                // print_r($arrRequestData);exit;
 
-                if (isset($arrRequestData['userId']) && isset($arrRequestData['profilePicURL']) && isset($arrRequestData['name']) && isset($arrRequestData['userName']) && isset($arrRequestData['emailId']) && isset($arrRequestData['contactNumber'])) {
-                    // print_r($arrRequestData);exit;
+                $arrRequestData['name'] = $this->input->post('name');
+                $arrRequestData['userId'] = $this->input->post('userId');
+                $arrRequestData['emailId'] = $this->input->post('emailId');
+                $arrRequestData['contactNumber'] = $this->input->post('contactNumber');
+                $arrRequestData['security_question'] = $this->input->post('security_question');
+                $arrRequestData['security_answer'] = $this->input->post('security_answer');
+                @$arrRequestData['profilePicURL'] = $_FILES['profilePicURL'];
+
+                // $where = array('emailId'=>$arrRequestData['emailId']);
+                // $checkExistUserByemail = $this->User_model->getSingleRow('user',$where);
+                $this->db->from('user');
+                $this->db->where('emailId',$arrRequestData['emailId']);
+                $this->db->where('userId !=', $arrRequestData['userId']);
+                $checkExistUserByemail = $this->db->get()->row();
+
+                if($checkExistUserByemail){
+                
+                       $arrReturn = array(
+                        'resultCode' => 0,
+                        'data' => 'Email already taken by another user.',
+                        );
+                        echo json_encode($arrReturn);
+                        die;
+                }else{
+                   $this->db->from('user');
+                   $this->db->where('emailId',$arrRequestData['emailId']);
+                   $this->db->where('userId', $arrRequestData['userId']);
+                   $checkSelfEmail = $this->db->get()->row();
+                   if(!$checkSelfEmail){
+                     $this->User_model->update_data('user', array('isEmailIdVerified'=>0), array('userId'=>$arrRequestData['userId']));
+                   }
+
+                }
+                $where = array('userId'=>$arrRequestData['userId']);
+                $userResp = $this->User_model->getSingleRow('user',$where);
+
+                if($userResp->isEmailIdVerified == 0){   
+                    $otp = mt_rand(1000,9999);
+
+                    $html = "<p style='font-size: 18px;color:#000;margin-bottom:10px;'>Hello ".$userResp->name.",</p>
+                    <p style='color : #000;font-size: 14px;'>We have received request for email verification, Use this OTP to verify your account.</p> <br>
+                    <center style='color : #2dce89;font-size: 24px;'><h3><b>OTP</b> : ".$otp."</h3> </center>";
+
+                    $email_data['message'] = $html;
+                    $email_data['heading'] = '';
+                    $email_data['footer'] = '';
+
+                    $html = $this->load->view('email/otpEmailTemplate',$email_data,TRUE);
+                    sendEmailTemplate($arrRequestData['emailId'], 'Email Verification', $html);
+
+                    $arrOtpData['userId'] = $arrRequestData['userId'];
+                    $arrOtpData['otp'] = $otp;
+                    $arrOtpData['createDate'] = date("Y-m-d H:i:s");
+                    $arrOtpData['otpType'] = 3;
+                    $otpIdInfo = $this->User_model->saveOtp($arrOtpData);
+                     //print_r($otpIdInfo); die();
+                }
+                else{
+                    $otpIdInfo = ['otpId'=>0];
+                }
+
+                if (isset($arrRequestData['name']) && isset($arrRequestData['userId']) && isset($arrRequestData['emailId']) && isset($arrRequestData['contactNumber']) && isset($arrRequestData['security_question']) && isset($arrRequestData['security_answer'])) {
                     $userStatus = $this->checkUserStatus($arrRequestData['userId']);
 
-                    // print_r($userStatus);exit;
+                    // print_r($userStatus);die();
 
                     if ($userStatus[code] == 1) {
                         $data['emailVerificationToken'] = substr(str_shuffle(str_repeat($x = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil(10 / strlen($x)))), 1, 20);
@@ -911,41 +1584,75 @@ class User extends CI_Controller
                             $arrRequestData['isContactNumberVerified'] = $result['isContactNumberVerified'];
 
                             /**********************************************/
-                            $tempFilePath = tempnam(sys_get_temp_dir(), 'androidtempimage');
-                            file_put_contents($tempFilePath, base64_decode($arrRequestData['profilePicURL']));
-                            $imageInfo = getimagesize($tempFilePath);
-                            $_FILES['img'] = array(
-                                'name' => uniqid() . '.' . preg_replace('!\w+/!', '', $imageInfo['mime']),
-                                'tmpName' => $tempFilePath,
-                                'size' => filesize($tempFilePath),
-                                'error' => UPLOAD_ERR_OK,
-                                'type' => $imageInfo['mime'],
-                            );
-                            USER_UPLOAD_DIR;
-                            $img = $arrRequestData['profilePicURL'];
-                            $img = str_replace('data:image/png;base64,', '', $img);
-                            $img = str_replace(' ', '+', $img);
-                            $img = str_replace('data:image/jpg;base64,', '', $img);
-                            $img = str_replace(' ', '+', $img);
-                            $img = str_replace('data:image/jpeg;base64,', '', $img);
-                            $img = str_replace(' ', '+', $img);
-                            $mgData = base64_decode($img);
-                            $image = $arrRequestData['userId'] . '.png';
-                            $imgUrl = USER_UPLOAD_DIR . $image;
-                            $success = file_put_contents($imgUrl, $mgData);
+                            
 
-                            $arrRequestData['profilePicURL'] = 'user/' . $image;
-                            $otpId['otpId'] = $result['otpId'];
-                            $otpId['isEmailVerified'] = $result['isEmailIdVerified'];
-                            //print_r($arrRequestData); exit;
-                            if ($this->User_model->updateUserDetails($arrRequestData)) {
-                                $arrReturn = array(
-                                    code => 1,
-                                    data => $otpId,
-                                );
-                                echo json_encode($arrReturn);
-                                die;
+                            if(!empty($_FILES['profilePicURL'])){
+
+                            if($_FILES['profilePicURL']['size'] > 5000000)
+                            {
+                                echo json_encode(array('responseCode' => 0, 'msg' => 'maximum file size 5mb'));
+                                die();
                             }
+                            $config['upload_path']          = './uploads/user';
+                            $config['allowed_types']        = '*';
+                            $config['max_size']             = 5000;
+                            $config['max_width']            = 10240;
+                            $config['max_height']           = 7680;
+                            $this->load->library('upload', $config);
+                                if(!$this->upload->do_upload('profilePicURL'))
+                                {
+                                    $profile_pic_error = $this->upload->display_errors();
+                                    echo json_encode(array('responseCode' => 'false', 'msg' => $profile_pic_error));
+                                    die();
+                                    $this->response = array('responseCode' => 'false', 'msg' => $profile_pic_error);
+                                    return true;
+                                }
+                                else{
+                                    $upload_data = $this->upload->data();         
+                                    $profile_pic_name = $upload_data['file_name'];    
+                                    $image = $profile_pic_name;
+                                    $arrRequestData['profilePicURL'] = 'user/' . $image;
+                                    // $otpId['otpId'] = $result['otpId'];
+                                    $otpId['otpId'] = $otpIdInfo;
+                                    $otpId['isEmailVerified'] = $result['isEmailIdVerified'];
+                                    // echo "image";
+                                    // print_r($arrRequestData); die();
+                                    if ($this->User_model->updateUserDetails($arrRequestData)) {
+                                        $arrReturn = array(
+                                            code => 1,
+                                            data => $otpId,
+                                        );
+                                        echo json_encode($arrReturn);
+                                        die;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                
+                                $saveData['name'] = $arrRequestData['name'];
+                                $saveData['userId'] = $arrRequestData['userId'];
+                                $saveData['emailId'] = $arrRequestData['emailId'];
+                                $saveData['contactNumber'] = $arrRequestData['contactNumber'];
+                                $saveData['security_question'] = $arrRequestData['security_question'];
+                                $saveData['security_answer'] = $arrRequestData['security_answer'];
+                                $saveData['isEmailIdVerified'] = $arrRequestData['isEmailIdVerified'];
+                                $saveData['isContactNumberVerified'] = $arrRequestData['isContactNumberVerified'];
+                                $saveData['profilePicURL'] = $arrRequestData['profilePicURL'];
+
+                                $otpId['otpId'] = $otpIdInfo;
+                                $otpId['isEmailVerified'] = $result['isEmailIdVerified'];
+
+                                if ($this->User_model->updateUserDetails($saveData)) {
+                                        $arrReturn = array(
+                                            code => 1,
+                                            data => $otpId,
+                                        );
+                                        echo json_encode($arrReturn);
+                                        die;
+                                    }
+                            }
+                            
                         }
                     } else {
                         echo json_encode($userStatus);
@@ -973,36 +1680,36 @@ class User extends CI_Controller
             $otpId = 0;
             $arrReturn['isEmailIdVerified'] = $arrResult['isEmailIdVerified'];
             $arrReturn['isContactNumberVerified'] = $arrResult['isContactNumberVerified'];
-            if (strtolower($arrRequestData['userName']) != strtolower($arrResult['userName'])) {
-                if ($this->User_model->validateIfUserNameExisted($arrRequestData['userName'])) {
-                    $arrReturn = array(
-                        code => -4,
-                        data => 'User Name already registered',
-                    );
-                    return $arrReturn;
-                }
-            }
-            if (strtolower($arrRequestData['emailId']) != strtolower($arrResult['emailId'])) {
-                if ($this->User_model->validateIfEmailExisted($arrRequestData['emailId'])) {
-                    $arrReturn = array(
-                        code => -3,
-                        data => 'Email Id already registered',
-                    );
-                    return $arrReturn;
-                } else {
-                    $arrReturn['isEmailIdVerified'] = 0;
-                    /*************** Email Data *******************/
-                    $email_data['email_title'] = 'Confirm Email Id';
-                    $email_data['name'] = ucfirst($arrRequestData['name']);
-                    $email_data['email_id'] = $arrRequestData['emailId'];
-                    $email_data['message'] = "You have to confirm your email id for better user experience.<br>";
-                    $email_data['message'] .= "Click on the link below to confirm your email id.<br>";
-                    $email_data['message'] .= BASE_URL . "confirm-email/" . $data['emailVerificationToken'];
-                    $email_data['view_url'] = 'email/emailTemplate';
-                    $this->sendOTPemail($email_data);
-                    /**********************************************/
-                }
-            }
+            // if (strtolower($arrRequestData['userName']) != strtolower($arrResult['userName'])) {
+            //     if ($this->User_model->validateIfUserNameExisted($arrRequestData['userName'])) {
+            //         $arrReturn = array(
+            //             code => -4,
+            //             data => 'User Name already registered',
+            //         );
+            //         return $arrReturn;
+            //     }
+            // }
+            // if (strtolower($arrRequestData['emailId']) != strtolower($arrResult['emailId'])) {
+            //     if ($this->User_model->validateIfEmailExisted($arrRequestData['emailId'])) {
+            //         $arrReturn = array(
+            //             code => -3,
+            //             data => 'Email Id already registered',
+            //         );
+            //         return $arrReturn;
+            //     } else {
+            //         $arrReturn['isEmailIdVerified'] = 0;
+            //         /*************** Email Data *******************/
+            //         $email_data['email_title'] = 'Confirm Email Id';
+            //         $email_data['name'] = ucfirst($arrRequestData['name']);
+            //         $email_data['email_id'] = $arrRequestData['emailId'];
+            //         $email_data['message'] = "You have to confirm your email id for better user experience.<br>";
+            //         $email_data['message'] .= "Click on the link below to confirm your email id.<br>";
+            //         $email_data['message'] .= BASE_URL . "confirm-email/" . $data['emailVerificationToken'];
+            //         $email_data['view_url'] = 'email/emailTemplate';
+            //         $this->sendOTPemail($email_data);
+            //         /**********************************************/
+            //     }
+            // }
             if ($arrRequestData['contactNumber'] != $arrResult['contactNumber']) {
                 if ($this->User_model->validateIfContactNumberExisted($arrRequestData['contactNumber'])) {
                     $arrReturn = array(
@@ -1036,62 +1743,66 @@ class User extends CI_Controller
     }
 
     /********API #11********* this functon is for changePassword *********************/
-    public function changePassword()
-    {
-        try {
-            if ($this->getRequestMethod() != "POST") {
-                $arrReturn = array(
-                    code => -7,
-                    data => 'Please check the request method',
-                );
-                echo json_encode($arrReturn);
-                die;
-            } else {
-                $arrEntityBody = file_get_contents('php://input');
-                $arrRequestData = json_decode($arrEntityBody, true);
+    // public function changePassword()
+    // {
+    //     try {
+    //         if ($this->getRequestMethod() != "POST") {
+    //             $arrReturn = array(
+    //                 code => -7,
+    //                 data => 'Please check the request method',
+    //             );
+    //             echo json_encode($arrReturn);
+    //             die;
+    //         } else {
+    //             $arrEntityBody = file_get_contents('php://input');
+    //             $arrRequestData = json_decode($arrEntityBody, true);
 
-                if (isset($arrRequestData['userId']) && isset($arrRequestData['currentPassword']) && isset($arrRequestData['newPassword'])) {
-                    $userStatus = $this->checkUserStatus($arrRequestData['userId']);
-                    $arrRequestData['currentPassword'] = md5($arrRequestData['currentPassword']);
-                    $arrRequestData['newPassword'] = md5($arrRequestData['newPassword']);
-                    // print_r($arrRequestData); exit();
-                    if ($userStatus[code] == 1) {
-                        $arrResult = $this->User_model->updatePassword($arrRequestData);
-                        // print_r($arrResult); exit();
-                        if ($arrResult) {
-                            $arrReturn = array(
-                                code => 1,
-                                data => 'success',
-                            );
-                            echo json_encode($arrReturn);
-                            die;
-                        } else {
-                            $arrReturn = array(
-                                code => -3,
-                                data => 'current password didn\'t matched',
-                            );
-                            echo json_encode($arrReturn);
-                            die;
-                        }
-                    } else {
-                        echo json_encode($userStatus);
-                        die;
-                    }
-                } else {
-                    $arrReturn = array(
-                        code => -6,
-                        data => 'All fields not sent',
-                    );
-                    echo json_encode($arrReturn);
-                    die;
-                }
-            }
-        } catch (Exception $e) {
-            echo 'Received exception : ', $e->getMessage(), "\n";
-        }
-    }
+    //             if (isset($arrRequestData['userId']) && isset($arrRequestData['currentPassword']) && isset($arrRequestData['newPassword'])) {
+    //                 $userStatus = $this->checkUserStatus($arrRequestData['userId']);
+    //                 $arrRequestData['currentPassword'] = md5($arrRequestData['currentPassword']);
+    //                 $arrRequestData['newPassword'] = md5($arrRequestData['newPassword']);
+    //                 // print_r($arrRequestData); exit();
+    //                 if ($userStatus[code] == 1) {
+    //                     $arrResult = $this->User_model->updatePassword($arrRequestData);
+    //                     // print_r($arrResult); exit();
+    //                     if ($arrResult) {
+    //                         $arrReturn = array(
+    //                             code => 1,
+    //                             data => 'success',
+    //                         );
+    //                         echo json_encode($arrReturn);
+    //                         die;
+    //                     } else {
+    //                         $arrReturn = array(
+    //                             code => -3,
+    //                             data => 'current password didn\'t matched',
+    //                         );
+    //                         echo json_encode($arrReturn);
+    //                         die;
+    //                     }
+    //                 } else {
+    //                     echo json_encode($userStatus);
+    //                     die;
+    //                 }
+    //             } else {
+    //                 $arrReturn = array(
+    //                     code => -6,
+    //                     data => 'All fields not sent',
+    //                 );
+    //                 echo json_encode($arrReturn);
+    //                 die;
+    //             }
+    //         }
+    //     } catch (Exception $e) {
+    //         echo 'Received exception : ', $e->getMessage(), "\n";
+    //     }
+    // }
 
     /********API #12********* this functon is for signOut *********************/
+    
+    
+
+
     public function signOut()
     {
         try {
@@ -1599,6 +2310,7 @@ class User extends CI_Controller
     /********API #28********* this functon is to getReceipientList *********************/
     public function getReceipientList()
     {
+
         try {
             if ($this->getRequestMethod() != "POST") {
                 $arrReturn = array(
@@ -1609,15 +2321,33 @@ class User extends CI_Controller
                 die;
             } else {
                 $arrEntityBody = file_get_contents('php://input');
-                $arrRequestData = json_decode($arrEntityBody, true);
-
+                // $arrRequestData = json_decode($arrEntityBody, true);
+                $arrRequestData = $this->input->post();
+                // echo "<pre>";
+                // print_r($arrRequestData);die;
                 if (isset($arrRequestData['userId']) && isset($arrRequestData['addressId']) && isset($arrRequestData['isPublic'])) {
                     $userStatus = $this->checkUserStatus($arrRequestData['userId']);
                     // print_r($arrRequestData); exit();
                     if ($userStatus[code] == 1) {
                         $arrResult = $this->User_model->getReceipientList($arrRequestData['userId'], $arrRequestData['addressId'], $arrRequestData['isPublic']);
+
                         // print_r($arrResult); exit();
                         if ($arrResult) {
+
+                            if(!empty($arrResult['publicAddresses'])){
+                                $all = [];
+                               foreach ($arrResult['publicAddresses'] as $key => $value) {
+                                    $data = (array)$value;
+                                   // echo "<pre>";
+                                   // print_r($data);die;
+                                 
+                                    $data['street_image'] = (!empty($data['street_image']))?$data['street_image']:'uploads/address/address_default_image.png';
+                                    $data['building_image'] = (!empty($data['building_image']))?$data['building_image']:'uploads/address/address_default_image.png';
+                                    $data['entrance_image'] = (!empty($data['entrance_image']))?$data['entrance_image']:'uploads/address/address_default_image.png';
+                                $all[] = $data;
+                                }
+                                $arrResult['publicAddresses'] = $all;
+                            }
                             $arrReturn = array(
                                 code => 1,
                                 data => $arrResult,
@@ -1761,4 +2491,564 @@ class User extends CI_Controller
             echo 'Received exception : ', $e->getMessage(), "\n";
         }
     }
+
+/*users list*/
+   public function users(){
+    
+        try {
+            
+            // /*******************************/
+
+            $arrResult = $this->User_model->getUsers();
+            // print_r($arrResult);exit;
+            if (!empty($arrResult)) {
+                $return = array(
+                    'resultCode' => 1,
+                    'resultData' => $arrResult
+                );
+
+            } else {
+                $return = array(
+                    'resultCode' => -3,
+                    'resultData' => 'No data found'
+                );
+            }
+            echo json_encode($return);
+        die;
+            
+            
+        } catch (Exception $e) {
+            echo 'Received exception : ',  $e->getMessage(), "\n";
+        }
+    }
+    //yunush deep linking function 
+   /* function redirectLink($param=''){
+        $param =  trim($param);
+        if(empty($param)){
+            $param = 'sha';
+        }
+       $this->load->view('deep-link', array('param'=>$param));
+    }*/
+    /*
+    yunush global search functionlity
+    */
+    function privateGlobalSearch(){
+
+        try {
+
+             $data = $this->input->post();
+             $searchString = $data['search'];
+              $baseUrl = base_url();
+             if(strpos($searchString, $baseUrl) !== false){
+                $searchStringUrl = "pub.unique_link = '$searchString'";
+             }else{
+                 // $uniquLink = $baseUrl.$searchString;
+             	 // $searchStringUrl = "pub.unique_link = '$uniquLink'";
+             	  $searchStringUrl = "pub.unique_link LIKE '%".$searchString."%'";
+             }
+             $SQL = "SELECT pub.* FROM user LEFT JOIN privateAddresses pub ON pub.userId = user.userId WHERE pub.userId > 0 AND ( user.name LIKE '%".$searchString."%'  OR user.contactNumber LIKE '%".$searchString."%'  OR ".$searchStringUrl." OR pub.street_name LIKE '%".$searchString."%'  OR pub.plusCode = '".$searchString."')";
+             $query = $this->db->query($SQL);
+
+             $result = $query->result();
+             $all = [];
+            if (!empty($result)) {
+                   foreach ($result as $key => $value) {
+                    $data = (array)$value;
+                    $query = $this->db->from('user');
+                    $query->where(['userId'=>$data['userId']]);
+                    $user = $query->get()->result_array();
+                    $data['profilePicURL'] = (!empty($user[0]['profilePicURL']))?$user[0]['profilePicURL']:'uploads/user/user_default_image.jpeg';
+                    $data['name'] = (!empty($user))?$user[0]['name']:'';
+                    $data['street_image'] = (!empty($data['street_image']))?$data['street_image']:'uploads/address/address_default_image.png';
+                    $data['building_image'] = (!empty($data['building_image']))?$data['building_image']:'uploads/address/address_default_image.png';
+                    $data['entrance_image'] = (!empty($data['entrance_image']))?$data['entrance_image']:'uploads/address/address_default_image.png';
+                    $all[] = $data;
+                }
+                $return = array(
+                    'resultCode' => 1,
+                    'resultData' => $all
+                );
+
+            } else {
+                $return = array(
+                    'resultCode' => 0,
+                    'resultData' => 'No data found'
+                );
+            }
+            echo json_encode($return);
+        die;
+            
+            
+        } catch (Exception $e) {
+            echo 'Received exception : ',  $e->getMessage(), "\n";
+        } 
+    }
+
+    function publicGlobalSearch(){
+
+        try {
+
+             $data = $this->input->post();
+             $searchString = $data['search'];
+             $baseUrl = base_url();
+             if(strpos($searchString, $baseUrl) !== false){
+                $searchStringUrl = "pub.unique_link = '$searchString'";
+             }else{
+             	 // $uniquLink = $baseUrl.$searchString;
+             	 $searchStringUrl = "pub.unique_link LIKE '%".$searchString."%'";
+
+             }
+
+             $SQL = "SELECT pub.* FROM user LEFT JOIN publicAddresses pub ON pub.userId = user.userId WHERE pub.userId > 0 AND ( user.name LIKE '%".$searchString."%'  OR user.contactNumber LIKE '%".$searchString."%'  OR ".$searchStringUrl." OR pub.street_name LIKE '%".$searchString."%'  OR pub.plusCode = '".$searchString."')";
+
+             $query = $this->db->query($SQL);
+
+                $result = $query->result();
+
+             $all = [];
+            if (!empty($result)) {
+                  foreach ($result as $key => $value) {
+                    $data = (array)$value;
+                    $query = $this->db->from('user');
+                    $query->where(['userId'=>$data['userId']]);
+                    $user = $query->get()->result_array();
+                    $data['profilePicURL'] = (!empty($user[0]['profilePicURL']))?$user[0]['profilePicURL']:'uploads/user/user_default_image.jpeg';
+                    $data['name'] = (!empty($user))?$user[0]['name']:'';
+                    $data['street_image'] = (!empty($data['street_image']))?$data['street_image']:'uploads/address/address_default_image.png';
+                    $data['building_image'] = (!empty($data['building_image']))?$data['building_image']:'uploads/address/address_default_image.png';
+                    $data['entrance_image'] = (!empty($data['entrance_image']))?$data['entrance_image']:'uploads/address/address_default_image.png';
+                    $all[] = $data;
+                }
+                $return = array(
+                    'resultCode' => 1,
+                    'resultData' => $all
+                );
+
+            } else {
+                $return = array(
+                    'resultCode' => 0,
+                    'resultData' => 'No data found'
+                );
+            }
+            echo json_encode($return);
+        die;
+            
+            
+        } catch (Exception $e) {
+            echo 'Received exception : ',  $e->getMessage(), "\n";
+        } 
+    }
+    /*
+    yunush share reciver list
+    */
+    function getPrivateSharedRecieverList(){
+
+           try {
+
+             $data = $this->input->post();
+             $userId = $data['userId']; 
+             $this->db->select('privateAddresses.*'); 
+             $this->db->from('privateAddresses'); 
+             $this->db->join('sharedWithBusiness su', 'su.addressId = privateAddresses.addressId', 'left');
+             $this->db->where('su.recipientId =',$userId);    
+             $query = $this->db->get();     
+             $result = $query->result();
+             $all = [];
+            if (!empty($result)) {
+                 foreach ($result as $key => $value) {
+                    $data = (array)$value;
+                    $query = $this->db->from('user');
+                    $query->where(['userId'=>$data['userId']]);
+                    $user = $query->get()->result_array();
+                    $data['profilePicURL'] = (!empty($user[0]['profilePicURL']))?$user[0]['profilePicURL']:'uploads/user/user_default_image.jpeg';
+                    $data['name'] = (!empty($user[0]['name']))?$user[0]['name']:'';
+                    $data['street_image'] = (!empty($data['street_image']))?$data['street_image']:'uploads/address/address_default_image.png';
+                    $data['building_image'] = (!empty($data['building_image']))?$data['building_image']:'uploads/address/address_default_image.png';
+                    $data['entrance_image'] = (!empty($data['entrance_image']))?$data['entrance_image']:'uploads/address/address_default_image.png';
+                   $all[] = $data;
+                }
+                $return = array(
+                    'resultCode' => 1,
+                    'resultData' => $all
+                );
+
+            } else {
+                $return = array(
+                    'resultCode' => 0,
+                    'resultData' => 'No data found'
+                );
+            }
+            echo json_encode($return);
+        die;
+            
+            
+        } catch (Exception $e) {
+            echo 'Received exception : ',  $e->getMessage(), "\n";
+        }
+    }
+
+     /*
+    yunush share reciver list
+    */
+    function getPublicSharedRecieverList(){
+
+           try {
+
+             $data = $this->input->post();
+             $userId = $data['userId']; 
+             $this->db->select('publicAddresses.*'); 
+             $this->db->from('publicAddresses'); 
+             $this->db->join('sharedWithUser su', 'su.addressId = publicAddresses.addressId', 'left');
+             $this->db->where('su.recipientId =',$userId);    
+             $query = $this->db->get();     
+             $result = $query->result();
+             $all = [];
+            if (!empty($result)) {
+                  foreach ($result as $key => $value) {
+                    $data = (array)$value;
+                    $query = $this->db->from('user');
+                    $query->where(['userId'=>$data['userId']]);
+                    $user = $query->get()->result_array();
+                    $data['profilePicURL'] = (!empty($user[0]['profilePicURL']))?$user[0]['profilePicURL']:'uploads/user/user_default_image.jpeg';
+                    $data['name'] = (!empty($user[0]['name']))?$user[0]['name']:'';
+                    $data['street_image'] = (!empty($data['street_image']))?$data['street_image']:'uploads/address/address_default_image.png';
+                    $data['building_image'] = (!empty($data['building_image']))?$data['building_image']:'uploads/address/address_default_image.png';
+                    $data['entrance_image'] = (!empty($data['entrance_image']))?$data['entrance_image']:'uploads/address/address_default_image.png';
+                   $all[] = $data;
+                }                $return = array(
+                    'resultCode' => 1,
+                    'resultData' => $all
+                );
+
+            } else {
+                $return = array(
+                    'resultCode' => 0,
+                    'resultData' => 'No data found'
+                );
+            }
+            echo json_encode($return);
+        die;
+            
+            
+        } catch (Exception $e) {
+            echo 'Received exception : ',  $e->getMessage(), "\n";
+        }
+    }
+
+function getPrivateSharedSenderList(){
+
+           try {
+
+             $data = $this->input->post();
+             $userId = $data['userId']; 
+             $this->db->select('privateAddresses.*'); 
+             $this->db->from('privateAddresses'); 
+             $this->db->join('sharedWithBusiness su', 'su.addressId = privateAddresses.addressId', 'left');
+             $this->db->where('su.senderId =',$userId);    
+             $query = $this->db->get();     
+             $result = $query->result();
+             $all = [];
+            if (!empty($result)) {
+                 foreach ($result as $key => $value) {
+                    $data = (array)$value;
+                    $query = $this->db->from('user');
+                    $query->where(['userId'=>$data['userId']]);
+                    $user = $query->get()->result_array();
+                    $data['profilePicURL'] = (!empty($user[0]['profilePicURL']))?$user[0]['profilePicURL']:'uploads/user/user_default_image.jpeg';
+                    $data['name'] = (!empty($user))?$user[0]['name']:'';
+                    $data['street_image'] = (!empty($data['street_image']))?$data['street_image']:'uploads/address/address_default_image.png';
+                    $data['building_image'] = (!empty($data['building_image']))?$data['building_image']:'uploads/address/address_default_image.png';
+                    $data['entrance_image'] = (!empty($data['entrance_image']))?$data['entrance_image']:'uploads/address/address_default_image.png';
+                   $all[] = $data;
+                }
+                $return = array(
+                    'resultCode' => 1,
+                    'resultData' => $all
+                );
+
+            } else {
+                $return = array(
+                    'resultCode' => 0,
+                    'resultData' => 'No data found'
+                );
+            }
+            echo json_encode($return);
+        die;
+            
+            
+        } catch (Exception $e) {
+            echo 'Received exception : ',  $e->getMessage(), "\n";
+        }
+    }
+
+     /*
+    yunush share sender list
+    */
+    function getPublicSharedSenderList(){
+
+           try {
+
+             $data = $this->input->post();
+             $userId = $data['userId']; 
+             $this->db->select('publicAddresses.*'); 
+             $this->db->from('publicAddresses'); 
+             $this->db->join('sharedWithUser su', 'su.addressId = publicAddresses.addressId', 'left');
+             $this->db->where('su.senderId =',$userId);    
+             $query = $this->db->get();     
+             $result = $query->result();
+             $all = [];
+            if (!empty($result)) {
+                  foreach ($result as $key => $value) {
+                    $data = (array)$value;
+                    $query = $this->db->from('user');
+                    $query->where(['userId'=>$data['userId']]);
+                    $user = $query->get()->result_array();
+                    $data['profilePicURL'] = (!empty($user[0]['profilePicURL']))?$user[0]['profilePicURL']:'uploads/user/user_default_image.jpeg';
+                    $data['name'] = (!empty($user[0]['profilePicURL']))?$user[0]['name']:'';
+                    $data['street_image'] = (!empty($data['street_image']))?$data['street_image']:'uploads/address/address_default_image.png';
+                    $data['building_image'] = (!empty($data['building_image']))?$data['building_image']:'uploads/address/address_default_image.png';
+                    $data['entrance_image'] = (!empty($data['entrance_image']))?$data['entrance_image']:'uploads/address/address_default_image.png';
+                   $all[] = $data;
+                }                $return = array(
+                    'resultCode' => 1,
+                    'resultData' => $all
+                );
+
+            } else {
+                $return = array(
+                    'resultCode' => 0,
+                    'resultData' => 'No data found'
+                );
+            }
+            echo json_encode($return);
+        die;
+            
+            
+        } catch (Exception $e) {
+            echo 'Received exception : ',  $e->getMessage(), "\n";
+        }
+    }
+    
+/*favorite address*/
+    function favoriteAddress(){
+
+           try {
+
+             $data = $this->input->post();
+             $post = [];
+             $post['userId'] = $data['userId'];
+             $post['addressId'] = $data['addressId'];
+             $post['type'] = $data['type'];
+             $query = $this->db->from('favUnfaveAddresss');
+            $query->where(['addressId'=>$data['addressId'],'userId'=>$data['userId']]);
+            $fav = $query->get()->result_array();
+            if(!empty($fav[0])){
+                $return = array(
+                    'resultCode' => 0,
+                    'resultData' => 'Address already have been added.'
+                );
+                echo json_encode($return);
+           die;
+            }
+             $result = $this->User_model->favoriteAddress($post);
+            if (!empty($result)) {
+                  $return = array(
+                    'resultCode' => 1,
+                    'resultData' => 'You have favorite successfully.'
+                );
+
+            } else {
+                $return = array(
+                    'resultCode' => 0,
+                    'resultData' => 'No data found'
+                );
+            }
+            echo json_encode($return);
+        die;
+            
+            
+        } catch (Exception $e) {
+            print_r($e);die;
+            echo 'Received exception : ',  $e->getMessage(), "\n";
+        }
+    }
+
+    function favoriteAddressList(){
+
+       try {
+
+             $data = $this->input->post();
+             // echo "<pre>";
+             // print_r($data);die;
+             $userId = $data['userId']; 
+             $type = $data['type'];
+
+             if($type=='private'){
+
+             $this->db->select('privateAddresses.*,fa.id'); 
+             $this->db->from('privateAddresses'); 
+             $this->db->join('favUnfaveAddresss fa', 'fa.addressId = privateAddresses.addressId', 'left');
+             $this->db->where('fa.userId =',$userId);    
+             $this->db->where('fa.type =',$type); 
+
+             }else{
+
+             $this->db->select('publicAddresses.*,fa.id'); 
+             $this->db->from('publicAddresses'); 
+             $this->db->join('favUnfaveAddresss fa', 'fa.addressId = publicAddresses.addressId', 'left');
+             $this->db->where('fa.userId =',$userId);    
+             $this->db->where('fa.type =',$type); 
+             }
+               
+             $query = $this->db->get();     
+             $result = $query->result();
+             $all = [];
+            if (!empty($result)) {
+                  foreach ($result as $key => $value) {
+
+                    $valData = (array)$value;
+                    $query = $this->db->from('user');
+                    $query->where(['userId'=>$valData['userId']]);
+                    $user = $query->get()->result_array();
+                    $valData['profilePicURL'] = (!empty($user[0]['profilePicURL']))?$user[0]['profilePicURL']:'uploads/user/user_default_image.jpeg';
+                    $valData['name'] = (!empty($user[0]['name']))?$user[0]['name']:'';
+                    $valData['street_image'] = (!empty($valData['street_image']))?$valData['street_image']:'uploads/address/address_default_image.png';
+                    $valData['building_image'] = (!empty($valData['building_image']))?$valData['building_image']:'uploads/address/address_default_image.png';
+                    $valData['entrance_image'] = (!empty($valData['entrance_image']))?$valData['entrance_image']:'uploads/address/address_default_image.png';
+                   $all[] = $valData;
+                }                $return = array(
+                    'resultCode' => 1,
+                    'resultData' => $all
+                );
+
+            } else {
+                $return = array(
+                    'resultCode' => 0,
+                    'resultData' => 'No data found'
+                );
+            }
+            echo json_encode($return);
+        die;
+            
+            
+        } catch (Exception $e) {
+            echo 'Received exception : ',  $e->getMessage(), "\n";
+        }
+    }
+
+    function unFavoriteAddress(){
+
+           try {
+             $data = $this->input->post();
+             $this->db->where('id', $data['fav_id']);
+             $response = $this->db->delete('favUnfaveAddresss'); 
+            if (!empty($response)) {
+                  $return = array(
+                    'resultCode' => 1,
+                    'resultData' => 'You have unfavorited successfully.'
+                );
+
+            } else {
+                $return = array(
+                    'resultCode' => 0,
+                    'resultData' => 'No data found'
+                );
+            }
+            echo json_encode($return);
+        die;
+            
+            
+        } catch (Exception $e) {
+            print_r($e);die;
+            echo 'Received exception : ',  $e->getMessage(), "\n";
+        }
+    }
+
+    /*
+    yunush shared reciever list
+    */
+    function getShareRecieverUserList(){
+
+           try {
+
+             $data = $this->input->post();
+             $userId = $data['userId']; 
+             $addressId = $data['addressId']; 
+             $type = $data['type']; 
+             $this->db->select('*','su.recordId as id'); 
+             $this->db->from('user'); 
+             if($type=='public'){
+             $this->db->join('sharedWithUser su', 'su.recipientId = user.userId', 'left');	
+	         }else{
+	          $this->db->join('sharedWithBusiness su', 'su.recipientId = user.userId', 'left');		
+	         }
+             $this->db->where('su.senderId =',$userId); 
+             $this->db->where('su.addressId =',$addressId); 
+             $this->db->group_by('su.recipientId');   
+             $query = $this->db->get();     
+             $result = $query->result();
+             $all = [];
+            if (!empty($result)) {
+                  foreach ($result as $key => $value) {
+                    $data = (array)$value;
+                    $query = $this->db->from('user');
+                    $query->where(['userId'=>$data['userId']]);
+                    $user = $query->get()->result_array();
+                    $data['profilePicURL'] = (!empty($user[0]['profilePicURL']))?$user[0]['profilePicURL']:'uploads/user/user_default_image.jpeg';
+                    $data['name'] = (!empty($user[0]['name']))?$user[0]['name']:'';
+                   $all[] = $data;
+                }                $return = array(
+                    'resultCode' => 1,
+                    'resultData' => $all
+                );
+
+            } else {
+                $return = array(
+                    'resultCode' => 0,
+                    'resultData' => 'No data found'
+                );
+            }
+            echo json_encode($return);
+        die;
+            
+            
+        } catch (Exception $e) {
+            echo 'Received exception : ',  $e->getMessage(), "\n";
+        }
+    }
+	/* 
+	api for unshare addresses
+	*/
+     function unShareAddress(){
+
+           try {
+             $data = $this->input->post();
+             $this->db->where('recordId', $data['recordId']);
+	         if($data['type']=='private'){
+	         $response = $this->db->delete('sharedWithBusiness'); 
+	         }else{
+	          $response = $this->db->delete('sharedWithUser'); 	
+	         }
+            if (!empty($response)) {
+                  $return = array(
+                    'resultCode' => 1,
+                    'resultData' => 'You have unshared successfully.'
+                );
+
+            } else {
+                $return = array(
+                    'resultCode' => 0,
+                    'resultData' => 'No data found'
+                );
+            }
+            echo json_encode($return);
+        die;
+            
+            
+        } catch (Exception $e) {
+            print_r($e);die;
+            echo 'Received exception : ',  $e->getMessage(), "\n";
+        }
+    }
+
 }

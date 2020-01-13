@@ -1,4 +1,6 @@
-$url = 'http://'+window.location.hostname+'/';
+// $url = 'http://'+window.location.hostname+'/';
+// $url = 'http://'+window.location.hostname+'/pro1/simplrpost/';
+$url = base_url;
 $(document).ready(function() {
     $('.validate_error').css('display', 'none');
 
@@ -22,7 +24,7 @@ $(document).ready(function() {
 
         $userEmail = $('#userEmail').val();
         $userPassword = $('#userPassword').val();
-
+        // console.log($userPassword);
         if (validateValue($userEmail) == false) {
             $('#validateEmailError').css({ 'display': 'block', 'z-index': '10' }).html('Please fill this field');
             $('#userEmail').val('');
@@ -44,10 +46,11 @@ $(document).ready(function() {
                     'password': $userPassword
                 },
                 success: function(data) {
+                    console.log("data====>"+data);
                     if (data == 0) {
                         $('#validatePasswordError').css({ 'display': 'block', 'z-index': '10' }).html('wrong credentials, please try again');
                     } else {
-                        window.location.replace($url + "admin-dashboard");
+                       window.location.replace($url + "admin-dashboard");
                     }
                 }
             });

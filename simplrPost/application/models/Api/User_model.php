@@ -21,14 +21,32 @@ class User_model extends CI_Model{
 	}
 	
 	/****************function for signUp************* */
-    function signUp($arrDatas){
-		$query = $this->db->insert('user', $arrDatas);
-		$this->db->select(array('userId'));
-		$this->db->where('emailId',$arrDatas['emailId']);
-		$this->db->where('password',$arrDatas['password']);
-		$query = $this->db->get('user')->row()->userId;
-		return $query;
+ //    function signUp($arrDatas){
+	// 	$query = $this->db->insert('user', $arrDatas);
+	// 	$this->db->select(array('userId'));
+	// 	$this->db->where('emailId',$arrDatas['emailId']);
+	// 	$this->db->where('password',$arrDatas['password']);
+	// 	$query = $this->db->get('user')->row()->userId;
+	// 	return $query;
+	// }
+
+
+	public function getSingleRow($table, $where)
+	{
+		$this->db->from($table);
+		$this->db->where($where);
+		return $this->db->get()->row();
 	}
+
+	function signUp($arrDatas)
+	{
+		$this->db->insert('user', $arrDatas);
+		$insert_id = $this->db->insert_id();
+		return $insert_id;
+	}
+
+
+
 	public function checkVerificationStatus($token)
 	{
 		$this->db->select('isEmailIdVerified');
@@ -95,7 +113,7 @@ class User_model extends CI_Model{
 	/**************get user data with the userId*************/
 	public function getUserDetailWIthUserId($userId)
     {
-        $this->db->select('userId, name, userName, emailId, contactNumber, profilePicURL, isEmailIdVerified, isContactNumberVerified');
+        $this->db->select('userId, name, userName, emailId, contactNumber, profilePicURL, isEmailIdVerified, isContactNumberVerified,security_question, security_answer');
         $this->db->where('userId', $userId);
         $query = $this->db->get('user');
         return $query->row_array();
@@ -151,9 +169,35 @@ class User_model extends CI_Model{
     {
         $this->db->select(array('status'));
 		$this->db->where('contactNumber',$contactNumber);
+		$this->db->where_in('status', ['-5', '0', '1']);
 		$query = $this->db->get('user')->row_array();
 		return $query;
     }
+
+    public function getNumRows($table, $where=array())
+      {
+          if(count($where) > 0)
+          {
+              $query = $this->db->select('userId')->where($where)->get($table);
+              $numRows = $query->num_rows();
+          }
+          else
+          {
+              $query = $this->db->select('userId')->get($table);
+              $numRows = $query->num_rows();   
+          }
+          return $numRows;
+      }
+
+
+    public  function update_data($table, $data=array(), $where=array()) 
+    {
+        $this->db->where($where);
+        $this->db->update($table,$data);
+        // echo $this->db->last_query();
+        return true;           
+    }
+
 
 	/****************to get the user Id after signUp**************/
     public function getUserMaxId()
@@ -234,9 +278,10 @@ class User_model extends CI_Model{
 
 	/**************To validate the otp if correct or not**************/
     function validateOtp($arrDatas){
-		$this->db->select('isUsed, otpType');
+    	$this->db->select('isUsed, otpType,userId');
         $this->db->where('otpId',$arrDatas['otpId']);
         $this->db->where('otp',$arrDatas['otp']);
+        $this->db->where('otpType',$arrDatas['type']);
 		$query = $this->db->get('otp');
 		return $query->row_array();
     }
@@ -368,15 +413,25 @@ class User_model extends CI_Model{
 		$query = $this->db->get('issues')->result_array();
 		return $query;
 	}
+
 	function getReceipientList($senderId, $addressId, $isPublic){
-		$sql = "select publicAddresses.addressId, publicAddresses.logoURL AS pictureURL, publicAddresses.shortName, publicAddresses.plusCode, publicAddresses.categoryId,(select categoryName from categories where categoryId = publicAddresses.categoryId) as categoryName, publicAddresses.referenceCode AS addressReferenceId, publicAddresses.description from publicAddresses where  publicAddresses.addressId in (select recipientId from sharedWithBusiness where senderId = $senderId and addressId = $addressId and isAddressPublic = $isPublic and status = 1) and publicAddresses.status = 1";
+	
+		// $sql = "select publicAddresses.addressId, publicAddresses.logoURL AS pictureURL, publicAddresses.shortName, publicAddresses.plusCode, publicAddresses.categoryId, publicAddresses.referenceCode AS addressReferenceId, publicAddresses.description from publicAddresses where  publicAddresses.addressId in (select addressId from sharedWithBusiness where senderId = $senderId and addressId = $addressId and isAddressPublic = $isPublic and status = 1) and publicAddresses.status = 1";
+
+		$sql = "select privateAddresses.* from privateAddresses where  privateAddresses.addressId in (select recipientId from sharedWithBusiness where senderId = $senderId and addressId = $addressId and isAddressPublic = $isPublic and status = 1)";
+		
 		$queryPublic = $this->db->query($sql);
 		$publicAddresses = $queryPublic->result();
+
 		if(!empty($publicAddresses)){
 			$result['publicAddresses'] = $publicAddresses;
 		}
-
-		$sql = "select userId, profilePicURL, userName, name from user where userId in (select recipientId from sharedWithUser where senderId = $senderId and addressId = $addressId and isAddressPublic = $isPublic and status = 1)";
+		if($isPublic){
+			$sql = "select userId, profilePicURL, userName, name from user where userId in (select recipientId from sharedWithUser where senderId = $senderId and addressId = $addressId  and status = 1)";
+		}else{
+			$sql = "select userId, profilePicURL, userName, name from user where userId in (select recipientId from sharedWithBusiness where senderId = $senderId and addressId = $addressId and status = 1)";
+		}
+		
 		$queryUser = $this->db->query($sql);
 		$user = $queryUser->result();
 		if(!empty($user)){
@@ -384,6 +439,22 @@ class User_model extends CI_Model{
 		}
 		return $result;
 	}
+	// function getReceipientList($senderId, $addressId, $isPublic){
+	// 	$sql = "select publicAddresses.addressId, publicAddresses.logoURL AS pictureURL, publicAddresses.shortName, publicAddresses.plusCode, publicAddresses.categoryId,(select categoryName from categories where categoryId = publicAddresses.categoryId) as categoryName, publicAddresses.referenceCode AS addressReferenceId, publicAddresses.description from publicAddresses where  publicAddresses.addressId in (select recipientId from sharedWithBusiness where senderId = $senderId and addressId = $addressId and isAddressPublic = $isPublic and status = 1) and publicAddresses.status = 1";
+	// 	$queryPublic = $this->db->query($sql);
+	// 	$publicAddresses = $queryPublic->result();
+	// 	if(!empty($publicAddresses)){
+	// 		$result['publicAddresses'] = $publicAddresses;
+	// 	}
+
+	// 	$sql = "select userId, profilePicURL, userName, name from user where userId in (select recipientId from sharedWithUser where senderId = $senderId and addressId = $addressId and isAddressPublic = $isPublic and status = 1)";
+	// 	$queryUser = $this->db->query($sql);
+	// 	$user = $queryUser->result();
+	// 	if(!empty($user)){
+	// 		$result['user'] = $user;
+	// 	}
+	// 	return $result;
+	// }
 	function getNotificationList($arrRequestData){
 		$sql = "select notificationUsers.notificationId, notifications.information, notifications.createDate FROM notificationUsers JOIN notifications on notificationUsers.notificationId = notifications.notificationId where notificationUsers.userId = ".$arrRequestData['userId']." and notificationUsers.status = 1 order by createDate desc limit ".$arrRequestData['start'].", ".$arrRequestData['count'];
 		$query = $this->db->query($sql)->result_array();
@@ -399,6 +470,24 @@ class User_model extends CI_Model{
 		$this->db->select("addressId, (select count(*) from privateAddresses where userId = '$userId' and referenceCode = '$addressReferenceId') as isOwn");
 		$this->db->where('referenceCode', $addressReferenceId);
 		$query = $this->db->get('privateAddresses')->row_array();
+		return $query;
+	}
+
+	function getUsers(){
+			$sql = "select * from user order by userId desc";
+		$query = $this->db->query($sql)->result_array();
+		return $query;
+	}
+
+	function favoriteAddress($arrDatas){
+		$this->db->insert('favUnfaveAddresss', $arrDatas);
+		$insert_id = $this->db->insert_id();
+		return $insert_id;
+	}
+
+	function favoriteAddressList($userId){
+			$sql = "select * from favUnfaveAddresss where userId = $userId order by id desc";
+		   $query = $this->db->query($sql)->result_array();
 		return $query;
 	}
 }

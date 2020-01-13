@@ -52,10 +52,21 @@ class Address_model extends CI_Model
     }
     function getPrivateAddresses($userId)
     {
-        $this->db->select('addressId,imageURL AS pictureURL,shortName,plusCode,referenceCode AS addressReferenceId');
+        $this->db->select('*');
         $this->db->where('status', 1);
         $this->db->where('userId', $userId);
+        $this->db->order_by("addressId", "desc");
         $query = $this->db->get('privateAddresses')->result_array();
+        return $query;
+    }
+
+    function getAddressesPublic($userId)
+    {
+        $this->db->select('*');
+        $this->db->where('status', 1);
+        $this->db->where('userId', $userId);
+        $this->db->order_by("addressId", "desc");
+        $query = $this->db->get('publicAddresses')->result_array();
         return $query;
     }
     function getOwnPrivateAddressDetail($userId, $addressId)
@@ -148,6 +159,21 @@ class Address_model extends CI_Model
         $query = $this->db->get('privateAddresses')->row_array();
         return $query;
     }
+    function getPublicAddres($addressId)
+    {
+        // $this->db->select('addressId');
+        $this->db->where('status', 1);
+        $this->db->where('addressId', $addressId);
+        $query = $this->db->get('publicAddresses')->row_array();
+        return $query;
+    }
+    function getPrivateDetailAddress($addressId)
+    {
+        $this->db->select('*');
+        $this->db->where('addressId', $addressId);
+        $query = $this->db->get('privateAddresses')->row_array();
+        return $query;
+    }
     /********* PRIVATE FUNCTIONS END HERE *************/
 
     /********* PUBLIC ADDRESS FUNCTIONS ************/
@@ -230,12 +256,25 @@ class Address_model extends CI_Model
     }
     function deletePublicAddress($userId, $addressId)
     {
+
         $this->db->where('userId', $userId);
         $this->db->where('addressId', $addressId);
         $query = $this->db->update('publicAddresses', array('status' => -1));
 
         $this->db->where('addressId', $addressId);
         $query1 = $this->db->update('publicAddressContactNumbers', array('status' => 0));
+        return $query;
+    }  
+     function addressDeletePublic($userId, $addressId)
+    {
+        $this->db->where('addressId', $addressId);
+        $query = $this->db->delete('publicAddresses');
+        return $query;
+    } 
+     function addressDeletePrivate($userId, $addressId)
+    {
+        $this->db->where('addressId', $addressId);
+        $query = $this->db->delete('privateAddresses');
         return $query;
     }
     function getOwnPublicAddressDetail($userId, $addressId)
@@ -326,6 +365,14 @@ class Address_model extends CI_Model
         $query = $this->db->get('publicAddresses')->result_array();
         return $query;
     }
+
+    function getPublicDetailAddress($addressId)
+    {
+        $this->db->select('*');
+        $this->db->where('addressId', $addressId);
+        $query = $this->db->get('publicAddresses')->result_array();
+        return $query;
+    }
     function deletePublicContactNumbers($id)
     {
         $this->db->where('addressId', $id);
@@ -340,6 +387,12 @@ class Address_model extends CI_Model
     {
         $this->db->where('addressId', $id);
         $query = $this->db->update('publicAddresses', $update_data);
+        return $id;
+    }
+     function updatePrivateAddress($id, $update_data)
+    {
+        $this->db->where('addressId', $id);
+        $query = $this->db->update('privateAddresses', $update_data);
         return $id;
     }
     function updatePublicAddressMiscellaneousInformation($id, $update_data, $contactNumbers, $workingHours)
@@ -552,7 +605,7 @@ class Address_model extends CI_Model
         $categoryId = $data['categoryId'];
 
         $this->db->select('userId, profilePicURL, userName, name');
-        $this->db->where('userName', $searchText);
+        $this->db->where('name', $searchText);
         $this->db->where('userId !=', $userId);
         $this->db->where('status', 1);
         $query = $this->db->get('user')->result();
@@ -855,11 +908,32 @@ class Address_model extends CI_Model
         $query = $this->db->get('registeredDevices');
         return $query->result_array();
     }
+
     public function getRecipientUserId($businessId)
     {
         $this->db->select('userId');
         $this->db->where('addressId', $businessId);
         $query = $this->db->get('publicAddresses');
         return $query->row_array();
+    }
+
+    public function getUniqueAddress($uniqueLink){
+
+             
+             $query = $this->db->from('privateAddresses');
+             $query->where("unique_link =",$uniqueLink);
+             $address = $query->get()->result_array();
+             if(!empty($address)){
+                return $address; 
+            }else{
+              $query = $this->db->from('publicAddresses'); 
+              $query->where("unique_link =",$uniqueLink);
+              $address = $query->get()->result_array();
+              return $address; 
+            }
+            
+
+            
+        
     }
 }

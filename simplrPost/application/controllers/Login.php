@@ -20,6 +20,7 @@ class Login extends CI_Controller
 	public function index()
 	{
 		$adminId = $this->session->userdata('adminId');
+		// print_r($adminId);die();
 		if (isset($adminId)) {
 			$this->dashboardView();
 		} else {
@@ -43,8 +44,10 @@ class Login extends CI_Controller
 
 	public function verifyUser()
 	{
+		
 		$email = $_POST['emailId'];
 		$password = md5($_POST['password']);
+		
 		$arrResult = $this->Login_model->signInWithEmail($email, $password);
 		if ($arrResult > 0) {
 			if ($this->sessionSet($arrResult)) {
