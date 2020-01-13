@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 182.50.133.90:3306
--- Generation Time: Oct 29, 2019 at 01:33 AM
--- Server version: 5.5.51-38.1-log
--- PHP Version: 7.1.30
+-- Host: localhost:3306
+-- Generation Time: Jan 13, 2020 at 05:01 AM
+-- Server version: 8.0.18
+-- PHP Version: 7.3.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,37 +19,37 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `Simplr_Post`
+-- Database: `simplr_post`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `aboutUs`
+-- Table structure for table `aboutus`
 --
 
-CREATE TABLE `aboutUs` (
+CREATE TABLE `aboutus` (
   `id` int(11) NOT NULL,
   `heading` varchar(50) NOT NULL,
   `content` text NOT NULL,
   `createDate` datetime NOT NULL,
-  `status` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `status` int(11) NOT NULL DEFAULT '1'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED;
 
 --
--- Dumping data for table `aboutUs`
+-- Dumping data for table `aboutus`
 --
 
-INSERT INTO `aboutUs` (`id`, `heading`, `content`, `createDate`, `status`) VALUES
-(1, 'About Us', '<div><b>Simplr Post</b> is a digital addressing system that registers unique addresses for homes and<br></div><div>businesses so that people can get access to reliable services and get to places effortlessly.</div><div><br></div><div><b>Securely share your private home address</b></div><div><b><br></b></div><div>Simplr Post allows you to privately share your home address with users and businesses within the</div><div>app. This gives you the advantage of controlling who has access to your address and ensuring that</div><div>your private information is not being misused or placed in the wrong hands.</div><div>Having a private address can be useful for:</div><div><br></div><div>- Efficient delivery of food to your home</div><div>- Sharing your address with emergency services</div><div>- Getting a taxi pickup</div><div>- Sharing home directions with a friend</div><div><br></div><div><b>Helping customers find your business with a public business address</b></div><div><b><br></b></div><div>Registering your business on Simplr Post is a good way to get people to know its whereabouts. Most</div><div>businesses struggle to get customers outside their immediate locality because they don’t have an</div><div>online presence and because it’s so difficult to explain to people unfamiliar with the area where</div><div>you’re located.</div><div><br></div><div>A Simplr Post public address is open for anyone to discover. You can use it to talk about the</div><div>services you provide, attach pictures and catalogs and most importantly let people find your</div><div>business location.</div><div><br></div><div><b>Managing customer addresses and business logistics</b></div><div><b><br></b></div><div>If you’re providing delivery services, you don’t want to repeatedly ask your customers where they are</div><div>located and how to get there. Simplr Post allows users to share their home or business addresses</div><div>with you directly on your public business address. These addresses get saved once into your</div><div>address list and get updated directly when your customers change their permanent locations. This way you can easily search your address list and share the address with your driver next time a</div><div>repeat customer makes an order.</div><div><br></div><div><b>What’s our story?</b></div><div><b><br></b></div><div>Most of us either don’t have an address or live in a place without complete addressing systems so</div><div>that no one ends up using them. Solutions like Google Maps have made our lives much easier for</div><div>getting directions and geotagging our locations, but we still need a unique address and complete</div><div>addressing system that everyone can rely on to get access to better services.</div><div><br></div><div>People need addresses that they can write to verify their identities on government forms. A</div><div>meaningful address that people can adopt, remember, identify and use to get directions. Something</div><div>that can be shared to get deliveries to a home or call emergency services.</div><div><br></div><div>Businesses need an address to let customers know where they’re located, to offer delivery services</div><div>and to tell drivers where to go without having to explain directions relative to recognizable</div><div>landmarks.</div><div><br></div><div><b>Want to talk?</b></div><div><b><br></b></div><div>We’d like to hear your thoughts and answer your questions. Please feel free to reach out to</div><div><b style=\"font-size: 1rem;\">abizerjafferjee@simplrpost.com.</b></div>                                                                                                                                                                                                    ', '2019-08-05 00:00:00', 1);
+INSERT INTO `aboutus` (`id`, `heading`, `content`, `createDate`, `status`) VALUES
+(1, 'About Us', '<div><b>Simplr Post</b> is a digital addressing system that registers unique addresses for homes and<br></div><div>businesses so that people can get access to reliable services and get to places effortlessly.</div><div><br></div><div><b>Securely share your private home address</b></div><div><b><br></b></div><div>Simplr Post allows you to privately share your home address with users and businesses within the</div><div>app. This gives you the advantage of controlling who has access to your address and ensuring that</div><div>your private information is not being misused or placed in the wrong hands.</div><div>Having a private address can be useful for:</div><div><br></div><div>- Efficient delivery of food to your home</div><div>- Sharing your address with emergency services</div><div>- Getting a taxi pickup</div><div>- Sharing home directions with a friend</div><div><br></div><div><b>Helping customers find your business with a public business address</b></div><div><b><br></b></div><div>Registering your business on Simplr Post is a good way to get people to know its whereabouts. Most</div><div>businesses struggle to get customers outside their immediate locality because they don’t have an</div><div>online presence and because it’s so difficult to explain to people unfamiliar with the area where</div><div>you’re located.</div><div><br></div><div>A Simplr Post public address is open for anyone to discover. You can use it to talk about the</div><div>services you provide, attach pictures and catalogs and most importantly let people find your</div><div>business location.</div><div><br></div><div><b>Managing customer addresses and business logistics</b></div><div><b><br></b></div><div>If you’re providing delivery services, you don’t want to repeatedly ask your customers where they are</div><div>located and how to get there. Simplr Post allows users to share their home or business addresses</div><div>with you directly on your public business address. These addresses get saved once into your</div><div>address list and get updated directly when your customers change their permanent locations. This way you can easily search your address list and share the address with your driver next time a</div><div>repeat customer makes an order.</div><div><br></div><div><b>What’s our story?</b></div><div><b><br></b></div><div>Most of us either don’t have an address or live in a place without complete addressing systems so</div><div>that no one ends up using them. Solutions like Google Maps have made our lives much easier for</div><div>getting directions and geotagging our locations, but we still need a unique address and complete</div><div>addressing system that everyone can rely on to get access to better services.</div><div><br></div><div>People need addresses that they can write to verify their identities on government forms. A</div><div>meaningful address that people can adopt, remember, identify and use to get directions. Something</div><div>that can be shared to get deliveries to a home or call emergency services.</div><div><br></div><div>Businesses need an address to let customers know where they’re located, to offer delivery services</div><div>and to tell drivers where to go without having to explain directions relative to recognizable</div><div>landmarks.</div><div><br></div><div><b>Want to talk?</b></div><div><b><br></b></div><div>We’d like to hear your thoughts and answer your questions. Please feel free to reach out to</div><div><b style=\"font-size: 1rem;\">abizerjafferjee@simplrpost.com.</b></div>                                                                                                                                                                                                                                ', '2019-08-05 00:00:00', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `addressReports`
+-- Table structure for table `addressreports`
 --
 
-CREATE TABLE `addressReports` (
+CREATE TABLE `addressreports` (
   `reportId` bigint(50) NOT NULL,
   `reporterName` varchar(100) NOT NULL,
   `reporterEmailId` varchar(255) NOT NULL,
@@ -61,14 +61,6 @@ CREATE TABLE `addressReports` (
   `createDate` datetime NOT NULL,
   `status` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `addressReports`
---
-
-INSERT INTO `addressReports` (`reportId`, `reporterName`, `reporterEmailId`, `reporterContactNumber`, `reporterUserId`, `businessId`, `issueId`, `description`, `createDate`, `status`) VALUES
-(1, 'Ekam', 'ekam.codeapex@gmail.com', '+254123456789', 25, 4, 4, 'have some', '2019-10-21 10:14:11', 0),
-(2, 'Ekam', 'ekam.codeapex@gmail.com', '+254123456789', 25, 2, 5, 'have some', '2019-10-22 07:01:20', 0);
 
 -- --------------------------------------------------------
 
@@ -84,7 +76,7 @@ CREATE TABLE `admin` (
   `profilePicURL` varchar(100) NOT NULL,
   `contactNumber` varchar(20) NOT NULL,
   `userName` varchar(80) NOT NULL,
-  `status` tinyint(1) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1',
   `createDate` datetime NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -93,9 +85,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`adminId`, `name`, `emailId`, `password`, `profilePicURL`, `contactNumber`, `userName`, `status`, `createDate`) VALUES
-(1, 'Admin ', 'navneet.codeapex@gmail.com', '00000000', 'admin/1.png', '1234567890', 'Simplr Post ', 1, '2019-07-29 00:00:00'),
-(2, 'Hardeep', 'hardeep.codeapex@gmail.com', '11111111', 'admin/2.jpg', '7508640025', 'sekhon347', 1, '2019-07-29 00:00:00'),
-(3, 'Simplr Post ', 'admin@gmail.com', '00000000', 'admin/3.png', '1234567890', 'SP', 1, '2019-07-29 00:00:00');
+(3, 'Simplr Post ', 'abizerjafferjee@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', 'admin/3.png', '1234567890', 'SP', 1, '2019-07-29 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -4068,7 +4058,8 @@ INSERT INTO `categories` (`categoryId`, `categoryName`, `createDate`, `status`) 
 (3961, 'Bank / Finance', '0000-00-00 00:00:00', 1),
 (3962, 'School', '0000-00-00 00:00:00', 1),
 (3963, 'AA', '2019-10-10 12:06:27', -1),
-(3964, 'AAA', '2019-10-11 12:46:43', -1);
+(3964, 'AAA', '2019-10-11 12:46:43', -1),
+(3965, 'zzzzzzz', '2019-10-31 12:31:39', -1);
 
 -- --------------------------------------------------------
 
@@ -4089,90 +4080,61 @@ CREATE TABLE `ci_sessions` (
 --
 
 INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`, `user_id`) VALUES
-('t7boov4n50k0cr3ea7i68jbmc50g4e8q', '49.36.157.241', 1571836005, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313833353839373b61646d696e49647c733a313a2232223b, 0),
-('sp7bdrrraj0p62j2b531s6qj2du2kq7e', '180.214.156.107', 1571835601, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313833353533353b61646d696e49647c733a313a2233223b, 0),
-('kj8onh2run1j7k2u5hc0g0718r63d7bs', '49.36.157.241', 1571835870, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313833353538333b61646d696e49647c733a313a2232223b, 0),
-('11bt6c65786pgl57clhthb7hqglrnm91', '180.214.156.107', 1571835515, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313833353531353b, 0),
-('19ea4njfkn4l1brjs75dcf12r4tafojk', '49.36.157.241', 1571833501, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313833333530303b61646d696e49647c733a313a2232223b, 0),
-('coc47kask8mdhi2c77d2cf8b3ovg2t2s', '49.36.157.241', 1571830848, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313833303739383b61646d696e49647c733a313a2232223b, 0),
-('615ei0o3lev70kb40tmlmahccne169nv', '49.36.157.241', 1571829968, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313832393935303b61646d696e49647c733a313a2232223b, 0),
-('8s4htb4v4bvppsd40ao0ckj9hqmt4vr7', '49.36.157.241', 1571829779, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313832393531393b61646d696e49647c733a313a2232223b, 0),
-('520ihmgr8sp07svv8r3p3jqlrpk7fkkg', '49.36.157.241', 1571829385, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313832393134363b61646d696e49647c733a313a2232223b, 0),
-('km2onmr7vimtnllji5ck4ngfrcl59h52', '49.36.157.241', 1571829004, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313832383831343b61646d696e49647c733a313a2232223b, 0),
-('o2egjd915opu4fko3e74gtiqn327nlbj', '49.36.157.241', 1571828017, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313832373732323b61646d696e49647c733a313a2232223b, 0),
-('1phuiqvkj2ticcn399haljg0ckg9ic1t', '49.36.157.241', 1571826635, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313832363633343b61646d696e49647c733a313a2232223b, 0),
-('odeqtiu2dhoiio0s5ldogaa20va96bae', '49.36.157.241', 1571822037, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313832323032333b61646d696e49647c733a313a2232223b, 0),
-('u5b3igihor2jgmsdl4f14o25n2ijfd98', '64.233.173.62', 1571807875, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313830373837353b, 0),
-('b2vnr8jhfll3squ098suf430j0k21hui', '64.233.173.62', 1571807873, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313830373837323b, 0),
-('sj2c9avotao224f0b3bg4ri0dgka5kgl', '70.31.70.231', 1571796746, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313739363634363b61646d696e49647c733a313a2233223b, 0),
-('l0gt1v5f5rc8bo18mtu5tv1mn3tuujpe', '70.31.70.231', 1571796603, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313739353633363b61646d696e49647c733a313a2233223b, 0),
-('7dk74n1k99ncufi8n5iqg70l99fk2to0', '49.36.159.247', 1571751998, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313735313939323b61646d696e49647c733a313a2232223b, 0),
-('pbt2bsav0ar5793v1ja8lofjkrb3fakf', '70.31.70.231', 1571794648, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313739343537323b61646d696e49647c733a313a2233223b, 0),
-('skgk66m3e82ic931u5u6bjpm96rur4ec', '70.31.70.231', 1571793805, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313739333738313b61646d696e49647c733a313a2233223b, 0),
-('ria9db7rij9ga66fpncgkb78jahtnbi5', '49.36.159.247', 1571751909, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313735313632373b61646d696e49647c733a313a2232223b, 0),
-('gp4dmpbmaajibpq6nn06rlgb755drnpk', '49.36.159.247', 1571751303, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313735313138313b61646d696e49647c733a313a2232223b, 0),
-('54k53hqqm1laf7dvne2atkvda7nu62kn', '124.253.190.109', 1571751202, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313735303932303b61646d696e49647c733a313a2233223b, 0),
-('kjiitn2lcr80d9onmfosppulogshin99', '49.36.159.247', 1571751143, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313735303838303b61646d696e49647c733a313a2232223b, 0),
-('blf2gsbjo2ggtui8gt26t42mko4ieq1q', '124.253.190.109', 1571750677, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313735303630333b61646d696e49647c733a313a2233223b, 0),
-('d68v5bcofam57me8672im3jpott12rng', '49.36.159.247', 1571750808, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313735303234353b61646d696e49647c733a313a2232223b, 0),
-('vv3e5hanmm9prvv9jkbe20jbg0tf177u', '49.36.159.247', 1571749895, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313734393737373b61646d696e49647c733a313a2232223b, 0),
-('dfa7n0k6105gn81cfikvvu07u09l1q5f', '124.253.190.109', 1571749407, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313734393139303b61646d696e49647c733a313a2233223b, 0),
-('937ais3kggmleeev2bnjuf4qbaucf62f', '49.36.159.247', 1571749733, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313734383937303b61646d696e49647c733a313a2232223b, 0),
-('apq7pifvouvb6ep6mfto6rmsfp3o8h2b', '124.253.190.109', 1571749182, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313734383838373b61646d696e49647c733a313a2233223b, 0),
-('sbtsb9np3flsk99rf7304q7h0p0gc7gu', '49.36.159.247', 1571748893, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313734383630363b61646d696e49647c733a313a2232223b, 0),
-('u77o21cshb5dnlib050kup231f7qdf90', '49.36.159.247', 1571748564, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313734383236343b61646d696e49647c733a313a2232223b, 0),
-('4h9lurg9nhhegftrvqmmsf9oq803j2u7', '49.36.159.247', 1571748224, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313734373936333b61646d696e49647c733a313a2232223b, 0),
-('s63hpd38oq1kl6h84r56b45rocgujhmk', '49.36.159.247', 1571747925, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313734373632353b61646d696e49647c733a313a2232223b, 0),
-('7houqrhget5u078vl5dk93j6e5sislpj', '49.36.159.247', 1571747579, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313734373332333b61646d696e49647c733a313a2232223b, 0),
-('l4r7boptmlmnq47vfmsuj44m6b56ilju', '49.36.159.247', 1571747273, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313734373031313b61646d696e49647c733a313a2232223b, 0),
-('g5hgtplanbsa3k27c7pmjf0s8n2jp2gp', '124.253.4.69', 1571739779, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313733393736393b61646d696e49647c733a313a2233223b, 0),
-('aptchik3dt60qgbf9nfvthfcpg677rlj', '49.36.159.247', 1571740046, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313733393832323b61646d696e49647c733a313a2232223b, 0),
-('nnjcb4rvbme6jjacqmm8se7uibnqevd5', '49.36.159.247', 1571740625, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313734303437303b61646d696e49647c733a313a2232223b, 0),
-('dsdkbief6nsu7leqiq9v8b8rrbv5mbhc', '49.36.159.247', 1571741150, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313734303835323b61646d696e49647c733a313a2232223b, 0),
-('jue060t09nvur4tgbhgk7ugb2tq0auk2', '49.36.159.247', 1571741447, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313734313139393b61646d696e49647c733a313a2232223b, 0),
-('b6gsg8ost71cgh0rmq9gcpqc4smq189r', '49.36.159.247', 1571741826, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313734313533353b61646d696e49647c733a313a2232223b, 0),
-('7o1f11js6m57r7v0ttofcmvf03i23n1i', '49.36.159.247', 1571742089, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313734313835343b61646d696e49647c733a313a2232223b, 0),
-('942f93djm2hdhre4g65hkkvhpshfgnjt', '49.36.159.247', 1571742484, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313734323138353b61646d696e49647c733a313a2232223b, 0),
-('70t6lik0us49i23gq7ejuh287snq5jmv', '49.36.159.247', 1571742753, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313734323438363b61646d696e49647c733a313a2232223b, 0),
-('08b5620o81np229fcsrh077qup71t8mi', '124.253.4.69', 1571742950, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313734323730333b61646d696e49647c733a313a2233223b, 0),
-('0ce6jeslb44njjqdhi2as8smfgkubhr1', '124.253.4.69', 1571742797, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313734323739373b, 0),
-('5f3b1trtoqgmp82h4mo7dudatr19rb5k', '49.36.159.247', 1571743054, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313734323832303b61646d696e49647c733a313a2232223b, 0),
-('fmgeovcs1b7u9hj9ss51dbbiheq4n72h', '124.253.4.69', 1571742824, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313734323832343b, 0),
-('818t5tqrh5iuifmvikdoq3t2d7m3s1rb', '124.253.4.69', 1571743511, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313734333036373b61646d696e49647c733a313a2233223b, 0),
-('co60h3dtc2bmch0ie0ro2221d7p99bgl', '49.36.159.247', 1571743469, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313734333137373b61646d696e49647c733a313a2232223b, 0),
-('8hhk0gckmk0659iu0tk248ccq26u4k1h', '49.36.159.247', 1571743778, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313734333530373b61646d696e49647c733a313a2232223b, 0),
-('1hvlo7utt3ks7f01u62hkbllldsojffe', '124.253.4.69', 1571744448, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313734333537353b61646d696e49647c733a313a2233223b, 0),
-('k9vlv183jifoog6luorijc69t4457mfi', '49.36.159.247', 1571744753, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313734343435363b61646d696e49647c733a313a2232223b, 0),
-('96cr39nm8upqib9fq0p1bdaq00bhdi1q', '49.36.159.247', 1571745015, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313734343736343b61646d696e49647c733a313a2232223b, 0),
-('cfqgpnjf9dk4fpr56kue4hk6pit2vc5f', '124.253.190.109', 1571745205, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313734353036303b61646d696e49647c733a313a2233223b, 0),
-('bnqsjrdqjel6cbo2s9j5k2n0stqov669', '49.36.159.247', 1571745580, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313734353238303b61646d696e49647c733a313a2232223b, 0),
-('jmdv24amna7ss0ne1i9pcvb8qa73kftg', '49.36.159.247', 1571746368, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313734363036383b61646d696e49647c733a313a2232223b, 0),
-('bnebkiv9on1vgter8ehimg6n8nuukfps', '49.36.159.247', 1571746654, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313734363337303b61646d696e49647c733a313a2232223b, 0),
-('u6pp6r7ncd8pan7kquif234ihjvca4jg', '49.36.159.247', 1571746970, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313734363638333b61646d696e49647c733a313a2232223b, 0),
-('ihc5eve782e2mf0broj3pra8f6sd8h2v', '49.36.157.241', 1571836997, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313833363938383b61646d696e49647c733a313a2232223b, 0),
-('ou5pd5tfhfdst37aggohet8b08sa145s', '180.214.156.107', 1571837334, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313833373333323b61646d696e49647c733a313a2233223b, 0),
-('q0fb6se58ekkt5h9tg7js9pjkrcg60ue', '49.36.157.241', 1571837562, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313833373536313b61646d696e49647c733a313a2232223b, 0),
-('r2fsd7bvd2njp71lnin4f0d3kjse165g', '49.36.157.241', 1571840082, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313834303038323b, 0),
-('85ob2ap4kc6ejdqg4h7o1jkd2t2jbd5b', '66.249.82.78', 1571844329, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313834343332393b, 0),
-('ks968ivlivsnmdr1o04ru7tug6f9a43g', '66.249.82.78', 1571844330, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313834343333303b, 0),
-('oash6qkhh8c7k66ku8o9f419j8h0cpj5', '49.36.153.183', 1571895740, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313839353539353b61646d696e49647c733a313a2232223b, 0),
-('uuv3lcn75i26bjv071k2kn1kodj8fild', '49.36.153.183', 1571911718, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313931313638303b61646d696e49647c733a313a2233223b, 0),
-('c52utkab2tnllbukqavkctjri830b81s', '49.36.157.241', 1571985325, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313938353239303b, 0),
-('q12e8oikbaq6fmuodkf1653fatfgbk2t', '49.36.157.241', 1571986118, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313938353639353b, 0),
-('v35g0jpc9htgoo6vkbk0pldlvrrkm3on', '49.36.157.241', 1571986620, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313938363235383b, 0),
-('5oecbbonjf4cdo0s37772hp6esqngb6j', '49.36.157.241', 1571986940, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313938363734333b61646d696e49647c733a313a2232223b, 0),
-('q59f06eo7c8bp7sq2sblcqacbbuklpsd', '49.36.157.241', 1571987100, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313938373038383b61646d696e49647c733a313a2232223b, 0),
-('feqebvnjvtc88slpsddnk8gn6r4hdips', '49.36.157.241', 1571987564, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313938373536303b61646d696e49647c733a313a2232223b, 0),
-('8j0lk0ov0pl9jq7i2sondfbs5ps8ri26', '64.233.173.62', 1571999611, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313939393631313b, 0),
-('fb11clon5q4pah1om8g0rsamco4k6al2', '64.233.173.34', 1571999611, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537313939393631313b, 0),
-('vtrhfg4oa29aejfel8inv35fl71r8k50', '64.233.173.37', 1572083411, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537323038333431313b, 0),
-('e39vtgvmfg479g5vgoca0n4jauh6ao85', '64.233.173.37', 1572083475, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537323038333431313b, 0),
-('9tj0v8k4tmlvl8mrotis1k3j3b4nb4sb', '64.233.173.34', 1572098372, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537323039383337323b, 0),
-('7k4v5tnf1sptv1jfl8t6fd6osl157qoh', '64.233.173.62', 1572098373, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537323039383337333b, 0),
-('v4ooijkol9n9damtneguui3oikmvfggk', '64.233.173.62', 1572102589, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537323130323538393b, 0),
-('ot1co1u1gma6gm0k87fhhgi3nmpsabdl', '64.233.173.34', 1572102589, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537323130323538393b, 0),
-('veudc11614ef2r472avsrhot8m5jtmpb', '70.31.70.231', 1572187447, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537323138373432303b61646d696e49647c733a313a2233223b, 0),
-('8ju47iq0p30dvd7mshvj21aqd868ldbp', '70.31.70.231', 1572265260, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537323236353234313b61646d696e49647c733a313a2233223b, 0);
+('gket1rl9kscreoqt4mlq62afpn3urgr0', '104.236.74.212', 1574444806, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537343434343830363b, 0),
+('937ks8cqjrlhapfvd7crukdh57pljik2', '70.31.70.231', 1574388826, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537343338383736333b, 0),
+('avlkvkgg8rttajdk1m8khtp53mbsgvop', '49.36.155.43', 1574234408, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537343233343430363b61646d696e49647c733a313a2233223b, 0),
+('216qti37a0r08rnv0j2mqd2idqi7felv', '49.36.155.43', 1574234406, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537343233343430363b61646d696e49647c733a313a2233223b, 0),
+('5e0mjtt2tgpa9gdlact0hj6bf3k0v2gg', '51.79.19.31', 1574098491, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537343039383439313b, 0),
+('svr523khg3dhev683n47k40k517iipfb', '157.39.6.83', 1574098491, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537343039383439313b, 0),
+('qb3gkff6ks1uu0hg8c58jem67qhh7h0e', '49.36.154.35', 1574050174, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537343034393936383b61646d696e49647c733a313a2233223b, 0),
+('7o195mg27lgffle6bj9s50g7na2skmic', '157.39.60.53', 1573992411, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537333939323430343b61646d696e49647c733a313a2233223b, 0),
+('b2fnb73vgutsqu3257ek8te2p8s5ltfj', '157.39.108.205', 1573992404, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537333939323430343b61646d696e49647c733a313a2233223b, 0),
+('08mlrjvaqvnje563hu96p61d4i0j5utb', '49.36.153.113', 1573800825, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537333830303538393b61646d696e49647c733a313a2233223b, 0),
+('hf95b6tvari995sjl6iv556r7cgqodva', '49.36.153.113', 1573800589, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537333830303538393b61646d696e49647c733a313a2233223b, 0),
+('a2plelm3cm5i50krarje5hvupmb2nsgc', '49.36.153.113', 1573799509, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537333739393530393b, 0),
+('ja2e86nl3jul660f3f5bil7v7fv5m8ag', '49.36.154.11', 1573798851, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537333739383736343b61646d696e49647c733a313a2233223b, 0),
+('gtqbjtnb5iie24ng7p95511r2jnmq52i', '70.31.70.231', 1573793140, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537333739333131303b61646d696e49647c733a313a2233223b, 0),
+('fo4ktotqm127p1rdim6m3gnsjbtr47rq', '104.236.74.212', 1574444962, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537343434343830363b, 0),
+('6ffuuh5iqh2e249i338d65u4ukdf20dp', '70.31.70.231', 1574612804, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537343631323733373b61646d696e49647c733a313a2233223b, 0),
+('l3udmbcqnf0t8abk5cc7qfqlqm7ahiji', '70.31.70.231', 1574622016, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537343632313939363b61646d696e49647c733a313a2233223b, 0),
+('g4mej9loeeunv6mjonlp2bis8ugf0s00', '49.36.155.131', 1574668374, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537343636383337343b61646d696e49647c733a313a2233223b, 0),
+('oibhs7csqecf3bd3ji6t1gfij988aont', '49.36.155.131', 1574668400, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537343636383337343b61646d696e49647c733a313a2233223b, 0),
+('d347o27mvm217j9884lpllabdldr16cf', '49.36.155.131', 1574689419, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537343638393431393b, 0),
+('0qeegcmok3k82vs168b7o334vjf2i4jo', '54.156.165.121', 1574968274, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537343936383234323b61646d696e49647c733a313a2233223b, 0),
+('qes5r54vk9c4ttbhf1oklvt4702d2n5e', '70.48.245.100', 1574998168, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537343939383136383b, 0),
+('l074kgrosid1cpnst0rptv0k34v953e4', '70.48.245.100', 1575004669, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537353030343636393b61646d696e49647c733a313a2233223b, 0),
+('hsg8juj5j6qr131crethls42uvfki986', '174.95.214.73', 1575004680, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537353030343636393b61646d696e49647c733a313a2233223b, 0),
+('hvng4m2i7j0ej7irp7cue030r0gi4asf', '49.36.157.73', 1575259844, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537353235393834343b, 0),
+('i53aspbf9qo9o5jp262be3h94qgeo90h', '174.95.214.73', 1575436246, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537353433363232383b61646d696e49647c733a313a2233223b, 0),
+('tru06ic1clpcqebjpki3eue8mshjog7d', '54.156.165.121', 1575473354, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537353437333335343b61646d696e49647c733a313a2233223b, 0),
+('n3vheligfr4ku49b7b0velpltr5r3mb1', '54.156.165.121', 1575473354, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537353437333335343b61646d696e49647c733a313a2233223b, 0),
+('d48b2m5cm70l95fbhvcq0er66oml9bq0', '184.149.27.136', 1575839570, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537353833393530303b61646d696e49647c733a313a2233223b, 0),
+('anjm35lht0km3ved0gfoep45ejbuv8o2', '54.156.165.121', 1576101430, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537363130313338323b61646d696e49647c733a313a2233223b, 0),
+('hmcpab0enrju1rmcpuqsdtpbhu99ji7q', '103.15.67.74', 1576151314, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537363135313331343b, 0),
+('qrmrrp70td495tf35agmej6h09sfet52', '103.15.67.74', 1576161507, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537363136313530373b, 0),
+('dck98sri5j1pl2s3634licn4lfk0gg1i', '103.15.67.74', 1576162936, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537363136313530373b, 0),
+('ol36eaemi7p4rfl898ihoumo5burg5pe', '103.15.67.74', 1576163604, '', 0),
+('hjq0r2436apgpmmbg13if44100dv4uhu', '103.15.67.74', 1576164564, '', 0),
+('8cooq55uhngmid94n1bhtpa13ch5qg0o', '103.15.67.74', 1576221756, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537363232313431373b, 0),
+('idu8935pmktg0fjc1ractkb8lp444b6p', '103.15.67.74', 1576223897, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537363232333739373b, 0),
+('vbtovrov93n2fcbndf265i95lkeublm0', '103.15.67.74', 1576242376, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537363234323337363b, 0),
+('qjoaq8rka8aaa7ela4hdahfh63ie4qo5', '103.15.67.74', 1576478187, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537363437383138373b, 0),
+('g8srm6gkkua60b62ge907b4crci1761i', '103.15.67.74', 1576480655, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537363438303635353b, 0),
+('n6072mohr05h2hv809f0gmlmlona0ghk', '103.15.67.74', 1576482778, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537363438323737383b, 0),
+('2ak4gqcv759aqnrqablk6j8pojqgc7g9', '103.15.67.74', 1576488893, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537363438383839333b, 0),
+('9ob9ljtffedo6eb1j5hpdgfldak8vfhc', '72.141.163.182', 1576501905, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537363530313930353b61646d696e49647c733a313a2233223b, 0),
+('gom4qc2f9d9cc7dp6upnhgtli08c88bb', '72.141.163.182', 1576502211, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537363530323231313b61646d696e49647c733a313a2233223b, 0),
+('4g3d1o0rane1267ooeqvqnrq9s76vn43', '72.141.163.182', 1576502232, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537363530323231313b61646d696e49647c733a313a2233223b, 0),
+('p2i88av7t9a2g41fljspmqfatr1alkrn', '103.15.67.74', 1576560409, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537363536303430393b, 0),
+('5i8cqqd01eraci883i4r1qocv4jb38ui', '49.36.157.13', 1576754222, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537363735343139363b, 0),
+('ljo2cbil285upc6huv8paqil2n5gcv25', '103.15.67.74', 1576820606, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537363832303630363b, 0),
+('op6ude9mhqjh5je72a1jf53buam2fimb', '103.15.67.74', 1576828400, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537363832383430303b, 0),
+('lsbq57lg8i1btd4tg7nr478mcnlnmr2k', '138.197.202.197', 1576855131, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537363835353133313b, 0),
+('avel1lus0i7kfd3s5r955oves7laspac', '107.170.96.6', 1576855140, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537363835353134303b, 0),
+('9us24rds5k12r9dbpqm0vbpe3fq67v6t', '72.141.163.182', 1578243040, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537383234333034303b, 0),
+('polphtqctg35nfieh4kggc41uvt8bq71', '72.141.163.182', 1578665978, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537383636353933383b61646d696e49647c733a313a2233223b, 0),
+('9ejr9k6t2b9oovjm8frvu5ut12eh6btp', '103.15.67.74', 1578722242, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537383732323234323b, 0),
+('f5o5caihimqglvqn7884bjv21o15ggv4', '72.141.163.182', 1578770769, 0x5f5f63695f6c6173745f726567656e65726174657c693a313537383737303530383b61646d696e49647c733a313a2233223b, 0);
 
 -- --------------------------------------------------------
 
@@ -4192,16 +4154,45 @@ CREATE TABLE `countries` (
 --
 
 INSERT INTO `countries` (`countryId`, `countryName`, `status`, `createDate`) VALUES
-(1, 'india', 1, '2019-10-21 06:52:13'),
-(2, 'canada', 1, '2019-10-23 01:39:57');
+(1, 'canada', 1, '2019-11-01 19:04:44'),
+(2, 'tanzania', 1, '2019-11-03 20:08:56'),
+(3, 'india', 1, '2019-11-05 20:58:33'),
+(4, '', 1, '2019-11-05 23:05:50'),
+(5, 'kenya', 1, '2019-11-11 10:41:24'),
+(6, 'libya', 1, '2020-01-11 01:55:47');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `frequentlyAskedQuestions`
+-- Table structure for table `favunfaveaddresss`
 --
 
-CREATE TABLE `frequentlyAskedQuestions` (
+CREATE TABLE `favunfaveaddresss` (
+  `id` int(11) NOT NULL,
+  `userId` int(11) NOT NULL,
+  `addressId` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `status` enum('fav','unfav') NOT NULL DEFAULT 'fav',
+  `type` enum('private','public') NOT NULL DEFAULT 'private'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `favunfaveaddresss`
+--
+
+INSERT INTO `favunfaveaddresss` (`id`, `userId`, `addressId`, `created_at`, `updated_at`, `status`, `type`) VALUES
+(28, 41, 58, '2020-01-11 15:29:28', '2020-01-11 15:29:28', 'fav', 'public'),
+(30, 41, 57, '2020-01-11 19:35:42', '2020-01-11 19:35:42', 'fav', 'public'),
+(31, 41, 59, '2020-01-11 19:35:56', '2020-01-11 19:35:56', 'fav', 'public');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `frequentlyaskedquestions`
+--
+
+CREATE TABLE `frequentlyaskedquestions` (
   `questionId` bigint(50) NOT NULL,
   `question` text NOT NULL,
   `answer` text NOT NULL,
@@ -4210,15 +4201,15 @@ CREATE TABLE `frequentlyAskedQuestions` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `frequentlyAskedQuestions`
+-- Dumping data for table `frequentlyaskedquestions`
 --
 
-INSERT INTO `frequentlyAskedQuestions` (`questionId`, `question`, `answer`, `createDate`, `status`) VALUES
-(1, 'My computer is making a grinding noise.', 'Some hard drives are designed to make sounds when a spindle gets stuck or heads go bad. When the user admits to not having backed anything up recently, resist the urge to go to their cubicle and throttle them with a USB cable. Seriously, this is the kind of information your self-service portal should contain, letting users know that they need to stop using the machine until the problem can be properly diagnosed and fixed.', '2019-08-28 03:12:18', 1),
+INSERT INTO `frequentlyaskedquestions` (`questionId`, `question`, `answer`, `createDate`, `status`) VALUES
+(1, 'My computer is making a grinding noise.', 'Some hard drives are designed to make sounds when a spindle gets stuck or heads go bad. When the user admits to not having backed anything up recently, resist the urge to go to their cubicle and throttle them with a USB cable. Seriously, this is the kind of information your self-service portal should contain, letting users know that they need to stop using the machine until the problem can be properly diagnosed and fixed.', '2019-08-28 03:12:18', 0),
 (2, 'Latest ', 'Answer to the latest Question', '2019-08-28 03:12:18', 1),
-(3, 'I accidentally deleted some files. Can I get them back?', 'As soon as the danger of the user hyperventilating is over, explain his or her options. Sometimes people think that once a file goes into the Recycle Bin it’s gone forever. That’s an easy fix. If they’ve emptied the Recycle Bin or “Shift-Deleted” files, they need to know to stop using that drive until the files are retrieved — information that can go on your help desk self-service portal.', '2019-08-28 05:05:06', 1),
-(4, 'My computer is too slow. How to make is work faster', 'A lot of people don’t see a problem with having sixteen windows open at once, and you may have to explain how too many windows will slow things down.', '2019-08-28 06:13:12', 1),
-(5, 'The internet is slow.', 'Spyware and viruses are two main causes of slow internet service. You’ll need your end users to be honest about sites they have visited. Assure them that you only want to know exactly what happened so you can fix it. You can always laugh at them behind their backs during your lunch break.', '2019-08-28 04:16:12', 1),
+(3, 'I accidentally deleted some files. Can I get them back?', 'As soon as the danger of the user hyperventilating is over, explain his or her options. Sometimes people think that once a file goes into the Recycle Bin it’s gone forever. That’s an easy fix. If they’ve emptied the Recycle Bin or “Shift-Deleted” files, they need to know to stop using that drive until the files are retrieved — information that can go on your help desk self-service portal.', '2019-08-28 05:05:06', 0),
+(4, 'My computer is too slow. How to make is work faster', 'A lot of people don’t see a problem with having sixteen windows open at once, and you may have to explain how too many windows will slow things down.', '2019-08-28 06:13:12', 0),
+(5, 'The internet is slow.', 'Spyware and viruses are two main causes of slow internet service. You’ll need your end users to be honest about sites they have visited. Assure them that you only want to know exactly what happened so you can fix it. You can always laugh at them behind their backs during your lunch break.', '2019-08-28 04:16:12', 0),
 (6, 'WHAT HAPPENS IN THE EVENT OF UNSATISFACTORY/EXPIRED/WRONG SAMPLE/MISSING SAMPLES?', 'We take such matters very seriously and will look into individual cases thoroughly. Any sample that falls under the below categories should not be thrown away before taking photo proof and emailing the photo of the affected sample and your D.O (Delivery Order) to us at help@samplestore.com (if applicable).\r\n\r\nWe regret to inform you that no refunds will be given for orders that fall under the below categories.\r\n\r\n1. In the event that the sample you\'ve received is unsatisfactory in any way you perceive, we will require photo proof of the sample and your D.O (Delivery Order) as well and you may be required to send us back the sample for close inspection and review before a decision is made to re-send a sample to you at no cost, subject to availability. The postage cost will be credited back to your account after we receive the returned item.\r\n\r\n2. In the event that you receive an expired product, we will require clear photo proof of the sample and its expiry date for close inspection and review before a decision is made to re-send a sample to you at no cost, subject to availability.\r\n\r\n3. In the event that you\'ve received the wrong sample, we will require photo proof of the wrongly sent sample and D.O (Delivery Order) and after reviewing, we\'ll re-send the correct sample to you at no cost, subject to availability.\r\n\r\n4. In the event you\'ve received your order with a missing sample, we will require you to email us a clear photo proof of your D.O (Delivery Order) to help@samplestore.com and after which, kindly give us a call at (+65) 68440092 and our customer service officer will attend to you to find out more before a decision is made to re-send the missing sample to you at no cost, subject to availability.', '2019-09-12 00:00:00', 0),
 (7, 'question', 'answer', '2019-09-12 10:10:35', 0),
 (8, 'What is the purpose of an FAQ?', 'The purpose of an FAQ is generally to provide information on frequent questions or concerns; however, the format is a useful means of organizing information, and text consisting of questions and their answers may thus be called an FAQ regardless of whether the questions are actually frequently asked.  ', '2019-10-03 11:05:06', 1),
@@ -4247,7 +4238,8 @@ INSERT INTO `issues` (`issueId`, `issue`, `createDate`, `status`) VALUES
 (2, 'Small issue', '2019-08-28 06:09:16', 1),
 (3, 'Big issues', '2019-08-28 05:18:22', 1),
 (4, 'Spam', '2019-08-28 03:08:10', 1),
-(5, 'inappropriate', '2019-08-28 04:19:23', 1);
+(5, 'inappropriate', '2019-08-28 04:19:23', 1),
+(8, 'issue main', '2019-10-31 11:36:29', 0);
 
 -- --------------------------------------------------------
 
@@ -4266,69 +4258,18 @@ CREATE TABLE `notifications` (
   `createDate` datetime NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `notifications`
---
-
-INSERT INTO `notifications` (`notificationId`, `categoryId`, `countryId`, `stateId`, `notificationAudience`, `information`, `status`, `createDate`) VALUES
-(1, 0, 0, 0, 'users', 'Hello,\nSimplr Post User\'s', 1, '2019-10-22 11:15:47'),
-(2, 0, 0, 0, 'users', 'Hello,\nSimplr Post User\'s', 1, '2019-10-22 11:24:45'),
-(3, 0, 0, 0, 'users', 'Hello,\nSimplr Post User\'s', 1, '2019-10-22 11:25:10'),
-(4, 0, 0, 0, 'users', 'Hello,\nSimplr Post User\'s', 1, '2019-10-22 11:28:42'),
-(5, 0, 0, 0, 'users', 'Hello,\nSimplr Post User\'s', 1, '2019-10-22 11:29:27'),
-(6, 0, 0, 0, 'users', 'Hello,\nSimplr Post User\'s', 1, '2019-10-22 13:23:26'),
-(7, 0, 0, 0, 'users', 'Hello, we have the we we we we we we we we we we we we we we we memememeememememmememememe ememrmrmrmr mrmrmrrm rmrmrrmmr rmrmrm mrmtrtrsktpsrkjtsri rimgsrklfmbdkrt rskgpkrngkfdtd', 1, '2019-10-22 13:24:36'),
-(8, 0, 0, 0, 'users', 'Hello,\nSimplr Post User\'s', 1, '2019-10-23 02:10:59'),
-(9, 0, 0, 0, 'businesses', 'hI tHERE IS AS notification test', 1, '2019-10-23 02:11:37'),
-(10, 0, 0, 0, 'businesses', 'This is test 2', 1, '2019-10-23 02:12:26'),
-(11, 0, 0, 0, 'users', 'hello everyone', 1, '2019-10-23 13:23:15');
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `notificationUsers`
+-- Table structure for table `notificationusers`
 --
 
-CREATE TABLE `notificationUsers` (
+CREATE TABLE `notificationusers` (
   `recordId` bigint(20) NOT NULL,
   `notificationId` bigint(20) NOT NULL,
   `userId` bigint(20) NOT NULL,
   `status` int(11) DEFAULT '1'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `notificationUsers`
---
-
-INSERT INTO `notificationUsers` (`recordId`, `notificationId`, `userId`, `status`) VALUES
-(1, 1, 25, 1),
-(2, 1, 26, 1),
-(3, 2, 25, 1),
-(4, 2, 26, 1),
-(5, 3, 25, 1),
-(6, 3, 26, 1),
-(7, 4, 25, 1),
-(8, 4, 26, 1),
-(9, 5, 25, 1),
-(10, 5, 26, 1),
-(11, 6, 25, 1),
-(12, 6, 26, 1),
-(13, 7, 25, 1),
-(14, 7, 26, 1),
-(15, 8, 25, 1),
-(16, 8, 26, 1),
-(17, 8, 7, 1),
-(18, 9, 25, 1),
-(19, 9, 26, 1),
-(20, 9, 7, 1),
-(21, 9, 8, 1),
-(22, 10, 25, 1),
-(23, 10, 26, 1),
-(24, 10, 7, 1),
-(25, 10, 8, 1),
-(26, 11, 25, 1),
-(27, 11, 26, 1),
-(28, 11, 7, 1);
 
 -- --------------------------------------------------------
 
@@ -4350,70 +4291,114 @@ CREATE TABLE `otp` (
 --
 
 INSERT INTO `otp` (`otpId`, `otp`, `otpType`, `userId`, `createDate`, `isUsed`) VALUES
-(1, '150187', 2, 23, '2019-10-21 06:11:04', 0),
-(2, '249583', 2, 24, '2019-10-21 06:12:23', 1),
-(3, '223314', 2, 24, '2019-10-21 06:41:45', 1),
-(4, '847961', 2, 25, '2019-10-21 06:49:17', 0),
-(5, '857506', 2, 26, '2019-10-21 06:59:10', 0),
-(6, '524341', 2, 27, '2019-10-21 07:01:05', 1),
-(7, '884298', 2, 28, '2019-10-21 07:13:45', 0),
-(8, '887065', 0, 2, '2019-10-22 04:28:17', 0),
-(9, '801754', 1, 27, '2019-10-22 05:29:29', 1),
-(10, '190963', 0, 2, '2019-10-22 07:31:38', 0),
-(11, '877483', 0, 2, '2019-10-22 07:35:31', 0),
-(12, '109818', 0, 2, '2019-10-22 11:16:39', 0),
-(13, '815104', 2, 29, '2019-10-22 12:31:13', 0),
-(14, '484950', 2, 30, '2019-10-23 11:57:40', 0),
-(15, '397310', 2, 31, '2019-10-23 12:24:51', 0),
-(16, '135022', 2, 32, '2019-10-24 07:02:08', 0),
-(17, '990484', 0, 3, '2019-10-24 07:31:55', 0),
-(18, '287352', 2, 33, '2019-10-24 09:16:46', 0),
-(19, '670823', 2, 34, '2019-10-24 09:19:19', 0),
-(20, '443205', 2, 35, '2019-10-24 09:21:42', 0),
-(21, '706757', 2, 36, '2019-10-24 09:23:55', 0),
-(22, '359896', 2, 37, '2019-10-24 09:25:55', 0),
-(23, '127428', 2, 38, '2019-10-24 09:27:13', 0),
-(24, '179542', 2, 39, '2019-10-24 09:29:48', 0),
-(25, '401728', 2, 40, '2019-10-24 09:33:40', 1),
-(26, '111111', 2, 41, '2019-10-24 09:37:07', 1),
-(27, '111111', 2, 42, '2019-10-24 10:03:00', 1),
-(28, '111111', 2, 43, '2019-10-24 10:04:20', 1),
-(29, '171974', 2, 43, '2019-10-24 11:50:07', 0),
-(30, '754269', 2, 43, '2019-10-24 11:50:21', 1),
-(31, '174863', 2, 43, '2019-10-24 12:24:25', 1),
-(32, '565068', 2, 43, '2019-10-24 12:26:32', 0),
-(33, '682377', 2, 43, '2019-10-24 12:29:39', 0),
-(34, '111111', 2, 43, '2019-10-24 13:48:14', 0),
-(35, '111111', 2, 43, '2019-10-24 13:56:31', 0),
-(36, '111111', 2, 43, '2019-10-24 14:05:01', 0),
-(37, '111111', 2, 43, '2019-10-24 14:12:56', 0),
-(38, '111111', 2, 43, '2019-10-24 14:20:29', 1),
-(39, '111111', 2, 43, '2019-10-24 14:24:46', 0),
-(40, '111111', 2, 43, '2019-10-24 14:25:00', 1),
-(41, '800317', 0, 2, '2019-10-25 06:48:38', 0),
-(42, '507144', 0, 2, '2019-10-25 06:57:00', 0),
-(43, '900761', 2, 44, '2019-10-25 07:15:05', 0),
-(44, '864257', 2, 45, '2019-10-25 07:19:01', 0);
+(1, '214532', 2, 1, '2019-11-01 18:42:55', 0),
+(2, '174314', 2, 2, '2019-11-01 18:51:55', 0),
+(3, '940870', 2, 3, '2019-11-01 19:23:02', 0),
+(4, '188759', 2, 4, '2019-11-03 05:15:01', 0),
+(5, '896395', 2, 5, '2019-11-03 05:17:06', 0),
+(6, '368856', 2, 6, '2019-11-03 19:50:00', 0),
+(7, '943489', 2, 7, '2019-11-03 19:52:21', 0),
+(8, '838933', 0, 6, '2019-11-03 20:32:42', 0),
+(9, '160892', 1, 6, '2019-11-03 21:32:53', 0),
+(10, '830683', 2, 8, '2019-11-03 21:35:52', 0),
+(11, '683497', 2, 9, '2019-11-08 21:54:05', 0),
+(12, '579993', 2, 10, '2019-11-09 06:56:19', 0),
+(13, '933138', 2, 11, '2019-11-09 08:14:05', 0),
+(14, '909870', 2, 12, '2019-11-10 14:25:48', 0),
+(15, '457016', 2, 13, '2019-11-11 10:31:48', 0),
+(16, '161294', 2, 14, '2019-11-11 10:31:51', 0),
+(17, '748216', 2, 15, '2019-11-12 04:16:29', 0),
+(18, '118745', 2, 16, '2019-11-12 04:29:06', 0),
+(19, '609859', 2, 17, '2019-11-12 04:31:05', 0),
+(20, '120137', 2, 18, '2019-11-12 04:33:10', 0),
+(21, '911196', 2, 19, '2019-11-20 09:38:59', 0),
+(22, '128762', 2, 20, '2019-11-27 07:01:52', 0),
+(23, '436829', 2, 21, '2019-11-27 21:04:31', 0),
+(24, '881481', 2, 22, '2019-11-29 23:40:05', 0),
+(25, '816450', 2, 23, '2019-11-30 02:07:35', 0),
+(26, '391334', 0, 21, '2019-12-01 22:52:18', 1),
+(27, '657058', 2, 24, '2019-12-03 10:05:18', 0),
+(28, '156059', 2, 25, '2019-12-03 20:22:08', 0),
+(29, '162132', 2, 26, '2019-12-03 21:50:28', 0),
+(30, '937979', 2, 27, '2019-12-03 23:11:45', 0),
+(31, '905963', 0, 27, '2019-12-05 22:16:13', 0),
+(32, '6779', 3, 28, '2019-12-16 01:03:53', 1),
+(33, '7013', 3, 28, '2019-12-16 01:04:36', 1),
+(34, '5983', 1, 28, '2019-12-16 01:06:48', 1),
+(35, '4349', 4, 28, '2019-12-16 01:08:10', 1),
+(36, '1673', 3, 28, '2019-12-16 01:08:33', 0),
+(37, '7473', 2, 29, '2019-12-16 01:09:18', 0),
+(38, '5590', 4, 29, '2019-12-16 01:09:53', 1),
+(39, '4265', 3, 29, '2019-12-16 01:10:25', 0),
+(40, '7656', 3, 29, '2019-12-16 01:14:03', 1),
+(41, '7764', 1, 29, '2019-12-16 01:15:19', 1),
+(42, '8273', 2, 30, '2019-12-16 01:22:50', 1),
+(43, '3312', 3, 30, '2019-12-16 01:24:16', 0),
+(44, '1939', 3, 30, '2019-12-16 01:25:23', 0),
+(45, '2388', 3, 30, '2019-12-16 01:26:39', 0),
+(46, '1472', 3, 30, '2019-12-16 01:28:47', 0),
+(47, '6323', 3, 30, '2019-12-16 01:29:43', 0),
+(48, '1871', 4, 30, '2019-12-16 01:32:03', 1),
+(49, '2530', 2, 31, '2019-12-16 01:59:12', 1),
+(50, '1121', 3, 31, '2019-12-16 01:59:57', 1),
+(51, '5243', 3, 31, '2019-12-16 02:03:49', 0),
+(52, '3595', 3, 31, '2019-12-16 02:06:09', 0),
+(53, '5879', 1, 31, '2019-12-19 06:31:26', 0),
+(54, '1525', 4, 31, '2019-12-19 05:56:00', 1),
+(55, '8416', 3, 30, '2019-12-16 03:17:29', 0),
+(56, '2709', 3, 30, '2019-12-16 03:17:59', 0),
+(57, '7113', 3, 30, '2019-12-16 03:18:22', 0),
+(58, '8772', 3, 30, '2019-12-16 03:18:38', 0),
+(59, '2145', 3, 31, '2019-12-16 03:22:26', 1),
+(60, '7967', 3, 31, '2019-12-16 03:23:11', 0),
+(61, '9022', 3, 31, '2019-12-16 03:23:20', 0),
+(62, '7261', 2, 32, '2019-12-19 06:09:13', 1),
+(63, '8084', 2, 33, '2019-12-19 23:22:56', 0),
+(64, '3790', 2, 34, '2019-12-19 23:31:00', 0),
+(65, '3379', 2, 35, '2019-12-20 01:24:05', 0),
+(66, '7530', 2, 36, '2019-12-20 04:14:44', 1),
+(67, '5275', 2, 37, '2019-12-24 03:54:41', 1),
+(68, '6445', 4, 35, '2020-01-02 21:12:49', 0),
+(69, '5693', 2, 39, '2020-01-02 21:18:09', 1),
+(70, '7613', 1, 10, '2020-01-05 11:36:50', 1),
+(71, '6445', 3, 10, '2020-01-05 11:38:28', 0),
+(72, '2573', 3, 3, '2020-01-05 11:39:12', 0),
+(73, '2012', 3, 39, '2020-01-10 23:41:19', 0),
+(74, '9794', 3, 39, '2020-01-10 23:41:44', 0),
+(75, '7286', 3, 39, '2020-01-10 23:42:17', 1),
+(76, '1181', 2, 40, '2020-01-11 03:32:54', 1),
+(77, '3983', 3, 40, '2020-01-11 03:35:02', 1),
+(78, '9621', 2, 41, '2020-01-11 07:11:19', 1),
+(79, '1194', 3, 41, '2020-01-11 07:14:43', 0),
+(80, '4595', 3, 39, '2020-01-11 07:18:36', 1),
+(81, '3524', 3, 3, '2020-01-11 07:18:46', 0),
+(82, '9249', 3, 41, '2020-01-11 07:20:51', 1),
+(83, '4845', 3, 39, '2020-01-11 07:21:11', 0),
+(84, '1075', 3, 3, '2020-01-11 07:21:25', 0),
+(85, '4964', 3, 39, '2020-01-11 07:22:14', 0),
+(86, '7929', 3, 11, '2020-01-12 01:32:26', 0),
+(87, '9684', 3, 3, '2020-01-12 01:32:43', 0),
+(88, '5844', 3, 0, '2020-01-12 01:33:32', 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `primaryCategories`
+-- Table structure for table `primarycategories`
 --
 
-CREATE TABLE `primaryCategories` (
+CREATE TABLE `primarycategories` (
   `primaryCategoryId` bigint(20) NOT NULL,
   `categoryId` bigint(20) NOT NULL,
   `iconImageURL` varchar(255) NOT NULL,
   `createDate` datetime NOT NULL,
-  `status` int(11) NOT NULL
+  `status` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `primaryCategories`
+-- Dumping data for table `primarycategories`
 --
 
-INSERT INTO `primaryCategories` (`primaryCategoryId`, `categoryId`, `iconImageURL`, `createDate`, `status`) VALUES
+INSERT INTO `primarycategories` (`primaryCategoryId`, `categoryId`, `iconImageURL`, `createDate`, `status`) VALUES
 (1, 3961, 'categoryIcons/1.png', '2019-09-20 05:16:14', 1),
 (2, 3959, 'categoryIcons/2.png', '2019-09-20 05:16:22', 1),
 (3, 3960, 'categoryIcons/3.png', '2019-09-20 05:16:31', 1),
@@ -4428,10 +4413,10 @@ INSERT INTO `primaryCategories` (`primaryCategoryId`, `categoryId`, `iconImageUR
 -- --------------------------------------------------------
 
 --
--- Table structure for table `privacyPolicy`
+-- Table structure for table `privacypolicy`
 --
 
-CREATE TABLE `privacyPolicy` (
+CREATE TABLE `privacypolicy` (
   `id` int(11) NOT NULL,
   `heading` varchar(50) NOT NULL,
   `content` text NOT NULL,
@@ -4440,545 +4425,595 @@ CREATE TABLE `privacyPolicy` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `privacyPolicy`
+-- Dumping data for table `privacypolicy`
 --
 
-INSERT INTO `privacyPolicy` (`id`, `heading`, `content`, `createDate`, `status`) VALUES
+INSERT INTO `privacypolicy` (`id`, `heading`, `content`, `createDate`, `status`) VALUES
 (1, 'Privacy Policy', '<p class=\"MsoNormal\" style=\"margin: 18pt 0cm; line-height: 36pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"color: rgb(97, 97, 97); font-family: Helvetica, sans-serif; font-size: 10.5pt;\">Abizer Jafferjee built the Simplr Post app as a Free app. This SERVICE\nis provided by Abizer Jafferjee at no cost and is intended for use as is.</span><br></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"font-size:10.5pt;font-family:&quot;Helvetica&quot;,sans-serif;\nmso-fareast-font-family:&quot;Times New Roman&quot;;color:#616161;mso-fareast-language:\nEN-CA\">This page is used to inform visitors regarding my policies with the\ncollection, use, and disclosure of Personal Information if anyone decided to\nuse my Service.</span></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><br></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"font-size:10.5pt;font-family:&quot;Helvetica&quot;,sans-serif;\nmso-fareast-font-family:&quot;Times New Roman&quot;;color:#616161;mso-fareast-language:\nEN-CA\">If you choose to use my Service, then you agree to the collection and\nuse of information in relation to this policy. The Personal Information that I\ncollect is used for providing and improving the Service. I will not use or\nshare your information with anyone except as described in this Privacy Policy.</span></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><br></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"font-size:10.5pt;font-family:&quot;Helvetica&quot;,sans-serif;\nmso-fareast-font-family:&quot;Times New Roman&quot;;color:#616161;mso-fareast-language:\nEN-CA\">The terms used in this Privacy Policy have the same meanings as in our\nTerms and Conditions, which is accessible at Simplr Post unless otherwise\ndefined in this Privacy Policy.</span></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><br></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"font-size: 10.5pt; font-family: Helvetica, sans-serif; color: rgb(97, 97, 97); font-weight: bold;\">Information Collection and Use</span></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"font-size: 10.5pt; font-family: Helvetica, sans-serif; color: rgb(97, 97, 97); font-weight: bold;\"><br></span><span style=\"font-size:10.5pt;\nfont-family:&quot;Helvetica&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;\ncolor:#616161;mso-fareast-language:EN-CA\"><o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"font-size:10.5pt;font-family:&quot;Helvetica&quot;,sans-serif;\nmso-fareast-font-family:&quot;Times New Roman&quot;;color:#616161;mso-fareast-language:\nEN-CA\">For a better experience, while using our Service, I may require you to\nprovide us with certain personally identifiable information, including but not\nlimited to First Name, Last Name, Phone Number, Email Address, Profile Picture,\nHome Address, Business Address, Business Information. The information that I\nrequest will be retained on your device and is not collected by me in any way.</span></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><br></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"font-size:10.5pt;font-family:&quot;Helvetica&quot;,sans-serif;\nmso-fareast-font-family:&quot;Times New Roman&quot;;color:#616161;mso-fareast-language:\nEN-CA\">The app does use third party services that may collect information used\nto identify you.</span></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><br></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"font-size:10.5pt;font-family:&quot;Helvetica&quot;,sans-serif;\nmso-fareast-font-family:&quot;Times New Roman&quot;;color:#616161;mso-fareast-language:\nEN-CA\">Link to privacy policy of third party service providers used by the app</span></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><br></p><p><ul type=\"disc\"><li class=\"MsoNormal\" style=\"color: rgb(97, 97, 97); line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"color:black;mso-color-alt:windowtext\"><a href=\"https://www.google.com/policies/privacy/\" target=\"_blank\"><span style=\"font-size:10.5pt;font-family:&quot;Helvetica&quot;,sans-serif;mso-fareast-font-family:\n     &quot;Times New Roman&quot;;color:#448AFF;mso-fareast-language:EN-CA\">Google Play\n     Services</span></a></span></li></ul><ul type=\"disc\"><li class=\"MsoNormal\" style=\"color: rgb(97, 97, 97); line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"color:black;mso-color-alt:windowtext\"><a href=\"https://firebase.google.com/policies/analytics\" target=\"_blank\"><span style=\"font-size:10.5pt;font-family:&quot;Helvetica&quot;,sans-serif;mso-fareast-font-family:\n     &quot;Times New Roman&quot;;color:#448AFF;mso-fareast-language:EN-CA\">Firebase\n     Analytics</span></a></span></li></ul><ul type=\"disc\"><li class=\"MsoNormal\" style=\"color: rgb(97, 97, 97); line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"color:black;mso-color-alt:windowtext\"><a href=\"https://www.facebook.com/about/privacy\" target=\"_blank\"><span style=\"font-size:10.5pt;font-family:&quot;Helvetica&quot;,sans-serif;mso-fareast-font-family:\n     &quot;Times New Roman&quot;;color:#448AFF;mso-fareast-language:EN-CA\">Facebook</span></a></span></li></ul><ul type=\"disc\"><li class=\"MsoNormal\" style=\"color: rgb(97, 97, 97); line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"color:black;mso-color-alt:windowtext\"><span style=\"font-size:10.5pt;font-family:&quot;Helvetica&quot;,sans-serif;mso-fareast-font-family:\n     &quot;Times New Roman&quot;;color:#448AFF;mso-fareast-language:EN-CA\"><a href=\"http://try.crashlytics.com/terms/privacy-policy.pdf\" target=\"_blank\">Crashlytics</a></span></span></li></ul><p style=\"color: rgb(97, 97, 97); line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><br></p></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"font-size: 10.5pt; font-family: Helvetica, sans-serif; color: rgb(97, 97, 97); font-weight: bold;\">Log Data</span></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"font-size: 10.5pt; font-family: Helvetica, sans-serif; color: rgb(97, 97, 97); font-weight: bold;\"><br></span><span style=\"font-size:10.5pt;font-family:&quot;Helvetica&quot;,sans-serif;\nmso-fareast-font-family:&quot;Times New Roman&quot;;color:#616161;mso-fareast-language:\nEN-CA\"><o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"font-size:10.5pt;font-family:&quot;Helvetica&quot;,sans-serif;\nmso-fareast-font-family:&quot;Times New Roman&quot;;color:#616161;mso-fareast-language:\nEN-CA\">I want to inform you that whenever you use my Service, in a case of an\nerror in the app I collect data and information (through third party products)\non your phone called Log Data. This Log Data may include information such as\nyour device Internet Protocol (“IP”) address, device name, operating system\nversion, the configuration of the app when utilizing my Service, the time and\ndate of your use of the Service, and other statistics.</span></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><br></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"font-size: 10.5pt; font-family: Helvetica, sans-serif; color: rgb(97, 97, 97); font-weight: bold;\">Cookies</span></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"font-size: 10.5pt; font-family: Helvetica, sans-serif; color: rgb(97, 97, 97); font-weight: bold;\"><br></span></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"font-size:10.5pt;font-family:&quot;Helvetica&quot;,sans-serif;\nmso-fareast-font-family:&quot;Times New Roman&quot;;color:#616161;mso-fareast-language:\nEN-CA\"><o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"font-size:10.5pt;font-family:&quot;Helvetica&quot;,sans-serif;\nmso-fareast-font-family:&quot;Times New Roman&quot;;color:#616161;mso-fareast-language:\nEN-CA\">Cookies are files with a small amount of data that are commonly used as\nanonymous unique identifiers. These are sent to your browser from the websites\nthat you visit and are stored on your device\'s internal memory.</span></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><br></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"font-size:10.5pt;font-family:&quot;Helvetica&quot;,sans-serif;\nmso-fareast-font-family:&quot;Times New Roman&quot;;color:#616161;mso-fareast-language:\nEN-CA\">This Service does not use these “cookies” explicitly. However, the app\nmay use third party code and libraries that use “cookies” to collect\ninformation and improve their services. You have the option to either accept or\nrefuse these cookies and know when a cookie is being sent to your device. If\nyou choose to refuse our cookies, you may not be able to use some portions of\nthis Service.</span></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><br></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"font-size: 10.5pt; font-family: Helvetica, sans-serif; color: rgb(97, 97, 97); font-weight: bold;\">Service Providers</span></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"font-size: 10.5pt; font-family: Helvetica, sans-serif; color: rgb(97, 97, 97); font-weight: bold;\"><br></span><span style=\"font-size:10.5pt;font-family:\n&quot;Helvetica&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;color:#616161;\nmso-fareast-language:EN-CA\"><o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"font-size:10.5pt;font-family:&quot;Helvetica&quot;,sans-serif;\nmso-fareast-font-family:&quot;Times New Roman&quot;;color:#616161;mso-fareast-language:\nEN-CA\">I may employ third-party companies and individuals due to the following\nreasons:</span></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"font-size:10.5pt;font-family:&quot;Helvetica&quot;,sans-serif;\nmso-fareast-font-family:&quot;Times New Roman&quot;;color:#616161;mso-fareast-language:\nEN-CA\"><br></span></p><ul type=\"disc\"><li class=\"MsoNormal\" style=\"color: rgb(97, 97, 97); line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"font-size: 10.5pt; font-family: Helvetica, sans-serif;\">To facilitate our Service;</span></li></ul><ul type=\"disc\"><li class=\"MsoNormal\" style=\"color: rgb(97, 97, 97); line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"font-size: 10.5pt; font-family: Helvetica, sans-serif;\">To provide the Service on our behalf;</span></li></ul><ul type=\"disc\"><li class=\"MsoNormal\" style=\"color: rgb(97, 97, 97); line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"font-size: 10.5pt; font-family: Helvetica, sans-serif;\">To perform Service-related services; or</span></li></ul><ul type=\"disc\"><li class=\"MsoNormal\" style=\"color: rgb(97, 97, 97); line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"font-size: 10.5pt; font-family: Helvetica, sans-serif;\">To assist us in analyzing how our Service is used.</span></li></ul><p style=\"color: rgb(97, 97, 97); line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"font-size: 10.5pt; font-family: Helvetica, sans-serif;\"><br></span></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"font-size:10.5pt;font-family:&quot;Helvetica&quot;,sans-serif;\nmso-fareast-font-family:&quot;Times New Roman&quot;;color:#616161;mso-fareast-language:\nEN-CA\">I want to inform users of this Service that these third parties have\naccess to your Personal Information. The reason is to perform the tasks\nassigned to them on our behalf. However, they are obligated not to disclose or\nuse the information for any other purpose.</span></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><br></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"font-size: 10.5pt; font-family: Helvetica, sans-serif; color: rgb(97, 97, 97); font-weight: bold;\">Security</span></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"font-size: 10.5pt; font-family: Helvetica, sans-serif; color: rgb(97, 97, 97); font-weight: bold;\"><br></span><span style=\"font-size:10.5pt;font-family:&quot;Helvetica&quot;,sans-serif;\nmso-fareast-font-family:&quot;Times New Roman&quot;;color:#616161;mso-fareast-language:\nEN-CA\"><o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"font-size:10.5pt;font-family:&quot;Helvetica&quot;,sans-serif;\nmso-fareast-font-family:&quot;Times New Roman&quot;;color:#616161;mso-fareast-language:\nEN-CA\">I value your trust in providing us your Personal Information, thus we\nare striving to use commercially acceptable means of protecting it. But\nremember that no method of transmission over the internet, or method of\nelectronic storage is 100% secure and reliable, and I cannot guarantee its\nabsolute security.</span></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><br></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"font-size: 10.5pt; font-family: Helvetica, sans-serif; color: rgb(97, 97, 97); font-weight: bold;\">Links to Other Sites</span></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"font-size: 10.5pt; font-family: Helvetica, sans-serif; color: rgb(97, 97, 97); font-weight: bold;\"><br></span><span style=\"font-size:10.5pt;font-family:\n&quot;Helvetica&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;color:#616161;\nmso-fareast-language:EN-CA\"><o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"font-size:10.5pt;font-family:&quot;Helvetica&quot;,sans-serif;\nmso-fareast-font-family:&quot;Times New Roman&quot;;color:#616161;mso-fareast-language:\nEN-CA\">This Service may contain links to other sites. If you click on a\nthird-party link, you will be directed to that site. Note that these external\nsites are not operated by me. Therefore, I strongly advise you to review the\nPrivacy Policy of these websites. I have no control over and assume no\nresponsibility for the content, privacy policies, or practices of any\nthird-party sites or services.</span></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><br></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"font-size: 10.5pt; font-family: Helvetica, sans-serif; color: rgb(97, 97, 97); font-weight: bold;\">Children’s Privacy</span></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"font-size: 10.5pt; font-family: Helvetica, sans-serif; color: rgb(97, 97, 97); font-weight: bold;\"><br></span></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"font-size:10.5pt;font-family:\n&quot;Helvetica&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;color:#616161;\nmso-fareast-language:EN-CA\"><o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"font-size:10.5pt;font-family:&quot;Helvetica&quot;,sans-serif;\nmso-fareast-font-family:&quot;Times New Roman&quot;;color:#616161;mso-fareast-language:\nEN-CA\">These Services do not address anyone under the age of 13. I do not\nknowingly collect personally identifiable information from children under 13.\nIn the case I discover that a child under 13 has provided me with personal\ninformation, I immediately delete this from our servers. If you are a parent or\nguardian and you are aware that your child has provided us with personal\ninformation, please contact me so that I will be able to do necessary actions.</span></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><br></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"font-size: 10.5pt; font-family: Helvetica, sans-serif; color: rgb(97, 97, 97); font-weight: bold;\">Changes to This Privacy Policy</span></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"font-size: 10.5pt; font-family: Helvetica, sans-serif; color: rgb(97, 97, 97); font-weight: bold;\"><br></span><span style=\"font-size:10.5pt;\nfont-family:&quot;Helvetica&quot;,sans-serif;mso-fareast-font-family:&quot;Times New Roman&quot;;\ncolor:#616161;mso-fareast-language:EN-CA\"><o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"font-size:10.5pt;font-family:&quot;Helvetica&quot;,sans-serif;\nmso-fareast-font-family:&quot;Times New Roman&quot;;color:#616161;mso-fareast-language:\nEN-CA\">I may update our Privacy Policy from time to time. Thus, you are advised\nto review this page periodically for any changes. I will notify you of any\nchanges by posting the new Privacy Policy on this page. These changes are\neffective immediately after they are posted on this page.</span></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><br></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"font-size: 10.5pt; font-family: Helvetica, sans-serif; color: rgb(97, 97, 97); font-weight: bold;\">Contact Us</span></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"font-size: 10.5pt; font-family: Helvetica, sans-serif; color: rgb(97, 97, 97); font-weight: bold;\"><br></span><span style=\"font-size:10.5pt;font-family:&quot;Helvetica&quot;,sans-serif;\nmso-fareast-font-family:&quot;Times New Roman&quot;;color:#616161;mso-fareast-language:\nEN-CA\"><o:p></o:p></span></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"font-size:10.5pt;font-family:&quot;Helvetica&quot;,sans-serif;\nmso-fareast-font-family:&quot;Times New Roman&quot;;color:#616161;mso-fareast-language:\nEN-CA\">If you have any questions or suggestions about my Privacy Policy, do not\nhesitate to contact me at abizerjafferjee@simplrpost.com.</span></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><br></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><span style=\"font-size:10.5pt;font-family:&quot;Helvetica&quot;,sans-serif;\nmso-fareast-font-family:&quot;Times New Roman&quot;;color:#616161;mso-fareast-language:\nEN-CA\">This privacy policy page was created at&nbsp;</span><a href=\"https://privacypolicytemplate.net/\" target=\"_blank\"><span style=\"font-size:10.5pt;font-family:&quot;Helvetica&quot;,sans-serif;mso-fareast-font-family:\n&quot;Times New Roman&quot;;color:#448AFF;mso-fareast-language:EN-CA\">privacypolicytemplate.net</span></a><span style=\"font-size:10.5pt;font-family:&quot;Helvetica&quot;,sans-serif;mso-fareast-font-family:\n&quot;Times New Roman&quot;;color:#616161;mso-fareast-language:EN-CA\">&nbsp;and\nmodified/generated by&nbsp;</span><a href=\"https://app-privacy-policy-generator.firebaseapp.com/\" target=\"_blank\"><span style=\"font-size:10.5pt;font-family:&quot;Helvetica&quot;,sans-serif;mso-fareast-font-family:\n&quot;Times New Roman&quot;;color:#448AFF;mso-fareast-language:EN-CA\">App Privacy Policy\nGenerator</span></a></p><p class=\"MsoNormal\" style=\"margin-bottom: 12pt; line-height: 18pt; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;\"><a href=\"https://app-privacy-policy-generator.firebaseapp.com/\" target=\"_blank\"><span style=\"font-size:10.5pt;font-family:&quot;Helvetica&quot;,sans-serif;mso-fareast-font-family:\n&quot;Times New Roman&quot;;color:#448AFF;mso-fareast-language:EN-CA\"><br></span></a><span style=\"font-size:10.5pt;font-family:&quot;Helvetica&quot;,sans-serif;\nmso-fareast-font-family:&quot;Times New Roman&quot;;color:#616161;mso-fareast-language:\nEN-CA\"><o:p></o:p></span></p><p>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n</p><p class=\"MsoNormal\"><o:p>&nbsp;</o:p></p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ', '2019-08-05 00:00:00', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `privateAddressContactNumbers`
+-- Table structure for table `privateaddresscontactnumbers`
 --
 
-CREATE TABLE `privateAddressContactNumbers` (
+CREATE TABLE `privateaddresscontactnumbers` (
   `contactId` bigint(50) NOT NULL,
   `addressId` bigint(50) NOT NULL,
   `contactNumber` varchar(20) NOT NULL,
-  `status` int(11) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT '1',
   `createDate` datetime NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `privateAddressContactNumbers`
+-- Dumping data for table `privateaddresscontactnumbers`
 --
 
-INSERT INTO `privateAddressContactNumbers` (`contactId`, `addressId`, `contactNumber`, `status`, `createDate`) VALUES
-(1, 1, '+254123456451', 1, '2019-10-21 06:52:42'),
-(2, 2, '+254475135821', 1, '2019-10-22 07:32:40'),
-(3, 3, '+254647936114', 1, '2019-10-23 01:41:21');
+INSERT INTO `privateaddresscontactnumbers` (`contactId`, `addressId`, `contactNumber`, `status`, `createDate`) VALUES
+(1, 1, '+255754270015', 1, '2019-11-01 07:04:45'),
+(2, 2, '+254479361140', 1, '2019-11-01 07:31:07'),
+(3, 3, '+254987654321', 1, '2019-11-05 11:06:58'),
+(4, 4, '+254123456789', 1, '2019-11-06 04:48:28'),
+(5, 5, '+255685339720', 1, '2019-11-09 07:01:26'),
+(6, 6, '+254757460846', 1, '2019-11-11 10:41:24'),
+(7, 7, '+254754270014', 1, '2019-11-20 09:41:37'),
+(8, 8, '+254479361140', 1, '2019-11-24 11:07:12'),
+(9, 9, '+254755380045', 1, '2019-11-24 11:11:43'),
+(10, 10, '+254657855247', 1, '2019-11-24 11:16:33'),
+(11, 11, '+254999906078', 1, '2019-11-27 09:06:21'),
+(12, 12, '+254987389615', 1, '2019-11-30 12:05:20'),
+(13, 13, '+255987389615', 1, '2019-12-02 09:37:16'),
+(14, 14, '+254998989898', 1, '2019-12-03 10:36:14'),
+(15, 15, '+254975541057', 1, '2019-12-05 01:17:50'),
+(16, 16, '+254975541057', 1, '2019-12-05 01:19:27'),
+(17, 17, 'Select country131676', 1, '2019-12-16 01:17:11'),
+(18, 18, 'Select country123456', 1, '2019-12-17 09:56:56'),
+(19, 19, 'India123456789', 1, '2019-12-18 02:51:11'),
+(20, 20, 'Select country755410', 1, '2019-12-19 05:59:53'),
+(21, 21, 'United States6479391', 1, '2019-12-20 04:16:04'),
+(22, 22, '+255123456789', 1, '2020-01-04 02:54:10');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `privateAddresses`
+-- Table structure for table `privateaddresses`
 --
 
-CREATE TABLE `privateAddresses` (
+CREATE TABLE `privateaddresses` (
   `addressId` bigint(50) NOT NULL,
   `userId` bigint(50) NOT NULL,
-  `shortName` varchar(50) NOT NULL,
-  `plusCode` varchar(20) NOT NULL,
-  `address` varchar(150) NOT NULL,
-  `landmark` varchar(255) NOT NULL,
-  `referenceCode` varchar(10) NOT NULL,
-  `imageURL` varchar(100) NOT NULL,
-  `qrCodeURL` varchar(100) NOT NULL,
-  `latitude` decimal(10,8) NOT NULL,
-  `longitude` decimal(11,8) NOT NULL,
-  `countryId` int(11) NOT NULL,
-  `stateId` int(11) NOT NULL,
-  `emailId` varchar(255) NOT NULL,
-  `status` int(11) NOT NULL,
-  `blockDate` datetime NOT NULL,
-  `createDate` datetime NOT NULL
+  `shortName` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `plusCode` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `address` varchar(150) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `landmark` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `referenceCode` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `imageURL` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `qrCodeURL` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `latitude` decimal(10,8) DEFAULT NULL,
+  `longitude` decimal(11,8) DEFAULT NULL,
+  `countryId` int(11) DEFAULT NULL,
+  `stateId` int(11) DEFAULT NULL,
+  `emailId` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `status` int(11) DEFAULT '1',
+  `blockDate` datetime DEFAULT NULL,
+  `createDate` datetime DEFAULT NULL,
+  `street_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `building_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `entrance_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `direction_text` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `unique_link` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `address_tag` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `plus_code` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `street_image` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `building_image` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `entrance_image` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `city` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `country` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `street_img_type` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `building_img_type` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `entrance_img_type` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `privateAddresses`
+-- Dumping data for table `privateaddresses`
 --
 
-INSERT INTO `privateAddresses` (`addressId`, `userId`, `shortName`, `plusCode`, `address`, `landmark`, `referenceCode`, `imageURL`, `qrCodeURL`, `latitude`, `longitude`, `countryId`, `stateId`, `emailId`, `status`, `blockDate`, `createDate`) VALUES
-(1, 25, 'Tiny Home', '8J2RMPJV+RH', 'Phase 10', '', 'klhfty2Nw5', '', 'address/privateAddress/qrCodes/.png', '30.68206864', '76.74392123', 1, 1, 'ekam.codeapex@gmail.com', 1, '0000-00-00 00:00:00', '2019-10-21 06:52:42'),
-(2, 26, 'Big house', '8J2RMPXJ+JX', 'mohali', 'amb sahib', 'GwBH7Jjqme', '', 'address/privateAddress/qrCodes/.png', '30.69910985', '76.73241422', 1, 1, 'sobia.codeapex@gmail.com', 1, '0000-00-00 00:00:00', '2019-10-22 07:32:40'),
-(3, 7, 'Abizer\'s Home', '87M2QH34+JM', '', 'near Sheppard and Bathurst', 'toXPHpXEGG', '', 'address/privateAddress/qrCodes/.png', '43.75409750', '-79.44335807', 2, 4, 'abizerjafferjee@gmail.com', 1, '0000-00-00 00:00:00', '2019-10-23 01:41:21');
+INSERT INTO `privateaddresses` (`addressId`, `userId`, `shortName`, `plusCode`, `address`, `landmark`, `referenceCode`, `imageURL`, `qrCodeURL`, `latitude`, `longitude`, `countryId`, `stateId`, `emailId`, `status`, `blockDate`, `createDate`, `street_name`, `building_name`, `entrance_name`, `direction_text`, `unique_link`, `address_tag`, `plus_code`, `street_image`, `building_image`, `entrance_image`, `city`, `country`, `street_img_type`, `building_img_type`, `entrance_img_type`) VALUES
+(1, 2, 'Simplr Post Home', '87M2QH34+MM', 'Sheppard Avenue', 'Near Sheppard and Bathurst Plaza', 'EkM7J6KZmH', 'address/privateAddress/1.png', 'address/privateAddress/qrCodes/1.png', '43.75418490', '-79.44332360', 1, 1, 'ajaff95@yahoo.com', -1, '0000-00-00 00:00:00', '2019-11-01 19:04:45', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(2, 3, 'Thomas\'s Home', '87M2QH34+JM', 'Sheppard Avenue', 'Near Sheppard and Bathurst Plaza', 'zCtPc1MR4C', 'address/privateAddress/2.png', 'address/privateAddress/qrCodes/.png', '43.75409760', '-79.44335820', 1, 1, 'thomasm@teespizza.com', -1, '0000-00-00 00:00:00', '2019-11-01 19:31:07', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(3, 5, 'vhj', '8J2RMPJV+FJ', '', '', '8SXRPFc1xK', '', 'address/privateAddress/qrCodes/.png', '30.68112922', '76.74409490', 3, 3, 'codeapex7@gmail.com', -1, '0000-00-00 00:00:00', '2019-11-05 23:06:58', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(4, 4, 'huh', '8J2RMPJV+RH', '', '', 'KYmmZbsgEy', '', 'address/privateAddress/qrCodes/.png', '30.68207210', '76.74394302', 3, 3, 'navneet.codeapex@gmail.com', -1, '0000-00-00 00:00:00', '2019-11-06 04:48:28', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(5, 10, 'nyumbani', '6G8RJP57+2R', 'olorien PPF Njiro', 'AGM', 'PjtNHWRRQy', '', 'address/privateAddress/qrCodes/.png', '-3.39243141', '36.71450581', 2, 2, 'ruqaiyahjanoowalla@gmail.com', 1, '0000-00-00 00:00:00', '2019-11-09 07:01:26', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(6, 14, 'Home', '6GCRPQ7Q+G7', 'Denis Court, Kilimani', 'Lavington Security', 'gbqhQX9C64', '', 'address/privateAddress/qrCodes/.png', '-1.28615235', '36.78817805', 5, 5, 'jeremyatambo3@gmail.com', 1, '0000-00-00 00:00:00', '2019-11-11 10:41:24', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(7, 19, 'Hussein', '6G8RJP46+XX', '211olorien', 'ppf', 'hXdG3QGT5N', '', 'address/privateAddress/qrCodes/.png', '-3.39261415', '36.71240699', 2, 2, 'setlife@tz2000.com', 1, '0000-00-00 00:00:00', '2019-11-20 09:41:37', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(8, 3, 'Abizer\'s Home', '6G8RJMHV+9Q', 'India street', 'behind Arusha clock tower post office', 'JH8xdaCUnR', 'address/privateAddress/8.png', 'address/privateAddress/qrCodes/8.png', '-3.37160218', '36.69443149', 2, 2, 'abizerjafferjee@simplrpost.com', -1, '0000-00-00 00:00:00', '2019-11-24 11:07:12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(9, 3, 'boma residence unit 228', '6G5X57JG+73', '', 'near Azam office at kariako', 'itRClTgr02', 'address/privateAddress/9.png', 'address/privateAddress/qrCodes/9.png', '-6.81926137', '39.27518494', 2, 6, 'abizerjafferjee@simplrpost.com', -1, '0000-00-00 00:00:00', '2019-11-24 11:11:43', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(10, 3, 'bagamoyo villas', '6G5WHW93+9R', 'house unit 7, gate code 3112', 'near bagamoyo seafood restaurant', 'n5Y6Ez4HPY', 'address/privateAddress/10.png', 'address/privateAddress/qrCodes/10.png', '-6.43158170', '38.90458178', 2, 7, 'abizerjafferjee@simplrpost.com', -1, '0000-00-00 00:00:00', '2019-11-24 11:16:33', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(11, 21, 'private location', '7JWVJ675+3M', '', '', '557Nj49pQx', '', 'address/privateAddress/qrCodes/.png', '28.61267297', '77.20918693', 3, 9, 'robbiewebhub@gmail.com', -1, '0000-00-00 00:00:00', '2019-11-27 21:06:21', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(12, 22, 'dvhgg', '7JJQPWGC+FR', '', 'green valley', 'bBXiqQAGJS', '', 'address/privateAddress/qrCodes/.png', '22.72617632', '75.92205685', 3, 4, 'appsvila313@gmail.com', 1, '0000-00-00 00:00:00', '2019-11-30 00:05:20', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(13, 22, 'Abby', '7JJQPWGC+FR', '330 alok nagar', 'green valley', 'sr88Bylp3g', 'address/privateAddress/13.png', 'address/privateAddress/qrCodes/13.png', '22.72617632', '75.92205685', 3, 4, 'appsvila313@gmail.com', 1, '0000-00-00 00:00:00', '2019-12-02 21:37:16', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(14, 26, 'Home', '7JJQPWGC+FR', 'indore', 'indore', 'ovlzuKYXb0', 'address/privateAddress/14.png', 'address/privateAddress/qrCodes/14.png', '22.72617632', '75.92205685', 3, 4, 'sohel@gmail.com', 1, '0000-00-00 00:00:00', '2019-12-03 22:36:14', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(15, 27, 'indore', '7JJQPWFC+JM', 'hejsj', 'bxndn', 'dsMjhZ8Fb4', 'address/privateAddress/15.png', 'address/privateAddress/qrCodes/15.png', '22.72404560', '75.92171688', 3, 4, 'ajay.parmar@samosys.com', 1, '0000-00-00 00:00:00', '2019-12-05 01:17:50', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(16, 27, 'gdhd', '7JJQPWFC+JG', 'gdhs', 'bsnjs', '7dJTfeHBK2', '', 'address/privateAddress/qrCodes/.png', '22.72400509', '75.92132896', 3, 4, 'ajay.parmar@samosys.com', 1, '0000-00-00 00:00:00', '2019-12-05 01:19:27', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(17, 29, 'indore', '7JJQPWGC+HQ', 'alok nagar', 'Green vallay', 'SZgXVfCj8h', '', 'address/privateAddress/qrCodes/.png', '22.72644320', '75.92193179', 3, 4, 'ajay.parmar@samosys.com', 1, '0000-00-00 00:00:00', '2019-12-16 01:17:11', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(18, 4, 'indore', '7JJQPWGC+FR', 'indore', 'Green valley', 'GA2xkeqi3A', '', 'address/privateAddress/qrCodes/.png', '22.72617632', '75.92205685', 3, 4, 'navneet.codeapex@gmail.com', -1, '0000-00-00 00:00:00', '2019-12-17 21:56:56', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(19, 4, 'hhj', '7JJQPWGC+FR', 'ugggu', 'jjvjg', 'hsFBfd8NjC', '', 'address/privateAddress/qrCodes/.png', '22.72617632', '75.92205685', 3, 4, 'navneet.codeapex@gmail.com', -1, '0000-00-00 00:00:00', '2019-12-18 02:51:11', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(20, 31, 'fhc', '7JJQPWGC+FR', 'hchv', 'jvhguc', '78Jl3bwkei', '', 'address/privateAddress/qrCodes/.png', '22.72617632', '75.92205685', 3, 4, 'pajay.parmar25@gmail.com', 1, '0000-00-00 00:00:00', '2019-12-19 05:59:53', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(21, 36, 'abizer home', '87M2MJ99+X9', '', '', 'dYixx1jC1n', '', 'address/privateAddress/qrCodes/.png', '43.66992357', '-79.38151639', 1, 1, 'abizerjafferjee@gmail.com', 1, '0000-00-00 00:00:00', '2019-12-20 04:16:04', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(48, 41, NULL, '87M2MJC7+5F', NULL, NULL, 'http://sim', NULL, 'address/privateAddress/qrCodes/.png', '43.67043551', '-79.38635979', 1, 1, NULL, -1, NULL, '2020-01-11 11:34:26', '2 Bloor Street East', 'The bay building', '33rd Floor', 'Call me once you\'re at the lobby. The 33rd floor is restricted access so I will have to let you up.', 'http://simplrpost.com/citco-office-toronto', 'private', '87M2MJC7+5F', NULL, NULL, NULL, 'Old Toronto, Toronto Division, Ontario', 'Old Toronto, Toronto Division, Ontario, Canada', 'Street', 'Building', 'Floor'),
+(47, 41, NULL, '87M2MJ99+WC', NULL, NULL, 'http://sim', NULL, 'address/privateAddress/qrCodes/.png', '43.66977612', '-79.38147482', 1, 1, NULL, -1, NULL, '2020-01-11 07:24:52', '88, Charles Street East', 'Woldorf Astoria Building', 'Apartment 102', 'Call me once you\'re at the entrance and I will let you in.', 'http://simplrpost.com/abizer-home-toronto', 'private', '87M2MJ99+WC', NULL, 'uploads/address/privateAddress/SimplrPost1578756281661.png', NULL, 'Old Toronto, Toronto Division, Ontario', 'Old Toronto, Toronto Division, Ontario, Canada', 'Street', 'Building', 'Floor'),
+(46, 40, NULL, '7JJQPWGC+VH', NULL, NULL, 'http://adm', NULL, 'address/privateAddress/qrCodes/.png', '22.72724662', '75.92141680', 3, 4, NULL, 1, NULL, '2020-01-11 03:37:39', 'Sanchar Nagar Ext', '103', '111', 'Test', 'http://admin.simplrpost.com/sanchar', 'private', '7JJQPWGC+VH', 'uploads/address/privateAddress/SimplrPost1578742636239.png', 'uploads/address/privateAddress/SimplrPost1578742641152.png', 'uploads/address/privateAddress/SimplrPost1578742648921.png', 'Alok Nagar, Indore, Madhya Pradesh', 'Alok Nagar, Indore, Madhya Pradesh, India', 'Street', 'Building', 'Entrance'),
+(49, 41, NULL, '87M2MJ99+XF', NULL, NULL, 'http://sim', NULL, 'address/privateAddress/qrCodes/.png', '43.66988560', '-79.38125160', 1, 1, NULL, 1, NULL, '2020-01-11 12:40:37', '88, Charles Street East', 'Woldorf Astoria Building', 'Apartment 102', 'Call me once you\'re at the building entrance and I will open the door for you.', 'http://simplrpost.com/joes-home-toronto', 'private', '87M2MJ99+XM', NULL, 'uploads/address/privateAddress/SimplrPost1578775182245.png', NULL, 'Old Toronto, Toronto Division, Ontario', 'Old Toronto, Toronto Division, Ontario, Canada', 'Street', 'Building', 'Floor'),
+(50, 41, NULL, '87M2MJC9+6F', NULL, NULL, 'http://sim', NULL, 'address/privateAddress/qrCodes/.png', '43.67050002', '-79.38127767', 1, 1, NULL, 1, NULL, '2020-01-11 12:54:17', '227 R, Bloor Street East', 'Connor house', 'Office unit 203', 'The buzzer code is 4376.', 'http://simplrpost.com/joes-private-office', 'private', '87M2MJC9+6F', NULL, NULL, NULL, 'Old Toronto, Toronto Division, Ontario', 'Old Toronto, Toronto Division, Ontario, Canada', 'Street', 'Building', 'Floor'),
+(51, 39, NULL, '7JJQPWGC+FR', NULL, NULL, 'http://sim', NULL, 'address/privateAddress/qrCodes/.png', '22.72624860', '75.92204700', 3, 4, NULL, 1, NULL, '2020-01-13 02:01:38', 'Kanadia', '330', '97', '', 'http://simplrpost.com/office', 'private', '7JJQPWGC+FR', 'uploads/address/privateAddress/SimplrPost1578909739710.png', 'uploads/address/privateAddress/SimplrPost1578909742428.png', 'uploads/address/privateAddress/SimplrPost1578909747226.png', 'Alok Nagar, Indore, Madhya Pradesh', 'Alok Nagar, Indore, Madhya Pradesh, India', 'Street', 'Building', 'Entrance');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `publicAddressContactNumbers`
+-- Table structure for table `publicaddresscontactnumbers`
 --
 
-CREATE TABLE `publicAddressContactNumbers` (
+CREATE TABLE `publicaddresscontactnumbers` (
   `contactId` bigint(50) NOT NULL,
   `addressId` bigint(50) NOT NULL,
   `contactNumber` varchar(20) NOT NULL,
-  `status` int(11) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT '1',
   `createDate` datetime NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `publicAddressContactNumbers`
+-- Dumping data for table `publicaddresscontactnumbers`
 --
 
-INSERT INTO `publicAddressContactNumbers` (`contactId`, `addressId`, `contactNumber`, `status`, `createDate`) VALUES
-(1, 1, '+254123456451', 1, '2019-10-21 06:52:14'),
-(2, 2, '+254475135821', 1, '2019-10-21 07:00:38'),
-(3, 3, '+254475135821', 0, '2019-10-21 07:01:24'),
-(4, 4, '+254475135821', 1, '2019-10-21 07:23:49'),
-(5, 5, '+254475135821', 1, '2019-10-21 07:24:38'),
-(6, 6, '+254123456451', 1, '2019-10-21 08:22:32'),
-(7, 7, '+254123456451', 1, '2019-10-21 11:50:36'),
-(8, 8, '+254123456451', 1, '2019-10-21 11:54:28'),
-(9, 9, '+254475135821', 1, '2019-10-21 11:56:01'),
-(10, 10, '+254475135821', 1, '2019-10-22 07:33:49'),
-(11, 11, '+254123456451', 1, '2019-10-22 08:01:42'),
-(12, 12, '+254123456451', 1, '2019-10-22 01:02:57'),
-(13, 13, '+254123456451', 1, '2019-10-22 05:33:08'),
-(14, 14, '+254123456451', 1, '2019-10-22 06:03:18'),
-(15, 15, '+254647936114', 1, '2019-10-23 01:39:57'),
-(16, 16, '+254654114400', 1, '2019-10-23 01:44:57');
+INSERT INTO `publicaddresscontactnumbers` (`contactId`, `addressId`, `contactNumber`, `status`, `createDate`) VALUES
+(1, 1, '+255754270015', 0, '2019-11-01 07:12:08'),
+(2, 2, '+254479361140', 1, '2019-11-01 07:56:11'),
+(3, 3, '+255754270015', 1, '2019-11-03 08:08:57'),
+(4, 4, '+254987654321', 0, '2019-11-05 08:58:33'),
+(5, 5, '+254987654321', 1, '2019-11-05 11:08:26'),
+(6, 6, '+254123456789', 1, '2019-11-06 04:54:17'),
+(7, 7, '+255712552700', 1, '2019-11-09 08:19:58'),
+(8, 8, '+255752125252', 1, '2019-11-11 06:31:16'),
+(9, 9, '+255789515152', 1, '2019-11-12 04:27:36'),
+(10, 1, '+255721545684', 1, '2019-11-24 11:26:39'),
+(11, 10, '+255222664878', 1, '2019-11-25 07:49:05'),
+(12, 11, '+255754270015', 0, '2019-11-29 11:31:54'),
+(13, 12, '+254987389615', 1, '2019-11-29 11:42:54'),
+(14, 13, '+254999906078', 1, '2019-12-01 11:35:37'),
+(15, 14, '+254987389615', 1, '2019-12-02 03:41:12'),
+(16, 15, '+254997776388', 1, '2019-12-03 10:10:04'),
+(17, 16, '+254997776388', 1, '2019-12-03 10:15:16'),
+(18, 17, '+254998989898', 1, '2019-12-03 10:19:10'),
+(19, 18, '+254975541057', 1, '2019-12-03 11:13:57'),
+(20, 19, 'United States6479361', 1, '2019-12-20 04:21:34'),
+(21, 20, 'Select country685339', 1, '2020-01-05 11:44:55'),
+(22, 21, '+255123456789', 1, '2020-01-07 10:40:29');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `publicAddresses`
+-- Table structure for table `publicaddresses`
 --
 
-CREATE TABLE `publicAddresses` (
+CREATE TABLE `publicaddresses` (
   `addressId` bigint(50) NOT NULL,
   `userId` bigint(50) NOT NULL,
-  `shortName` varchar(30) NOT NULL,
-  `logoURL` varchar(100) NOT NULL,
-  `qrCodeURL` varchar(100) NOT NULL,
-  `plusCode` varchar(20) NOT NULL,
-  `referenceCode` varchar(10) NOT NULL,
-  `address` varchar(100) NOT NULL,
-  `landmark` varchar(255) NOT NULL,
-  `emailId` varchar(255) NOT NULL,
-  `isDeliveryAvailable` tinyint(1) NOT NULL,
-  `categoryId` bigint(50) NOT NULL,
-  `latitude` decimal(10,8) NOT NULL,
-  `longitude` decimal(11,8) NOT NULL,
-  `countryId` int(11) NOT NULL,
-  `stateId` int(11) NOT NULL,
-  `description` varchar(500) NOT NULL,
-  `locationPictureURL` varchar(255) NOT NULL,
-  `serviceDescription` text NOT NULL,
-  `websiteURL` varchar(100) NOT NULL,
-  `facebookURL` varchar(100) NOT NULL,
-  `twitterURL` varchar(100) NOT NULL,
-  `linkedInURL` varchar(100) NOT NULL,
-  `instagramURL` varchar(100) NOT NULL,
-  `blockDate` datetime NOT NULL,
-  `blockDuration` int(2) NOT NULL,
-  `isUnblockable` tinyint(1) NOT NULL,
-  `createDate` datetime NOT NULL,
-  `status` int(11) NOT NULL COMMENT '0 deactivated, -1 deleted, -5 blocked, 1 active'
+  `shortName` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `logoURL` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `qrCodeURL` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `plusCode` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `referenceCode` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `address` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `landmark` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `emailId` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `isDeliveryAvailable` tinyint(1) DEFAULT NULL,
+  `categoryId` bigint(50) DEFAULT NULL,
+  `latitude` decimal(10,8) DEFAULT NULL,
+  `longitude` decimal(11,8) DEFAULT NULL,
+  `countryId` int(11) DEFAULT NULL,
+  `stateId` int(11) DEFAULT NULL,
+  `description` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `locationPictureURL` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `serviceDescription` text CHARACTER SET utf8 COLLATE utf8_general_ci,
+  `websiteURL` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `facebookURL` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `twitterURL` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `linkedInURL` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `instagramURL` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `blockDate` datetime DEFAULT NULL,
+  `blockDuration` int(2) DEFAULT NULL,
+  `isUnblockable` tinyint(1) DEFAULT NULL,
+  `createDate` datetime DEFAULT NULL,
+  `status` int(11) DEFAULT '1' COMMENT '0 deactivated, -1 deleted, -5 blocked, 1 active',
+  `street_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `building_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `entrance_name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `direction_text` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `unique_link` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `address_tag` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `plus_code` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `street_image` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `building_image` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `entrance_image` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `city` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `country` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `street_img_type` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `building_img_type` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `entrance_img_type` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `publicAddresses`
+-- Dumping data for table `publicaddresses`
 --
 
-INSERT INTO `publicAddresses` (`addressId`, `userId`, `shortName`, `logoURL`, `qrCodeURL`, `plusCode`, `referenceCode`, `address`, `landmark`, `emailId`, `isDeliveryAvailable`, `categoryId`, `latitude`, `longitude`, `countryId`, `stateId`, `description`, `locationPictureURL`, `serviceDescription`, `websiteURL`, `facebookURL`, `twitterURL`, `linkedInURL`, `instagramURL`, `blockDate`, `blockDuration`, `isUnblockable`, `createDate`, `status`) VALUES
-(1, 25, 'Antique', 'address/publicAddress/1.png', 'address/publicAddress/qrCodes/1.png', '8J2RMPJV+RH', 'w1fmodushy', 'Phase 11', '', 'ekam.codeapex@gmail.com', 1, 3956, '30.68206864', '76.74392123', 1, 1, 'find some interesting things over here', '', 'all antique products available', 'http://code-apex.com', '', '', '', '', '0000-00-00 00:00:00', 0, 0, '2019-10-21 06:52:14', 1),
-(2, 26, 'travel house', 'address/publicAddress/2.png', 'address/publicAddress/qrCodes/2.png', '8J2RMPJV+RH', '6MslbUoxNm', 'Phase 11', '', 'sobia.codeapex@gmail.com', 0, 3958, '30.68206864', '76.74392123', 1, 1, 'ytr v. iyy', '', '', '', '', '', '', '', '2019-10-22 07:02:39', 7, 1, '2019-10-21 07:00:38', 1),
-(3, 26, 'travel house', 'address/publicAddress/3.png', 'address/publicAddress/qrCodes/3.png', '8J2RMPJV+RH', 'U06PrufG9P', 'Phase 11', '', 'sobia.codeapex@gmail.com', 0, 3958, '30.68206864', '76.74392123', 1, 1, 'ytr v. iyy', '', '', '', '', '', '', '', '0000-00-00 00:00:00', 0, 0, '2019-10-21 07:01:24', -1),
-(4, 26, 'hello hello', '', 'address/publicAddress/qrCodes/.png', '8J2RMPJV+RH', '1v95CN2Cnc', 'Phase 11', '', 'sobia.codeapex@gmail.com', 0, 3958, '30.68206864', '76.74392123', 1, 1, 'hello', '', '', '', '', '', '', '', '2019-10-22 13:31:55', -1, 0, '2019-10-21 07:23:49', 1),
-(5, 26, 'fish shop', '', 'address/publicAddress/qrCodes/.png', '8J2RMPJV+RH', 'RNRulv72MH', '', '', 'sobia.codeapex@gmail.com', 0, 3959, '30.68206864', '76.74392123', 1, 1, 'fish fish', '', '', '', '', '', '', '', '0000-00-00 00:00:00', 0, 0, '2019-10-21 07:24:38', 1),
-(6, 25, 'learning school', '', 'address/publicAddress/qrCodes/.png', '8J2RMPJV+RH', 'uZQMRuCjh2', 'Phase 11', '', 'ekam.codeapex@gmail.com', 0, 3962, '30.68206864', '76.74392123', 1, 1, 'for all children above 2 years age', '', '', '', '', '', '', '', '0000-00-00 00:00:00', 0, 0, '2019-10-21 08:22:32', 1),
-(7, 25, 'ccd', 'address/publicAddress/7.png', 'address/publicAddress/qrCodes/7.png', '8J2RMPJV+VH', 'QujBhxBydw', 'Phase 10', '', 'ekam.codeapex@gmail.com', 0, 3955, '30.68213467', '76.74393665', 1, 1, 'hello', '', '', '', '', '', '', '', '0000-00-00 00:00:00', 0, 0, '2019-10-21 11:50:36', 1),
-(8, 25, 'tulip shop', '', 'address/publicAddress/qrCodes/.png', '8J2RPQMH+8Q', 'j9dfl5sb28', 'Chandigsrh', '', 'ekam.codeapex@gmail.com', 0, 3956, '30.73331494', '76.77941792', 1, 2, 'Flower of all type', '', '', '', '', '', '', '', '0000-00-00 00:00:00', 0, 0, '2019-10-21 11:54:28', 1),
-(9, 26, 'Idbi', '', 'address/publicAddress/qrCodes/.png', '8J2RPP39+V4', 'xiJJWAXVdY', 'Mohali', '', 'sobia.codeapex@gmail.com', 0, 3961, '30.70464862', '76.71787262', 1, 1, 'banking services', '', 'ki', '', '', '', '', '', '0000-00-00 00:00:00', 0, 0, '2019-10-21 11:56:01', 1),
-(10, 26, 'inspection', '', 'address/publicAddress/qrCodes/.png', '8J4R689F+J9', 'VQH7N08Mr1', 'Dharmshala', '', 'sobia.codeapex@gmail.com', 0, 3955, '32.21904213', '76.32340383', 1, 3, 'hello their', '', '', '', '', '', '', '', '0000-00-00 00:00:00', 0, 0, '2019-10-22 07:33:49', 1),
-(11, 25, 'Social Media', 'address/publicAddress/11.png', 'address/publicAddress/qrCodes/11.png', '8J2RMPRP+P3', '28Mk1Mw1Nb', 'Phase 9', 'near bus stand', 'ekam.codeapex@gmail.com', 1, 3957, '30.69181034', '76.73518762', 1, 1, 'internet connection and other set up', 'address/publicAddress/locationImages/11.png', 'all type of services', 'http://invite-in.com', 'https://facebook.com/CodeApex/', 'https://twitter.com/apex_code', 'https://linkedin.com/company/13290833/admin/', 'https://instagram.com/codeapex7/', '0000-00-00 00:00:00', 0, 0, '2019-10-22 08:01:42', 1),
-(12, 25, 'Check info', 'address/publicAddress/12.png', 'address/publicAddress/qrCodes/12.png', '8J2RMPJV+RH', 'PaFKPuQpbj', 'Phase 11', '', 'ekam.codeapex@gmail.com', 0, 3955, '30.68206864', '76.74392123', 1, 1, 'about us', 'address/publicAddress/locationImages/12.png', 'service description', '', '', '', '', '', '0000-00-00 00:00:00', 0, 0, '2019-10-22 13:02:57', 1),
-(13, 25, 'time time', '', 'address/publicAddress/qrCodes/.png', '8J2RMPJV+JR', 'M0j5u9MHyC', '', '', 'ekam.codeapex@gmail.com', 0, 3959, '30.68150810', '76.74457569', 1, 1, 'ti.e time', '', '', '', '', '', '', '', '0000-00-00 00:00:00', 0, 0, '2019-10-22 17:33:08', 1),
-(14, 25, 'Time', '', 'address/publicAddress/qrCodes/.png', '8J2RMPJV+VJ', 'uyP9MV3n2r', '', '', 'ekam.codeapex@gmail.com', 0, 3956, '30.68217792', '76.74402315', 1, 1, 'time ni', '', '', '', '', '', '', '', '0000-00-00 00:00:00', 0, 0, '2019-10-22 18:03:18', 1),
-(15, 7, 'Simplr Suite', '', 'address/publicAddress/qrCodes/.png', '87M2QH34+XW', 'lW7pH6u38p', '', '', 'abizerjafferjee@gmail.com', 1, 3956, '43.75498458', '-79.44264863', 2, 4, 'This is a software suite for small business', '', 'we have many software modules like\ninventory\nprocurement', '', '', '', '', '', '0000-00-00 00:00:00', 0, 0, '2019-10-23 01:39:57', 1),
-(16, 35, 'Thumbtack', '', 'address/publicAddress/qrCodes/.png', '87M2QH34+JM', '87Wyh73lH9', '', '', 'ajaff95@yahoo.com', 1, 3956, '43.75409750', '-79.44335807', 2, 4, 'A stationery supplier', '', 'this is a stationery supply company', '', '', '', '', '', '0000-00-00 00:00:00', 0, 0, '2019-10-23 01:44:57', -1);
+INSERT INTO `publicaddresses` (`addressId`, `userId`, `shortName`, `logoURL`, `qrCodeURL`, `plusCode`, `referenceCode`, `address`, `landmark`, `emailId`, `isDeliveryAvailable`, `categoryId`, `latitude`, `longitude`, `countryId`, `stateId`, `description`, `locationPictureURL`, `serviceDescription`, `websiteURL`, `facebookURL`, `twitterURL`, `linkedInURL`, `instagramURL`, `blockDate`, `blockDuration`, `isUnblockable`, `createDate`, `status`, `street_name`, `building_name`, `entrance_name`, `direction_text`, `unique_link`, `address_tag`, `plus_code`, `street_image`, `building_image`, `entrance_image`, `city`, `country`, `street_img_type`, `building_img_type`, `entrance_img_type`) VALUES
+(1, 2, 'Simplr Post', 'address/publicAddress/1.png', 'address/publicAddress/qrCodes/1.png', '6GCRPR7F+M2', '3P6mjvCc1s', '7th floor, Collab building, Wabera Street', 'At the corner of Java restaurant, Wabera street', 'ajaff95@yahoo.com', 0, 3957, '-1.28586710', '36.82256766', 5, 5, 'We are an app for digital home and business addressing', 'address/publicAddress/locationImages/1.png', 'our app provides public and private digital addresses that can be easily shared through the phone with individuals and businesses to make it easier for people and services to reach a location. This is especially helpful in countries where street addressing is not fully implemented.', 'http://simplrpost.com', '', '', '', '', '0000-00-00 00:00:00', 0, 0, '2019-11-01 19:12:08', -1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(2, 3, 'Tees Pizza', 'address/publicAddress/2.png', 'address/publicAddress/qrCodes/2.png', '87M2QH34+MM', 'Ra17h7Ra6o', 'Uhuru Road', 'Near Puma Petrol at Sheppard Park', 'chef@teespizza.com', 1, 3955, '43.75418490', '-79.44332360', 1, 1, 'The best pizza in the city by miles!\nCome and enjoy our 24/7 service', 'address/publicAddress/locationImages/2.png', 'Pizzas are for those who want simplicity in their lives...we don\'t want to ruin that so our menu has two kinds of pizzas ', 'http://teespizzas.com', '', '', '', '', '0000-00-00 00:00:00', 0, 0, '2019-11-01 19:56:11', -1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(3, 2, 'TZ Fire Station', 'address/publicAddress/3.png', 'address/publicAddress/qrCodes/3.png', '6G8RJM7M+5C', 'fUZ8kKP9Md', 'Faya Road', 'On the corner of Masai Market Arusha', 'chief@arushafirestation.com', 1, 3957, '-3.38700442', '36.68352831', 2, 2, 'We are Arusha\'s emergency fire service department.', '', 'We have 4 emergency fire trucks that support the Arusha local district. We currently have an average response time of 40 mins. We\'re trying to that down by using Simplr Post to find our way accurately. To help us, please share your home address on your public page so we can get to you quickly when you need us!', '', '', '', '', '', '0000-00-00 00:00:00', 0, 0, '2019-11-03 20:08:57', -1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(4, 5, 'boj', 'address/publicAddress/4.png', 'address/publicAddress/qrCodes/.png', '8J2RMPJV+P7', 'RKNS9Eo5TJ', '', '', 'codeapex7@gmail.com', 0, 3956, '30.68180539', '76.74324699', 3, 3, 'bug', 'address/publicAddress/locationImages/4.png', '', '', '', '', '', '', '0000-00-00 00:00:00', 0, 0, '2019-11-05 20:58:33', -1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(5, 5, 'hui', 'address/publicAddress/5.png', 'address/publicAddress/qrCodes/.png', '8J2RPP38+68', 'Hx185U376g', '', '', 'codeapex7@gmail.com', 0, 3957, '30.70305214', '76.71577781', 3, 3, 'guh', 'address/publicAddress/locationImages/5.png', '', '', '', '', '', '', '0000-00-00 00:00:00', 0, 0, '2019-11-05 23:08:26', -1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(6, 4, 'y8', '', 'address/publicAddress/qrCodes/.png', '8J2RMPMR+56', '1iwPuBybo1', '', '', 'navneet.codeapex@gmail.com', 0, 3956, '30.68292645', '76.74054634', 3, 3, 'tuuhu', '', '', '', '', '', '', '', '0000-00-00 00:00:00', 0, 0, '2019-11-06 04:54:17', -1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(7, 11, 'Thumbtack', '', 'address/publicAddress/qrCodes/.png', '6G8RJMGR+PR', 'Gx9qBHzyn0', 'opposite NBC bank on sokoine road', 'NBC bank', 'sakinaj66@gmail.com', 0, 3956, '-3.37321709', '36.69203427', 2, 2, 'we are dealers in stationary and provide engraving and cutting service', '', 'we supply stationary and provide laser cutting and engraving services', '', '', '', '', 'https://@thumbtackarusha', '0000-00-00 00:00:00', 0, 0, '2019-11-09 08:19:58', -1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(8, 9, 'plastic supermarket', '', 'address/publicAddress/qrCodes/.png', '6G8RJM7M+65', 'HW1Un9hZZ0', 'arusha tanzania', '', 'h.m.nanu@gmail.com', 1, 3956, '-3.38692544', '36.68299254', 2, 2, 'we are dealers of house hold and kitchen appliances', '', '', '', '', '', '', '', '0000-00-00 00:00:00', 0, 0, '2019-11-11 06:31:16', -1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(9, 15, 'Beacon Consulting', '', 'address/publicAddress/qrCodes/.png', '6G8RJMMG+3R', 'SoH9240JyH', '', 'Technical College Arusha', 'hkassamali.291@gmail.com', 0, 3961, '-3.36737195', '36.67702898', 2, 2, 'Consulting in accounts, management and inventory', '', '', '', '', '', '', '', '0000-00-00 00:00:00', 0, 0, '2019-11-12 04:27:36', -1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(10, 2, 'Mount Kilimanjaro', 'address/publicAddress/10.png', 'address/publicAddress/qrCodes/10.png', '6G8VW9M4+8F', 'VS8N1jT7t4', 'Uhuru Peak', 'Near Moshi, Kilimanjaro', 'info@tanzaniatourism.go.tz', 0, 3958, '-3.06664225', '37.35619649', 2, 8, 'Mount Kilimanjaro is the highest single freestanding mountain in the world, with it\'s summit at 5895 meters.', '', '', 'http://tanzaniatourism.go.tz', '', '', '', '', '0000-00-00 00:00:00', 0, 0, '2019-11-25 19:49:05', -1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(11, 2, 'a', '', 'address/publicAddress/qrCodes/.png', '87M2MJC7+97', 'z7cqfBzFRx', '', '', 'ajaff95@yahoo.com', 0, 3955, '43.67095061', '-79.38682280', 1, 1, 'ahs', '', '', '', '', '', '', '', '0000-00-00 00:00:00', 0, 0, '2019-11-29 11:31:54', -1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(12, 22, 'Restaurant', 'address/publicAddress/12.png', 'address/publicAddress/qrCodes/12.png', '7JJQPWGC+FR', 'Gdw481Vcs9', '', '', 'appsvila313@gmail.com', 0, 3955, '22.72617632', '75.92205685', 3, 4, 'vdvdhhehebrb', '', 'gfhdbdbdbfb', 'http://abc.com', '', '', '', '', '0000-00-00 00:00:00', 0, 0, '2019-11-29 23:42:54', -1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(13, 21, 'testb', '', 'address/publicAddress/qrCodes/.png', '7JWVM5R2+6P', 'MrrUwb0sno', '414, Pearl lmaxe, Netaji Subhash place pitampura', 'near pearl omaxe', 'robbiewebhub@gmail.com', 0, 3956, '28.69058412', '77.15179671', 3, 9, 'testing', '', 'testing', '', '', '', '', '', '0000-00-00 00:00:00', 0, 0, '2019-12-01 23:35:37', -1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(14, 22, 'hdhdh', '', 'address/publicAddress/qrCodes/.png', '7JJQPWFC+QH', '7wKz7RtrJg', 'hfhfjf', '', 'appsvila313@gmail.com', 0, 3956, '22.72446494', '75.92147715', 3, 4, 'hdhdhdb', '', 'hfhfnf', '', '', '', '', '', '0000-00-00 00:00:00', 0, 0, '2019-12-02 03:41:12', -1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(15, 24, 'abby', 'address/publicAddress/15.png', 'address/publicAddress/qrCodes/15.png', '7JJQPV9V+3G', 'FFUbcAzmzs', 'sjdjd', 'djdjd', 'abby@samosys.com', 0, 3960, '22.71774200', '75.89387286', 3, 4, 'hdidbd', 'address/publicAddress/locationImages/15.png', 'hdkdkf', '', '', '', '', '', '0000-00-00 00:00:00', 0, 0, '2019-12-03 10:10:04', -1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(16, 24, 'bbb', 'address/publicAddress/16.png', 'address/publicAddress/qrCodes/16.png', '7JJQPV8R+8W', 'jkwj6kEzpw', 'vjj', '', 'abby@samosys.com', 1, 3960, '22.71581557', '75.89228231', 3, 4, 'gjjh', 'address/publicAddress/locationImages/16.png', 'gjn', '', '', '', '', '', '0000-00-00 00:00:00', 0, 0, '2019-12-03 10:15:16', -1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(17, 26, 'software', 'address/publicAddress/17.png', 'address/publicAddress/qrCodes/17.png', '7JJQPV95+R3', 'd3AqAmHwv2', 'Indore', 'kanadia', 'sohel@gmail.com', 1, 3957, '22.71956881', '75.85772574', 3, 4, 'hello', 'address/publicAddress/locationImages/17.png', 'hiii', '', '', '', '', '', '0000-00-00 00:00:00', 0, 0, '2019-12-03 22:19:10', -1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(18, 27, 'indore', 'address/publicAddress/18.png', 'address/publicAddress/qrCodes/18.png', '7JJQPW9C+W9', 'X6hjaJV1jc', 'alok nagar', 'Green valley', 'ajay.parmar@samosys.com', 1, 3955, '22.71985241', '75.92090551', 3, 4, 'Hii', 'address/publicAddress/locationImages/18.png', 'Hello', '', '', '', '', '', '0000-00-00 00:00:00', 0, 0, '2019-12-03 23:13:57', -1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(19, 36, 'citco', '', 'address/publicAddress/qrCodes/.png', '87M2MJC7+5C', 'KNMKFFZeKB', '', '', 'abizerjafferjee@gmail.com', 0, 3957, '43.67046122', '-79.38642953', 1, 1, 'a professional service', '', '', '', '', '', '', '', '0000-00-00 00:00:00', 0, 0, '2019-12-20 04:21:34', -1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(20, 10, 'Thumbtack', '', 'address/publicAddress/qrCodes/.png', '6G8RJMGR+PR', '2W9P9A6FRa', 'opposite NBC bank sokoine road', 'DHL, Furniture Centre, Homely Enterprises', 'taiyabjafferjee@gmail.com', 0, 3956, '-3.37321809', '36.69208691', 2, 2, 'suppliers of stationery, art and office supplies and laser cutting and engraving service.', '', '', '', '', '', '', '', '0000-00-00 00:00:00', 0, 0, '2020-01-05 11:44:55', -1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(21, 7, 'haj', '', 'address/publicAddress/qrCodes/.png', '7JJQPWGC+HQ', 'NgCKGEmisQ', 'jsjs', 'ndjjd', 'Hardeep.codeapex1@gmail.com', 0, 3962, '22.72642217', '75.92199247', 3, 4, 'Hdjd', '', 'Jdjs', '', '', '', '', '', '0000-00-00 00:00:00', 0, 0, '2020-01-07 22:40:29', -1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(54, 39, NULL, NULL, NULL, '7JJQPWGC+FR', NULL, NULL, NULL, NULL, NULL, NULL, '22.72624480', '75.92204170', 3, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, -1, '', '330', '', '', 'http://admin.simplrpost.com/current', 'public', '7JJQPWGC+FR', 'uploads/address/publicAddress/SimplrPost1578741761890.png', 'uploads/address/publicAddress/SimplrPost1578741764925.png', 'uploads/address/publicAddress/SimplrPost1578741768016.png', 'Alok Nagar, Indore, Madhya Pradesh', 'Alok Nagar, Indore, Madhya Pradesh, India', 'Street', 'Building', 'Entrance'),
+(62, 39, NULL, '', 'address/publicAddress/qrCodes/.png', '7JJQPWGC+FR', 'http://sim', NULL, NULL, NULL, NULL, NULL, '22.72623420', '75.92203900', 3, 4, NULL, '', NULL, '', '', '', '', '', NULL, NULL, NULL, '2020-01-12 21:31:10', -1, 'Ab road', '216-A', '1', 'Test', 'http://simplrpost.com/indore', 'public', '7JJQPWGC+FR', 'uploads/address/publicAddress/SimplrPost1578893406315.png', 'uploads/address/publicAddress/SimplrPost1578896991609.png', 'uploads/address/publicAddress/SimplrPost1578893414375.png', 'Alok Nagar, Indore, Madhya Pradesh', 'Alok Nagar, Indore, Madhya Pradesh, India', 'Street', 'Building', 'Entrance'),
+(56, 40, NULL, '', 'address/publicAddress/qrCodes/.png', '7JJQPWGC+4J', 'http://adm', NULL, NULL, NULL, NULL, NULL, '22.72532589', '75.92158344', 3, 4, NULL, '', NULL, '', '', '', '', '', NULL, NULL, NULL, '2020-01-11 03:38:58', -1, 'Sanchar Nagar Ext', '260', '', '', 'http://admin.simplrpost.com/cafe', 'public', '7JJQPWGC+4J', NULL, NULL, NULL, 'Alok Nagar, Indore, Madhya Pradesh', 'Alok Nagar, Indore, Madhya Pradesh, India', 'Street', 'Building', 'Floor'),
+(57, 39, NULL, NULL, NULL, '7JJQPWGC+GR', NULL, NULL, NULL, NULL, NULL, NULL, '22.72625950', '75.92204510', 3, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, -1, 'Sanchar Nagar Ext', '103', 'test101', 'test101', 'http://admin.simplrpost.com/swapnil-home', 'public', '7JJQPWGC+GR', 'uploads/address/privateAddress/SimplrPost1578740981428.png', 'uploads/address/privateAddress/SimplrPost1578740984612.png', 'uploads/address/privateAddress/SimplrPost1578740987815.png', 'Alok Nagar, Indore, Madhya Pradesh', 'Alok Nagar, Indore, Madhya Pradesh, India', 'Street', 'Building', 'Entrance'),
+(61, 41, NULL, '', 'address/publicAddress/qrCodes/.png', '87M2MJC7+GC', 'http://sim', NULL, NULL, NULL, NULL, NULL, '43.67128236', '-79.38647814', 1, 1, NULL, '', NULL, '', '', '', '', '', NULL, NULL, NULL, '2020-01-11 12:46:57', 1, '9, Asquith Avenue', 'Joe\'s pizza house, the bay building', 'East side food court, store number 12', 'On first floor, follow directions to the food court and shop next to Tandoori village restaurant.', 'http://simplrpost.com/joes-pizza-house-toronto', 'public', '87M2MJC7+GC', NULL, NULL, NULL, 'Old Toronto, Toronto Division, Ontario', 'Old Toronto, Toronto Division, Ontario, Canada', 'Street', 'Building', 'Floor'),
+(59, 39, NULL, '', 'address/publicAddress/qrCodes/.png', '7JJQPWGC+2X', 'http://sim', NULL, NULL, NULL, NULL, NULL, '22.72508004', '75.92247225', 3, 4, NULL, '', NULL, '', '', '', '', '', NULL, NULL, NULL, '2020-01-11 06:45:45', -1, 'Kanadia Main Road', '169', '', '', 'http://simplrpost.com/nexa', 'public', '7JJQPWGC+2X', NULL, NULL, NULL, 'Alok Nagar, Indore, Madhya Pradesh', 'Alok Nagar, Indore, Madhya Pradesh, India', 'Street', 'Building', 'Floor'),
+(60, 41, NULL, '', 'address/publicAddress/qrCodes/.png', '87M2MJC7+69', 'http://sim', NULL, NULL, NULL, NULL, NULL, '43.67058029', '-79.38652273', 1, 1, NULL, '', NULL, '', '', '', '', '', NULL, NULL, NULL, '2020-01-11 07:26:56', -1, '2, Bloor Street East', 'Citco Toronto Office', '33rd floor', '33rd floor is restricted access. Call me once you\'re at the lobby.', 'http://simplrpost.com/abizer-work-citco-toronto', 'public', '87M2MJC7+69', NULL, NULL, NULL, 'Old Toronto, Toronto Division, Ontario', 'Old Toronto, Toronto Division, Ontario, Canada', 'Street', 'Building', 'Floor'),
+(63, 39, NULL, '', 'address/publicAddress/qrCodes/.png', '7JJQPWGF+G6', 'http://sim', NULL, NULL, NULL, NULL, NULL, '22.72635540', '75.92309760', 3, 4, NULL, '', NULL, '', '', '', '', '', NULL, NULL, NULL, '2020-01-12 21:38:50', -1, 'Sanchar Nagar Ext', '469', '', '', 'http://simplrpost.com/tes', 'public', '7JJQPWGF+G6', 'uploads/address/publicAddress/SimplrPost1578893897189.png', NULL, NULL, 'Alok Nagar, Indore, Madhya Pradesh', 'Alok Nagar, Indore, Madhya Pradesh, India', 'Street', 'Building', 'Floor'),
+(64, 39, NULL, '', 'address/publicAddress/qrCodes/.png', '7JJQPWGC+FR', 'http://sim', NULL, NULL, NULL, NULL, NULL, '22.72623870', '75.92204250', 3, 4, NULL, '', NULL, '', '', '', '', '', NULL, NULL, NULL, '2020-01-13 02:00:21', 1, 'Kanadia Main Road', '330', '1', '', 'http://simplrpost.com/store', 'public', '7JJQPWGC+FR', 'uploads/address/publicAddress/SimplrPost1578909611768.png', 'uploads/address/publicAddress/SimplrPost1578909658410.png', 'uploads/address/publicAddress/SimplrPost1578909651713.png', 'Alok Nagar, Indore, Madhya Pradesh', 'Alok Nagar, Indore, Madhya Pradesh, India', 'Street', 'Building', 'Entrance');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `publicAddressImages`
+-- Table structure for table `publicaddressimages`
 --
 
-CREATE TABLE `publicAddressImages` (
+CREATE TABLE `publicaddressimages` (
   `imageId` bigint(50) NOT NULL,
   `addressId` bigint(50) NOT NULL,
   `imageURL` varchar(100) NOT NULL,
   `createDate` datetime NOT NULL,
-  `status` int(11) NOT NULL
+  `status` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `publicAddressImages`
+-- Dumping data for table `publicaddressimages`
 --
 
-INSERT INTO `publicAddressImages` (`imageId`, `addressId`, `imageURL`, `createDate`, `status`) VALUES
-(1, 1, 'address/publicAddress/businessImages/1.png', '2019-10-21 06:52:19', 1),
-(2, 2, 'address/publicAddress/businessImages/2.png', '2019-10-21 07:01:14', 1),
-(3, 11, 'address/publicAddress/businessImages/3.png', '2019-10-22 08:01:48', 1),
-(4, 12, 'address/publicAddress/businessImages/4.png', '2019-10-22 13:03:02', 1);
+INSERT INTO `publicaddressimages` (`imageId`, `addressId`, `imageURL`, `createDate`, `status`) VALUES
+(1, 1, 'address/publicAddress/businessImages/1.png', '2019-11-01 19:12:08', 0),
+(2, 2, 'address/publicAddress/businessImages/2.png', '2019-11-01 19:56:14', 1),
+(3, 2, 'address/publicAddress/businessImages/3.png', '2019-11-01 19:56:15', 1),
+(4, 2, 'address/publicAddress/businessImages/4.png', '2019-11-01 19:56:16', 1),
+(5, 16, 'address/publicAddress/businessImages/5.png', '2019-12-03 10:16:04', 1),
+(6, 17, 'address/publicAddress/businessImages/6.png', '2019-12-03 22:19:11', 1),
+(7, 18, 'address/publicAddress/businessImages/7.png', '2019-12-03 23:14:04', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `publicAddressServices`
+-- Table structure for table `publicaddressservices`
 --
 
-CREATE TABLE `publicAddressServices` (
+CREATE TABLE `publicaddressservices` (
   `serviceId` bigint(50) NOT NULL,
   `addressId` bigint(50) NOT NULL,
   `serviceURL` varchar(100) NOT NULL,
   `serviceDocType` varchar(10) NOT NULL,
-  `status` int(11) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT '1',
   `createDate` datetime NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `publicAddressServices`
+-- Dumping data for table `publicaddressservices`
 --
 
-INSERT INTO `publicAddressServices` (`serviceId`, `addressId`, `serviceURL`, `serviceDocType`, `status`, `createDate`) VALUES
-(1, 12, 'address/publicAddress/servicesDoc/1.docx', 'docx', 1, '2019-10-22 13:03:05');
+INSERT INTO `publicaddressservices` (`serviceId`, `addressId`, `serviceURL`, `serviceDocType`, `status`, `createDate`) VALUES
+(1, 2, 'address/publicAddress/servicesDoc/1.pdf', 'pdf', 1, '2019-11-01 19:56:17');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `publicAddressViews`
+-- Table structure for table `publicaddressviews`
 --
 
-CREATE TABLE `publicAddressViews` (
+CREATE TABLE `publicaddressviews` (
   `viewId` bigint(50) NOT NULL,
   `userId` bigint(50) NOT NULL,
   `addressId` bigint(50) NOT NULL,
   `count` int(11) NOT NULL,
   `createDate` datetime NOT NULL,
-  `status` int(11) NOT NULL
+  `status` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `publicAddressViews`
+-- Dumping data for table `publicaddressviews`
 --
 
-INSERT INTO `publicAddressViews` (`viewId`, `userId`, `addressId`, `count`, `createDate`, `status`) VALUES
-(1, 26, 2, 7, '2019-10-21 07:01:33', 1),
-(2, 25, 2, 26, '2019-10-21 07:03:10', 1),
-(3, 26, 3, 8, '2019-10-21 07:05:42', 1),
-(4, 25, 1, 21, '2019-10-21 07:18:50', 1),
-(5, 26, 4, 6, '2019-10-21 07:24:46', 1),
-(6, 26, 5, 3, '2019-10-21 07:24:56', 1),
-(7, 26, 1, 16, '2019-10-21 07:26:48', 1),
-(8, 25, 6, 15, '2019-10-21 08:22:38', 1),
-(9, 25, 4, 28, '2019-10-21 09:59:04', 1),
-(10, 25, 5, 16, '2019-10-21 10:20:34', 1),
-(11, 26, 6, 11, '2019-10-21 11:07:46', 1),
-(12, 26, 7, 9, '2019-10-21 11:50:54', 1),
-(13, 25, 7, 9, '2019-10-21 11:54:55', 1),
-(14, 26, 8, 9, '2019-10-21 11:56:37', 1),
-(15, 25, 8, 6, '2019-10-21 11:56:51', 1),
-(16, 4, 1, 11, '2019-10-22 04:23:34', 1),
-(17, 4, 3, 11, '2019-10-22 04:23:34', 1),
-(18, 26, 10, 1, '2019-10-22 07:33:53', 1),
-(19, 25, 11, 13, '2019-10-22 08:01:53', 1),
-(20, 26, 11, 8, '2019-10-22 08:02:15', 1),
-(21, 25, 10, 22, '2019-10-22 10:15:22', 1),
-(22, 25, 12, 2, '2019-10-22 01:03:19', 1),
-(23, 26, 12, 1, '2019-10-22 05:07:52', 1),
-(24, 25, 9, 16, '2019-10-22 05:15:32', 1),
-(25, 25, 13, 7, '2019-10-22 05:33:13', 1),
-(26, 25, 14, 5, '2019-10-22 06:03:22', 1),
-(27, 7, 9, 4, '2019-10-23 01:25:20', 1),
-(28, 7, 5, 1, '2019-10-23 01:25:58', 1),
-(29, 7, 10, 4, '2019-10-23 01:26:07', 1),
-(30, 7, 12, 6, '2019-10-23 01:26:14', 1),
-(31, 7, 15, 6, '2019-10-23 01:40:02', 1),
-(32, 8, 15, 3, '2019-10-23 01:42:56', 1),
-(33, 8, 16, 3, '2019-10-23 01:45:43', 1),
-(34, 25, 15, 6, '2019-10-23 01:39:31', 1),
-(35, 25, 16, 7, '2019-10-23 01:39:44', 1),
-(36, 7, 7, 2, '2019-10-24 01:24:10', 1),
-(37, 7, 16, 1, '2019-10-24 03:28:42', 1),
-(38, 7, 11, 1, '2019-10-24 03:29:40', 1);
+INSERT INTO `publicaddressviews` (`viewId`, `userId`, `addressId`, `count`, `createDate`, `status`) VALUES
+(1, 2, 1, 38, '2019-11-01 07:12:37', 1),
+(2, 3, 2, 4, '2019-11-01 07:57:02', 1),
+(3, 3, 1, 4, '2019-11-01 08:06:14', 1),
+(4, 2, 2, 6, '2019-11-03 07:02:42', 1),
+(5, 2, 3, 18, '2019-11-03 08:09:02', 1),
+(6, 3, 3, 2, '2019-11-03 08:20:00', 1),
+(7, 5, 4, 24, '2019-11-05 08:58:38', 1),
+(8, 4, 3, 1, '2019-11-05 09:50:02', 1),
+(9, 5, 5, 15, '2019-11-05 11:08:30', 1),
+(10, 5, 3, 1, '2019-11-06 04:45:57', 1),
+(11, 4, 6, 11, '2019-11-06 04:54:20', 1),
+(12, 9, 2, 2, '2019-11-08 09:55:46', 1),
+(13, 9, 6, 1, '2019-11-08 09:56:52', 1),
+(14, 2, 7, 3, '2019-11-09 08:20:42', 1),
+(15, 11, 7, 3, '2019-11-09 08:34:40', 1),
+(16, 9, 8, 3, '2019-11-11 06:31:22', 1),
+(17, 14, 9, 1, '2019-11-13 10:08:14', 1),
+(18, 15, 9, 2, '2019-11-24 12:40:48', 1),
+(19, 2, 10, 2, '2019-11-25 07:49:09', 1),
+(20, 21, 9, 1, '2019-11-27 09:07:00', 1),
+(21, 21, 2, 1, '2019-11-27 09:07:40', 1),
+(22, 2, 9, 2, '2019-11-28 08:14:02', 1),
+(23, 2, 5, 1, '2019-11-28 08:14:11', 1),
+(24, 2, 11, 1, '2019-11-29 11:31:58', 1),
+(25, 22, 12, 7, '2019-11-29 11:58:52', 1),
+(26, 21, 13, 1, '2019-12-01 11:35:44', 1),
+(27, 22, 14, 1, '2019-12-02 03:41:22', 1),
+(28, 24, 15, 2, '2019-12-03 10:17:40', 1),
+(29, 24, 12, 1, '2019-12-03 10:18:55', 1),
+(30, 24, 2, 1, '2019-12-03 10:19:07', 1),
+(31, 24, 9, 1, '2019-12-03 10:19:26', 1),
+(32, 24, 10, 1, '2019-12-03 10:20:07', 1),
+(33, 26, 17, 6, '2019-12-03 10:19:17', 1),
+(34, 26, 9, 1, '2019-12-03 10:21:45', 1),
+(35, 26, 18, 1, '2019-12-03 11:14:37', 1),
+(36, 26, 12, 2, '2019-12-03 11:15:33', 1),
+(37, 27, 18, 2, '2019-12-04 12:03:23', 1),
+(38, 29, 18, 1, '2019-12-16 01:19:15', 1),
+(39, 4, 12, 2, '2019-12-17 09:17:27', 1),
+(40, 4, 18, 2, '2019-12-17 10:11:15', 1),
+(41, 36, 19, 1, '2019-12-20 04:21:36', 1),
+(42, 10, 8, 1, '2020-01-05 11:45:15', 1),
+(43, 10, 14, 1, '2020-01-05 11:45:53', 1),
+(44, 7, 21, 10, '2020-01-07 10:40:46', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `registeredDevices`
+-- Table structure for table `registereddevices`
 --
 
-CREATE TABLE `registeredDevices` (
+CREATE TABLE `registereddevices` (
   `registerId` bigint(20) NOT NULL,
   `userId` bigint(20) NOT NULL,
   `deviceType` varchar(1) NOT NULL COMMENT 'a : android/i : ios',
   `deviceId` varchar(200) NOT NULL,
   `pushToken` varchar(200) NOT NULL,
   `createDate` datetime NOT NULL,
-  `status` int(11) NOT NULL
+  `status` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `registeredDevices`
+-- Dumping data for table `registereddevices`
 --
 
-INSERT INTO `registeredDevices` (`registerId`, `userId`, `deviceType`, `deviceId`, `pushToken`, `createDate`, `status`) VALUES
-(1, 25, 'a', '34d2f40617343b69', 'fm9iUvgew38:APA91bEaGoSnjWGn7Tq9rkt7avsdDMhksTQ8WiwOkQuEZpJykoCUAvV051Ih11K9si_v8-5-YgrDGnX3GZuyVUevX9yBkHqE_ljykgU-p8YL4ro_1uBj2sv-Ixn_Ptuh3pW8b6Zk78R7', '2019-10-21 06:49:19', 1),
-(2, 26, 'a', '34d2f40617343b69', 'fm9iUvgew38:APA91bEaGoSnjWGn7Tq9rkt7avsdDMhksTQ8WiwOkQuEZpJykoCUAvV051Ih11K9si_v8-5-YgrDGnX3GZuyVUevX9yBkHqE_ljykgU-p8YL4ro_1uBj2sv-Ixn_Ptuh3pW8b6Zk78R7', '2019-10-21 06:59:12', 0),
-(3, 28, 'a', '34d2f40617343b69', ' ', '2019-10-21 07:13:47', 0),
-(4, 25, 'a', '895834c139b29654', 'cy3u12M5bT0:APA91bGLz5ZWPNRUD0CmE1QK07LJGb4U3ijxWd91vT6Kah8MpEbAsghA3nJ5x3rAOoYSOuJxOmCtUlECRdKYRCxq6foXr4D6T4Hu6zzwcClyrdees9lwWjAB4ffJFjbqJfq73T71CtiH', '2019-10-21 07:15:57', 1),
-(5, 4, 'a', '6af9f8426974ce1d', 'fQD4rjgHOmg:APA91bEZaKR4syUr37sbFVobLc7RjVYjCFrJz0GnWQ2b0q2X54hZ8UVVxttzkL3dYRt9s96D-A-d138rVkTnreyScTVpQCcSWOt-zWXgbHrqq17ZwjxKn1a0ZJcNkvqN2x_K5pkLpzly', '2019-10-22 04:22:11', 0),
-(6, 26, 'a', '6af9f8426974ce1d', 'fL86HBNqqjw:APA91bGBdoI7kzmdsU5js--Li5IQP2LGkg_kQ_cVOTEIl1oBygSDoLK0MA68xcjWJtWDBXSbs7RijxEOypSboQ1RAqxYba4en-W6p0Glp9dm3EXj1XX0T70ygLVx-KXzMCSeFO7EERbA', '2019-10-22 07:15:23', 0),
-(7, 1, 'a', '6af9f8426974ce1d', 'cMt2idlzPMQ:APA91bGr-SnMqnuJjrvDgI_hPrki-IdqYA_lHbqb2HkIec9_IFKUhkQMXIjZgGZDcTTdN0-XQKg-SiQmFxBN-hN9HEirqlV_4PSPgT0_940VWbJqojnEG-5sSyPxM3LXe7q2GtXQa0MG', '2019-10-22 12:07:47', 1),
-(8, 29, 'a', '34d2f40617343b69', ' ', '2019-10-22 12:31:16', 0),
-(9, 7, 'a', 'bb31ca4d7ee4a52d', 'ci0ZtZwI5jY:APA91bGk5vM1z4FIuNcG0rZDFWip3npP5GqB7FZfiLiH3PwfmiarUAbhEMveMe1QBsZbiSsY7mFoaswreQUoAS_f3f2eDzrS0kcQy0BrnIWZCIcSnb7s9e1Ony6kadNidLEGIjnesawX', '2019-10-23 01:22:41', 1),
-(10, 8, 'a', 'bb31ca4d7ee4a52d', 'cPYeJ7u-4xs:APA91bGnHQlgboZJhO5cwctt7ko2vR4BzszpJ2cPs2WPsaduKPNxqosUxfKF1LQFPfj3AFzSUhKm8iVc31cF-10AItWyrV0nzqPjtFGRWjbnyKvfKr6UOeuPxZvz5Jzc4t0EmGd2OFhc', '2019-10-23 01:42:42', 0),
-(11, 26, 'a', '895834c139b29654', 'cy3u12M5bT0:APA91bGLz5ZWPNRUD0CmE1QK07LJGb4U3ijxWd91vT6Kah8MpEbAsghA3nJ5x3rAOoYSOuJxOmCtUlECRdKYRCxq6foXr4D6T4Hu6zzwcClyrdees9lwWjAB4ffJFjbqJfq73T71CtiH', '2019-10-23 12:56:18', 0),
-(12, 3, 'a', '895834c139b29654', 'es1Vc_pH6mk:APA91bF72bD8omx36LoSfkgVuQmTgV5JexnRp0mGkMraK2OzLVovelN0in1_Mz-O1Z38Dw6WvEby3reoy4DmDYKuXYwoew5N93lZ2t0aV8ZchlecDMiyMuV7jFNy2zGWRW72DWzWDVss', '2019-10-23 12:57:13', 0),
-(13, 32, 'a', '895834c139b29654', ' ', '2019-10-24 07:02:12', 0),
-(14, 33, 'a', '895834c139b29654', ' ', '2019-10-24 09:16:50', 1),
-(15, 34, 'a', '895834c139b29654', ' ', '2019-10-24 09:19:20', 1),
-(16, 35, 'a', '895834c139b29654', ' ', '2019-10-24 09:21:44', 0),
-(17, 36, 'a', '895834c139b29654', ' ', '2019-10-24 09:23:59', 1),
-(18, 37, 'a', '895834c139b29654', ' ', '2019-10-24 09:25:57', 0),
-(19, 38, 'a', '895834c139b29654', ' ', '2019-10-24 09:27:14', 0),
-(20, 39, 'a', '895834c139b29654', ' ', '2019-10-24 09:29:49', 0),
-(21, 40, 'a', '895834c139b29654', ' ', '2019-10-24 09:33:41', 0),
-(22, 41, 'a', '895834c139b29654', ' ', '2019-10-24 09:37:09', 0),
-(23, 42, 'a', '895834c139b29654', ' ', '2019-10-24 10:03:04', 0),
-(24, 43, 'a', '895834c139b29654', ' ', '2019-10-24 10:04:22', 0),
-(25, 25, 'a', '6af9f8426974ce1d', 'dzKTjiwd1uk:APA91bHsXQf_RWN9JeeY0MAhptwOCktXl5Emz8201TBDplUBbRWeE4ko8fW4V3s0LjClqhH4Fy-z6Wwi4EbbaUBIm2FZ_uUWw1gwJWgpKEU10N_6npHc8qkkiK730dRAFXNpSqUttlC2', '2019-10-29 04:13:09', 1),
-(26, 1, 'a', '895834c139b29654', 'e6Yx_O2Gqzw:APA91bFGCO71NPnCVNwHkKIyyC10BVAE30XJtH3KMymGmsEKSswoGgHLTsT7oyqI9noYdXBef9-MEqfk_F3qohWj6fhepS9bZJyPeC_XB6p3hCTsgwGOXfs0J-1fkod50OksHtN7B1Sc', '2019-10-29 07:24:13', 1);
+INSERT INTO `registereddevices` (`registerId`, `userId`, `deviceType`, `deviceId`, `pushToken`, `createDate`, `status`) VALUES
+(1, 1, 'a', 'bb31ca4d7ee4a52d', ' ', '2019-11-01 18:42:55', 0),
+(2, 2, 'a', 'bb31ca4d7ee4a52d', 'fyBDL4RaEYI:APA91bHgkBz7eAQAmuL_XKXlHxvDO16yfM0QdUSznGIfKPyXG1yypxk585DSDiAWekfuAqmELuLBRdFbAFw5Oz2VYUwtoSj_aQIHxGE74ITD9s9jFKjBSR-jePasAfHbJJx26AMOAMnU', '2019-11-01 18:51:55', 1),
+(3, 2, 'a', '2d9992a7a04862d1', 'dEjp1pbmK9o:APA91bHJDg66JMuYoxovruKC5-VGl8M0PGI-dhGu4fcAwc8htG3qrzky5K2flQ4m5VxtrWj-F01otuWWpYoHbBDaUbGQxMc0v_m3mrAp64zJsb8MfOTTb-UoTiJ43ZMwABwJMgId3uST', '2019-11-01 19:16:28', 1),
+(4, 3, 'a', '2d9992a7a04862d1', 'ckBImlHXXx8:APA91bF835YUdRRmbn5d1RomHLeYnv5uTM-uJGQUjX6hFC71QHyfTcmkT-yVT5sNml9FZWXPG3ovLlBX5GTY14ZOf_Ytgh--jG_TexyttGuwILOjkBiLhdGKYs1RSdG0ol893I5jRe1k', '2019-11-01 19:23:45', 1),
+(5, 5, 'a', '34d2f40617343b69', 'ekGDvfflYng:APA91bFsIHoUFNG4JXJnp5L9YRgWPzwxM8oz2_gfOyfwyltdNpnnzVDWo6nGV4_rnDoqJYJeaTuR-g_62ZusRq6bs4sGVFU60YSEho01QDAfokD-ympyZV9BgVc7JPmKuFwi0bYZR0O0', '2019-11-03 05:18:11', 1),
+(6, 5, 'a', '895834c139b29654', 'fbBJZBaVyUg:APA91bFEUHFOLekQwPkxnfX1-vJz3DAAuXGjVhq-uEMkTOBwb8YMLeURB5Ts1Gpy2tZ3z5EuQpEYcEcsPnonp2dTR8gBT9moHMwCIn1A4gTSSndWkvDXfXKKCmCHHXpA6GDvZIigB8xq', '2019-11-03 05:58:57', 0),
+(7, 4, 'a', '34d2f40617343b69', 'dtxqhrAcJ_8:APA91bFCMcHworNpnv8zB410K27NwevB7SMw6Xn9o8bqGlLCw7bJoIi7XZ-f-vhiol4PWM-y6Z8ZwyvA0MBQABrmO6vO4UM2o6Fp1qjewI2NvOt7n1zhIVf3F4TUmxfEhI93ecoLaohM', '2019-11-03 06:13:24', 1),
+(8, 4, 'a', '895834c139b29654', 'fbBJZBaVyUg:APA91bFEUHFOLekQwPkxnfX1-vJz3DAAuXGjVhq-uEMkTOBwb8YMLeURB5Ts1Gpy2tZ3z5EuQpEYcEcsPnonp2dTR8gBT9moHMwCIn1A4gTSSndWkvDXfXKKCmCHHXpA6GDvZIigB8xq', '2019-11-03 06:14:37', 0),
+(9, 3, 'a', 'bb31ca4d7ee4a52d', 'fzRPnauG00k:APA91bHOfBGNhymEoMd3YTPZNM64pyX4UcUhVnA-xWm2mzTv1XzIUCpmKI8Gy0-nB6dhOBnLwgYYloGj2d0nzlz0kFH6zRGrwhZ6lEvlmFIBiKg3XR6iuorAQxsCaz_nxghBORK07zpe', '2019-11-03 20:19:47', 1),
+(10, 2, 'a', 'da8e973f30417cfc', 'd1pvuZq4Q4k:APA91bHSxsKhySqSuOPdxJbceXHXDoonOFhZJtRozh6J2aJTwFREDnBw7FjVf8nS_rIdEgb-YFlUaBTVEtpWEAhDsku0t7a73AAG3WhdjnFdvlbhH8hjTpz3tSQMlTIC8WFnZQmeuYMC', '2019-11-05 18:48:09', 0),
+(11, 5, 'a', '6af9f8426974ce1d', 'e7shfilpGn8:APA91bF-cLrQ9EkE07amuRSSY6bVVVquaX72nHSXZephmospM-cvzADzJwaF0HV84WhE87Q8ivbNBAVm0xX34SvDgrc4Ni1uV6aV9r0CQinPwr1LOrUa4JJ5PUGojP56NBJzqn0zhNvt', '2019-11-05 20:57:51', 1),
+(12, 5, 'a', '9b803e98099c2c73', 'caC0LbwldPc:APA91bGnAozouhP0Lqi_3pKX2VHDcrGZST9tzVv344HNC6jnuEiOAPVxoC6SXT_I4xGVqbdyGBhkAaiZnxXLKRzhsNKlvjNx8pOm_M6xoqZzV3TSVtBPAhVZ4NL6zyTLdHEzm74vT843', '2019-11-05 21:00:52', 1),
+(13, 5, 'a', 'f57d8be27ce1187d', 'dUyXV1UB79A:APA91bGoY9h4X6Lfd4AKORsaNIRTIMX9a1FKOHXJckXguVIzeeLHFNwc7xVBWSFApdhSRuj17bPe1BKalK9Oi60EE7siyU1DL9dWHYOcIw6hJF6o1K9qG2FQ5AuQsLdh8nxjLq87jCXA', '2019-11-05 22:16:18', 1),
+(14, 5, 'a', '040175dc97562ebc', 'eAWEt2vqMlo:APA91bGDFbIrhqHNK4PgsFB46n0GBksCepSoUea16S2p5QMosSZcW1QEfXxwg2vgQUj0u3yZygQS0y014FKOCJuEU5H_S9xdGjVKBmLXNlDxCcSPPVej_VdGG1MeKH3DAmyibQ1I2pOs', '2019-11-05 22:21:24', 1),
+(15, 9, 'a', '2e2b78f2f3e171b6', 'e3_HhcaJgZs:APA91bFjPSvB0uiRlYgD9KE-2Wl30q8yCLUmVIbUnRC9Q3vdzRwAddHFUEKHAbHBtQrTxI0WVhJsvRgJTVkDA-w0YJgWKFLSKJo2USedo93i_8IKC6ApPA5zqtaQHD3ml3y1qxyReVOr', '2019-11-08 21:54:46', 1),
+(16, 10, 'a', 'b67b9773483abd39', 'dZCpRhS12Hs:APA91bFvXX8bwU93Ank4lxIUm2lXecvu5t1BpUp7BMClGhEIVTFkWFUsmIpipZ2YDczHQMzuSfvzf7QqTdyVeyUVECxmji0JyN_-XAnBQ-AcDfZrgrxkPxfMpkUZ8ADCNMuOAqFR3zsU', '2019-11-09 06:57:18', 1),
+(17, 11, 'a', 'c7dd4264b1d6df20', 'fnkikj4xdq8:APA91bEk7ekX3ccbfANr8bgbEIrPgbs59d2oKJVyJJEzaFWlo-gY9Jq4NP4n_HY02NK9zhHFN4QKJM-V1i1d-dzPm_Cj8OVy94Ix7X6wpfrp7QwuXwzrtrHahkXAl3YxBBLsGvkZ4l-5', '2019-11-09 08:14:53', 1),
+(18, 14, 'a', '469ea4f0fb204998', 'fcZmrSjdBOs:APA91bGayPXweTFJFvlupMzdFL7kMEMRC_SQD5cqRlOfEWA43GoW8_KVi1Gxd0j36rcq0ZgWSRrtWFnV2x34_kv7jKIwvp7FgWSvrYB0NL1gYdJnMcgznBjctA1a4BoqGFJKKdl1cwUg', '2019-11-11 10:32:17', 1),
+(19, 13, 'a', '96014b358fbb9741', 'dOTdlnZfD5w:APA91bECmkvp4BTWtfKnspJJd6PM-EMl-fFQI5VZxUJyjDH-o1kE9HKNevhioOeYCNHL7VzdEXIS994sdnH4iDjmLkz7GcQTK6fuG10E6FYhHgyvtH4Tf7pAvLwLHuwq7wFslajZ92aM', '2019-11-11 10:32:32', 1),
+(20, 15, 'a', '7d8fc53c62e17431', 'duK8yuZxl0o:APA91bFC1F563gxfT3cqRaJelkH2wauSbg7Ti0arNIhHM3wXgfxFpHSikPlplB53nIWP1djzcg4eShAdx8YTLUfaKa8-mWfKMA9FAycO_BHU3XqJ3mFzgSsPHFdF--epQdii34UT7-2g', '2019-11-12 04:17:21', 1),
+(21, 19, 'a', 'c3fdd4e8ce45f656', ' ', '2019-11-20 09:39:00', 1),
+(22, 3, 'a', 'da8e973f30417cfc', 'd1pvuZq4Q4k:APA91bHSxsKhySqSuOPdxJbceXHXDoonOFhZJtRozh6J2aJTwFREDnBw7FjVf8nS_rIdEgb-YFlUaBTVEtpWEAhDsku0t7a73AAG3WhdjnFdvlbhH8hjTpz3tSQMlTIC8WFnZQmeuYMC', '2019-11-24 11:00:50', 0),
+(23, 20, 'a', '264c7411e5192460', ' ', '2019-11-27 07:01:53', 1),
+(24, 21, 'a', '81d37e0ca3d2e921', 'fBixw9JrXqw:APA91bHdPsRWaYKDs3LxgzsN5X_rCr8lwQVns8R5O-iM8dqncGCBxN54HmTIeRFKAb8C1_KwIEPmuIEDrInXnGH5GtWDg-r-l1f0djwD5WO-p2p-A9XLZUMXt75pNq5bC0zG0MNRPZ9H', '2019-11-27 21:04:31', 1),
+(25, 2, 'a', '14a69ddacc0cb455', 'eDWAau3avvk:APA91bG4NbS2E1voDYhemYYD0iaBiH20jjeOaIz1uxLQRIPDHG7rhMOMA1UUz11gwgxZj423HZODoLfcK8gT3aoTmjHVbjRtz4EaLH7CRdN5vkxrSF7-te_Kl1yw2C3_lLIVQb1DDP6-', '2019-11-28 15:49:43', 1),
+(26, 22, 'a', '5f3bc439a7f92644', ' ', '2019-11-29 23:40:05', 1),
+(27, 23, 'a', 'c2f5f244c5ec6fbe', ' ', '2019-11-30 02:07:35', 1),
+(28, 22, 'a', '52f5af4f005f8962', 'dmkCSLk0XbM:APA91bEB4jmjJrrLxyPByyD1ge0PqUD-ZWLoakJSvidtfAfBp9FDkri7BmSHIBgRbcrBGB_K0CU1zpWAVPByKdNESTGZnubbWqmTxqUEqR2Uux7l_aOad8f9rRPTc2N_fza7sTj3vIlE', '2019-12-01 21:41:04', 1),
+(29, 21, 'a', '7060d6e20167782b', 'fpg93JVCiU8:APA91bFB9dYTK-0YhgzHGX3TJKzV3Bfp6MhcJbaFc_0cbehpDp7cwaif2I7FxCs0GmASIEIbD9vN6DdYb6T89y4xJDpUoqIdwBHn83u02FMaJdJAzjV0XZ2ZHiCpiTd5iOz3Nqe2knps', '2019-12-01 23:32:02', 1),
+(30, 24, 'a', 'f1b09583b6de83f8', ' ', '2019-12-03 10:05:18', 1),
+(31, 25, 'a', '865c9bf5aae78d31', ' ', '2019-12-03 20:22:08', 1),
+(32, 26, 'a', 'a490c6c15d06b3e0', 'ewiLmfbqbj8:APA91bGnefp4ky68CSbd00UNnX9K-z4NJiEmU5jgPEwZXhz_d7bGXIWGtfq-gfg1kHiHbx3Xgk7WFKjTktiUQr6bZMYFqZnlCB9whr-u_J3Hlj5TXuCK3WU4au7LATMJURksFQh45Sdp', '2019-12-03 21:50:28', 1),
+(33, 26, 'a', '120b77b117b441fa', 'coruwE_dnfw:APA91bHlHs-3JkkgYYaK-w1IyXsJfqWBur-93pQrVQyK4s2aWZUvREwW5akQDgcGp7_kMy3j7WKMOJzqC2Am5esCZbGGFhHHFFoi9007CqoHk9ZdHO7PHRZ1llb29tE1cdckVghTmljA', '2019-12-03 22:04:47', 0),
+(34, 26, 'a', '698a52f748ffa100', 'eLgbXlQs4-M:APA91bHywIVelxRGHZ-S1_iGSfFu4fRP8hSYQJGb8q3iE5HxyK0jgSz8pS_l_BDU-suugN3eEUvVAcVlJujxTPYgmIsxLcjSssFi3C3xG7WC0ofFhL3UQeQzRT-hQE8YFD74gxU9jIzv', '2019-12-03 22:17:15', 1),
+(35, 27, 'a', 'c47cf2951762e351', 'ehfaxo55Rh0:APA91bEeimE9zOvUeVVGzD90cF3mz2--_os0nP9yogHGQMzFxkKbYuUJmzthTlI3I1qYDOcjVO_0ccl02w2AEdDmrN9zeBZhtotEkc0kYA1Hb8nbqykwdmM11byzOU8FYlgzUbZQlAkR', '2019-12-03 23:11:45', 0),
+(36, 27, 'a', '8631454a18db72ff', 'dg1eSmYqFA4:APA91bEg6ZRhN2UMTcCz0OqJtfro5A8y4rxwvNvFcFvI4yr3m-3LnV1aTwdCNIjDoY-Bx9VNjFkj9w0gl33vhkiGsuYaIwvennMjOgQ67aBjtV1ShK4_dCytyAplMyf4LNAGHDCyIBQI', '2019-12-06 01:49:31', 0),
+(37, 28, 'a', 'c47cf2951762e351', '', '2019-12-15 23:44:14', 0),
+(38, 29, 'a', 'c47cf2951762e351', '', '2019-12-16 01:16:01', 0),
+(39, 31, 'a', 'c47cf2951762e351', '', '2019-12-16 02:07:19', 1),
+(40, 30, 'a', '70eeaab61b13e563', '', '2019-12-16 03:17:22', 1),
+(41, 4, 'a', 'c47cf2951762e351', '', '2019-12-16 05:13:27', 0),
+(42, 31, 'a', '003f39f49c54d29b', '', '2019-12-19 21:45:13', 1),
+(43, 31, 'a', '003f39f49c54d29b', '', '2019-12-19 22:30:58', 1),
+(44, 10, 'a', '857332356b1ce2bc', 'fVkvPYMSAyQ:APA91bHFJwh55JE0TC2pY5xN_3ZsyO4vyFLgE6BGu9tHa46YNw18f_E4LyfjmQ0eh4Y9SS0wh-euUGaTdtj7IOFxIFdrq_LJt7V4YZOnVAW7Ar-Af_7VTzaSNL8tIP1FmgPuD1pNAn1A', '2020-01-05 11:37:45', 1),
+(45, 39, 'a', '52932959c15bfe27', '', '2020-01-10 23:40:22', 1),
+(46, 39, 'a', '52932959c15bfe27', '', '2020-01-11 02:54:01', 1),
+(47, 39, 'a', '0988a25e4be7d099', '', '2020-01-11 05:58:19', 0),
+(48, 39, 'a', 'c08f710951269a2f', '', '2020-01-11 06:31:45', 1),
+(49, 41, 'a', '14a69ddacc0cb455', '', '2020-01-11 11:29:57', 1),
+(50, 39, 'a', '52932959c15bfe27', '', '2020-01-13 01:58:21', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `savedAddressList`
+-- Table structure for table `savedaddresslist`
 --
 
-CREATE TABLE `savedAddressList` (
+CREATE TABLE `savedaddresslist` (
   `listId` bigint(50) NOT NULL,
   `listName` varchar(100) NOT NULL,
   `userId` bigint(50) NOT NULL,
   `createDate` datetime NOT NULL,
   `isDefault` int(11) NOT NULL DEFAULT '0',
-  `status` int(11) NOT NULL
+  `status` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `savedAddressList`
+-- Dumping data for table `savedaddresslist`
 --
 
-INSERT INTO `savedAddressList` (`listId`, `listName`, `userId`, `createDate`, `isDefault`, `status`) VALUES
-(1, 'Default List', 23, '2019-10-21 06:11:03', 1, 1),
-(2, 'Default List', 24, '2019-10-21 06:12:23', 1, 1),
-(3, 'Default List', 25, '2019-10-21 06:49:17', 1, 1),
-(4, 'Default List', 26, '2019-10-21 06:59:10', 1, 1),
-(5, 'Default List', 27, '2019-10-21 07:01:04', 1, 1),
-(6, 'Default List', 28, '2019-10-21 07:13:45', 1, 1),
-(7, 'ccd', 26, '2019-10-22 07:34:41', 0, 0),
-(8, 'coffee shops', 26, '2019-10-22 07:35:45', 0, 1),
-(9, 'my own list', 25, '2019-10-22 10:16:27', 0, 1),
-(10, 'Default List', 29, '2019-10-22 12:31:12', 1, 1),
-(11, 'Fashion', 29, '2019-10-22 12:45:37', 0, 1),
-(12, 'new', 25, '2019-10-22 18:52:24', 0, 1),
-(13, 'bank', 25, '2019-10-22 18:53:41', 0, 1),
-(14, 'Favorites', 7, '2019-10-23 01:32:39', 0, 1),
-(15, 'favorites', 8, '2019-10-23 01:43:18', 0, 1),
-(16, 'Default List', 30, '2019-10-23 11:57:40', 1, 1),
-(17, 'Default List', 31, '2019-10-23 12:24:51', 1, 1),
-(18, 'Default List', 32, '2019-10-24 07:02:08', 1, 1),
-(19, 'Default List', 33, '2019-10-24 09:16:46', 1, 1),
-(20, 'Default List', 34, '2019-10-24 09:19:18', 1, 1),
-(21, 'Default List', 35, '2019-10-24 09:21:42', 1, 1),
-(22, 'Default List', 36, '2019-10-24 09:23:55', 1, 1),
-(23, 'Default List', 37, '2019-10-24 09:25:55', 1, 1),
-(24, 'Default List', 38, '2019-10-24 09:27:13', 1, 1),
-(25, 'Default List', 39, '2019-10-24 09:29:48', 1, 1),
-(26, 'Default List', 40, '2019-10-24 09:33:40', 1, 1),
-(27, 'Default List', 41, '2019-10-24 09:37:07', 1, 1),
-(28, 'Default List', 42, '2019-10-24 10:03:00', 1, 1),
-(29, 'Default List', 43, '2019-10-24 10:04:20', 1, 1),
-(30, 'Default List', 44, '2019-10-25 07:15:05', 1, 1),
-(31, 'Default List', 45, '2019-10-25 07:19:01', 1, 1);
+INSERT INTO `savedaddresslist` (`listId`, `listName`, `userId`, `createDate`, `isDefault`, `status`) VALUES
+(1, 'Default List', 1, '2019-11-01 18:42:52', 1, 1),
+(2, 'Default List', 2, '2019-11-01 18:51:53', 1, 1),
+(3, 'Default List', 3, '2019-11-01 19:23:00', 1, 1),
+(4, 'Default List', 4, '2019-11-03 05:14:58', 1, 1),
+(5, 'Default List', 5, '2019-11-03 05:17:05', 1, 1),
+(6, 'Default List', 6, '2019-11-03 19:49:54', 1, 1),
+(7, 'Default List', 7, '2019-11-03 19:52:19', 1, 1),
+(8, 'Default List', 8, '2019-11-03 21:35:50', 1, 1),
+(9, 'Default List', 9, '2019-11-08 21:54:02', 1, 1),
+(10, 'Default List', 10, '2019-11-09 06:56:17', 1, 1),
+(11, 'Default List', 11, '2019-11-09 08:14:03', 1, 1),
+(12, 'Default List', 12, '2019-11-10 14:25:45', 1, 1),
+(13, 'Default List', 13, '2019-11-11 10:31:45', 1, 1),
+(14, 'Default List', 14, '2019-11-11 10:31:49', 1, 1),
+(15, 'Home', 14, '2019-11-11 10:39:57', 0, 1),
+(16, 'Default List', 15, '2019-11-12 04:16:25', 1, 1),
+(17, 'Default List', 16, '2019-11-12 04:29:04', 1, 1),
+(18, 'Default List', 17, '2019-11-12 04:31:03', 1, 1),
+(19, 'Default List', 18, '2019-11-12 04:33:08', 1, 1),
+(20, 'Default List', 19, '2019-11-20 09:38:56', 1, 1),
+(21, 'Default List', 20, '2019-11-27 07:01:48', 1, 1),
+(22, 'Default List', 21, '2019-11-27 21:04:28', 1, 1),
+(23, 'vikas list', 21, '2019-11-27 21:04:56', 0, 0),
+(24, 'Default List', 22, '2019-11-29 23:40:02', 1, 1),
+(25, 'fghgg', 22, '2019-11-30 00:06:50', 0, 1),
+(26, 'Default List', 23, '2019-11-30 02:07:32', 1, 1),
+(27, 'dhhgg', 22, '2019-12-01 22:08:48', 0, 1),
+(28, 'rest', 22, '2019-12-02 03:49:57', 0, 0),
+(29, 'Default List', 24, '2019-12-03 10:05:15', 1, 1),
+(30, 'Default List', 25, '2019-12-03 20:22:05', 1, 1),
+(31, 'Default List', 26, '2019-12-03 21:50:25', 1, 1),
+(32, 'Office', 26, '2019-12-03 22:09:15', 0, 1),
+(33, 'Default List', 27, '2019-12-03 23:11:42', 1, 1),
+(34, 'https://i.diawi.com/xyy9gb', 7, '2020-01-07 21:45:09', 0, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `savedListPrivateAddresses`
+-- Table structure for table `savedlistprivateaddresses`
 --
 
-CREATE TABLE `savedListPrivateAddresses` (
+CREATE TABLE `savedlistprivateaddresses` (
   `entryId` bigint(50) NOT NULL,
   `listId` bigint(50) NOT NULL,
   `addressId` bigint(50) NOT NULL,
   `createDate` datetime NOT NULL,
-  `status` int(11) NOT NULL
+  `status` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `savedListPrivateAddresses`
+-- Dumping data for table `savedlistprivateaddresses`
 --
 
-INSERT INTO `savedListPrivateAddresses` (`entryId`, `listId`, `addressId`, `createDate`, `status`) VALUES
-(1, 15, 3, '2019-10-23 01:43:19', 1);
+INSERT INTO `savedlistprivateaddresses` (`entryId`, `listId`, `addressId`, `createDate`, `status`) VALUES
+(1, 3, 1, '2019-11-24 11:01:46', 1),
+(2, 7, 21, '2020-01-08 22:51:15', 0),
+(3, 7, 21, '2020-01-09 00:52:25', 0),
+(4, 7, 21, '2020-01-09 00:57:23', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `savedListPublicAddresses`
+-- Table structure for table `savedlistpublicaddresses`
 --
 
-CREATE TABLE `savedListPublicAddresses` (
+CREATE TABLE `savedlistpublicaddresses` (
   `entryId` bigint(50) NOT NULL,
   `listId` bigint(50) NOT NULL,
   `addressId` bigint(50) NOT NULL,
   `createDate` datetime NOT NULL,
-  `status` int(11) NOT NULL
+  `status` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `savedListPublicAddresses`
+-- Dumping data for table `savedlistpublicaddresses`
 --
 
-INSERT INTO `savedListPublicAddresses` (`entryId`, `listId`, `addressId`, `createDate`, `status`) VALUES
-(1, 3, 2, '2019-10-21 07:03:36', 0),
-(2, 3, 2, '2019-10-21 07:03:56', 0),
-(3, 3, 2, '2019-10-21 07:03:59', 0),
-(4, 4, 1, '2019-10-21 07:28:41', 0),
-(5, 3, 2, '2019-10-21 07:44:25', 0),
-(6, 3, 4, '2019-10-21 09:59:18', 0),
-(7, 3, 5, '2019-10-21 10:20:41', 0),
-(8, 4, 6, '2019-10-21 11:45:40', 0),
-(9, 4, 6, '2019-10-21 11:45:44', 0),
-(10, 4, 6, '2019-10-21 11:46:26', 0),
-(11, 4, 6, '2019-10-21 11:46:29', 0),
-(12, 4, 6, '2019-10-21 11:47:26', 0),
-(13, 4, 1, '2019-10-21 11:48:20', 0),
-(14, 4, 1, '2019-10-21 11:48:45', 0),
-(15, 4, 1, '2019-10-21 11:48:47', 0),
-(16, 4, 1, '2019-10-21 11:48:49', 0),
-(17, 4, 6, '2019-10-21 11:48:53', 0),
-(18, 4, 1, '2019-10-21 11:48:55', 0),
-(19, 4, 7, '2019-10-21 11:51:00', 0),
-(20, 4, 7, '2019-10-21 11:51:03', 0),
-(21, 4, 1, '2019-10-21 11:51:36', 0),
-(22, 4, 8, '2019-10-21 11:56:59', 0),
-(23, 4, 8, '2019-10-21 11:57:16', 0),
-(24, 4, 8, '2019-10-21 11:57:45', 0),
-(25, 4, 8, '2019-10-21 11:57:48', 0),
-(26, 3, 4, '2019-10-22 06:59:16', 0),
-(27, 3, 4, '2019-10-22 06:59:17', 0),
-(28, 7, 7, '2019-10-22 07:34:42', 0),
-(29, 7, 7, '2019-10-22 07:34:48', 0),
-(30, 8, 7, '2019-10-22 07:35:47', 1),
-(31, 8, 7, '2019-10-22 07:35:50', 1),
-(32, 3, 10, '2019-10-22 10:15:30', 0),
-(33, 3, 10, '2019-10-22 10:15:33', 0),
-(34, 9, 10, '2019-10-22 13:26:39', 0),
-(35, 4, 8, '2019-10-22 16:59:54', 0),
-(36, 9, 4, '2019-10-22 17:01:05', 0),
-(37, 4, 6, '2019-10-22 17:01:22', 0),
-(38, 4, 6, '2019-10-22 17:01:26', 0),
-(39, 3, 2, '2019-10-22 17:01:57', 0),
-(40, 3, 4, '2019-10-22 17:02:09', 0),
-(41, 4, 8, '2019-10-22 17:02:19', 0),
-(42, 4, 8, '2019-10-22 17:03:38', 0),
-(43, 4, 6, '2019-10-22 17:03:57', 0),
-(44, 3, 10, '2019-10-22 17:04:15', 0),
-(45, 4, 11, '2019-10-22 17:04:36', 0),
-(46, 4, 11, '2019-10-22 17:04:41', 0),
-(47, 3, 5, '2019-10-22 17:04:46', 0),
-(48, 4, 11, '2019-10-22 17:05:36', 0),
-(49, 4, 11, '2019-10-22 17:05:43', 0),
-(50, 4, 11, '2019-10-22 17:06:23', 0),
-(51, 4, 11, '2019-10-22 17:06:26', 0),
-(52, 4, 12, '2019-10-22 17:07:56', 0),
-(53, 4, 12, '2019-10-22 17:07:59', 0),
-(54, 3, 2, '2019-10-22 17:09:22', 0),
-(55, 3, 2, '2019-10-22 17:09:25', 0),
-(56, 3, 2, '2019-10-22 17:09:27', 0),
-(57, 3, 4, '2019-10-22 17:11:46', 0),
-(58, 3, 4, '2019-10-22 17:12:00', 0),
-(59, 3, 10, '2019-10-22 17:12:35', 0),
-(60, 3, 10, '2019-10-22 17:12:36', 0),
-(61, 3, 10, '2019-10-22 17:12:38', 0),
-(62, 3, 10, '2019-10-22 17:12:39', 0),
-(63, 3, 10, '2019-10-22 17:12:42', 0),
-(64, 3, 10, '2019-10-22 17:12:45', 0),
-(65, 3, 10, '2019-10-22 17:14:49', 0),
-(66, 3, 4, '2019-10-22 17:15:23', 0),
-(67, 9, 2, '2019-10-22 17:15:28', 0),
-(68, 3, 9, '2019-10-22 17:15:34', 0),
-(69, 3, 5, '2019-10-22 17:15:41', 0),
-(70, 3, 10, '2019-10-22 17:16:58', 0),
-(71, 3, 4, '2019-10-22 17:17:10', 0),
-(72, 3, 2, '2019-10-22 17:17:15', 0),
-(73, 4, 11, '2019-10-22 17:17:42', 1),
-(74, 3, 9, '2019-10-22 17:28:02', 0),
-(75, 3, 10, '2019-10-22 17:29:01', 0),
-(76, 3, 10, '2019-10-22 17:29:05', 0),
-(77, 12, 10, '2019-10-22 18:52:45', 0),
-(78, 12, 10, '2019-10-22 18:52:46', 0),
-(79, 13, 9, '2019-10-22 18:53:42', 0),
-(80, 13, 9, '2019-10-22 18:53:46', 0),
-(81, 14, 9, '2019-10-23 01:32:41', 0),
-(82, 8, 1, '2019-10-23 12:57:13', 1),
-(83, 4, 6, '2019-10-23 12:57:19', 1),
-(84, 9, 4, '2019-10-23 13:34:35', 0),
-(85, 9, 2, '2019-10-23 13:34:42', 0),
-(86, 3, 10, '2019-10-23 13:34:53', 0),
-(87, 3, 10, '2019-10-23 13:36:53', 0),
-(88, 13, 4, '2019-10-23 13:37:01', 0),
-(89, 12, 2, '2019-10-23 13:37:06', 0),
-(90, 3, 5, '2019-10-23 13:37:12', 0),
-(91, 3, 15, '2019-10-23 13:39:34', 0),
-(92, 9, 16, '2019-10-23 13:39:46', 0),
-(93, 12, 5, '2019-10-23 13:39:54', 0),
-(94, 12, 10, '2019-10-23 13:40:03', 0),
-(95, 12, 9, '2019-10-23 13:40:11', 0),
-(96, 3, 2, '2019-10-23 13:40:30', 0),
-(97, 12, 4, '2019-10-23 13:40:35', 0),
-(98, 3, 2, '2019-10-23 13:52:34', 0),
-(99, 3, 15, '2019-10-23 13:53:33', 0),
-(100, 3, 15, '2019-10-23 13:55:20', 0),
-(101, 3, 15, '2019-10-23 13:55:21', 0),
-(102, 3, 15, '2019-10-23 13:55:23', 0),
-(103, 3, 15, '2019-10-23 13:59:44', 0),
-(104, 3, 15, '2019-10-23 14:08:07', 0),
-(105, 3, 15, '2019-10-23 14:09:06', 0),
-(106, 3, 15, '2019-10-23 14:11:28', 0),
-(107, 3, 15, '2019-10-23 14:12:11', 0),
-(108, 3, 16, '2019-10-23 14:12:36', 0),
-(109, 3, 10, '2019-10-23 14:12:49', 0),
-(110, 3, 2, '2019-10-23 14:13:02', 0),
-(111, 3, 4, '2019-10-23 14:13:07', 0),
-(112, 3, 5, '2019-10-23 14:13:15', 0),
-(113, 9, 9, '2019-10-23 14:13:29', 0),
-(114, 3, 9, '2019-10-23 14:14:08', 0),
-(115, 3, 15, '2019-10-23 14:14:35', 0),
-(116, 12, 16, '2019-10-23 14:14:44', 0),
-(117, 3, 16, '2019-10-23 14:16:08', 0),
-(118, 3, 16, '2019-10-23 14:16:31', 0),
-(119, 3, 16, '2019-10-23 14:16:33', 0),
-(120, 3, 16, '2019-10-23 14:16:34', 0),
-(121, 3, 16, '2019-10-23 14:17:47', 0),
-(122, 9, 9, '2019-10-23 14:18:01', 1),
-(123, 12, 10, '2019-10-23 14:32:40', 1),
-(124, 13, 2, '2019-10-23 14:32:58', 1),
-(125, 14, 7, '2019-10-24 01:24:13', 1),
-(126, 14, 10, '2019-10-24 01:24:23', 1);
+INSERT INTO `savedlistpublicaddresses` (`entryId`, `listId`, `addressId`, `createDate`, `status`) VALUES
+(1, 3, 1, '2019-11-01 20:06:44', 1),
+(2, 2, 2, '2019-11-03 19:02:56', 1),
+(3, 3, 3, '2019-11-03 20:20:26', 1),
+(4, 2, 7, '2019-11-09 08:21:24', 1),
+(5, 31, 18, '2019-12-03 23:14:48', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sharedWithBusiness`
+-- Table structure for table `sharedwithbusiness`
 --
 
-CREATE TABLE `sharedWithBusiness` (
+CREATE TABLE `sharedwithbusiness` (
+  `recordId` bigint(50) NOT NULL,
+  `recipientId` bigint(50) NOT NULL,
+  `senderId` bigint(50) NOT NULL,
+  `addressId` int(11) NOT NULL,
+  `isAddressPublic` int(11) NOT NULL,
+  `createDate` datetime NOT NULL,
+  `status` int(11) NOT NULL DEFAULT '1'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `sharedwithbusiness`
+--
+
+INSERT INTO `sharedwithbusiness` (`recordId`, `recipientId`, `senderId`, `addressId`, `isAddressPublic`, `createDate`, `status`) VALUES
+(1, 2, 2, 1, 0, '2019-11-03 19:02:51', 1),
+(2, 1, 3, 2, 0, '2019-11-24 11:03:30', 1),
+(3, 1, 3, 8, 0, '2019-11-24 11:18:04', 1),
+(4, 1, 3, 9, 0, '2019-11-24 11:18:07', 1),
+(5, 1, 3, 10, 0, '2019-11-24 11:18:09', 1),
+(6, 18, 29, 17, 0, '2019-12-16 01:20:03', 1),
+(7, 12, 4, 6, 1, '2019-12-17 21:17:53', 1),
+(8, 15, 7, 22, 0, '2020-01-07 21:55:39', 0),
+(9, 15, 7, 21, 1, '2020-01-07 22:40:40', 0),
+(10, 18, 7, 22, 0, '2020-01-07 22:46:52', 0),
+(11, 15, 7, 22, 0, '2020-01-08 04:48:58', 0),
+(12, 15, 7, 22, 0, '2020-01-08 05:05:34', 0),
+(13, 18, 7, 22, 0, '2020-01-08 05:07:59', 1),
+(14, 15, 7, 22, 0, '2020-01-08 05:43:28', 1),
+(15, 15, 7, 22, 0, '2020-01-08 06:26:03', 1),
+(18, 39, 40, 46, 0, '2020-01-11 03:39:31', 1),
+(19, 39, 41, 47, 0, '2020-01-11 07:29:57', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sharedwithuser`
+--
+
+CREATE TABLE `sharedwithuser` (
   `recordId` bigint(50) NOT NULL,
   `recipientId` bigint(50) NOT NULL,
   `senderId` bigint(50) NOT NULL,
@@ -4989,58 +5024,20 @@ CREATE TABLE `sharedWithBusiness` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `sharedWithBusiness`
+-- Dumping data for table `sharedwithuser`
 --
 
-INSERT INTO `sharedWithBusiness` (`recordId`, `recipientId`, `senderId`, `addressId`, `isAddressPublic`, `createDate`, `status`) VALUES
-(1, 1, 26, 4, 1, '2019-10-21 07:27:43', 1),
-(2, 5, 25, 1, 0, '2019-10-21 10:40:43', 0),
-(3, 5, 25, 1, 0, '2019-10-21 10:42:27', 0),
-(4, 5, 25, 1, 1, '2019-10-21 10:43:21', 0),
-(5, 1, 26, 2, 1, '2019-10-21 10:45:08', 0),
-(6, 6, 26, 5, 1, '2019-10-21 11:07:56', 0),
-(7, 7, 26, 10, 1, '2019-10-22 07:36:12', 1),
-(8, 5, 25, 1, 0, '2019-10-22 13:27:18', 1),
-(9, 12, 26, 2, 1, '2019-10-22 17:08:06', 1),
-(10, 15, 8, 16, 1, '2019-10-23 01:45:28', 0),
-(11, 4, 25, 1, 1, '2019-10-23 12:54:04', 1),
-(12, 4, 25, 1, 0, '2019-10-23 12:54:35', 1),
-(13, 10, 25, 1, 0, '2019-10-23 14:32:06', 1),
-(14, 9, 25, 1, 0, '2019-10-29 04:29:50', 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `sharedWithUser`
---
-
-CREATE TABLE `sharedWithUser` (
-  `recordId` bigint(50) NOT NULL,
-  `recipientId` bigint(50) NOT NULL,
-  `senderId` bigint(50) NOT NULL,
-  `addressId` int(11) NOT NULL,
-  `isAddressPublic` int(11) NOT NULL,
-  `createDate` datetime NOT NULL,
-  `status` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `sharedWithUser`
---
-
-INSERT INTO `sharedWithUser` (`recordId`, `recipientId`, `senderId`, `addressId`, `isAddressPublic`, `createDate`, `status`) VALUES
-(1, 25, 26, 2, 1, '2019-10-21 07:02:42', 0),
-(2, 1, 25, 1, 0, '2019-10-21 07:29:51', 0),
-(3, 25, 26, 9, 1, '2019-10-22 07:21:30', 1),
-(4, 25, 26, 4, 1, '2019-10-22 07:23:23', 1),
-(5, 26, 25, 1, 0, '2019-10-22 13:41:02', 1),
-(6, 25, 26, 2, 0, '2019-10-22 17:22:58', 1),
-(7, 8, 7, 3, 0, '2019-10-23 01:42:08', 1),
-(8, 8, 7, 15, 1, '2019-10-23 01:42:12', 1),
-(9, 7, 8, 16, 1, '2019-10-23 01:48:41', 1),
-(10, 26, 25, 1, 1, '2019-10-23 12:42:58', 1),
-(11, 26, 25, 6, 1, '2019-10-23 12:51:09', 1),
-(12, 26, 25, 14, 1, '2019-10-23 12:55:02', 1);
+INSERT INTO `sharedwithuser` (`recordId`, `recipientId`, `senderId`, `addressId`, `isAddressPublic`, `createDate`, `status`) VALUES
+(1, 12, 2, 10, 1, '2019-11-28 20:14:43', 1),
+(2, 26, 27, 18, 1, '2019-12-03 23:14:28', 1),
+(3, 27, 26, 17, 1, '2019-12-04 00:23:52', 1),
+(4, 26, 27, 15, 0, '2019-12-05 01:20:06', 1),
+(5, 7, 36, 21, 0, '2019-12-20 04:19:00', 1),
+(6, 4, 7, 21, 1, '2020-01-07 22:45:41', 1),
+(7, 8, 7, 21, 1, '2020-01-08 00:51:54', 0),
+(8, 8, 7, 21, 1, '2020-01-08 00:53:27', 1),
+(9, 8, 7, 22, 0, '2020-01-08 00:54:19', 0),
+(10, 4, 7, 22, 0, '2020-01-08 05:00:07', 1);
 
 -- --------------------------------------------------------
 
@@ -5061,18 +5058,24 @@ CREATE TABLE `states` (
 --
 
 INSERT INTO `states` (`stateId`, `stateName`, `countryId`, `status`, `createDate`) VALUES
-(1, 'Punjab', 1, 1, '2019-10-21 06:52:13'),
-(2, 'Chandigarh', 1, 1, '2019-10-21 11:54:28'),
-(3, 'Himachal Pradesh', 1, 1, '2019-10-22 07:33:49'),
-(4, 'Ontario', 2, 1, '2019-10-23 01:39:57');
+(1, 'Ontario', 1, 1, '2019-11-01 19:04:44'),
+(2, 'Arusha', 2, 1, '2019-11-03 20:08:56'),
+(3, 'Punjab', 3, 1, '2019-11-05 20:58:33'),
+(4, 'Madhya Pradesh', 3, 1, '2019-11-05 23:06:58'),
+(5, 'Nairobi', 5, 1, '2019-11-11 10:41:24'),
+(6, 'Coastal Zone', 2, 1, '2019-11-24 11:11:43'),
+(7, 'Pwani', 2, 1, '2019-11-24 11:16:32'),
+(8, 'Kilimanjaro', 2, 1, '2019-11-25 19:49:05'),
+(9, 'Delhi', 3, 1, '2019-11-27 21:06:20'),
+(10, 'Al Wahat', 6, 1, '2020-01-11 01:55:47');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `termsConditions`
+-- Table structure for table `termsconditions`
 --
 
-CREATE TABLE `termsConditions` (
+CREATE TABLE `termsconditions` (
   `id` int(11) NOT NULL,
   `heading` varchar(50) NOT NULL,
   `content` text NOT NULL,
@@ -5081,10 +5084,10 @@ CREATE TABLE `termsConditions` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `termsConditions`
+-- Dumping data for table `termsconditions`
 --
 
-INSERT INTO `termsConditions` (`id`, `heading`, `content`, `createDate`, `status`) VALUES
+INSERT INTO `termsconditions` (`id`, `heading`, `content`, `createDate`, `status`) VALUES
 (1, 'Terms and conditions', '<p style=\"\"><span style=\"font-family: Helvetica;\">By downloading or using the app, these terms will automatically apply to you – you should make sure therefore that you read them carefully before using the app. You’re not allowed to copy or modify the app, any part of the app, or our trademarks in any way. You’re not allowed to attempt to extract the source code of the app, and you also shouldn’t try to translate the app into other languages or make derivative versions. The app itself, and all the trademarks, copyright, database rights and other intellectual property rights related to it, still belong to Abizer Jafferjee.</span></p><p style=\"\"><span style=\"font-family: Helvetica;\"><br></span></p><p style=\"\"><span style=\"font-family: Helvetica;\">Abizer Jafferjee is committed to ensuring that the app is as useful and efficient as possible. For that reason, we reserve the right to make changes to the app or to charge for its services, at any time and for any reason. We will never charge you for the app or its services without making it very clear to you exactly what you’re paying for.</span></p><p style=\"\"><span style=\"font-family: Helvetica;\"><br></span></p><p style=\"\"><span style=\"font-family: Helvetica;\">The Simplr Post app stores and processes personal data that you have provided to us, in order to provide my Service. It’s your responsibility to keep your phone and access to the app secure. We, therefore, recommend that you do not jailbreak or root your phone, which is the process of removing software restrictions and limitations imposed by the official operating system of your device. It could make your phone vulnerable to malware/viruses/malicious programs, compromise your phone’s security features and it could mean that the Simplr Post app won’t work properly or at all.</span></p><p style=\"\"><span style=\"font-family: Helvetica;\"><br></span></p><p style=\"\"><span style=\"font-family: Helvetica;\">You should be aware that there are certain things that Abizer Jafferjee will not take responsibility for. Certain functions of the app will require the app to have an active internet connection. The connection can be Wi-Fi or provided by your mobile network provider, but Abizer Jafferjee cannot take responsibility for the app not working at full functionality if you don’t have access to Wi-Fi, and you don’t have any of your data allowance left.</span></p><p style=\"\"><span style=\"font-family: Helvetica;\"><br></span></p><p style=\"\"></p><p style=\"\"><span style=\"font-family: Helvetica;\">If you’re using the app outside of an area with Wi-Fi, you should remember that your terms of the agreement with your mobile network provider will still apply. As a result, you may be charged by your mobile provider for the cost of data for the duration of the connection while accessing the app, or other third party charges. In using the app, you’re accepting responsibility for any such charges, including roaming data charges if you use the app outside of your home territory (i.e. region or country) without turning off data roaming. If you are not the bill payer for the device on which you’re using the app, please be aware that we assume that you have received permission from the bill payer for using the app.</span></p><p style=\"\"><span style=\"font-family: Helvetica;\"><br></span></p><p style=\"\"><span style=\"font-family: Helvetica;\">Along the same lines, Abizer Jafferjee cannot always take responsibility for the way you use the app i.e. You need to make sure that your device stays charged – if it runs out of battery and you can’t turn it on to avail the Service, Abizer Jafferjee cannot accept responsibility.</span></p><p style=\"\"><span style=\"font-family: Helvetica;\"><br></span></p><p style=\"\"><span style=\"font-family: Helvetica;\">With respect to Abizer Jafferjee’s responsibility for your use of the app, when you’re using the app, it’s important to bear in mind that although we endeavor to ensure that it is updated and correct at all times, we do rely on third parties to provide information to us so that we can make it available to you. Abizer Jafferjee accepts no liability for any loss, direct or indirect, you experience as a result of relying wholly on this functionality of the app.</span></p><p style=\"\"><span style=\"font-family: Helvetica;\"><br></span></p><p style=\"\"><span style=\"font-family: Helvetica;\">At some point, we may wish to update the app. The app is currently available on Android – the requirements for system (and for any additional systems we decide to extend the availability of the app to) may change, and you’ll need to download the updates if you want to keep using the app. Abizer Jafferjee does not promise that it will always update the app so that it is relevant to you and/or works with the Android version that you have installed on your device. However, you promise to always accept updates to the application when offered to you, We may also wish to stop providing the app, and may terminate use of it at any time without giving notice of termination to you. Unless we tell you otherwise, upon any termination, (a) the rights and licenses granted to you in these terms will end; (b) you must stop using the app, and (if needed) delete it from your device.</span></p><p style=\"\"><span style=\"font-family: Helvetica;\"><br></span></p><p style=\"\"><b><b style=\"font-family: Helvetica;\">Changes to This Terms and Conditions</b></b></p><p style=\"\"><b><b style=\"font-family: Helvetica;\"><br></b></b></p><p style=\"\"><span style=\"font-family: Helvetica;\">I may update our Terms and Conditions from time to time. Thus, you are advised to review this page periodically for any changes. I will notify you of any changes by posting the new Terms and Conditions on this page. These changes are effective immediately after they are posted on this page.</span></p><p style=\"\"><span style=\"font-family: Helvetica;\"><br></span></p><p style=\"\"><b style=\"font-family: Helvetica;\"><b>Contact</b> <b>Us</b></b></p><p style=\"\"><b style=\"font-family: Helvetica;\"><b><br></b></b></p><p style=\"\"><span style=\"font-family: Helvetica;\">If you have any questions or suggestions about my Terms and Conditions, do not hesitate to contact me at <span style=\"font-weight: bold;\">abizerjafferjee@simplrpost.com.</span></span></p><p style=\"\"><span style=\"font-family: Helvetica;\">This Terms and Conditions page was generated by&nbsp;<a href=\"https://app-privacy-policy-generator.firebaseapp.com/\" target=\"_blank\" style=\"\"><b>App Privacy Policy Generator</b></a></span></p><p style=\"\"><span style=\"font-family: Helvetica;\"><a href=\"https://app-privacy-policy-generator.firebaseapp.com/\" target=\"_blank\" style=\"\"><b><br></b></a></span></p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ', '2019-08-05 00:00:00', 1);
 
 -- --------------------------------------------------------
@@ -5104,8 +5107,8 @@ CREATE TABLE `urls` (
 --
 
 INSERT INTO `urls` (`id`, `name`, `url`) VALUES
-(1, 'apiBaseURL', 'http://test.code-apex.com/simplrPost/'),
-(2, 'imageBaseURL', 'http://test.code-apex.com/simplrPost/uploads/');
+(1, 'apiBaseURL', 'http://www.admin.simplrpost.com/'),
+(2, 'imageBaseURL', 'http://www.admin.simplrpost.com/uploads/');
 
 -- --------------------------------------------------------
 
@@ -5118,56 +5121,67 @@ CREATE TABLE `user` (
   `profilePicURL` varchar(100) NOT NULL,
   `name` varchar(100) NOT NULL,
   `userName` varchar(30) NOT NULL,
-  `emailId` varchar(255) NOT NULL,
+  `emailId` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `password` varchar(50) NOT NULL,
   `contactNumber` varchar(20) NOT NULL,
   `referenceCode` varchar(10) NOT NULL,
   `createDate` datetime NOT NULL,
-  `status` int(11) NOT NULL COMMENT '(-5 blocked, -1 deleted, 0 deactivated, 1 active)',
+  `status` int(11) NOT NULL DEFAULT '1' COMMENT '(-5 blocked, -1 deleted, 0 deactivated, 1 active)',
   `blockDate` datetime NOT NULL,
   `isEmailIdVerified` tinyint(4) NOT NULL,
   `emailVerificationToken` varchar(50) NOT NULL,
-  `isContactNumberVerified` tinyint(4) NOT NULL
+  `isContactNumberVerified` tinyint(4) NOT NULL,
+  `security_question` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `security_answer` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`userId`, `profilePicURL`, `name`, `userName`, `emailId`, `password`, `contactNumber`, `referenceCode`, `createDate`, `status`, `blockDate`, `isEmailIdVerified`, `emailVerificationToken`, `isContactNumberVerified`) VALUES
-(1, 'user/1.png', 'Code Apex', 'HR', 'hr.codeapex@gmail.com', '4a7d1ed414474e4033ac29ccb8653d9b', '+2559988776644', 'fEo4AFpkze', '2019-10-17 04:13:39', 1, '0000-00-00 00:00:00', 0, '', 0),
-(2, 'user/2.png', 'CodeApex', 'CA', 'apps.codeapex@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', '+2548968624242', 'IGnuLOy7Z9', '2019-10-17 05:12:34', 1, '0000-00-00 00:00:00', 0, '', 0),
-(3, 'user/3.png', 'Navneet Kaur', 'Navu', 'navneet.codeapex@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', '+2557087438108', 'NR1sr5A6ng', '2019-10-17 05:21:52', 1, '0000-00-00 00:00:00', 0, '', 0),
-(4, 'user/4.png', 'codeapex', 'codeapex', 'codeapex@gmail.com', '1bbd886460827015e5d605ed44252251', '+2559191919191', 'NKrdW420BG', '2019-10-18 09:51:17', -1, '0000-00-00 00:00:00', 0, '', 0),
-(6, 'user/6.png', 'Davinder', 'Dav', 'davinder.codeapex@gmail.com', '1bbd886460827015e5d605ed44252251', '+2547845612525', 'fi7Y8cwQOz', '2019-10-18 13:18:02', 1, '0000-00-00 00:00:00', 0, '', 0),
-(7, 'user/7.png', 'Abizer Jafferjee', 'abizerjafferjee', 'abizerjafferjee@gmail.com', '20b08f88b79895e0339bc96059965e1e', '+254647936114', 'PjGHDCe5uh', '2019-10-18 18:34:17', 1, '0000-00-00 00:00:00', 0, 'oe0bGLMJ86FavBA9spNq', 0),
-(8, 'user/8.png', 'Abizer Jafferjee', 'ajafferjee', 'ajaff95@yahoo.com', '20b08f88b79895e0339bc96059965e1e', '+2546541144000', '38BC6GbYAF', '2019-10-19 17:56:02', 1, '0000-00-00 00:00:00', 0, '', 0),
-(25, 'user/25.png', 'Ekam Singh', 'Ekam', 'ekam.codeapex@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', '+254123456451', 'QyaiYV0wzX', '2019-10-21 06:49:17', 1, '0000-00-00 00:00:00', 0, 'oLRVWxkeFTidwayst9NC', 0),
-(44, 'user/44.png', 'Hardeep', 'Hard', 'hardeep.codeapex@gmail.com', '1bbd886460827015e5d605ed44252251', '7410158963', '0fNc6lJwEe', '2019-10-25 07:15:05', 1, '0000-00-00 00:00:00', 0, 'hwe8B5Dng2uUSrRNjysM', 0),
-(26, 'user/26.png', 'Sobia', 'so', 'sobia.codeapex@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', '+254475135821', 'a3BwJFEZGQ', '2019-10-21 06:59:10', 1, '0000-00-00 00:00:00', 0, '1PiFZoj6WXuBNqQatb7C', 0),
-(28, 'user/28.png', 'Code Apex', 'CA apps', 'codeapex1@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', '+254123456789', 'Z4xBDPoJmd', '2019-10-21 07:13:45', 1, '0000-00-00 00:00:00', 0, '1M40EsJFc8ZNwWpiVnkf', 0),
-(29, 'user/29.png', 'Davinder Singh', 'INDER', 'davinder.singh2292@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', '+254153459123', 'UIcJPj6zeX', '2019-10-22 12:31:12', 1, '0000-00-00 00:00:00', 1, 'mdLCHA2IKQoPheXst1Gk', 0),
-(33, 'user/33.png', 'gdhe', 'bdheh', 'hdhshdhe@hdhd.jdh', '875f4df9fb9bc8ef11bdb021a8508097', '+254978564825', 'ehcwrWxB2Y', '2019-10-24 09:16:46', 1, '0000-00-00 00:00:00', 0, 'e3f1qPRDVy0X5C7ziotc', 0),
-(32, 'user/30.png', 'hfudud', 'hchcuf', 'jchchdhdhcu@ghu.hhg', 'c557a4f7a11079542e303ed893f7f333', '+254867976866', 'GUXKseV2hk', '2019-10-24 07:02:08', 1, '0000-00-00 00:00:00', 0, 'XKxsacBv9bqdWVotSuUk', 0),
-(34, 'user/34.png', 'gdhejjrj', 'bdhehrbr', 'hhhb@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', '+254987654321', 'JUFAxPisYp', '2019-10-24 09:19:18', 1, '0000-00-00 00:00:00', 0, 'cLTMINwjXUgqyrQ9YvDP', 0),
-(35, 'user/35.png', 'kbkg', 'ipgiggi', 'hardeep.cod1eapex@gmail.com', '1bbd886460827015e5d605ed44252251', '+254843512475', 'f57njvmOKd', '2019-10-24 09:21:42', -1, '0000-00-00 00:00:00', 0, 'ZzuX01pODWNohrsGCejk', 0),
-(36, 'user/36.png', 'bhubh', 'hhhbbb', 'bahh@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', '+254875621456', '7cXCdiSHIo', '2019-10-24 09:23:55', 1, '0000-00-00 00:00:00', 0, 'mWoVzyGwMrAYtS2HX87v', 0),
-(37, 'user/37.png', 'bhubh', 'hhhbbbiihhu', 'heuhehe@gmail.com', '1bbd886460827015e5d605ed44252251', '+254981354768', 'U4oXyjahgw', '2019-10-24 09:25:55', 1, '0000-00-00 00:00:00', 0, 'gLPYDWriBGn7SUAmwalz', 0),
-(38, 'user/38.png', 'iikjjjjig', 'aes', 'aes@gmail.com', '4c93008615c2d041e33ebac605d14b5b', '+254534698071', 'jQbqwhNYSx', '2019-10-24 09:27:13', 1, '0000-00-00 00:00:00', 0, 'MO0946EshnWbqcAPXZfN', 0),
-(39, 'user/39.png', 'cagusg', 'swywc', 'hajwj@gmail.com', 'b4fb8c802583d75c36858811115b6272', '+254652147809', 'ZP92CyUamq', '2019-10-24 09:29:48', 1, '0000-00-00 00:00:00', 0, 'lB4XbENDViWQeaoZFGLh', 0),
-(40, 'user/40.png', 'bhh', 'yyv', 'hjb@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', '+254145698702', 'xoslvUtFn3', '2019-10-24 09:33:40', 1, '0000-00-00 00:00:00', 0, 'jG4r7lCDpfAFc2tBnibY', 1),
-(41, 'user/41.png', 'bdiwbd', 'gxhdh', 'hdowhdujeue@heu.djj', '6e8d3fdcbe08cac69d0ee22caf0bd955', '+254948754312', 't9VMLFjWxq', '2019-10-24 09:37:07', 1, '0000-00-00 00:00:00', 0, '4SPqVrU1bnDwosyK6jlW', 1),
-(42, 'user/42.png', 'iwjnhh', 'ufucyc', 'hsush@gmail.com', 'dd4b21e9ef71e1291183a46b913ae6f2', '+254807596234', 'Edy9brBXWo', '2019-10-24 10:03:00', 1, '0000-00-00 00:00:00', 0, 'cM9TmErpVvC7gIRiBAHx', 1),
-(43, 'user/43.png', 'yy4c3yg', 'ycyvv', 'huv@gmail.com', '4c93008615c2d041e33ebac605d14b5b', '+2541256987455', 'RBcVvU4JEu', '2019-10-24 10:04:20', 1, '0000-00-00 00:00:00', 0, 'Jb4Ep0ZD3i8oVSjlNP25', 1),
-(45, 'user/45.png', 'Hardeep', 'web', 'web.codeapex@gmail.com', '1bbd886460827015e5d605ed44252251', '9999999999', 'x8ks24wrq1', '2019-10-25 07:19:01', 1, '0000-00-00 00:00:00', 0, 'TDSrkH2FIeBimYsoq640', 0);
+INSERT INTO `user` (`userId`, `profilePicURL`, `name`, `userName`, `emailId`, `password`, `contactNumber`, `referenceCode`, `createDate`, `status`, `blockDate`, `isEmailIdVerified`, `emailVerificationToken`, `isContactNumberVerified`, `security_question`, `security_answer`) VALUES
+(2, 'user/2.png', 'Abizer Jafferjee', 'ajafferjee', 'ajaff95@yahoo.com', '3515cac62774b0cf57036879be6ca3aa', '+255754270015', 'Y8LJRubskS', '2019-11-01 18:51:53', -1, '0000-00-00 00:00:00', 0, 'I1fjH70iLn3lpdrymoRJ', 0, '', ''),
+(3, 'user/3.png', 'Thomas M.', 'thomasm12', 'abizerjafferjee@simplrpost.com', '3515cac62774b0cf57036879be6ca3aa', '+254479361140', 'nHS03I5bYm', '2019-11-01 19:23:00', -1, '0000-00-00 00:00:00', 0, 'OXF1DLaV4MGluT2S8szR', 0, '', ''),
+(4, 'user/4.png', 'navu', 'ca', 'navneet.codeapex@gmail.com', '1bbd886460827015e5d605ed44252251', '+254123456789', '3T6rLdv5Ve', '2019-11-03 05:14:58', -1, '0000-00-00 00:00:00', 0, 'a58m3uJwZOk26lYRiBIj', 0, '', ''),
+(5, 'user/5.png', 'navu', 'ca123', 'codeapex7@gmail.com', '1bbd886460827015e5d605ed44252251', '+254987654321', 'eQPGpoLRCD', '2019-11-03 05:17:05', -1, '0000-00-00 00:00:00', 0, 'O1lw2HjLIvAnRy3mYP05', 0, '', ''),
+(6, 'user/6.png', 'Hardeep', 'Hard1eep', 'Hardeep.codea1pex@gmail.com', '1bbd886460827015e5d605ed44252251', '+9175086140025', 'xvCEuVLhpM', '2019-11-03 19:49:54', -1, '0000-00-00 00:00:00', 0, 'cj8xNpiG5XSegymo7dwV', 0, '', ''),
+(7, 'user/7.png', 'Hardeep', 'Hardeep1', 'Hardeep.codeapex1@gmail.com', '1bbd886460827015e5d605ed44252251', '+255123456789', 'ek89j3TG7z', '2019-11-03 19:52:19', -1, '0000-00-00 00:00:00', 0, '4veTAliNCwO1mBcujQpd', 0, '', ''),
+(8, 'user/8.png', 'Hardeep', 'Hardeep', 'Hardeep.codeapex@gmail.com', '1bbd886460827015e5d605ed44252251', '+917508640025', 'nj3u1wNizg', '2019-11-03 21:35:50', -1, '0000-00-00 00:00:00', 1, 'yGDpdWjxcVtMnmSY8NuL', 0, '', ''),
+(9, 'user/9.png', 'hamza', 'hamza', 'h.m.nanu@gmail.com', 'f4a2a6154ccd02b71ea7f0836ba96469', '+255752125252', '6vGmRdeHbr', '2019-11-08 21:54:02', 1, '0000-00-00 00:00:00', 0, 'SodJwmYnZ7fBuKyaOzCT', 0, '', ''),
+(10, '', 'Taiyab Jafferjee', 'ruqsjaff', 'taiyabjafferjee@gmail.com', '08b5f803ce3774a591683ef19a51e691', '+255685339720', 'YS0rDTjPQu', '2019-11-09 06:56:17', 1, '0000-00-00 00:00:00', 0, 'IFU1lRQ0DSzxcXu4KBEG', 0, '3What is your father name?', 'Hussein'),
+(11, 'user/11.png', 'sakina jafferjee', 'sakjaff007', 'sakinaj66@gmail.com', '5a1ce92fa38e05e5b8466266d93aca5c', '+255712552700', 'pDB59ERCtr', '2019-11-09 08:14:03', 1, '0000-00-00 00:00:00', 0, 'EazcHjRTSIuYpFNfvxmy', 0, '1What is your hobby?', 'Art N Craft '),
+(12, 'user/12.png', 'ajafferj@gmail.com', 'ajafferj', 'ajafferj@gmail.com', 'c6e2297d718fe3e0b668b88fc36d6207', '+254235689741', 'u95pykVFRf', '2019-11-10 14:25:45', 1, '0000-00-00 00:00:00', 0, 'vkzig4MSOmtcZWNoHd6a', 0, '', ''),
+(13, 'user/13.png', 'Tester1', 'Tester1', 'raghavkeinth11@gmail.com', '12c71af8bd0e710d06b80ce6b4aa0604', '+254713697775', '5Xz8wlmiqc', '2019-11-11 10:31:45', -1, '0000-00-00 00:00:00', 0, '7pRYs9aetKZwmDxbguCh', 0, '', ''),
+(14, 'user/14.png', 'Jeremy Atambo', 'Atambo', 'jeremyatambo3@gmail.com', 'a3325cce91f7a0e2ea758d0db9becfa5', '+254757460846', 'FQh1lyH5fB', '2019-11-11 10:31:49', 1, '0000-00-00 00:00:00', 1, 'kCtKqJMvHF16RIusTSlP', 0, '', ''),
+(15, 'user/15.png', 'Hussein Bhuj', 'husseinbhuj', 'hkassamali.291@gmail.com', 'c1c7fcabf4532b4b6c48345e68792970', '+255789515152', 'Pq5FUrxje3', '2019-11-12 04:16:25', 1, '0000-00-00 00:00:00', 0, '2145u0LwNsZYERVmgciS', 0, '', ''),
+(16, 'user/16.png', 'Nanak', 'Guru', 'nanak@gmail.com', '1bbd886460827015e5d605ed44252251', '+254123443215', 'vL6otVG4Q1', '2019-11-12 04:29:04', 1, '0000-00-00 00:00:00', 0, 'dFpzMr9uKV4nXvBm5G1U', 0, '', ''),
+(17, 'user/17.png', 'Hardeep', 'H11ardeep', 'Hardeep.co1deapex1@gmail.com', '1bbd886460827015e5d605ed44252251', '+9175086410025', 'pVGnRuI2EX', '2019-11-12 04:31:03', -5, '0000-00-00 00:00:00', 0, 'ivHYKGOhqVb4ULMf2WgR', 0, '', ''),
+(18, 'user/18.png', 'Hardeep', 'H11ard1eep', 'Hardeep.co1dea1pex1@gmail.com', '1bbd886460827015e5d605ed44252251', '+91750186410025', 'dJsr3HaQGw', '2019-11-12 04:33:08', -1, '0000-00-00 00:00:00', 0, 'vwfPYhyxlA4zCJIkc5a2', 0, '', ''),
+(19, 'user/19.png', 'Hussein JAFFERJEE', 'setlife', 'setlife@tz2000.com', 'd6f046f708d7b5412e951a464e53a650', '+254754270014', '4hMAeQ6JYl', '2019-11-20 09:38:56', 1, '0000-00-00 00:00:00', 0, 'TCIhrOjdg36xEz5iun0F', 0, '', ''),
+(20, 'user/20.png', 'Ngailla Alpa', 'Ngailla', 'ngaillaalpha39@gmail.com', 'f2ae7124ee052645c53d4315ef37da7f', '+255784535300', 'G7BXZgopQz', '2019-11-27 07:01:48', 1, '0000-00-00 00:00:00', 0, 'vGOpSdnkL0F9roBeYhQz', 0, '', ''),
+(21, 'user/21.png', 'Vikas', 'robbiewebhub@gmail.com', 'robbiewebhub@gmail.com', 'd0ff951631904f9e6a85156305d08054', '+254999906078', '6p0H83NIjS', '2019-11-27 21:04:28', -1, '0000-00-00 00:00:00', 1, 'e9AUEikJ4qtmsz5a72hr', 0, '', ''),
+(22, 'user/22.png', 'arun', 'arun', 'appsvila313@gmail.com', 'ca5b49840460ee4fc513c27f92a50d31', '+254987389615', 'DVfjn1waqr', '2019-11-29 23:40:02', 1, '0000-00-00 00:00:00', 0, 'LKJcSyiIprBz0RMhqHxe', 0, '', ''),
+(23, 'user/23.png', 'Thabiti', 'Thabitially', 'fatumakingazi66@gmail.com', '0874c4ef4b9f52f5105c7cb5e3db89a4', '+254789756274', 'sf8rIMghKP', '2019-11-30 02:07:32', 1, '0000-00-00 00:00:00', 0, 'ZJMYSkf31XPACuEcyore', 0, '', ''),
+(32, '', '', '', '', '25d55ad283aa400af464c76d713c07ad', '+919165631005', '', '2019-12-19 06:09:13', -1, '0000-00-00 00:00:00', 0, '', 0, '', ''),
+(29, 'user/SimplrPost1576487775789.png', 'khushboo', '', 'ajay.parmar@samosys.com', 'd54d1702ad0f8326224b817c796763c9', '+919131676905', '', '2019-12-16 01:09:17', 1, '0000-00-00 00:00:00', 1, 'kCInDVHM0ayrb4zeYAdx', 0, '2What is your childhood name?', 'Khushi'),
+(30, '', 'yunus khan', '', 'ajay.parmar15@samosys.com', '25d55ad283aa400af464c76d713c07ad', '+919340643287', '', '2019-12-16 01:22:48', 1, '0000-00-00 00:00:00', 0, 'IWK5dXlhoRB0upki83Q1', 0, '1What is your hobby?', 'Playing'),
+(31, '', 'Ajay Parmar', '', 'pajay.parmar25@gmail.com', '3354045a397621cd92406f1f98cde292', '+919755410567', '', '2019-12-16 01:59:12', 1, '0000-00-00 00:00:00', 0, 'HZiqmIQJSEepTlMsr30d', 0, '1What is your hobby?', 'Music'),
+(33, '', '', '', NULL, 'cc03e747a6afbbcbf8be7668acfebee5', '+918823875802', '', '2019-12-19 23:22:55', 0, '0000-00-00 00:00:00', 0, '', 0, '', ''),
+(34, '', '', '', NULL, '25d55ad283aa400af464c76d713c07ad', '+917415881359', '', '2019-12-19 23:31:00', 0, '0000-00-00 00:00:00', 0, '', 0, '', ''),
+(35, '', '', '', NULL, 'cc03e747a6afbbcbf8be7668acfebee5', '+918823875808', '', '2019-12-20 01:24:04', 0, '0000-00-00 00:00:00', 0, '', 0, '', ''),
+(41, '', 'Joe Gomez', '', 'abizerjafferjee@gmail.com', '3515cac62774b0cf57036879be6ca3aa', '+16479361140', '', '2020-01-11 07:11:18', 1, '0000-00-00 00:00:00', 1, 's2DMF9xpdycSNTUn3bmJ', 0, '1What is your hobby?', 'Working'),
+(37, '', '', '', NULL, '25f9e794323b453885f5181f1b624d0b', '+919646514379', '', '2019-12-24 03:54:40', -1, '0000-00-00 00:00:00', 0, '', 0, '', ''),
+(38, '', '', '', NULL, '25d55ad283aa400af464c76d713c07ad', '+251882387580', '', '2020-01-02 21:03:40', -1, '0000-00-00 00:00:00', 0, '', 0, '', ''),
+(39, 'user/SimplrPost1578746138081.png', 'Sohel khan', '', 'sohelkhan2309@gmail.com', '25d55ad283aa400af464c76d713c07ad', '+919131020207', '', '2020-01-02 21:18:08', 1, '0000-00-00 00:00:00', 0, 'bU85mV1L3D0cgPsGOSWi', 0, '1What is your hobby?', 'Preshan Krna'),
+(40, '', 'Sohel Khan', '', 'khushbu.bisen@samosys.com', '25d55ad283aa400af464c76d713c07ad', '+918103823254', '', '2020-01-11 03:32:54', 1, '0000-00-00 00:00:00', 1, 'E3ZhYAupNyvUaVfGI14b', 0, '1What is your hobby?', 'Kuch Nahi');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `userFeedback`
+-- Table structure for table `userfeedback`
 --
 
-CREATE TABLE `userFeedback` (
+CREATE TABLE `userfeedback` (
   `id` bigint(50) NOT NULL,
   `userId` bigint(50) NOT NULL,
   `rating` varchar(20) NOT NULL,
@@ -5177,28 +5191,28 @@ CREATE TABLE `userFeedback` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `userFeedback`
+-- Dumping data for table `userfeedback`
 --
 
-INSERT INTO `userFeedback` (`id`, `userId`, `rating`, `content`, `createDate`, `status`) VALUES
-(1, 25, '3.0', 'hey there', '2019-10-22 07:41:19', 1);
+INSERT INTO `userfeedback` (`id`, `userId`, `rating`, `content`, `createDate`, `status`) VALUES
+(1, 22, '5.0', 'sgddg', '2019-11-29 23:57:08', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `weekDays`
+-- Table structure for table `weekdays`
 --
 
-CREATE TABLE `weekDays` (
+CREATE TABLE `weekdays` (
   `dayId` int(11) NOT NULL,
   `dayName` varchar(20) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `weekDays`
+-- Dumping data for table `weekdays`
 --
 
-INSERT INTO `weekDays` (`dayId`, `dayName`) VALUES
+INSERT INTO `weekdays` (`dayId`, `dayName`) VALUES
 (1, 'Sunday'),
 (2, 'Monday'),
 (3, 'Tuesday'),
@@ -5210,10 +5224,10 @@ INSERT INTO `weekDays` (`dayId`, `dayName`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `workingDays`
+-- Table structure for table `workingdays`
 --
 
-CREATE TABLE `workingDays` (
+CREATE TABLE `workingdays` (
   `workingDayId` bigint(50) NOT NULL,
   `dayId` int(11) NOT NULL,
   `businessId` bigint(50) NOT NULL,
@@ -5223,13 +5237,13 @@ CREATE TABLE `workingDays` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `workingDays`
+-- Dumping data for table `workingdays`
 --
 
-INSERT INTO `workingDays` (`workingDayId`, `dayId`, `businessId`, `isOpen`, `openTime`, `closeTime`) VALUES
+INSERT INTO `workingdays` (`workingDayId`, `dayId`, `businessId`, `isOpen`, `openTime`, `closeTime`) VALUES
 (1, 1, 1, 1, '12 AM', '12 AM'),
 (2, 2, 1, 1, '12 AM', '12 AM'),
-(3, 3, 1, 1, '11 AM', '05 PM'),
+(3, 3, 1, 1, '12 AM', '12 AM'),
 (4, 4, 1, 1, '12 AM', '12 AM'),
 (5, 5, 1, 1, '12 AM', '12 AM'),
 (6, 6, 1, 1, '12 AM', '12 AM'),
@@ -5248,112 +5262,147 @@ INSERT INTO `workingDays` (`workingDayId`, `dayId`, `businessId`, `isOpen`, `ope
 (19, 5, 3, 1, '12 AM', '12 AM'),
 (20, 6, 3, 1, '12 AM', '12 AM'),
 (21, 7, 3, 1, '12 AM', '12 AM'),
-(22, 1, 4, 1, '12 AM', '12 AM'),
+(22, 1, 4, 0, '12 AM', '12 AM'),
 (23, 2, 4, 1, '12 AM', '12 AM'),
-(24, 3, 4, 1, '09 AM', '01 PM'),
-(25, 4, 4, 1, '09 AM', '01 PM'),
-(26, 5, 4, 1, '12 AM', '12 AM'),
-(27, 6, 4, 1, '12 AM', '12 AM'),
-(28, 7, 4, 1, '12 AM', '12 AM'),
-(29, 1, 5, 1, '12 AM', '12 AM'),
-(30, 2, 5, 1, '12 AM', '12 AM'),
-(31, 3, 5, 1, '12 AM', '12 AM'),
-(32, 4, 5, 1, '12 AM', '12 AM'),
-(33, 5, 5, 1, '12 AM', '12 AM'),
-(34, 6, 5, 1, '12 AM', '12 AM'),
+(24, 3, 4, 1, '12 AM', '12 AM'),
+(25, 4, 4, 0, '12 AM', '12 AM'),
+(26, 5, 4, 0, '12 AM', '12 AM'),
+(27, 6, 4, 0, '12 AM', '12 AM'),
+(28, 7, 4, 0, '12 AM', '12 AM'),
+(29, 1, 5, 0, '12 AM', '12 AM'),
+(30, 2, 5, 0, '12 AM', '12 AM'),
+(31, 3, 5, 0, '12 AM', '12 AM'),
+(32, 4, 5, 0, '12 AM', '12 AM'),
+(33, 5, 5, 0, '12 AM', '12 AM'),
+(34, 6, 5, 0, '12 AM', '12 AM'),
 (35, 7, 5, 1, '12 AM', '12 AM'),
-(36, 1, 6, 0, '09 AM', '03 PM'),
-(37, 2, 6, 1, '09 AM', '03 PM'),
+(36, 1, 6, 1, '12 AM', '12 AM'),
+(37, 2, 6, 1, '12 AM', '12 AM'),
 (38, 3, 6, 1, '12 AM', '12 AM'),
-(39, 4, 6, 0, '09 AM', '03 PM'),
+(39, 4, 6, 0, '12 AM', '12 AM'),
 (40, 5, 6, 1, '12 AM', '12 AM'),
 (41, 6, 6, 1, '12 AM', '12 AM'),
-(42, 7, 6, 0, '12 AM', '12 AM'),
-(43, 1, 7, 1, '12 AM', '12 AM'),
+(42, 7, 6, 1, '12 AM', '12 AM'),
+(43, 1, 7, 0, '12 AM', '12 AM'),
 (44, 2, 7, 1, '12 AM', '12 AM'),
 (45, 3, 7, 1, '12 AM', '12 AM'),
 (46, 4, 7, 1, '12 AM', '12 AM'),
 (47, 5, 7, 1, '12 AM', '12 AM'),
 (48, 6, 7, 1, '12 AM', '12 AM'),
-(49, 7, 7, 1, '12 AM', '12 AM'),
+(49, 7, 7, 0, '12 AM', '12 AM'),
 (50, 1, 8, 0, '12 AM', '12 AM'),
-(51, 2, 8, 1, '12 AM', '12 AM'),
-(52, 3, 8, 1, '12 AM', '12 AM'),
-(53, 4, 8, 1, '12 AM', '12 AM'),
-(54, 5, 8, 1, '12 AM', '12 AM'),
-(55, 6, 8, 1, '12 AM', '12 AM'),
-(56, 7, 8, 0, '12 AM', '12 AM'),
+(51, 2, 8, 1, '09 AM', '06 PM'),
+(52, 3, 8, 1, '09 AM', '06 PM'),
+(53, 4, 8, 1, '09 AM', '06 PM'),
+(54, 5, 8, 1, '09 AM', '06 PM'),
+(55, 6, 8, 1, '09 AM', '06 PM'),
+(56, 7, 8, 1, '12 AM', '12 AM'),
 (57, 1, 9, 0, '12 AM', '12 AM'),
-(58, 2, 9, 1, '09 AM', '06 PM'),
-(59, 3, 9, 1, '09 AM', '06 PM'),
-(60, 4, 9, 1, '09 AM', '06 PM'),
-(61, 5, 9, 1, '09 PM', '06 PM'),
-(62, 6, 9, 1, '12 AM', '12 AM'),
+(58, 2, 9, 1, '12 AM', '12 PM'),
+(59, 3, 9, 0, '12 AM', '12 AM'),
+(60, 4, 9, 0, '12 AM', '12 AM'),
+(61, 5, 9, 0, '12 AM', '12 AM'),
+(62, 6, 9, 0, '12 AM', '12 AM'),
 (63, 7, 9, 0, '12 AM', '12 AM'),
-(64, 1, 10, 0, '12 AM', '12 AM'),
+(64, 1, 10, 1, '12 AM', '12 AM'),
 (65, 2, 10, 1, '12 AM', '12 AM'),
 (66, 3, 10, 1, '12 AM', '12 AM'),
 (67, 4, 10, 1, '12 AM', '12 AM'),
 (68, 5, 10, 1, '12 AM', '12 AM'),
 (69, 6, 10, 1, '12 AM', '12 AM'),
-(70, 7, 10, 0, '12 AM', '12 AM'),
+(70, 7, 10, 1, '12 AM', '12 AM'),
 (71, 1, 11, 0, '12 AM', '12 AM'),
-(72, 2, 11, 1, '12 AM', '12 AM'),
-(73, 3, 11, 1, '12 AM', '12 AM'),
-(74, 4, 11, 1, '12 AM', '12 AM'),
-(75, 5, 11, 1, '12 AM', '12 AM'),
-(76, 6, 11, 0, '12 AM', '12 AM'),
+(72, 2, 11, 0, '12 AM', '12 AM'),
+(73, 3, 11, 0, '12 AM', '12 AM'),
+(74, 4, 11, 0, '12 AM', '12 AM'),
+(75, 5, 11, 0, '12 AM', '12 AM'),
+(76, 6, 11, 1, '12 AM', '12 AM'),
 (77, 7, 11, 0, '12 AM', '12 AM'),
 (78, 1, 12, 0, '12 AM', '12 AM'),
 (79, 2, 12, 1, '12 AM', '12 AM'),
 (80, 3, 12, 1, '12 AM', '12 AM'),
 (81, 4, 12, 1, '12 AM', '12 AM'),
 (82, 5, 12, 1, '12 AM', '12 AM'),
-(83, 6, 12, 0, '12 AM', '12 AM'),
+(83, 6, 12, 1, '12 AM', '12 AM'),
 (84, 7, 12, 0, '12 AM', '12 AM'),
-(85, 1, 13, 0, '12 AM', '12 AM'),
-(86, 2, 13, 0, '12 AM', '12 AM'),
-(87, 3, 13, 1, '08 AM', '12 AM'),
+(85, 1, 13, 1, '12 AM', '12 AM'),
+(86, 2, 13, 1, '12 AM', '12 AM'),
+(87, 3, 13, 1, '12 AM', '12 AM'),
 (88, 4, 13, 1, '12 AM', '12 AM'),
-(89, 5, 13, 0, '12 AM', '12 AM'),
-(90, 6, 13, 0, '12 AM', '12 AM'),
-(91, 7, 13, 0, '12 AM', '12 AM'),
+(89, 5, 13, 1, '12 AM', '12 AM'),
+(90, 6, 13, 1, '12 AM', '12 AM'),
+(91, 7, 13, 1, '12 AM', '12 AM'),
 (92, 1, 14, 0, '12 AM', '12 AM'),
-(93, 2, 14, 1, '08 PM', '06 AM'),
-(94, 3, 14, 1, '08 PM', '06 AM'),
-(95, 4, 14, 1, '08 PM', '06 AM'),
-(96, 5, 14, 1, '08 PM', '06 AM'),
-(97, 6, 14, 0, '12 AM', '12 AM'),
+(93, 2, 14, 1, '12 AM', '12 AM'),
+(94, 3, 14, 1, '12 AM', '12 AM'),
+(95, 4, 14, 1, '12 AM', '12 AM'),
+(96, 5, 14, 1, '12 AM', '12 AM'),
+(97, 6, 14, 1, '12 AM', '12 AM'),
 (98, 7, 14, 0, '12 AM', '12 AM'),
 (99, 1, 15, 1, '12 AM', '12 AM'),
-(100, 2, 15, 1, '12 AM', '12 AM'),
-(101, 3, 15, 1, '12 AM', '12 AM'),
+(100, 2, 15, 0, '12 AM', '12 AM'),
+(101, 3, 15, 0, '12 AM', '12 AM'),
 (102, 4, 15, 1, '12 AM', '12 AM'),
-(103, 5, 15, 1, '12 AM', '12 AM'),
-(104, 6, 15, 1, '12 AM', '12 AM'),
-(105, 7, 15, 1, '12 AM', '12 AM'),
+(103, 5, 15, 0, '12 AM', '12 AM'),
+(104, 6, 15, 0, '12 AM', '12 AM'),
+(105, 7, 15, 0, '12 AM', '12 AM'),
 (106, 1, 16, 1, '12 AM', '12 AM'),
 (107, 2, 16, 1, '12 AM', '12 AM'),
 (108, 3, 16, 1, '12 AM', '12 AM'),
 (109, 4, 16, 1, '12 AM', '12 AM'),
 (110, 5, 16, 1, '12 AM', '12 AM'),
 (111, 6, 16, 1, '12 AM', '12 AM'),
-(112, 7, 16, 1, '12 AM', '12 AM');
+(112, 7, 16, 1, '12 AM', '12 AM'),
+(113, 1, 17, 1, '12 AM', '12 AM'),
+(114, 2, 17, 1, '12 AM', '12 AM'),
+(115, 3, 17, 1, '12 AM', '12 AM'),
+(116, 4, 17, 1, '12 AM', '12 AM'),
+(117, 5, 17, 1, '12 AM', '12 AM'),
+(118, 6, 17, 1, '12 AM', '12 AM'),
+(119, 7, 17, 1, '12 AM', '12 AM'),
+(120, 1, 18, 1, '12 AM', '12 AM'),
+(121, 2, 18, 1, '12 AM', '12 AM'),
+(122, 3, 18, 1, '12 AM', '12 AM'),
+(123, 4, 18, 1, '12 AM', '12 AM'),
+(124, 5, 18, 1, '12 AM', '12 AM'),
+(125, 6, 18, 1, '12 AM', '12 AM'),
+(126, 7, 18, 1, '12 AM', '12 AM'),
+(127, 1, 19, 0, '12 AM', '12 AM'),
+(128, 2, 19, 1, '12 AM', '12 AM'),
+(129, 3, 19, 1, '12 AM', '12 AM'),
+(130, 4, 19, 1, '12 AM', '12 AM'),
+(131, 5, 19, 1, '12 AM', '12 AM'),
+(132, 6, 19, 1, '12 AM', '12 AM'),
+(133, 7, 19, 0, '12 AM', '12 AM'),
+(134, 1, 20, 0, '12 AM', '12 AM'),
+(135, 2, 20, 1, '09 AM', '05 PM'),
+(136, 3, 20, 1, '09 AM', '05 PM'),
+(137, 4, 20, 1, '09 AM', '05 PM'),
+(138, 5, 20, 1, '09 AM', '05 PM'),
+(139, 6, 20, 1, '09 AM', '02 PM'),
+(140, 7, 20, 1, '12 AM', '12 AM'),
+(141, 1, 21, 0, '12 AM', '12 AM'),
+(142, 2, 21, 0, '12 AM', '12 AM'),
+(143, 3, 21, 0, '12 AM', '12 AM'),
+(144, 4, 21, 1, '12 AM', '12 AM'),
+(145, 5, 21, 0, '12 AM', '12 AM'),
+(146, 6, 21, 0, '12 AM', '12 AM'),
+(147, 7, 21, 0, '12 AM', '12 AM');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `aboutUs`
+-- Indexes for table `aboutus`
 --
-ALTER TABLE `aboutUs`
+ALTER TABLE `aboutus`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `addressReports`
+-- Indexes for table `addressreports`
 --
-ALTER TABLE `addressReports`
+ALTER TABLE `addressreports`
   ADD PRIMARY KEY (`reportId`);
 
 --
@@ -5375,9 +5424,15 @@ ALTER TABLE `countries`
   ADD PRIMARY KEY (`countryId`);
 
 --
--- Indexes for table `frequentlyAskedQuestions`
+-- Indexes for table `favunfaveaddresss`
 --
-ALTER TABLE `frequentlyAskedQuestions`
+ALTER TABLE `favunfaveaddresss`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `frequentlyaskedquestions`
+--
+ALTER TABLE `frequentlyaskedquestions`
   ADD PRIMARY KEY (`questionId`);
 
 --
@@ -5393,9 +5448,9 @@ ALTER TABLE `notifications`
   ADD PRIMARY KEY (`notificationId`);
 
 --
--- Indexes for table `notificationUsers`
+-- Indexes for table `notificationusers`
 --
-ALTER TABLE `notificationUsers`
+ALTER TABLE `notificationusers`
   ADD PRIMARY KEY (`recordId`);
 
 --
@@ -5405,105 +5460,105 @@ ALTER TABLE `otp`
   ADD PRIMARY KEY (`otpId`);
 
 --
--- Indexes for table `primaryCategories`
+-- Indexes for table `primarycategories`
 --
-ALTER TABLE `primaryCategories`
+ALTER TABLE `primarycategories`
   ADD PRIMARY KEY (`primaryCategoryId`);
 
 --
--- Indexes for table `privacyPolicy`
+-- Indexes for table `privacypolicy`
 --
-ALTER TABLE `privacyPolicy`
+ALTER TABLE `privacypolicy`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `privateAddressContactNumbers`
+-- Indexes for table `privateaddresscontactnumbers`
 --
-ALTER TABLE `privateAddressContactNumbers`
+ALTER TABLE `privateaddresscontactnumbers`
   ADD PRIMARY KEY (`contactId`),
   ADD KEY `addressId` (`addressId`);
 
 --
--- Indexes for table `privateAddresses`
+-- Indexes for table `privateaddresses`
 --
-ALTER TABLE `privateAddresses`
+ALTER TABLE `privateaddresses`
   ADD PRIMARY KEY (`addressId`),
   ADD KEY `userId` (`userId`);
 
 --
--- Indexes for table `publicAddressContactNumbers`
+-- Indexes for table `publicaddresscontactnumbers`
 --
-ALTER TABLE `publicAddressContactNumbers`
+ALTER TABLE `publicaddresscontactnumbers`
   ADD PRIMARY KEY (`contactId`),
   ADD KEY `addressId` (`addressId`);
 
 --
--- Indexes for table `publicAddresses`
+-- Indexes for table `publicaddresses`
 --
-ALTER TABLE `publicAddresses`
+ALTER TABLE `publicaddresses`
   ADD PRIMARY KEY (`addressId`),
   ADD KEY `userId` (`userId`);
 
 --
--- Indexes for table `publicAddressImages`
+-- Indexes for table `publicaddressimages`
 --
-ALTER TABLE `publicAddressImages`
+ALTER TABLE `publicaddressimages`
   ADD PRIMARY KEY (`imageId`),
   ADD KEY `addressId` (`addressId`);
 
 --
--- Indexes for table `publicAddressServices`
+-- Indexes for table `publicaddressservices`
 --
-ALTER TABLE `publicAddressServices`
+ALTER TABLE `publicaddressservices`
   ADD PRIMARY KEY (`serviceId`),
   ADD KEY `addressId` (`addressId`);
 
 --
--- Indexes for table `publicAddressViews`
+-- Indexes for table `publicaddressviews`
 --
-ALTER TABLE `publicAddressViews`
+ALTER TABLE `publicaddressviews`
   ADD PRIMARY KEY (`viewId`);
 
 --
--- Indexes for table `registeredDevices`
+-- Indexes for table `registereddevices`
 --
-ALTER TABLE `registeredDevices`
+ALTER TABLE `registereddevices`
   ADD PRIMARY KEY (`registerId`),
   ADD KEY `userId` (`userId`);
 
 --
--- Indexes for table `savedAddressList`
+-- Indexes for table `savedaddresslist`
 --
-ALTER TABLE `savedAddressList`
+ALTER TABLE `savedaddresslist`
   ADD PRIMARY KEY (`listId`),
   ADD KEY `userId` (`userId`);
 
 --
--- Indexes for table `savedListPrivateAddresses`
+-- Indexes for table `savedlistprivateaddresses`
 --
-ALTER TABLE `savedListPrivateAddresses`
+ALTER TABLE `savedlistprivateaddresses`
   ADD PRIMARY KEY (`entryId`),
   ADD KEY `listId` (`listId`),
   ADD KEY `addressId` (`addressId`);
 
 --
--- Indexes for table `savedListPublicAddresses`
+-- Indexes for table `savedlistpublicaddresses`
 --
-ALTER TABLE `savedListPublicAddresses`
+ALTER TABLE `savedlistpublicaddresses`
   ADD PRIMARY KEY (`entryId`),
   ADD KEY `listId` (`listId`),
   ADD KEY `addressId` (`addressId`);
 
 --
--- Indexes for table `sharedWithBusiness`
+-- Indexes for table `sharedwithbusiness`
 --
-ALTER TABLE `sharedWithBusiness`
+ALTER TABLE `sharedwithbusiness`
   ADD PRIMARY KEY (`recordId`);
 
 --
--- Indexes for table `sharedWithUser`
+-- Indexes for table `sharedwithuser`
 --
-ALTER TABLE `sharedWithUser`
+ALTER TABLE `sharedwithuser`
   ADD PRIMARY KEY (`recordId`);
 
 --
@@ -5513,9 +5568,9 @@ ALTER TABLE `states`
   ADD PRIMARY KEY (`stateId`);
 
 --
--- Indexes for table `termsConditions`
+-- Indexes for table `termsconditions`
 --
-ALTER TABLE `termsConditions`
+ALTER TABLE `termsconditions`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -5529,26 +5584,26 @@ ALTER TABLE `urls`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`userId`),
-  ADD UNIQUE KEY `emailId` (`emailId`),
-  ADD UNIQUE KEY `contactNumber` (`contactNumber`);
+  ADD UNIQUE KEY `contactNumber` (`contactNumber`),
+  ADD UNIQUE KEY `emailId` (`emailId`);
 
 --
--- Indexes for table `userFeedback`
+-- Indexes for table `userfeedback`
 --
-ALTER TABLE `userFeedback`
+ALTER TABLE `userfeedback`
   ADD PRIMARY KEY (`id`),
   ADD KEY `userId` (`userId`);
 
 --
--- Indexes for table `weekDays`
+-- Indexes for table `weekdays`
 --
-ALTER TABLE `weekDays`
+ALTER TABLE `weekdays`
   ADD PRIMARY KEY (`dayId`);
 
 --
--- Indexes for table `workingDays`
+-- Indexes for table `workingdays`
 --
-ALTER TABLE `workingDays`
+ALTER TABLE `workingdays`
   ADD PRIMARY KEY (`workingDayId`),
   ADD KEY `dayId` (`dayId`),
   ADD KEY `businessId` (`businessId`);
@@ -5558,16 +5613,16 @@ ALTER TABLE `workingDays`
 --
 
 --
--- AUTO_INCREMENT for table `aboutUs`
+-- AUTO_INCREMENT for table `aboutus`
 --
-ALTER TABLE `aboutUs`
+ALTER TABLE `aboutus`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `addressReports`
+-- AUTO_INCREMENT for table `addressreports`
 --
-ALTER TABLE `addressReports`
-  MODIFY `reportId` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `addressreports`
+  MODIFY `reportId` bigint(50) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `admin`
@@ -5579,144 +5634,150 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `categoryId` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3965;
+  MODIFY `categoryId` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3966;
 
 --
 -- AUTO_INCREMENT for table `countries`
 --
 ALTER TABLE `countries`
-  MODIFY `countryId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `countryId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `frequentlyAskedQuestions`
+-- AUTO_INCREMENT for table `favunfaveaddresss`
 --
-ALTER TABLE `frequentlyAskedQuestions`
+ALTER TABLE `favunfaveaddresss`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+
+--
+-- AUTO_INCREMENT for table `frequentlyaskedquestions`
+--
+ALTER TABLE `frequentlyaskedquestions`
   MODIFY `questionId` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `issues`
 --
 ALTER TABLE `issues`
-  MODIFY `issueId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `issueId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `notificationId` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `notificationId` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `notificationUsers`
+-- AUTO_INCREMENT for table `notificationusers`
 --
-ALTER TABLE `notificationUsers`
-  MODIFY `recordId` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+ALTER TABLE `notificationusers`
+  MODIFY `recordId` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `otp`
 --
 ALTER TABLE `otp`
-  MODIFY `otpId` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `otpId` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
 
 --
--- AUTO_INCREMENT for table `primaryCategories`
+-- AUTO_INCREMENT for table `primarycategories`
 --
-ALTER TABLE `primaryCategories`
+ALTER TABLE `primarycategories`
   MODIFY `primaryCategoryId` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT for table `privacyPolicy`
+-- AUTO_INCREMENT for table `privacypolicy`
 --
-ALTER TABLE `privacyPolicy`
+ALTER TABLE `privacypolicy`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `privateAddressContactNumbers`
+-- AUTO_INCREMENT for table `privateaddresscontactnumbers`
 --
-ALTER TABLE `privateAddressContactNumbers`
-  MODIFY `contactId` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+ALTER TABLE `privateaddresscontactnumbers`
+  MODIFY `contactId` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
--- AUTO_INCREMENT for table `privateAddresses`
+-- AUTO_INCREMENT for table `privateaddresses`
 --
-ALTER TABLE `privateAddresses`
-  MODIFY `addressId` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+ALTER TABLE `privateaddresses`
+  MODIFY `addressId` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
--- AUTO_INCREMENT for table `publicAddressContactNumbers`
+-- AUTO_INCREMENT for table `publicaddresscontactnumbers`
 --
-ALTER TABLE `publicAddressContactNumbers`
-  MODIFY `contactId` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+ALTER TABLE `publicaddresscontactnumbers`
+  MODIFY `contactId` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
--- AUTO_INCREMENT for table `publicAddresses`
+-- AUTO_INCREMENT for table `publicaddresses`
 --
-ALTER TABLE `publicAddresses`
-  MODIFY `addressId` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+ALTER TABLE `publicaddresses`
+  MODIFY `addressId` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
--- AUTO_INCREMENT for table `publicAddressImages`
+-- AUTO_INCREMENT for table `publicaddressimages`
 --
-ALTER TABLE `publicAddressImages`
-  MODIFY `imageId` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+ALTER TABLE `publicaddressimages`
+  MODIFY `imageId` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `publicAddressServices`
+-- AUTO_INCREMENT for table `publicaddressservices`
 --
-ALTER TABLE `publicAddressServices`
+ALTER TABLE `publicaddressservices`
   MODIFY `serviceId` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `publicAddressViews`
+-- AUTO_INCREMENT for table `publicaddressviews`
 --
-ALTER TABLE `publicAddressViews`
-  MODIFY `viewId` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+ALTER TABLE `publicaddressviews`
+  MODIFY `viewId` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
--- AUTO_INCREMENT for table `registeredDevices`
+-- AUTO_INCREMENT for table `registereddevices`
 --
-ALTER TABLE `registeredDevices`
-  MODIFY `registerId` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+ALTER TABLE `registereddevices`
+  MODIFY `registerId` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
--- AUTO_INCREMENT for table `savedAddressList`
+-- AUTO_INCREMENT for table `savedaddresslist`
 --
-ALTER TABLE `savedAddressList`
-  MODIFY `listId` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+ALTER TABLE `savedaddresslist`
+  MODIFY `listId` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
--- AUTO_INCREMENT for table `savedListPrivateAddresses`
+-- AUTO_INCREMENT for table `savedlistprivateaddresses`
 --
-ALTER TABLE `savedListPrivateAddresses`
-  MODIFY `entryId` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `savedlistprivateaddresses`
+  MODIFY `entryId` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `savedListPublicAddresses`
+-- AUTO_INCREMENT for table `savedlistpublicaddresses`
 --
-ALTER TABLE `savedListPublicAddresses`
-  MODIFY `entryId` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=127;
+ALTER TABLE `savedlistpublicaddresses`
+  MODIFY `entryId` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `sharedWithBusiness`
+-- AUTO_INCREMENT for table `sharedwithbusiness`
 --
-ALTER TABLE `sharedWithBusiness`
-  MODIFY `recordId` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+ALTER TABLE `sharedwithbusiness`
+  MODIFY `recordId` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
--- AUTO_INCREMENT for table `sharedWithUser`
+-- AUTO_INCREMENT for table `sharedwithuser`
 --
-ALTER TABLE `sharedWithUser`
-  MODIFY `recordId` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+ALTER TABLE `sharedwithuser`
+  MODIFY `recordId` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `states`
 --
 ALTER TABLE `states`
-  MODIFY `stateId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `stateId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `termsConditions`
+-- AUTO_INCREMENT for table `termsconditions`
 --
-ALTER TABLE `termsConditions`
+ALTER TABLE `termsconditions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
@@ -5729,25 +5790,25 @@ ALTER TABLE `urls`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `userId` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `userId` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
--- AUTO_INCREMENT for table `userFeedback`
+-- AUTO_INCREMENT for table `userfeedback`
 --
-ALTER TABLE `userFeedback`
+ALTER TABLE `userfeedback`
   MODIFY `id` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `weekDays`
+-- AUTO_INCREMENT for table `weekdays`
 --
-ALTER TABLE `weekDays`
+ALTER TABLE `weekdays`
   MODIFY `dayId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `workingDays`
+-- AUTO_INCREMENT for table `workingdays`
 --
-ALTER TABLE `workingDays`
-  MODIFY `workingDayId` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
+ALTER TABLE `workingdays`
+  MODIFY `workingDayId` bigint(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=148;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
