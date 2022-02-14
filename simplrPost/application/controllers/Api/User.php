@@ -329,15 +329,10 @@ class User extends CI_Controller
 
             require './vendor/autoload.php';
 
-
-            // Live
-            $sid = "AC6dfbf0d522d18c2120b0eb388b6b9de8"; // Your Account SID from www.twilio.com/console
-            $token = "175aa4fdb459677ffa1008c36999cd02"; // Your Auth Token from www.twilio.com/console
-
             // Test
 
-            // $sid = "AC6965e622db78f6db653d5a430f5c018c"; // Your Account SID from www.twilio.com/console
-            // $token = "af9ac7f41d67fa2db57bd064abf48995"; // Your Auth Token from www.twilio.com/console
+            // $sid = ""; // Your Account SID from www.twilio.com/console
+            // $token = ""; // Your Auth Token from www.twilio.com/console
 
             $client = new Twilio\Rest\Client($sid, $token);
 
