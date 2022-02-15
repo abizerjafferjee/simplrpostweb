@@ -103,9 +103,9 @@ define('data','resultData');
 
 define('HOST_NAME', 'smtp.gmail.com');
 define('PORT_NAME','465');
-define('USERNAME_SMTP','abizerjafferjee@simplrpost.com');
-define('PASSWORD_SMTP','Rtfvvx12vii$');
-define('FROM_EMAIL','abizerjafferjee@simplrpost.com');
+define('USERNAME_SMTP','');
+define('PASSWORD_SMTP','');
+define('FROM_EMAIL','');
 define('FROM_NAME','Simplr Post');
 define('BODY_TITLE','Simplr Post');
 
